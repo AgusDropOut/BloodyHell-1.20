@@ -1,0 +1,11 @@
+{
+  "type": "firstmod:blood_infusing",
+  "ingredients": [
+    {
+      "item": "firstmod:raw_soul"
+    }
+  ],
+  "output": {
+    "item": "firstmod:soul"
+  }
+}

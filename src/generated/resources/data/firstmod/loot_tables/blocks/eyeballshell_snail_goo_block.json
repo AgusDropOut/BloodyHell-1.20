@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "firstmod:eyeballshell_snail_goo_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "firstmod:blocks/eyeballshell_snail_goo_block"
+}

@@ -1,0 +1,45 @@
+# This is an example mods.toml file. It contains the data relating to the loading mods.
+# ...
+modLoader="javafml" #mandatory
+# A version range to match for said mod loader - for regular FML @Mod mods it will be the forge version
+loaderVersion="[43,)" # Bumped every Minecraft version by Forge. See our download page for lists of versions.
+# ...
+license="MIT License"
+
+[[mods]]
+# The modid of the mod
+modId="firstmod"
+# The version number of the mod
+version="0.0.1-1.19"
+# ...
+authors="AgusDropOut" #optional
+
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.firstmod]]
+# the modid of the dependency
+modId="forge"
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory=true
+# The version range of the dependency
+versionRange="[43,)" # Adjust according to your needs
+# An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT, or SERVER
+side="BOTH"
+
+# Here's another dependency
+[[dependencies.firstmod]]
+modId="minecraft"
+mandatory=true
+# This version range declares a minimum of the current minecraft version up to but not including the next major version
+versionRange="[1.19.2,1.21)" # Adjust according to your needs
+ordering="NONE"
+side="BOTH"
+# Here's another dependency
+[[dependencies.firstmod]]
+modId="terrablender"
+mandatory=true
+# This version range declares a minimum of the current minecraft version up to but not including the next major version
+versionRange="${terrablender_version_range}" # Adjust according to your needs
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "firstmod:stripped_blood_log"
+    }
+  ],
+  "result": {
+    "item": "firstmod:blood_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,36 @@
+package net.agusdropout.firstmod.entity;
+
+import net.agusdropout.firstmod.FirstMod;
+import net.agusdropout.firstmod.entity.custom.BloodSeekerEntity;
+import net.agusdropout.firstmod.entity.custom.BloodThirstyBeastEntity;
+import net.agusdropout.firstmod.entity.custom.CrimsonRavenEntity;
+import net.agusdropout.firstmod.entity.custom.EyeshellSnailEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class ModEntityTypes {
+    public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, FirstMod.MODID);
+
+    public static final RegistryObject<EntityType<BloodThirstyBeastEntity>> BLOODTHIRSTYBEAST = ENTITY_TYPES.register("bloodthirstybeast",
+            () -> EntityType.Builder.of(BloodThirstyBeastEntity::new, MobCategory.MONSTER).sized(1.5f,1.5f).build(new ResourceLocation(FirstMod.MODID,
+                    "bloodthirstybeast").toString()));
+    public static final RegistryObject<EntityType<BloodSeekerEntity>> BLOOD_SEEKER = ENTITY_TYPES.register("bloodseeker",
+            () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.MONSTER).sized(1f,1f).build(new ResourceLocation(FirstMod.MODID,
+                    "bloodseeker").toString()));
+    public static final RegistryObject<EntityType<CrimsonRavenEntity>> CRIMSON_RAVEN = ENTITY_TYPES.register("crimsonraven",
+            () -> EntityType.Builder.of(CrimsonRavenEntity::new,MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(FirstMod.MODID,
+                    "crimsonraven").toString()));
+    public static final RegistryObject<EntityType<EyeshellSnailEntity>> EYESHELL_SNAIL = ENTITY_TYPES.register("eyeshellsnail",
+            () -> EntityType.Builder.of(EyeshellSnailEntity::new,MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(FirstMod.MODID,
+                    "eyeshellsnail").toString()));
+
+    public static void register(IEventBus eventBus){
+        ENTITY_TYPES.register(eventBus);
+    }
+
+}

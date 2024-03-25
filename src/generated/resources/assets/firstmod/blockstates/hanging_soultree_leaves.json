@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "firstmod:block/hanging_soultree_leaves"
+    },
+    "half=upper": {
+      "model": "firstmod:block/hanging_soultree_leaves_top"
+    }
+  }
+}

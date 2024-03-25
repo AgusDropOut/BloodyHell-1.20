@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "firstmod:block/blood_bush_bottom"
+    },
+    "half=upper": {
+      "model": "firstmod:block/blood_bush_top"
+    }
+  }
+}

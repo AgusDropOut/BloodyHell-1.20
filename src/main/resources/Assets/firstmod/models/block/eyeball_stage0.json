@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "firstmod:block/eyeball_stage0"
+  },
+  "render_type": "cutout"
+}

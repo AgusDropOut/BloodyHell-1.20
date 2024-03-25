@@ -1,0 +1,71 @@
+{
+  "item.firstmod.soul" : "Soul",
+  "item.firstmod.raw_soul" : "Raw Soul",
+  "item.firstmod.eight_ball" : "Eight Ball",
+  "item.firstmod.eyeball_seeds" : "Eyeball Seed",
+  "item.firstmod.eyeball" : "Eyeball",
+  "itemGroup.firstmodtab" : "Soul Tab",
+
+  "item.firstmod.soul_ore" : "Soul Ore",
+  "item.firstmod.bloody_soul_dust" : "Bloody Soul Dust",
+  "item.firstmod.materialized_soul" : "Materialized Soul",
+  "item.firstmod.eyeball_seed" : "Eyeball Seeds",
+  "block.firstmod.blood_sapling" : "Blood Sapling",
+  "block.firstmod.soul_sapling" : "Soul Sapling",
+
+  "block.firstmod.blood_flower" : "Blood Flower",
+  "block.firstmod.blood_bush" : "Blood Bush",
+  "block.firstmod.blood_petals" : "Blood Petals",
+  "block.firstmod.blood_small_rocks" : "Blood Small Rocks",
+
+
+
+
+
+
+  "block.firstmod.deepslate_soul_ore" : "Deepslate Soul Ore ",
+  "block.firstmod.soul_block" : "Soul Block",
+  "block.firstmod.soul_lamp" : "Soul Lamp",
+  "block.firstmod.blood_workbench" : "Blood Workbench",
+  "block.firstmod.jumpy_block" : "Jumpy Block",
+  "block.firstmod.bleeding_block" : "Bleeding Block",
+  "block.firstmod.blood_log" : "Blood Log",
+  "block.firstmod.blood_wood" : "Blood Wood",
+  "block.firstmod.blood_leaves" : "Blood Leaves",
+  "block.firstmod.stripped_blood_log" : " Stripped Blood Log",
+  "block.firstmod.blood_planks" : "Blood Planks",
+  "block.firstmod.soul_log" : "Soul Log",
+  "block.firstmod.soul_wood" : "Soul Wood",
+  "block.firstmod.soul_leaves" : "Soul Leaves",
+  "block.firstmod.stripped_soul_log" : " Stripped Soul Log",
+  "block.firstmod.soul_planks" : "Soul Planks",
+  "block.firstmod.eyeballshell_snail_goo_block" : "Eyeball Snail Goo Block",
+  "block.firstmod.eyeballshell_snail_goo" : "Eyeball Snail Goo",
+
+
+
+
+
+
+  "entity.minecraft.villager.firstmod.jump_master": "Jumpy Master",
+  "key.category.firstmod.tutorial": "Let The Living Be Aware Mod",
+  "key.firstmod.drink_blood": "Drink Blood",
+  "message.firstmod.drink_water": "Drinking Water",
+  "message.firstmod.no_water": "No water nearby!",
+
+  "item.firstmod.blood_bucket": "Blood Bucket",
+  "item.firstmod.blood_scythe": "Blood Scythe",
+  "item.firstmod.blood_pickaxe": "Blood Pickaxe",
+  "item.firstmod.blood_sword": "Blood Sword",
+  "item.firstmod.soul_sword": "Soul Sword",
+  "item.firstmod.soul_pickaxe": "Soul Pickaxe",
+
+  "effect.firstmod.bleeding": "Bleeding",
+
+
+
+  "item.firstmod.bloodthirstybeast_spawn_egg": "Blood Thirsty Beast",
+  "item.firstmod.bloodseeker_spawn_egg": "Blood Seeker",
+  "item.firstmod.eyeshellsnail_spawn_egg": "Eyeshell Snail",
+  "item.firstmod.crimsonraven_spawn_egg": "Crimson Raven"
+}

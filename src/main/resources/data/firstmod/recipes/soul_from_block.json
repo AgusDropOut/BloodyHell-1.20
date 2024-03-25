@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "firstmod:soul_block"
+    }
+  ],
+  "result": {
+    "item": "firstmod:soul",
+    "count": 9
+  }
+}

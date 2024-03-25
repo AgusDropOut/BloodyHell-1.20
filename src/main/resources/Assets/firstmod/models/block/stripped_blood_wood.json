@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "firstmod:block/stripped_blood_log",
+    "side": "firstmod:block/stripped_blood_log"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "firstmod:block/soul_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "firstmod:block/soul_log"
+    },
+    "axis=z": {
+      "model": "firstmod:block/soul_log_horizontal",
+      "x": 90
+    }
+  }
+}

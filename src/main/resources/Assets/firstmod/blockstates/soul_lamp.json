@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": {"model": "firstmod:block/soul_lamp_on"},
+    "lit=false": {"model": "firstmod:block/soul_lamp_off"}
+  }
+}
