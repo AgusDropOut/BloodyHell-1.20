@@ -27,6 +27,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         simpleBlockWithItem(ModBlocks.BLOOD_FLOWER.get(), models().cross(blockTexture(ModBlocks.BLOOD_FLOWER.get()).getPath(),
                 blockTexture(ModBlocks.BLOOD_FLOWER.get())).renderType("cutout"));
+       simpleBlockWithItem(ModBlocks.BLOOD_GRASS.get(), models().cross(blockTexture(ModBlocks.BLOOD_GRASS.get()).getPath(),
+                blockTexture(ModBlocks.BLOOD_GRASS.get())).renderType("cutout"));
         simpleBlockWithItem(ModBlocks.POTTED_BLOOD_FLOWER.get(), models().singleTexture("potted_blood_flower", new ResourceLocation("flower_pot_cross"), "plant",
                 blockTexture(ModBlocks.BLOOD_FLOWER.get())).renderType("cutout"));
        blockWithItem(ModBlocks.BLEEDING_BLOCK);

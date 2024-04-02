@@ -27,6 +27,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SOUL_TREE_PLACED_KEY = createKey("soul_tree_placed");
 
     public static final ResourceKey<PlacedFeature> BLOOD_FLOWER_PLACED_KEY = createKey("blood_flower_placed");
+    public static final ResourceKey<PlacedFeature> BLOOD_GRASS_PLACED_KEY = createKey("blood_grass_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_BUSH_PLACED_KEY = createKey("blood_bush_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_SMALL_ROCKS_PLACED_KEY = createKey("blood_small_rocks_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_PETALS_PLACED_KEY = createKey("blood_petals_placed");
@@ -50,6 +51,7 @@ public class ModPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,1), ModBlocks.SOUL_SAPLING.get()));
         register(context, BLOOD_SMALL_ROCKS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SMALL_ROCKS_KEY),patch(50));
         register(context, BLOOD_FLOWER_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_FLOWER_KEY),patch(64));
+        register(context, BLOOD_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_GRASS_KEY),patch(100));
         register(context, BLOOD_BUSH_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_BUSH_KEY),patch(64));
         register(context, BLOOD_PETALS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_PETALS_KEY),patch(70));
 

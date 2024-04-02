@@ -1,4 +1,5 @@
-// 1.20	2024-03-18T16:59:51.9811745	Tags for minecraft:block mod id firstmod
+// 1.20	2024-04-01T13:54:46.9957193	Tags for minecraft:block mod id firstmod
+93b8d423fcc447ae3bbf0cc7c37642c75ca316c0 data/minecraft/tags/blocks/dirt.json
 e56deca1f53891973cbff0eaab7620553d3e7018 data/minecraft/tags/blocks/leaves.json
 2f3b65dcc2d2cf1a2acc06636beb6501d2a40498 data/minecraft/tags/blocks/logs_that_burn.json
 13a21a1032a121b2fa93801872cea5bada743818 data/minecraft/tags/blocks/mineable/pickaxe.json

@@ -40,6 +40,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_FLOWER);
+        simpleBlockItemBlockTexture(ModBlocks.BLOOD_GRASS);
 
 
 

@@ -1,7 +1,11 @@
-// 1.20	2024-03-19T18:24:13.1113866	Loot Tables
+// 1.20	2024-04-01T12:39:43.4908925	Loot Tables
 0f090e3d40dd7d1b82e7544c2a33bdf370c33df3 data/firstmod/loot_tables/blocks/bleeding_block.json
+6fff6e7b046edb927360514e4e58f6f47add5abd data/firstmod/loot_tables/blocks/blooddirt_farmland.json
 4a9a50bb5401190c00e673842f224563837b0e6e data/firstmod/loot_tables/blocks/blood_bush.json
+e3736af50052df0e320a098ba5cef68250d3aa77 data/firstmod/loot_tables/blocks/blood_dirt_block.json
 e10c2f05c3cec6b9c85ab454fa15c4a85c800297 data/firstmod/loot_tables/blocks/blood_flower.json
+d5af35acd483a5f81724e7fda0fd79ff38632fbb data/firstmod/loot_tables/blocks/blood_grass.json
+8c7ae1f05305bbbb6b48c1f9001708967b63a043 data/firstmod/loot_tables/blocks/blood_grass_block.json
 48ddd9c6ece9ad7491c6a3713fe5d8d53a867581 data/firstmod/loot_tables/blocks/blood_leaves.json
 9753985df80f39194b1f3a5194828720259cbdd2 data/firstmod/loot_tables/blocks/blood_log.json
 17939fa8d459051799cda1577920a2f702b06b08 data/firstmod/loot_tables/blocks/blood_petals.json

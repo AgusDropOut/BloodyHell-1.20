@@ -7,6 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 
 public class ModBiomeTags {
-    public static final TagKey<Biome> HAS_GIANT_BUDDHA = TagKey.create(Registries.BIOME, new ResourceLocation(FirstMod.MODID, "has_structure/giant_buddha"));
+
 
 }

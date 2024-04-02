@@ -8,6 +8,8 @@ import net.agusdropout.firstmod.worldgen.tree.BloodTreeGrower;
 import net.agusdropout.firstmod.worldgen.tree.SoulTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -34,6 +36,9 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
     public static final RegistryObject<Block> soul_BLOCK = registerBlock("soul_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOOD_GRASS_BLOCK = registerBlock("blood_grass_block", ()-> new BloodGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(2f).randomTicks().sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> BLOODDIRT_FARMLAND = registerBlock("blooddirt_farmland", () -> new BloodDirtFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+    public static final RegistryObject<Block> BLOOD_DIRT_BLOCK = registerBlock("blood_dirt_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).strength(2f)));
     public static final RegistryObject<Block> soul_ORE = registerBlock("soul_ore", ()-> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3,7)));
     public static final RegistryObject<Block> DEEPSLATE_soul_ORE = registerBlock("deepslate_soul_ore", ()-> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(7f).requiresCorrectToolForDrops(), UniformInt.of(3,7)));
     public static final RegistryObject<Block> Jumpy_Block = registerBlock("jumpy_block", ()-> new JumpyBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
@@ -115,6 +120,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_FLOWER = registerBlock("blood_flower",
             ()-> new FlowerBlock(()-> MobEffects.POISON,5,
                     BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion().lightLevel((state)->6)));
+    public static final RegistryObject<Block> BLOOD_GRASS = registerBlock("blood_grass",
+            ()-> new FlowerBlock(()-> MobEffects.POISON,5,
+                    BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission().noOcclusion()));
     public static final RegistryObject<Block> POTTED_BLOOD_FLOWER = BLOCKS.register("potted_blood_flower",
             ()-> new FlowerPotBlock(()-> ((FlowerPotBlock) Blocks.FLOWER_POT) ,ModBlocks.BLOOD_FLOWER,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));

@@ -49,6 +49,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.HANGING_SOUL_TREE_LEAVES.get());
         this.dropSelf(ModBlocks.EYEBALLSHELL_SNAIL_GOO.get());
         this.dropSelf(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOOD_GRASS_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOOD_DIRT_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOODDIRT_FARMLAND.get());
 
 
 
@@ -82,6 +85,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.BLOOD_BUSH.get());
         this.dropSelf(ModBlocks.BLOOD_FLOWER.get());
+        this.dropSelf(ModBlocks.BLOOD_GRASS.get());
         this.add(ModBlocks.POTTED_BLOOD_FLOWER.get(), createPotFlowerItemTable(ModBlocks.BLOOD_FLOWER.get()));
     }
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {

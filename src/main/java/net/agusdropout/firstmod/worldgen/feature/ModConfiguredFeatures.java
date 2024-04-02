@@ -42,6 +42,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SMALL_ROCKS_KEY = registerKey("blood_small_rocks");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_PETALS_KEY = registerKey("blood_petals");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLEEDING_BLOCK_KEY = registerKey("bleeding_block");
+    public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_GRASS_KEY = registerKey("blood_grass");
 
 
 
@@ -77,6 +78,7 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1,1,3)).decorators(ImmutableList.of(SoulTreeLeafDecorator.INSTANCE)).build()
         );
         context.register(BLOOD_FLOWER_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_FLOWER.get(), 64)));
+        context.register(BLOOD_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_GRASS.get(), 100)));
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));
         context.register(BLOOD_PETALS_KEY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, patch(ModBlocks.BLOOD_PETALS.get(), 70)));

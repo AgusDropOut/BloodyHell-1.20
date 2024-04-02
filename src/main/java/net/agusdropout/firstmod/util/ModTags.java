@@ -21,15 +21,7 @@ public class ModTags {
             return BlockTags.create(new ResourceLocation("forge", name));
         }
     }
-  //  public static class Entities {
-//
-  //      public static final TagKey<EntityType<?>> IMMUNE_TO_EYEBALL_SNAIL_GOO = tag("immune_to_eyeball_snail_goo");
-//
-//
-  //      private static TagKey<EntityType<?>> tag(String name) {
-  //          return EntityTypeTags.create(new ResourceLocation(Undergarden.MODID, name).toString());
-  //      }
-  //  }
+
 
 
 

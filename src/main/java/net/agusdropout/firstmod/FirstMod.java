@@ -30,18 +30,26 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -125,6 +133,7 @@ public class FirstMod
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);
             ModMessages.register();
            //ModVillagers.registerPOIs();
+            MinecraftForge.EVENT_BUS.addListener(this::onPlayerInteract);
 
 
 
@@ -132,8 +141,26 @@ public class FirstMod
         });
 
 
+    }
+    private void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
+        Level level = event.getLevel();
+        Player player = event.getEntity();
+        BlockPos pos = event.getPos();
+        BlockState state = level.getBlockState(pos);
+        Block block = state.getBlock();
 
+        ItemStack heldItem = player.getMainHandItem();
+        if (heldItem.getItem() instanceof HoeItem && (block == ModBlocks.BLOOD_GRASS_BLOCK.get() || block == ModBlocks.BLOOD_DIRT_BLOCK.get())) {
+            player.swing(InteractionHand.MAIN_HAND);
+            // Transformar el bloque en BLOODDIRT_FARMLAND
+            level.setBlockAndUpdate(pos, ModBlocks.BLOODDIRT_FARMLAND.get().defaultBlockState());
 
+            // Dañar la azada
+            heldItem.hurtAndBreak(1, player, (playerEntity) -> playerEntity.broadcastBreakEvent(playerEntity.getUsedItemHand()));
+
+            // Detener la propagación del evento para evitar que se realice la acción predeterminada de la azada
+            event.setCanceled(true);
+        }
     }
     private void addCreative(BuildCreativeModeTabContentsEvent event){
         if(event.getTab() == ModCreativeModeTab.FIRST_TAB.get()){
@@ -168,6 +195,10 @@ public class FirstMod
             event.accept(ModBlocks.SOUL_SAPLING);
             event.accept(ModBlocks.BLOOD_SMALL_ROCKS);
             event.accept(ModBlocks.BLEEDING_BLOCK);
+            event.accept(ModBlocks.BLOOD_GRASS_BLOCK);
+            event.accept(ModBlocks.BLOOD_DIRT_BLOCK);
+            event.accept(ModBlocks.BLOODDIRT_FARMLAND);
+
 
 
 
@@ -185,6 +216,7 @@ public class FirstMod
             event.accept(ModBlocks.HANGING_SOUL_TREE_LEAVES);
 
             event.accept(ModBlocks.BLOOD_FLOWER);
+            event.accept(ModBlocks.BLOOD_GRASS);
             event.accept(ModBlocks.BLOOD_BUSH);
             event.accept(ModBlocks.BLOOD_PETALS);
 

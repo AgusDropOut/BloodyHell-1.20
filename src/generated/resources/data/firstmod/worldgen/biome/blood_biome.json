@@ -86,6 +86,7 @@
       "minecraft:patch_grass_badlands",
       "minecraft:trees_plains",
       "firstmod:blood_flower_placed",
+      "firstmod:blood_grass_placed",
       "firstmod:blood_bush_placed",
       "firstmod:blood_tree_placed",
       "firstmod:soul_tree_placed"

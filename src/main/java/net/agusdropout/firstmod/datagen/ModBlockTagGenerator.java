@@ -25,6 +25,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.Jumpy_Block.get(),
                         ModBlocks.BLOOD_WORKBENCH.get(),
                         ModBlocks.BLEEDING_BLOCK.get());
+        this.tag(BlockTags.DIRT).add(ModBlocks.BLOOD_GRASS_BLOCK.get(), ModBlocks.BLOOD_DIRT_BLOCK.get());
 
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
