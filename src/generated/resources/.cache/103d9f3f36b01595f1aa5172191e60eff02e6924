@@ -1,7 +1,7 @@
-// 1.20	2024-04-02T11:50:17.7240379	Registries
+// 1.20	2024-04-08T13:51:45.3779115	Registries
 c9c816590fdd94a0192fd628192e847ac8cf708e data/firstmod/dimension/soul_dimension.json
 e241e971aacde6f4d0236c622c99d6c9caeb981e data/firstmod/dimension_type/soul_dimension.json
-60f8bb3a4760498169ebd8170cabcea562df1f86 data/firstmod/worldgen/biome/blood_biome.json
+59a89fe283bb4b9894310c7f1f8a157955463b46 data/firstmod/worldgen/biome/blood_biome.json
 18484e60d1de1efa7c2725ee1f684189f543a585 data/firstmod/worldgen/configured_feature/bleeding_block.json
 30956f35b12f765f5d395cde8c36fa0f0caae811 data/firstmod/worldgen/configured_feature/blood_bush_flower.json
 b1fd118fa787f9c3ccfb52695fadc4368fb33883 data/firstmod/worldgen/configured_feature/blood_flower.json

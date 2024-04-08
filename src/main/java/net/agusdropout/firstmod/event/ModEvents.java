@@ -1,30 +1,16 @@
 package net.agusdropout.firstmod.event;
 
 import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.block.ModBlocks;
-import net.agusdropout.firstmod.entity.custom.BloodSeekerEntity;
-import net.agusdropout.firstmod.entity.custom.BloodThirstyBeastEntity;
-import net.agusdropout.firstmod.entity.custom.CrimsonRavenEntity;
-import net.agusdropout.firstmod.entity.custom.EyeshellSnailEntity;
+import net.agusdropout.firstmod.entity.custom.*;
 import net.agusdropout.firstmod.particle.ModParticles;
 import net.agusdropout.firstmod.particle.custom.BloodParticles;
+import net.agusdropout.firstmod.particle.custom.LightParticle;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.common.ToolAction;
-import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static net.agusdropout.firstmod.entity.ModEntityTypes.*;
@@ -38,8 +24,8 @@ public class ModEvents {
             public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
                 Minecraft.getInstance().particleEngine.register(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
                 event.registerSpriteSet(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
-                Minecraft.getInstance().particleEngine.register(ModParticles.LIGHT_PARTICLES.get(), BloodParticles.Provider::new);
-                event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), BloodParticles.Provider::new);
+                Minecraft.getInstance().particleEngine.register(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
             }
 
             @SubscribeEvent
@@ -54,6 +40,7 @@ public class ModEvents {
                 event.put(BLOOD_SEEKER.get(), BloodSeekerEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());
+                event.put(SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishEntity.setAttributes());
 
 
             }

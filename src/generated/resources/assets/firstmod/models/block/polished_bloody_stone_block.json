@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "firstmod:block/polished_bloody_stone_block"
+  }
+}

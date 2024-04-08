@@ -1,6 +1,8 @@
-// 1.20	2024-04-01T12:39:43.4908925	Loot Tables
+// 1.20	2024-04-08T15:05:29.0606036	Loot Tables
 0f090e3d40dd7d1b82e7544c2a33bdf370c33df3 data/firstmod/loot_tables/blocks/bleeding_block.json
 6fff6e7b046edb927360514e4e58f6f47add5abd data/firstmod/loot_tables/blocks/blooddirt_farmland.json
+d43f72b6605783158f4b5b4d538097ab32a37091 data/firstmod/loot_tables/blocks/bloody_stone_block.json
+eb4d19e9bfd891d355e40e40e0ed07a37ca37b7c data/firstmod/loot_tables/blocks/bloody_stone_tiles_block.json
 4a9a50bb5401190c00e673842f224563837b0e6e data/firstmod/loot_tables/blocks/blood_bush.json
 e3736af50052df0e320a098ba5cef68250d3aa77 data/firstmod/loot_tables/blocks/blood_dirt_block.json
 e10c2f05c3cec6b9c85ab454fa15c4a85c800297 data/firstmod/loot_tables/blocks/blood_flower.json
@@ -20,6 +22,7 @@ dde5946ec2ce520e4799a8bd1490036d7a16c830 data/firstmod/loot_tables/blocks/eyebal
 705e6eb6533be14e8b8977fd357d3b250fb4b360 data/firstmod/loot_tables/blocks/eyeball_crop.json
 7eb7db9997a34c80b1e7c72d5ae6897bc1ea0a7f data/firstmod/loot_tables/blocks/hanging_soultree_leaves.json
 6099c720eacff5cb8c0200f2abd8bc1a4ba0d4b7 data/firstmod/loot_tables/blocks/jumpy_block.json
+fb5db6588378f3d581de669d6f381f977ebb63ed data/firstmod/loot_tables/blocks/polished_bloody_stone_block.json
 0c2bc94035f0f595d9e1136b90cb524925e679f2 data/firstmod/loot_tables/blocks/potted_blood_flower.json
 bdbe14442117000456c81315aa0f2a4b206d6df7 data/firstmod/loot_tables/blocks/soul_block.json
 0ed1e88492d1c2d299040002fe6b2727b0c72362 data/firstmod/loot_tables/blocks/soul_lamp.json

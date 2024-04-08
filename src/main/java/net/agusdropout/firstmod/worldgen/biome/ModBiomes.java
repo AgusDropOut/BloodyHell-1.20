@@ -37,7 +37,8 @@ public class ModBiomes {
         spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.BLOODTHIRSTYBEAST.get(), 20, 1, 2))
                     .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntityTypes.BLOOD_SEEKER.get(), 40, 1, 2))
                      .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.CRIMSON_RAVEN.get(), 10, 1, 2))
-                     .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.EYESHELL_SNAIL.get(), 10, 1, 2));
+                     .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.EYESHELL_SNAIL.get(), 10, 1, 2))
+                .addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(ModEntityTypes.SCARLETSPECKLED_FISH.get(), 1, 1, 2));
 
 
 
@@ -84,7 +85,7 @@ public class ModBiomes {
                         .foliageColorOverride(0xA12401)
                         .fogColor(0x741A00)
                         .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
-                        .ambientParticle(new AmbientParticleSettings(ModParticles.LIGHT_PARTICLES.get(), 0.118093334F))
+                        .ambientParticle(new AmbientParticleSettings(ModParticles.LIGHT_PARTICLES.get(), 0.02F))
                         .build())
                 .build();
     }

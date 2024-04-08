@@ -3,54 +3,69 @@ package net.agusdropout.firstmod.particle.custom;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.util.Mth;
 
 public class LightParticle extends TextureSheetParticle {
-    protected LightParticle(ClientLevel level, double xCoord, double yCoord, double zCoord,
-                             SpriteSet spriteSet, double xd, double yd, double zd) {
-        super(level, xCoord, yCoord, zCoord, xd, yd, zd);
+    private float rotSpeed;
+    private final float spinAcceleration;
 
-        this.friction = 0.8F;
-        this.xd = xd;
-        this.yd = yd;
-        this.zd = zd;
-        this.quadSize *= 0.85F;
-        this.lifetime = 20;
-        this.setSpriteFromAge(spriteSet);
-
-        this.rCol = 1f;
-        this.gCol = 1f;
-        this.bCol = 1f;
+    protected LightParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+        super(level, x, y, z, xSpeed, ySpeed, zSpeed);
+        this.friction = 1.0F;
+        double diagonalFactor = 0.01D;
+        this.xd += xSpeed * 0.0075D +   diagonalFactor; //this.random.nextGaussian()
+        this.yd=0.0D; //+= ySpeed * 0.05D + this.random.nextGaussian() * diagonalFactor;
+        this.zd = 0.0D;// += zSpeed * 0.05D + this.random.nextGaussian() * diagonalFactor;
+        this.gravity = 0.003F;
+        this.lifetime = 80;
+        this.quadSize *= 0.2F;
+        this.hasPhysics = true;
+        this.rotSpeed = (float) Math.toRadians(this.random.nextBoolean() ? -60.0D : 60.0D);
+        this.spinAcceleration = (float) Math.toRadians(this.random.nextBoolean() ? -25.0D : 25.0D);
     }
 
     @Override
     public void tick() {
-        super.tick();
-        fadeOut();
-    }
+        this.xo = this.x;
+        this.yo = this.y;
+        this.zo = this.z;
+        if (this.age++ >= this.lifetime) {
+            this.remove();
+        }
 
-    private void fadeOut() {
-        this.alpha = (-(1/(float)lifetime) * age + 1);
+        if (!this.removed) {
+            this.yd -= this.gravity;
+            this.rotSpeed += this.spinAcceleration / 20.0F;
+            this.oRoll = this.roll;
+            this.roll += this.rotSpeed / 10.0F;
+            if (!this.onGround) {
+                this.move(this.xd, this.yd, this.zd);
+            } else {
+                this.age = Math.max(this.lifetime - 10, this.age);
+            }
+
+            if (this.age > this.lifetime - 10) {
+                this.scale(Mth.abs(this.age - this.lifetime) * 0.1F);
+            }
+        }
     }
 
     @Override
     public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class Provider implements ParticleProvider<SimpleParticleType> {
-        private final SpriteSet sprites;
+        private final SpriteSet spriteSet;
 
         public Provider(SpriteSet spriteSet) {
-            this.sprites = spriteSet;
+            this.spriteSet = spriteSet;
         }
 
-        public Particle createParticle(SimpleParticleType particleType, ClientLevel level,
-                                       double x, double y, double z,
-                                       double dx, double dy, double dz) {
-            return new BloodParticles(level, x, y, z, this.sprites, dx, dy, dz);
+        public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+            LightParticle snow = new LightParticle(level, x, y, z, xSpeed, ySpeed, zSpeed);
+            snow.pickSprite(this.spriteSet);
+            return snow;
         }
     }
 }

@@ -1,10 +1,7 @@
 package net.agusdropout.firstmod.entity;
 
 import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.entity.custom.BloodSeekerEntity;
-import net.agusdropout.firstmod.entity.custom.BloodThirstyBeastEntity;
-import net.agusdropout.firstmod.entity.custom.CrimsonRavenEntity;
-import net.agusdropout.firstmod.entity.custom.EyeshellSnailEntity;
+import net.agusdropout.firstmod.entity.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -28,6 +25,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<EyeshellSnailEntity>> EYESHELL_SNAIL = ENTITY_TYPES.register("eyeshellsnail",
             () -> EntityType.Builder.of(EyeshellSnailEntity::new,MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(FirstMod.MODID,
                     "eyeshellsnail").toString()));
+    public static final RegistryObject<EntityType<ScarletSpeckledFishEntity>> SCARLETSPECKLED_FISH = ENTITY_TYPES.register("scarletspeckledfish",
+            () -> EntityType.Builder.of(ScarletSpeckledFishEntity::new,MobCategory.AMBIENT).sized(0.2f,0.2f).build(new ResourceLocation(FirstMod.MODID,
+                    "scarletspeckledfish").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

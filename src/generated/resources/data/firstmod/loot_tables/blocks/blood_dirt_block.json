@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "firstmod:blood_dirt_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "firstmod:blocks/blood_dirt_block"
+}

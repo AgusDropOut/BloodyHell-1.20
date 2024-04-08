@@ -52,6 +52,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLOOD_GRASS_BLOCK.get());
         this.dropSelf(ModBlocks.BLOOD_DIRT_BLOCK.get());
         this.dropSelf(ModBlocks.BLOODDIRT_FARMLAND.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_TILES_BLOCK.get());
+        this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get());
 
 
 

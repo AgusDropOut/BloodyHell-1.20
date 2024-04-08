@@ -6,10 +6,7 @@ import net.agusdropout.firstmod.block.entity.ModBlockEntities;
 import net.agusdropout.firstmod.capability.IBloodPortal;
 import net.agusdropout.firstmod.effect.ModEffects;
 import net.agusdropout.firstmod.entity.ModEntityTypes;
-import net.agusdropout.firstmod.entity.client.BloodSeekerRenderer;
-import net.agusdropout.firstmod.entity.client.BloodThirstyBeastRenderer;
-import net.agusdropout.firstmod.entity.client.CrimsonRavenRenderer;
-import net.agusdropout.firstmod.entity.client.EyeshellSnailRenderer;
+import net.agusdropout.firstmod.entity.client.*;
 import net.agusdropout.firstmod.fluid.ModFluidTypes;
 import net.agusdropout.firstmod.fluid.ModFluids;
 import net.agusdropout.firstmod.item.ModCreativeModeTab;
@@ -23,6 +20,7 @@ import net.agusdropout.firstmod.screen.BloodWorkBenchScreen;
 import net.agusdropout.firstmod.screen.ModMenuTypes;
 import net.agusdropout.firstmod.villager.ModPOIs;
 import net.agusdropout.firstmod.worldgen.biome.ModTerrablender;
+import net.agusdropout.firstmod.worldgen.biome.surface.ModSurfaceRules;
 import net.agusdropout.firstmod.worldgen.structure.ModStructures;
 import net.agusdropout.firstmod.worldgen.tree.ModTreeDecoratorTypes;
 import net.agusdropout.firstmod.worldgen.tree.ModTrunkPlacerTypes;
@@ -34,6 +32,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -58,6 +57,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FirstMod.MODID)
@@ -129,6 +129,10 @@ public class FirstMod
             SpawnPlacements.register(ModEntityTypes.EYESHELL_SNAIL.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                     Animal::checkMobSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(),
+                    SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR,
+                    AbstractFish::checkMobSpawnRules);
+
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);
             ModMessages.register();
@@ -137,7 +141,7 @@ public class FirstMod
 
 
 
-            //SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, ModSurfaceRules.makeRules());
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, ModSurfaceRules.makeRules());
         });
 
 
@@ -181,6 +185,7 @@ public class FirstMod
             event.accept(ModItems.SOUL_SWORD);
             event.accept(ModItems.CRIMSON_RAVEN_SPAWN_EGG);
             event.accept(ModItems.EYESHELLSNAIL_SPAWN_EGG);
+            event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
 
 
 
@@ -197,7 +202,10 @@ public class FirstMod
             event.accept(ModBlocks.BLEEDING_BLOCK);
             event.accept(ModBlocks.BLOOD_GRASS_BLOCK);
             event.accept(ModBlocks.BLOOD_DIRT_BLOCK);
-            event.accept(ModBlocks.BLOODDIRT_FARMLAND);
+            event.accept(ModBlocks.BLOODY_STONE_BLOCK);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+
 
 
 
@@ -246,6 +254,7 @@ public class FirstMod
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishRenderer::new);
             EntityRenderers.register(ModEntityTypes.CRIMSON_RAVEN.get(), CrimsonRavenRenderer::new);
             EntityRenderers.register(ModEntityTypes.EYESHELL_SNAIL.get(), EyeshellSnailRenderer::new);
 

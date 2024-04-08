@@ -36,7 +36,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
            String name = name(ModBlocks.HANGING_SOUL_TREE_LEAVES) + (state.getValue(HangingSoulTreeLeavesBlock.HALF) == DoubleBlockHalf.UPPER ? "_top" : "");
            return ConfiguredModel.builder().modelFile(models().cross(name, texture(name)).renderType("minecraft:cutout")).build();
        });
-
+        blockWithItem(ModBlocks.BLOODY_STONE_BLOCK);
+        blockWithItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+        blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
         //simpleBlock(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK.get(), models().cubeBottomTop(name(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK), texture("eyeballshell_snail_goo_block_side"), texture("eyeballshell_snail_goo_block_bottom"), texture("eyeballshell_snail_goo_block_top")));
     }
     private String name(Block block) {

@@ -41,6 +41,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_FLOWER);
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_GRASS);
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+        evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
 
 
