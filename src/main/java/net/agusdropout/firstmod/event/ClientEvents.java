@@ -5,6 +5,7 @@ package net.agusdropout.firstmod.event;
 import net.agusdropout.firstmod.FirstMod;
 import net.agusdropout.firstmod.particle.ModParticles;
 import net.agusdropout.firstmod.particle.custom.BloodParticles;
+import net.agusdropout.firstmod.particle.custom.DirtyBloodFlowerParticle;
 import net.agusdropout.firstmod.particle.custom.LightParticle;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
@@ -22,6 +23,7 @@ public class ClientEvents {
             public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
                 event.registerSpriteSet(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
                 event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
             }
 
 

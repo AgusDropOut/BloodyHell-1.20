@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "firstmod:block/bloody_stone_slab"
+    },
+    "type=double": {
+      "model": "firstmod:block/polished_bloody_stone_block"
+    },
+    "type=top": {
+      "model": "firstmod:block/bloody_stone_slab_top"
+    }
+  }
+}

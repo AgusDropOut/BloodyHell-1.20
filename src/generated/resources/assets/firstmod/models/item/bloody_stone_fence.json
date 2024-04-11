@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "firstmod:block/polished_bloody_stone_block"
+  }
+}

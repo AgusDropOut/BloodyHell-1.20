@@ -39,7 +39,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOODY_STONE_BLOCK);
         blockWithItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
-        //simpleBlock(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK.get(), models().cubeBottomTop(name(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK), texture("eyeballshell_snail_goo_block_side"), texture("eyeballshell_snail_goo_block_bottom"), texture("eyeballshell_snail_goo_block_top")));
+        stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_STAIRS.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_SLAB.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+
+        fenceBlock(((FenceBlock) ModBlocks.BLOODY_STONE_FENCE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOODY_STONE_FENCE_GATE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        wallBlock(((WallBlock) ModBlocks.BLOODY_STONE_WALL.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+
     }
     private String name(Block block) {
         return key(block).getPath();

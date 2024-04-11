@@ -61,5 +61,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.BLOOD_PLANKS.get())
                 .add(ModBlocks.SOUL_PLANKS.get());
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.BLOODY_STONE_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.BLOODY_STONE_FENCE_GATE.get());
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.BLOODY_STONE_WALL.get());
+
     }
 }

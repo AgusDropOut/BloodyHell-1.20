@@ -59,6 +59,7 @@ import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import terrablender.api.SurfaceRuleManager;
 
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FirstMod.MODID)
 public class FirstMod
@@ -165,6 +166,7 @@ public class FirstMod
             // Detener la propagación del evento para evitar que se realice la acción predeterminada de la azada
             event.setCanceled(true);
         }
+
     }
     private void addCreative(BuildCreativeModeTabContentsEvent event){
         if(event.getTab() == ModCreativeModeTab.FIRST_TAB.get()){
@@ -186,6 +188,8 @@ public class FirstMod
             event.accept(ModItems.CRIMSON_RAVEN_SPAWN_EGG);
             event.accept(ModItems.EYESHELLSNAIL_SPAWN_EGG);
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
+            event.accept(ModItems.DIRTY_BLOOD_FLOWER);
+            event.accept(ModItems.BLOOD_LILY);
 
 
 
@@ -205,6 +209,13 @@ public class FirstMod
             event.accept(ModBlocks.BLOODY_STONE_BLOCK);
             event.accept(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
             event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+            event.accept(ModBlocks.BLOODY_STONE_STAIRS);
+            event.accept(ModBlocks.BLOODY_STONE_WALL);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE_GATE);
+            event.accept(ModBlocks.BLOODY_STONE_SLAB);
+
+
 
 
 
@@ -227,6 +238,7 @@ public class FirstMod
             event.accept(ModBlocks.BLOOD_GRASS);
             event.accept(ModBlocks.BLOOD_BUSH);
             event.accept(ModBlocks.BLOOD_PETALS);
+            event.accept(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK);
 
 
             event.accept(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK);

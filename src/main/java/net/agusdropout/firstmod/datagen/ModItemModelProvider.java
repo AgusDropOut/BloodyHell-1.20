@@ -2,6 +2,7 @@ package net.agusdropout.firstmod.datagen;
 
 import net.agusdropout.firstmod.FirstMod;
 import net.agusdropout.firstmod.block.ModBlocks;
+import net.agusdropout.firstmod.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -45,6 +46,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
+        fenceItem(ModBlocks.BLOODY_STONE_FENCE, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+
+        wallItem(ModBlocks.BLOODY_STONE_WALL, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_STAIRS);
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_SLAB);
+
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_FENCE_GATE);
+
+        normalItem(ModItems.DIRTY_BLOOD_FLOWER);
 
 
     }
@@ -144,6 +155,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     public void trapdoor(Supplier<? extends TrapDoorBlock> trapdoor) {
         withExistingParent(BuiltInRegistries.BLOCK.getKey(trapdoor.get()).getPath(), new ResourceLocation(FirstMod.MODID, "block/" + blockName(trapdoor) + "_bottom"));
+    }
+    public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture",  new ResourceLocation(FirstMod.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+    public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall",  new ResourceLocation(FirstMod.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
 }

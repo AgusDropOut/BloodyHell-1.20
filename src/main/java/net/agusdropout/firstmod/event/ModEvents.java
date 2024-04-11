@@ -4,6 +4,7 @@ import net.agusdropout.firstmod.FirstMod;
 import net.agusdropout.firstmod.entity.custom.*;
 import net.agusdropout.firstmod.particle.ModParticles;
 import net.agusdropout.firstmod.particle.custom.BloodParticles;
+import net.agusdropout.firstmod.particle.custom.DirtyBloodFlowerParticle;
 import net.agusdropout.firstmod.particle.custom.LightParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -26,6 +27,8 @@ public class ModEvents {
                 event.registerSpriteSet(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
                 Minecraft.getInstance().particleEngine.register(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
+                Minecraft.getInstance().particleEngine.register(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
             }
 
             @SubscribeEvent

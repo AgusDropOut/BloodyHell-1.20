@@ -55,6 +55,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLOODY_STONE_BLOCK.get());
         this.dropSelf(ModBlocks.BLOODY_STONE_TILES_BLOCK.get());
         this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_SLAB.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_FENCE.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_WALL.get());
+        this.dropSelf(ModBlocks.BLOODY_STONE_STAIRS.get());
+        this.dropSelf(ModBlocks.BLOOD_LILY_BLOCK.get());
+        this.dropSelf(ModBlocks.SMALL_BLOOD_SAPLING.get());
+        this.dropSelf(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK.get());
+
 
 
 

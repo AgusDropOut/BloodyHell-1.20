@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "firstmod:block/polished_bloody_stone_block",
+    "side": "firstmod:block/polished_bloody_stone_block",
+    "top": "firstmod:block/polished_bloody_stone_block"
+  }
+}

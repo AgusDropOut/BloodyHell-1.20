@@ -16,6 +16,8 @@ public class ModParticles {
             PARTICLE_TYPES.register("blood_particles", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> LIGHT_PARTICLES =
             PARTICLE_TYPES.register("light_particles", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> DIRTY_BLOOD_FLOWER_PARTICLE =
+            PARTICLE_TYPES.register("dirty_blood_flower_particle", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);

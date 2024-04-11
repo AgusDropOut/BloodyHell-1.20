@@ -25,6 +25,7 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> BLOOD_TREE_PLACED_KEY = createKey("blood_tree_placed");
     public static final ResourceKey<PlacedFeature> SOUL_TREE_PLACED_KEY = createKey("soul_tree_placed");
+    public static final ResourceKey<PlacedFeature> SMALL_BLOOD_TREE_PLACED_KEY = createKey("small_blood_tree_placed");
 
     public static final ResourceKey<PlacedFeature> BLOOD_FLOWER_PLACED_KEY = createKey("blood_flower_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_GRASS_PLACED_KEY = createKey("blood_grass_placed");
@@ -32,6 +33,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLOOD_SMALL_ROCKS_PLACED_KEY = createKey("blood_small_rocks_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_PETALS_PLACED_KEY = createKey("blood_petals_placed");
     public static final ResourceKey<PlacedFeature> BLEEDING_BLOCK_PLACED_KEY = createKey("bleeding_block_placed");
+    public static final ResourceKey<PlacedFeature> BLOOD_LILY_BLOCK_PLACED_KEY = createKey("blood_lily_block_placed");
 
 
 
@@ -47,6 +49,8 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(80))));
         register(context,BLOOD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2), ModBlocks.BLOOD_SAPLING.get()));
+        register(context,SMALL_BLOOD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.SMALL_BLOOD_TREE_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2), ModBlocks.SMALL_BLOOD_SAPLING.get()));
         register(context,SOUL_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.SOUL_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,1), ModBlocks.SOUL_SAPLING.get()));
         register(context, BLOOD_SMALL_ROCKS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SMALL_ROCKS_KEY),patch(50));
@@ -54,6 +58,7 @@ public class ModPlacedFeatures {
         register(context, BLOOD_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_GRASS_KEY),patch(100));
         register(context, BLOOD_BUSH_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_BUSH_KEY),patch(64));
         register(context, BLOOD_PETALS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_PETALS_KEY),patch(70));
+        register(context, BLOOD_LILY_BLOCK_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_LILY_KEY),patch(70));
 
     }
 

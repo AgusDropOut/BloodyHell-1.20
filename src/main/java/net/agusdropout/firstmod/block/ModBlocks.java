@@ -1,13 +1,16 @@
 package net.agusdropout.firstmod.block;
 
 import net.agusdropout.firstmod.FirstMod;
+import net.agusdropout.firstmod.block.base.BaseWallPlantBlock;
 import net.agusdropout.firstmod.block.custom.*;
 import net.agusdropout.firstmod.fluid.ModFluids;
 import net.agusdropout.firstmod.item.ModItems;
 import net.agusdropout.firstmod.worldgen.tree.BloodTreeGrower;
+import net.agusdropout.firstmod.worldgen.tree.SmallBloodTreeGrower;
 import net.agusdropout.firstmod.worldgen.tree.SoulTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -16,6 +19,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,6 +43,22 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOODY_STONE_BLOCK = registerBlock("bloody_stone_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BLOODY_STONE_TILES_BLOCK = registerBlock("bloody_stone_tiles_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> POLISHED_BLOODY_STONE_BLOCK = registerBlock("polished_bloody_stone_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_STAIRS = registerBlock("bloody_stone_stairs",
+            () -> new StairBlock(() -> ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Block> BLOODY_STONE_SLAB = registerBlock("bloody_stone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_FENCE)));
+    public static final RegistryObject<Block> BLOODY_STONE_FENCE = registerBlock("bloody_stone_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS)));
+    public static final RegistryObject<Block> BLOODY_STONE_FENCE_GATE = registerBlock("bloody_stone_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS), SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
+    public static final RegistryObject<Block> BLOODY_STONE_WALL = registerBlock("bloody_stone_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS)));
+
+   //public static final RegistryObject<Block> BLOODY_STONE_DOOR = registerBlock("bloody_stone_door",
+   //        () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).noOcclusion(), BlockSetType.IRON));
+   //public static final RegistryObject<Block> BLOODY_STONE_TRAPDOOR = registerBlock("bloody_stone_trapdoor",
+   //        () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
     public static final RegistryObject<Block> BLOOD_GRASS_BLOCK = registerBlock("blood_grass_block", ()-> new BloodGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(2f).randomTicks().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> BLOODDIRT_FARMLAND = registerBlock("blooddirt_farmland", () -> new BloodDirtFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
     public static final RegistryObject<Block> BLOOD_DIRT_BLOCK = registerBlock("blood_dirt_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).strength(2f)));
@@ -84,6 +106,8 @@ public class ModBlocks {
             ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     public static final RegistryObject<Block> BLOOD_SAPLING = registerBlock("blood_sapling",
             ()-> new SaplingBlock(new BloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
+    public static final RegistryObject<Block> SMALL_BLOOD_SAPLING = registerBlock("small_blood_sapling",
+            ()-> new SaplingBlock(new SmallBloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
     public static final RegistryObject<Block> SOUL_LOG = registerBlock("soul_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
     public static final RegistryObject<Block> SOUL_WOOD = registerBlock("soul_wood",
@@ -133,8 +157,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_BUSH = registerBlock("blood_bush",
             ()-> new DoublePlantBlock(
                     BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
+    public static final RegistryObject<Block> BLOOD_LILY_BLOCK = registerBlock("blood_lily_block",
+            ()-> new BloodLilyBlock(
+                    BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals",
             ()-> new FlowerBlock(()-> MobEffects.HARM,5,BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
+    public static final RegistryObject<Block> BLOOD_WALL_MUSHROOM_BLOCK = registerBlock("blood_wall_mushroom_block",
+            ()-> new BaseWallPlantBlock(BlockBehaviour.Properties.copy(Blocks.COCOA).noOcclusion().dynamicShape().lightLevel( (state)->15 )) {
+                @Override
+                protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateManager) {
+                    super.createBlockStateDefinition(stateManager);
+                }
+            });
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {

@@ -21,7 +21,7 @@
       "options": {
         "type": "firstmod:light_particles"
       },
-      "probability": 0.02
+      "probability": 0.003
     },
     "sky_color": 14299136,
     "water_color": 14955008,
@@ -89,7 +89,9 @@
       "firstmod:blood_grass_placed",
       "firstmod:blood_bush_placed",
       "firstmod:blood_tree_placed",
-      "firstmod:soul_tree_placed"
+      "firstmod:small_blood_tree_placed",
+      "firstmod:soul_tree_placed",
+      "firstmod:blood_lily_block_placed"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -133,7 +135,7 @@
     "water_ambient": [
       {
         "type": "firstmod:scarletspeckledfish",
-        "maxCount": 2,
+        "maxCount": 1,
         "minCount": 1,
         "weight": 1
       }
