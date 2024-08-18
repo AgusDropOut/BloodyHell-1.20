@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "bloodyhell:block/eyeballshell_snail_goo_block_bottom",
+    "side": "bloodyhell:block/eyeballshell_snail_goo_block_side",
+    "top": "bloodyhell:block/eyeballshell_snail_goo_block_top"
+  }
+}

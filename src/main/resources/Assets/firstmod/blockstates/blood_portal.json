@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "axis=z": { "model": "firstmod:block/blood_portal_ew" },
-    "axis=x": { "model": "firstmod:block/blood_portal_ns" }
-  }
-}

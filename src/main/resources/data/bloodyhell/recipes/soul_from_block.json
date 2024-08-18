@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloodyhell:soul_block"
+    }
+  ],
+  "result": {
+    "item": "bloodyhell:soul",
+    "count": 9
+  }
+}

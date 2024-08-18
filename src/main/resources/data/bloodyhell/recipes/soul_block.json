@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloodyhell:soul"
+    }
+  },
+  "result": {
+    "item": "bloodyhell:soul_block"
+  }
+}

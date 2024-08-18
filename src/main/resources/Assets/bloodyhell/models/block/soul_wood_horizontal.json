@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "bloodyhell:block/soul_log",
+    "side": "bloodyhell:block/soul_log"
+  }
+}

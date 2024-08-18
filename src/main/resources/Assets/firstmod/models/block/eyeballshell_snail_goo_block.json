@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "firstmod:block/eyeballshell_snail_goo_block_bottom",
-    "side": "firstmod:block/eyeballshell_snail_goo_block_side",
-    "top": "firstmod:block/eyeballshell_snail_goo_block_top"
-  }
-}

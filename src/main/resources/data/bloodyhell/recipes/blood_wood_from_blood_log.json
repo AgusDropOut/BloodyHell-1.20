@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloodyhell:blood_log"
+    }
+  ],
+  "result": {
+    "item": "bloodyhell:blood_planks",
+    "count": 4
+  }
+}

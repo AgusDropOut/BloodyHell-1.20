@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "bloodyhell:block/eyeball_stage1"
+  },
+  "render_type": "cutout"
+}

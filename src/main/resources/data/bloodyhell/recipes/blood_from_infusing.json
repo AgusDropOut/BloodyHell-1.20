@@ -1,0 +1,11 @@
+{
+  "type": "bloodyhell:blood_infusing",
+  "ingredients": [
+    {
+      "item": "bloodyhell:raw_soul"
+    }
+  ],
+  "output": {
+    "item": "bloodyhell:soul"
+  }
+}

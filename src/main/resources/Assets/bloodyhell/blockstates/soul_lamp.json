@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": {"model": "bloodyhell:block/soul_lamp_on"},
+    "lit=false": {"model": "bloodyhell:block/soul_lamp_off"}
+  }
+}

@@ -10,8 +10,8 @@
 
 
 version = '0.0.1-1.19.3'
-group = 'net.agusdropout.firstmod'
-archivesBaseName = 'firstmod'
+group = 'net.agusdropout.bloodyhell'
+archivesBaseName = 'bloodyhell'
 
 
 
@@ -80,10 +80,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'firstmod'
+            property 'forge.enabledGameTestNamespaces', 'bloodyhell'
 
             mods {
-                firstmod {
+                bloodyhell {
                     source sourceSets.main
                 }
             }
@@ -91,11 +91,11 @@ minecraft {
 
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'firstmod'
+            property 'forge.enabledGameTestNamespaces', 'bloodyhell'
         }
 
         server {
-            property 'forge.enabledGameTestNamespaces', 'firstmod'
+            property 'forge.enabledGameTestNamespaces', 'bloodyhell'
             args '--nogui'
         }
 
@@ -103,7 +103,7 @@ minecraft {
         // By default, the server will crash when no gametests are provided.
         // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
-            property 'forge.enabledGameTestNamespaces', 'firstmod'
+            property 'forge.enabledGameTestNamespaces', 'bloodyhell'
         }
 
         data {
@@ -111,7 +111,7 @@ minecraft {
             workingDirectory project.file('run')
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod','firstmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod','bloodyhell', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
@@ -184,7 +184,7 @@ dependencies {
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-                'Specification-Title'     : "firstmod",
+                'Specification-Title'     : "bloodyhell",
                 'Specification-Vendor'    : "agusdropout",
                 'Specification-Version'   : '1', // We are version 1 of ourselves
                 'Implementation-Title'    : project.name,

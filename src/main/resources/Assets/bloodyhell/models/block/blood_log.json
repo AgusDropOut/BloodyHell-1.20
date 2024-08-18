@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "bloodyhell:block/blood_log_top",
+    "side": "bloodyhell:block/blood_log"
+  }
+}
