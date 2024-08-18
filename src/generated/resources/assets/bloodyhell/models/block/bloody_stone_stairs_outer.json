@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "bloodyhell:block/polished_bloody_stone_block",
+    "side": "bloodyhell:block/polished_bloody_stone_block",
+    "top": "bloodyhell:block/polished_bloody_stone_block"
+  }
+}

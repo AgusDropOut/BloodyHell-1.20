@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "bloodyhell:block/hanging_soultree_leaves"
+    },
+    "half=upper": {
+      "model": "bloodyhell:block/hanging_soultree_leaves_top"
+    }
+  }
+}

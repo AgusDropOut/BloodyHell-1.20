@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "bloodyhell:block/polished_bloody_stone_block"
+  }
+}
