@@ -3,8 +3,8 @@
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "bloodyhell:block/blood_lily_texture",
-		"particle": "bloodyhell:block/blood_lily_texture"
+		"0": "bloodyhell:block/blood_lily",
+		"particle": "bloodyhell:block/blood_lily"
 	},
 	"elements": [
 		{

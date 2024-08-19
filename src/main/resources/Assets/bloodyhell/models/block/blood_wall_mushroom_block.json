@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "bloodyhell:block/blood_wall_mushroom_top_texture",
-		"1": "bloodyhell:block/blood_wall_mushroom_block_texture",
-		"particle": "bloodyhell:block/blood_wall_mushroom_top_texture"
+		"0": "bloodyhell:block/blood_wall_mushroom_top",
+		"1": "bloodyhell:block/blood_wall_mushroom_block",
+		"particle": "bloodyhell:block/blood_wall_mushroom_top"
 	},
 	"elements": [
 		{

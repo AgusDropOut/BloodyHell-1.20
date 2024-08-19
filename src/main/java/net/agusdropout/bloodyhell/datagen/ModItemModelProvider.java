@@ -45,7 +45,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
-
+        normalItem(ModItems.BLOOD_LILY);
         fenceItem(ModBlocks.BLOODY_STONE_FENCE, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
         wallItem(ModBlocks.BLOODY_STONE_WALL, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
@@ -56,6 +56,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_FENCE_GATE);
 
         normalItem(ModItems.DIRTY_BLOOD_FLOWER);
+
+        simpleBlockItemBlockTexture(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
 
 
     }

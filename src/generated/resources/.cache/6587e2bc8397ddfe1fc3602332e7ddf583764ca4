@@ -1,4 +1,4 @@
-// 1.20	2024-08-18T20:11:17.1624893	Item Models: bloodyhell
+// 1.20	2024-08-18T23:39:02.001271	Item Models: bloodyhell
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 84646a6cee79a234066f1caf7c1f37529fb99953 assets/bloodyhell/models/item/bloody_stone_fence.json
 69acd85dca66cf703c6b1df35b7ed0085e4694fe assets/bloodyhell/models/item/bloody_stone_fence_gate.json
@@ -8,5 +8,7 @@ f18f7420174be7909433749494222db00f0cad8e assets/bloodyhell/models/item/bloody_st
 2b8bb492e3175877c89bab98d8ef3ca79fc2881d assets/bloodyhell/models/item/bloody_stone_wall.json
 9d344eb71c2cf1433524bc33bbaa5e169f682648 assets/bloodyhell/models/item/blood_flower.json
 85b82409ddd6893ee2a65862a8716826762d96a7 assets/bloodyhell/models/item/blood_grass.json
+86fc22bcb2b532bf30ccdf54104a202d481523fd assets/bloodyhell/models/item/blood_lily.json
 77c313c5cd8748df19f86deca8aad9cb23b999f8 assets/bloodyhell/models/item/dirty_blood_flower.json
+4c952dd758467b86eb9c5a5e36b2074800e74213 assets/bloodyhell/models/item/hanging_bloodtree_leaves.json
 3d3d71936a869a8f5ca9d53e9e4f1220091793d2 assets/bloodyhell/models/item/polished_bloody_stone_block.json
