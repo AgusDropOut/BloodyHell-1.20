@@ -1,0 +1,142 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bloodpig.walk": {
+			"loop": true,
+			"animation_length": 1.5,
+			"bones": {
+				"boca": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.7917": {
+							"vector": [5, 0, 0]
+						},
+						"1.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"orejas": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [-35, 0, 0]
+						},
+						"1.0": {
+							"vector": [-5, 0, 0]
+						},
+						"1.5": {
+							"vector": [-2.5, 0, 0]
+						}
+					}
+				},
+				"pierna1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [-30, 0, 0]
+						},
+						"1.25": {
+							"vector": [28.27, 0, 0]
+						},
+						"1.5": {
+							"vector": [0.77, 0, 0]
+						}
+					}
+				},
+				"pierna2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [30, 0, 0]
+						},
+						"1.25": {
+							"vector": [-30, 0, 0]
+						},
+						"1.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"pierna4": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [-27.5, 0, 0]
+						},
+						"1.25": {
+							"vector": [27.5, 0, 0]
+						},
+						"1.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"pierna3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [27.5, 0, 0]
+						},
+						"1.25": {
+							"vector": [-32.5, 0, 0]
+						},
+						"1.5": {
+							"vector": [0.19, 0, 0]
+						}
+					}
+				},
+				"cola": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5417": {
+							"vector": [0, 0, -32.5]
+						},
+						"1.25": {
+							"vector": [0, 0, 37.5]
+						},
+						"1.5": {
+							"vector": [0, 7.5, 2.5]
+						}
+					}
+				}
+			}
+		},
+		"animation.bloodpig.attack": {
+			"animation_length": 0.54167,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-17.5, 0, 0]
+						},
+						"0.5417": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.bloodpig.idle": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}
