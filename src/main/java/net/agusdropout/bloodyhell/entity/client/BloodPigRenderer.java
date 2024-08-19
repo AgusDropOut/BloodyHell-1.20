@@ -1,8 +1,8 @@
-package net.agusdropout.firstmod.entity.client;
+package net.agusdropout.bloodyhell.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.entity.custom.BloodPigEntity;
+import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.entity.custom.BloodPigEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,7 +20,7 @@ public class BloodPigRenderer extends GeoEntityRenderer<BloodPigEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(BloodPigEntity instance) {
-        return new ResourceLocation(FirstMod.MODID, "textures/entity/bloodpig_texture.png");
+        return new ResourceLocation(BloodyHell.MODID, "textures/entity/bloodpig_texture.png");
     }
 
     @Override

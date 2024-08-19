@@ -1,6 +1,6 @@
-package net.agusdropout.firstmod.fluid;
+package net.agusdropout.bloodyhell.fluid;
 
-import net.agusdropout.firstmod.FirstMod;
+import net.agusdropout.bloodyhell.BloodyHell;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.common.SoundAction;
@@ -12,11 +12,11 @@ import net.minecraftforge.registries.RegistryObject;
 import org.joml.Vector3f;
 
 public class ModFluidTypes {
-    public static final ResourceLocation WATER_STILL_RL = new ResourceLocation("firstmod:block/blood_fluid_still_texture");
-    public static final ResourceLocation WATER_FLOWING_RL = new ResourceLocation("firstmod:block/blood_fluid_flowing_texture");
-    public static final ResourceLocation BLOOD_OVERLAY_RL = new ResourceLocation(FirstMod.MODID, "misc/in_soap_water");
+    public static final ResourceLocation WATER_STILL_RL = new ResourceLocation("bloodyhell:block/blood_fluid_still_texture");
+    public static final ResourceLocation WATER_FLOWING_RL = new ResourceLocation("bloodyhell:block/blood_fluid_flowing_texture");
+    public static final ResourceLocation BLOOD_OVERLAY_RL = new ResourceLocation(BloodyHell.MODID, "misc/in_soap_water");
     public static final DeferredRegister<FluidType> FLUID_TYPES =
-            DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, FirstMod.MODID);
+            DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, BloodyHell.MODID);
 
     public static final RegistryObject<FluidType> BLOOD_FLUID_TYPE = register("blood_fluid",
             FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).sound(SoundAction.get("drink"),

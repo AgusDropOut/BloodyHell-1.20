@@ -19,7 +19,7 @@
     },
     "particle": {
       "options": {
-        "type": "firstmod:light_particles"
+        "type": "bloodyhell:light_particles"
       },
       "probability": 0.003
     },
@@ -41,9 +41,9 @@
       "minecraft:monster_room_deep"
     ],
     [
-      "firstmod:blood_small_rocks_placed",
-      "firstmod:blood_petals_placed",
-      "firstmod:soul_placed"
+      "bloodyhell:blood_small_rocks_placed",
+      "bloodyhell:blood_petals_placed",
+      "bloodyhell:soul_placed"
     ],
     [],
     [
@@ -73,9 +73,9 @@
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
       "minecraft:ore_gold_extra",
-      "firstmod:blood_liquid_placed",
-      "firstmod:bleeding_block_placed",
-      "firstmod:soul_placed"
+      "bloodyhell:blood_liquid_placed",
+      "bloodyhell:bleeding_block_placed",
+      "bloodyhell:soul_placed"
     ],
     [],
     [
@@ -86,15 +86,15 @@
       "minecraft:glow_lichen",
       "minecraft:patch_grass_badlands",
       "minecraft:trees_plains",
-      "firstmod:blood_flower_placed",
-      "firstmod:light_mushroom_placed",
-      "firstmod:blood_grass_placed",
-      "firstmod:blood_bush_placed",
-      "firstmod:blood_tree_placed",
-      "firstmod:giant_blood_tree_placed",
-      "firstmod:small_blood_tree_placed",
-      "firstmod:soul_tree_placed",
-      "firstmod:blood_lily_block_placed"
+      "bloodyhell:blood_flower_placed",
+      "bloodyhell:light_mushroom_placed",
+      "bloodyhell:blood_grass_placed",
+      "bloodyhell:blood_bush_placed",
+      "bloodyhell:blood_tree_placed",
+      "bloodyhell:giant_blood_tree_placed",
+      "bloodyhell:small_blood_tree_placed",
+      "bloodyhell:soul_tree_placed",
+      "bloodyhell:blood_lily_block_placed"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -107,13 +107,13 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "firstmod:crimsonraven",
+        "type": "bloodyhell:crimsonraven",
         "maxCount": 2,
         "minCount": 1,
         "weight": 10
       },
       {
-        "type": "firstmod:eyeshellsnail",
+        "type": "bloodyhell:eyeshellsnail",
         "maxCount": 2,
         "minCount": 1,
         "weight": 10
@@ -122,13 +122,13 @@
     "misc": [],
     "monster": [
       {
-        "type": "firstmod:bloodthirstybeast",
+        "type": "bloodyhell:bloodthirstybeast",
         "maxCount": 2,
         "minCount": 1,
         "weight": 20
       },
       {
-        "type": "firstmod:bloodseeker",
+        "type": "bloodyhell:bloodseeker",
         "maxCount": 2,
         "minCount": 1,
         "weight": 40
@@ -137,10 +137,16 @@
     "underground_water_creature": [],
     "water_ambient": [
       {
-        "type": "firstmod:scarletspeckledfish",
+        "type": "bloodyhell:scarletspeckledfish",
         "maxCount": 1,
         "minCount": 1,
         "weight": 1
+      },
+      {
+        "type": "bloodyhell:bloodpig",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
       }
     ],
     "water_creature": []

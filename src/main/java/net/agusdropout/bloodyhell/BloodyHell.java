@@ -1,13 +1,14 @@
 package net.agusdropout.bloodyhell;
 
 import com.mojang.logging.LogUtils;
+
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.block.entity.ModBlockEntities;
 import net.agusdropout.bloodyhell.capability.IBloodPortal;
 import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;
-import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
+
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
 import net.agusdropout.bloodyhell.item.ModItems;
@@ -22,8 +23,7 @@ import net.agusdropout.bloodyhell.villager.ModPOIs;
 import net.agusdropout.bloodyhell.worldgen.biome.ModTerrablender;
 import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
 import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
-import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
-import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
+
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -89,14 +89,14 @@ public class BloodyHell
 
 
         ModFluids.register(modEventBus);
-        ModFluidTypes.register(modEventBus);
+        net.agusdropout.bloodyhell.fluid.ModFluidTypes.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
-        ModEntityTypes.register(modEventBus);
-        ModTrunkPlacerTypes.register(modEventBus);
+        net.agusdropout.bloodyhell.entity.ModEntityTypes.register(modEventBus);
+        net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes.register(modEventBus);
         ModEffects.register(modEventBus);
-        ModTreeDecoratorTypes.register(modEventBus);
+        net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes.register(modEventBus);
         ModStructures.register(modEventBus);
 
 
@@ -118,7 +118,7 @@ public class BloodyHell
     {
 
         event.enqueueWork(() -> {
-            SpawnPlacements.register(ModEntityTypes.BLOOD_SEEKER.get(),
+            SpawnPlacements.register(net.agusdropout.bloodyhell.entity.ModEntityTypes.BLOOD_SEEKER.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(),
@@ -133,6 +133,9 @@ public class BloodyHell
             SpawnPlacements.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(),
                     SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR,
                     AbstractFish::checkMobSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.BLOODPIG.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
+                    Animal::checkMobSpawnRules);
 
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);

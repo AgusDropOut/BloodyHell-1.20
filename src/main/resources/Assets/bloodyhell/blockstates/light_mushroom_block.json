@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloodyhell:block/light_mushroom_block"
+      },
+      {
+        "model": "bloodyhell:block/light_mushroom_block_1",
+        "y": 90
+      },
+      {
+        "model": "bloodyhell:block/light_mushroom_block_2",
+        "y": 180
+      }
+
+    ]
+  }
+}

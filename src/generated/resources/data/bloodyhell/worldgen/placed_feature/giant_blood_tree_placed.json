@@ -1,5 +1,5 @@
 {
-  "feature": "firstmod:giant_blood_tree",
+  "feature": "bloodyhell:giant_blood_tree",
   "placement": [
     {
       "type": "minecraft:count",
@@ -36,7 +36,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "firstmod:giant_blood_sapling",
+          "Name": "bloodyhell:giant_blood_sapling",
           "Properties": {
             "stage": "0"
           }

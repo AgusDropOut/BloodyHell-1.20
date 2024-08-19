@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "firstmod:light_mushroom_block"
+          "name": "bloodyhell:light_mushroom_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "firstmod:blocks/light_mushroom_block"
+  "random_sequence": "bloodyhell:blocks/light_mushroom_block"
 }

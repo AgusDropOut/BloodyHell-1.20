@@ -1,7 +1,7 @@
-package net.agusdropout.firstmod.entity.client;
+package net.agusdropout.bloodyhell.entity.client;
 
-import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.entity.custom.BloodPigEntity;
+import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.entity.custom.BloodPigEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import software.bernie.geckolib.constant.DataTickets;
@@ -13,17 +13,17 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class BloodPigModel extends GeoModel<BloodPigEntity> {
     @Override
     public ResourceLocation getModelResource(BloodPigEntity object) {
-        return new ResourceLocation(FirstMod.MODID, "geo/bloodpig.geo.json");
+        return new ResourceLocation(BloodyHell.MODID, "geo/bloodpig.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(BloodPigEntity object) {
-        return new ResourceLocation(FirstMod.MODID, "textures/entity/bloodpig_texture.png");
+        return new ResourceLocation(BloodyHell.MODID, "textures/entity/bloodpig_texture.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(BloodPigEntity animatable) {
-        return new ResourceLocation(FirstMod.MODID, "animations/bloodpig.animation.json");
+        return new ResourceLocation(BloodyHell.MODID, "animations/bloodpig.animation.json");
     }
 
     @Override

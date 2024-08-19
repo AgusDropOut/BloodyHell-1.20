@@ -1,4 +1,4 @@
-// 1.20	2024-08-18T20:11:17.1584844	Block States: bloodyhell
+// 1.20	2024-08-18T22:53:23.8165985	Block States: bloodyhell
 24178f379f0f48a39cac2158a25ddf9898f75bbc assets/bloodyhell/blockstates/bleeding_block.json
 ff360f24b89a5391c8186e96f4cbaaf2f06e2a46 assets/bloodyhell/blockstates/bloody_stone_block.json
 138c1a0d76765318f4d488043f29f9940b630351 assets/bloodyhell/blockstates/bloody_stone_fence.json
@@ -9,6 +9,7 @@ ded428bfb2be90d722d2ac14ef664371b0ad699c assets/bloodyhell/blockstates/bloody_st
 289ad7a41aae6e47d251bd7d3543e227558f9035 assets/bloodyhell/blockstates/bloody_stone_wall.json
 e77f394973fa2435f469a3d40714351a200aae95 assets/bloodyhell/blockstates/blood_flower.json
 df19fc0f26bc47fadd82bfbd1daabd2b6f8f68b9 assets/bloodyhell/blockstates/blood_grass.json
+400e0697e33630611f567ffaa02b176c3ac47d19 assets/bloodyhell/blockstates/hanging_bloodtree_leaves.json
 fa7adb5b527e820261de7dbfc6a7bbe2c5321e36 assets/bloodyhell/blockstates/hanging_soultree_leaves.json
 db80e859b4704ed91cf399462199365def27a9ad assets/bloodyhell/blockstates/polished_bloody_stone_block.json
 7ce82326ce695d80e07a96fe121b9f8d14e31731 assets/bloodyhell/blockstates/potted_blood_flower.json
@@ -31,6 +32,8 @@ d76e873bf37a5cfd511e395708386ee38d34a597 assets/bloodyhell/models/block/bloody_s
 d960906e4f65a991181d3d1e18096beb055b3e71 assets/bloodyhell/models/block/bloody_stone_wall_side_tall.json
 21f86554fe0bcf63a0d3392dffcb110a39ef6be6 assets/bloodyhell/models/block/blood_flower.json
 71a5e4b63b915331f750ff8f586266fdb1104fe9 assets/bloodyhell/models/block/blood_grass.json
+4053fd3900b9edf9fe01c3c741fb232b510e480b assets/bloodyhell/models/block/hanging_bloodtree_leaves.json
+d72991acc277ac73e58332f0aa65fdb87e89ee93 assets/bloodyhell/models/block/hanging_bloodtree_leaves_top.json
 1e65120a5e6c7351628002b99194766ecae1f987 assets/bloodyhell/models/block/hanging_soultree_leaves.json
 033c593fc72053a7e07afec6ceef032e8abfe060 assets/bloodyhell/models/block/hanging_soultree_leaves_top.json
 a6626629783537989374186ad70f4e69c3921b01 assets/bloodyhell/models/block/polished_bloody_stone_block.json

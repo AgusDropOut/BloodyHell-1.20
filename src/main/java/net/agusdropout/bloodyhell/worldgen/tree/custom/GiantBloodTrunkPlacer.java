@@ -1,9 +1,9 @@
-package net.agusdropout.firstmod.worldgen.tree.custom;
+package net.agusdropout.bloodyhell.worldgen.tree.custom;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.agusdropout.firstmod.worldgen.tree.ModTrunkPlacerTypes;
+import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;

@@ -1,4 +1,4 @@
-// 1.20	2024-08-18T20:11:17.1594854	Loot Tables
+// 1.20	2024-08-18T22:53:23.8186008	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -27,8 +27,11 @@ dd6721ff08957b9d66d5881b75ef11d293f95d61 data/bloodyhell/loot_tables/blocks/bloo
 c5611f5bc9c4b26e66b27f5cc9d3674810f5b685 data/bloodyhell/loot_tables/blocks/eyeballshell_snail_goo.json
 534ae84e12ffffb399cb8fa3ba4dfccdf02de68a data/bloodyhell/loot_tables/blocks/eyeballshell_snail_goo_block.json
 36fbcfa7c729718064356118a549c97826a01021 data/bloodyhell/loot_tables/blocks/eyeball_crop.json
+db4ad30c9a94a31c678e5c5e09c7fbcb0184938b data/bloodyhell/loot_tables/blocks/giant_blood_sapling.json
+cf1ac83c140ea550f9fe5599e9e31e5cbfa02592 data/bloodyhell/loot_tables/blocks/hanging_bloodtree_leaves.json
 0d5c37b64d3a4c5a0a5194d514250f3199ffc2e4 data/bloodyhell/loot_tables/blocks/hanging_soultree_leaves.json
 0738d6bac0804e7fd86f0048d5a0b6bf9324b421 data/bloodyhell/loot_tables/blocks/jumpy_block.json
+f632ffe1de7261bbb6cacfe259eb7070e491ccf6 data/bloodyhell/loot_tables/blocks/light_mushroom_block.json
 7b9823899a8c5dd9b04b7f045ce07a3145f85f79 data/bloodyhell/loot_tables/blocks/polished_bloody_stone_block.json
 ab4409a655a7de70d77129b11ec3125a2c0720c6 data/bloodyhell/loot_tables/blocks/potted_blood_flower.json
 be65ff0e064ddda4036136c7164bd48ab49b6548 data/bloodyhell/loot_tables/blocks/small_blood_sapling.json

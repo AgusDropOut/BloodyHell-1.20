@@ -1,8 +1,8 @@
-package net.agusdropout.firstmod.worldgen.tree.custom;
+package net.agusdropout.bloodyhell.worldgen.tree.custom;
 
 import com.mojang.serialization.Codec;
-import net.agusdropout.firstmod.block.ModBlocks;
-import net.agusdropout.firstmod.worldgen.tree.ModTreeDecoratorTypes;
+import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.DoublePlantBlock;

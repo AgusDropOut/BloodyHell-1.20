@@ -1,11 +1,11 @@
-package net.agusdropout.firstmod.event;
+package net.agusdropout.bloodyhell.event;
 
-import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.entity.custom.*;
-import net.agusdropout.firstmod.particle.ModParticles;
-import net.agusdropout.firstmod.particle.custom.BloodParticles;
-import net.agusdropout.firstmod.particle.custom.DirtyBloodFlowerParticle;
-import net.agusdropout.firstmod.particle.custom.LightParticle;
+import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.particle.ModParticles;
+import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
+import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
+import net.agusdropout.bloodyhell.particle.custom.LightParticle;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -14,12 +14,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-import static net.agusdropout.firstmod.entity.ModEntityTypes.*;
+import static net.agusdropout.bloodyhell.entity.ModEntityTypes.*;
 
 
 public class ModEvents {
 
-        @Mod.EventBusSubscriber(modid = FirstMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+        @Mod.EventBusSubscriber(modid = BloodyHell.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
         public static class ModEventBusEvents {
             @SubscribeEvent
             public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
@@ -91,7 +91,7 @@ public class ModEvents {
   //      public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
   //          if (event.getObject() instanceof Player) {
   //              if (!event.getObject().getCapability(PlayerThirstProvider.PLAYER_THIRST).isPresent()) {
-  //                  event.addCapability(new ResourceLocation(FirstMod.MODID, "properties"), new PlayerThirstProvider());
+  //                  event.addCapability(new ResourceLocation(BloodyHell.MODID, "properties"), new PlayerThirstProvider());
   //              }
   //          }
   //      }
@@ -163,7 +163,7 @@ public class ModEvents {
   //  public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
   //      if (event.getObject() instanceof Player) {
   //          if (!event.getObject().getCapability(PlayerThirstProvider.PLAYER_THIRST).isPresent()) {
-  //              event.addCapability(new ResourceLocation(FirstMod.MODID, "properties"), new PlayerThirstProvider());
+  //              event.addCapability(new ResourceLocation(BloodyHell.MODID, "properties"), new PlayerThirstProvider());
   //          }
   //      }
   //  }

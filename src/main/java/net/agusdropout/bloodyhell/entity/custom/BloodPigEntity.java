@@ -1,6 +1,6 @@
-package net.agusdropout.firstmod.entity.custom;
+package net.agusdropout.bloodyhell.entity.custom;
 
-import net.agusdropout.firstmod.entity.ModEntityTypes;
+import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

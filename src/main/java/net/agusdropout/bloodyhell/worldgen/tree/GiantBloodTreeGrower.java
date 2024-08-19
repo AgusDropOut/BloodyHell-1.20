@@ -1,6 +1,6 @@
-package net.agusdropout.firstmod.worldgen.tree;
+package net.agusdropout.bloodyhell.worldgen.tree;
 
-import net.agusdropout.firstmod.worldgen.feature.ModConfiguredFeatures;
+import net.agusdropout.bloodyhell.worldgen.feature.ModConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;

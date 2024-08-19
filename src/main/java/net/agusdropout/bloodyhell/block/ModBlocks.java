@@ -1,14 +1,14 @@
-package net.agusdropout.firstmod.block;
+package net.agusdropout.bloodyhell.block;
 
-import net.agusdropout.firstmod.FirstMod;
-import net.agusdropout.firstmod.block.base.BaseWallPlantBlock;
-import net.agusdropout.firstmod.block.custom.*;
-import net.agusdropout.firstmod.fluid.ModFluids;
-import net.agusdropout.firstmod.item.ModItems;
-import net.agusdropout.firstmod.worldgen.tree.BloodTreeGrower;
-import net.agusdropout.firstmod.worldgen.tree.GiantBloodTreeGrower;
-import net.agusdropout.firstmod.worldgen.tree.SmallBloodTreeGrower;
-import net.agusdropout.firstmod.worldgen.tree.SoulTreeGrower;
+import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.block.base.BaseWallPlantBlock;
+import net.agusdropout.bloodyhell.block.custom.*;
+import net.agusdropout.bloodyhell.fluid.ModFluids;
+import net.agusdropout.bloodyhell.item.ModItems;
+import net.agusdropout.bloodyhell.worldgen.tree.BloodTreeGrower;
+import net.agusdropout.bloodyhell.worldgen.tree.GiantBloodTreeGrower;
+import net.agusdropout.bloodyhell.worldgen.tree.SmallBloodTreeGrower;
+import net.agusdropout.bloodyhell.worldgen.tree.SoulTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -31,7 +31,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FirstMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BloodyHell.MODID);
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name,block);
         registerBlockItem(name, toReturn);

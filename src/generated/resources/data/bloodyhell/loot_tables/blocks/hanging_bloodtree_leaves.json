@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "firstmod:hanging_bloodtree_leaves"
+          "name": "bloodyhell:hanging_bloodtree_leaves"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "firstmod:blocks/hanging_bloodtree_leaves"
+  "random_sequence": "bloodyhell:blocks/hanging_bloodtree_leaves"
 }
