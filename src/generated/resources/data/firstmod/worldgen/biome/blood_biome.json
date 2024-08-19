@@ -73,6 +73,7 @@
       "minecraft:ore_copper",
       "minecraft:underwater_magma",
       "minecraft:ore_gold_extra",
+      "firstmod:blood_liquid_placed",
       "firstmod:bleeding_block_placed",
       "firstmod:soul_placed"
     ],
@@ -86,9 +87,11 @@
       "minecraft:patch_grass_badlands",
       "minecraft:trees_plains",
       "firstmod:blood_flower_placed",
+      "firstmod:light_mushroom_placed",
       "firstmod:blood_grass_placed",
       "firstmod:blood_bush_placed",
       "firstmod:blood_tree_placed",
+      "firstmod:giant_blood_tree_placed",
       "firstmod:small_blood_tree_placed",
       "firstmod:soul_tree_placed",
       "firstmod:blood_lily_block_placed"

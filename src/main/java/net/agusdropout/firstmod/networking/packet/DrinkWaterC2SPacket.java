@@ -68,7 +68,7 @@ public class DrinkWaterC2SPacket {
             Fluid fluido = estadoDelFluido.getType();
 
             // Compara el tipo de fluido con tu ModFluids.FLOWING_SOAP_WATER
-            return fluido == ModFluids.SOURCE_SOAP_WATER.get();
+            return fluido == ModFluids.SOURCE_BLOOD.get();
         });
     }
 }

@@ -10,11 +10,13 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class EyeshellSnailRenderer extends GeoEntityRenderer<EyeshellSnailEntity> {
     public EyeshellSnailRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new EyeshellSnailModel());
+        super(renderManager, new EyeshellSnailModel<EyeshellSnailEntity>());
         this.shadowRadius = 0.8f;
+        addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override

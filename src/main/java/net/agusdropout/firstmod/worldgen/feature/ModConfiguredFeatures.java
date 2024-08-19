@@ -23,7 +23,9 @@ import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSi
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
@@ -34,14 +36,17 @@ public class ModConfiguredFeatures {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_SOUL_ORE_KEY = registerKey("overworld_soul_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>> GIANT_BLOOD_TREE_KEY = registerKey("giant_blood_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_TREE_KEY = registerKey("blood_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> SMALL_BLOOD_TREE_KEY = registerKey("small_blood_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> SOUL_TREE_KEY = registerKey("soul_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_FLOWER_KEY = registerKey("blood_flower");
+    public static final ResourceKey<ConfiguredFeature<?,?>> LIGHT_MUSHROOM_KEY = registerKey("light_mushroom");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_BUSH_KEY = registerKey("blood_bush_flower");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SMALL_ROCKS_KEY = registerKey("blood_small_rocks");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_PETALS_KEY = registerKey("blood_petals");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLEEDING_BLOCK_KEY = registerKey("bleeding_block");
+    public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LIQUID_KEY = registerKey("blood_liquid_block");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_GRASS_KEY = registerKey("blood_grass");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LILY_KEY = registerKey("blood_lily");
 
@@ -52,6 +57,8 @@ public class ModConfiguredFeatures {
             OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_soul_ORE.get().defaultBlockState())));
     public static final Supplier<List<OreConfiguration.TargetBlockState>> BLEEDING_BLOCK = Suppliers.memoize(() -> List.of(
            OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), ModBlocks.BLEEDING_BLOCK.get().defaultBlockState())));
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> BLOOD_LIQUID = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(new TagMatchTest(BlockTags.DIRT), ModBlocks.BLOOD_FLUID_BLOCK.get().defaultBlockState())));
 
 
 
@@ -62,14 +69,23 @@ public class ModConfiguredFeatures {
 
         register(context, OVERWORLD_SOUL_ORE_KEY, Feature.ORE, new OreConfiguration(SOUL_ORES.get(),12));
         register(context, BLEEDING_BLOCK_KEY, Feature.ORE, new OreConfiguration(BLEEDING_BLOCK.get(),33));
+        register(context, BLOOD_LIQUID_KEY, Feature.ORE, new OreConfiguration(BLOOD_LIQUID.get(),33));
 
 
         register(context,BLOOD_TREE_KEY,Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.BLOOD_LOG.get()),
                 new BloodTrunkPlacer(1, 2, 2),
                 BlockStateProvider.simple(ModBlocks.BLOOD_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 2),
+                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(2), 2),
                 new TwoLayersFeatureSize(1,0,2)).decorators(ImmutableList.of(BloodTreeTrunkDecorator.INSTANCE)).build()
+        );
+        register(context,GIANT_BLOOD_TREE_KEY,Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(ModBlocks.BLOOD_LOG.get()),
+                //altura/no se
+                new MegaJungleTrunkPlacer(10, 5, 5),
+                BlockStateProvider.simple(ModBlocks.BLOOD_LEAVES.get()),
+                new MegaJungleFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), 2),
+                new TwoLayersFeatureSize(1,0,2)).decorators(ImmutableList.of(BloodTreeTrunkDecorator.INSTANCE,BloodTreeLeafDecorator.INSTANCE)).build()
         );
         register(context,SOUL_TREE_KEY,Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.SOUL_LOG.get()),
@@ -86,6 +102,7 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1,1,1)).build()
         );
         context.register(BLOOD_FLOWER_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_FLOWER.get(), 64)));
+        context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 64)));
         context.register(BLOOD_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_GRASS.get(), 100)));
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));

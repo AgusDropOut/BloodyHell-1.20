@@ -26,7 +26,7 @@ public class BloodTreeTrunkDecorator extends TreeDecorator {
         context.logs().forEach((pos) -> {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 BlockPos newPos = pos.offset(direction.getStepX(), 0, direction.getStepZ());
-                if (random.nextInt(75) == 0) {
+                if (random.nextInt(25) == 0) {
                     if (context.isAir(newPos)) {
                         placeGronglet(context, newPos, direction);
                     }

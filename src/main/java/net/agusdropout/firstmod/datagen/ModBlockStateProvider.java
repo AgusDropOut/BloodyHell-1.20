@@ -36,6 +36,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
            String name = name(ModBlocks.HANGING_SOUL_TREE_LEAVES) + (state.getValue(HangingSoulTreeLeavesBlock.HALF) == DoubleBlockHalf.UPPER ? "_top" : "");
            return ConfiguredModel.builder().modelFile(models().cross(name, texture(name)).renderType("minecraft:cutout")).build();
        });
+        getVariantBuilder(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get()).forAllStates(state -> {
+            String name = name(ModBlocks.HANGING_BLOOD_TREE_LEAVES) + (state.getValue(HangingSoulTreeLeavesBlock.HALF) == DoubleBlockHalf.UPPER ? "_top" : "");
+            return ConfiguredModel.builder().modelFile(models().cross(name, texture(name)).renderType("minecraft:cutout")).build();
+        });
         blockWithItem(ModBlocks.BLOODY_STONE_BLOCK);
         blockWithItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);

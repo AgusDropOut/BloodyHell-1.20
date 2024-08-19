@@ -2,6 +2,7 @@ package net.agusdropout.firstmod.worldgen.tree;
 
 import net.agusdropout.firstmod.FirstMod;
 import net.agusdropout.firstmod.worldgen.tree.custom.BloodTrunkPlacer;
+import net.agusdropout.firstmod.worldgen.tree.custom.GiantBloodTrunkPlacer;
 import net.agusdropout.firstmod.worldgen.tree.custom.SmallBloodTrunkPlacer;
 import net.agusdropout.firstmod.worldgen.tree.custom.SoulTrunkPlacer;
 import net.minecraft.core.registries.Registries;
@@ -16,6 +17,8 @@ public class ModTrunkPlacerTypes {
 
     public static final RegistryObject<TrunkPlacerType<BloodTrunkPlacer>> BLOOD_TRUNK_PLACER =
             TRUNK_PLACER.register("blood_trunk_placer", ()-> new TrunkPlacerType<>(BloodTrunkPlacer.CODEC));
+    public static final RegistryObject<TrunkPlacerType<GiantBloodTrunkPlacer>> GIANT_BLOOD_TRUNK_PLACER =
+            TRUNK_PLACER.register("giant_blood_trunk_placer", ()-> new TrunkPlacerType<>(GiantBloodTrunkPlacer.CODEC));
     public static final RegistryObject<TrunkPlacerType<SoulTrunkPlacer>> SOUL_TRUNK_PLACER =
             TRUNK_PLACER.register("soul_trunk_placer", ()-> new TrunkPlacerType<>(SoulTrunkPlacer.CODEC));
     public static final RegistryObject<TrunkPlacerType<SmallBloodTrunkPlacer>> SMALL_BLOOD_TRUNK_PLACER =

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "firstmod:block/blood_fluid_block" }
+  }
+}

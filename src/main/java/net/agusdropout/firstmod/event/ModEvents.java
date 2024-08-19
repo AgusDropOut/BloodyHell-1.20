@@ -36,6 +36,12 @@ public class ModEvents {
 
 
             }
+           //@SubscribeEvent
+           //public static void onLivingHurt(LivingHurtEvent event){
+           //    if(event.getEntity() instanceof Player){
+           //
+           //    }
+           //}
 
             @SubscribeEvent
             public static void EntityAttributeEvent(EntityAttributeCreationEvent event) {
@@ -44,6 +50,7 @@ public class ModEvents {
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());
                 event.put(SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishEntity.setAttributes());
+                event.put(BLOODPIG.get(), BloodPigEntity.setAttributes());
 
 
             }
@@ -57,6 +64,8 @@ public class ModEvents {
 
             }
         }}
+
+
        // @SubscribeEvent
        // public static void addCustomTrades(VillagerTradesEvent event) {
        //     if (event.getType() == VillagerProfession.TOOLSMITH) {

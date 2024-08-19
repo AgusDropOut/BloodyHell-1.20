@@ -36,7 +36,7 @@ public class ModItems {
             )
     );
     public static final RegistryObject<Item> BLOOD_BUCKET = ITEMS.register("blood_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_SOAP_WATER,
+            () -> new BucketItem(ModFluids.SOURCE_BLOOD,
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static final RegistryObject<Item> BLOOD_SCYTHE = ITEMS.register("blood_scythe",
@@ -57,6 +57,8 @@ public class ModItems {
     public static final RegistryObject<Item> EYESHELLSNAIL_SPAWN_EGG = ITEMS.register("eyeshellsnail_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.EYESHELL_SNAIL,0xFF0000  ,0xFFB400 ,
             new Item.Properties()));
     public static final RegistryObject<Item> CRIMSON_RAVEN_SPAWN_EGG = ITEMS.register("crimsonraven_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.CRIMSON_RAVEN,0xFF3434 ,0xFCFF00,
+            new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_PIG_SPAWN_EGG = ITEMS.register("bloodpig_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOODPIG,0x000000 ,0xDA0000,
             new Item.Properties()));
     public static final RegistryObject<Item> SCARLETSPECKLED_FISH_SPAWN_EGG = ITEMS.register("scarletspeckledfish_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.SCARLETSPECKLED_FISH,0xFF3434 ,0xFCFF00,
             new Item.Properties()));

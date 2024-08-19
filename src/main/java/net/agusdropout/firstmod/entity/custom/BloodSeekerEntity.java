@@ -5,7 +5,9 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -117,5 +119,30 @@ public class BloodSeekerEntity extends Monster implements GeoEntity {
 
     protected float getSoundVolume() {
         return 0.2F;
+    }
+
+    public boolean doHurtTarget(Entity p_28837_) {
+        this.level().broadcastEntityEvent(this, (byte)4);
+        float f = 10;
+        float f1 = (int)f > 0 ? f / 2.0F + (float)this.random.nextInt((int)f) : f;
+        boolean flag = p_28837_.hurt(this.damageSources().mobAttack(this), f1);
+        if (flag) {
+            double d2;
+            if (p_28837_ instanceof LivingEntity) {
+                LivingEntity livingentity = (LivingEntity)p_28837_;
+                d2 = livingentity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
+            } else {
+                d2 = 0.0;
+            }
+
+            double d0 = d2;
+            double d1 = Math.max(0.0, 1.0 - d0);
+            p_28837_.setDeltaMovement(p_28837_.getDeltaMovement().add(0.0, 0.4000000059604645 * d1, 0.0));
+            this.doEnchantDamageEffects(this, p_28837_);
+        }
+
+        this.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1.0F, 1.0F);
+        return flag;
+
     }
 }

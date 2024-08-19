@@ -6,6 +6,7 @@ import net.agusdropout.firstmod.block.custom.*;
 import net.agusdropout.firstmod.fluid.ModFluids;
 import net.agusdropout.firstmod.item.ModItems;
 import net.agusdropout.firstmod.worldgen.tree.BloodTreeGrower;
+import net.agusdropout.firstmod.worldgen.tree.GiantBloodTreeGrower;
 import net.agusdropout.firstmod.worldgen.tree.SmallBloodTreeGrower;
 import net.agusdropout.firstmod.worldgen.tree.SoulTreeGrower;
 import net.minecraft.core.BlockPos;
@@ -72,8 +73,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> soul_Lamp = registerBlock("soul_lamp", ()-> new Soullampblock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).lightLevel(state -> state.getValue(Soullampblock.LIT) ? 15 : 0).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> Eyeball_crop = BLOCKS.register("eyeball_crop", ()-> new EyeballCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
-    public static final RegistryObject<LiquidBlock> SOAP_WATER_BLOCK = BLOCKS.register("soap_water_block",
-            () -> new LiquidBlock(ModFluids.SOURCE_SOAP_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+    public static final RegistryObject<LiquidBlock> BLOOD_FLUID_BLOCK = BLOCKS.register("blood_fluid_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable().lightLevel((state)->50).liquid()));
 
     public static final RegistryObject<Block> BLOOD_WORKBENCH = registerBlock("blood_workbench",
             ()-> new BloodWorkbenchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
@@ -108,6 +109,8 @@ public class ModBlocks {
             ()-> new SaplingBlock(new BloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
     public static final RegistryObject<Block> SMALL_BLOOD_SAPLING = registerBlock("small_blood_sapling",
             ()-> new SaplingBlock(new SmallBloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
+    public static final RegistryObject<Block> GIANT_BLOOD_SAPLING = registerBlock("giant_blood_sapling",
+            ()-> new SaplingBlock(new GiantBloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
     public static final RegistryObject<Block> SOUL_LOG = registerBlock("soul_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
     public static final RegistryObject<Block> SOUL_WOOD = registerBlock("soul_wood",
@@ -137,6 +140,8 @@ public class ModBlocks {
             ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     public static final RegistryObject<Block> HANGING_SOUL_TREE_LEAVES = registerBlock("hanging_soultree_leaves",
             ()-> new HangingSoulTreeLeavesBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
+    public static final RegistryObject<Block> HANGING_BLOOD_TREE_LEAVES = registerBlock("hanging_bloodtree_leaves",
+            ()-> new HangingSoulTreeLeavesBlock(BlockBehaviour.Properties.copy(Blocks.VINE).lightLevel((state)->15)) );
     public static final RegistryObject<Block> SOUL_SAPLING = registerBlock("soul_sapling",
             ()-> new SaplingBlock(new SoulTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
 
@@ -162,6 +167,8 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals",
             ()-> new FlowerBlock(()-> MobEffects.HARM,5,BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
+    public static final RegistryObject<Block> LIGHT_MUSHROOM_BLOCK = registerBlock("light_mushroom_block",
+            ()-> new FlowerBlock(()-> MobEffects.POISON,5,BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).noCollission().noOcclusion().lightLevel((state)->20)));
     public static final RegistryObject<Block> BLOOD_WALL_MUSHROOM_BLOCK = registerBlock("blood_wall_mushroom_block",
             ()-> new BaseWallPlantBlock(BlockBehaviour.Properties.copy(Blocks.COCOA).noOcclusion().dynamicShape().lightLevel( (state)->15 )) {
                 @Override

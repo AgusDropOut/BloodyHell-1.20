@@ -10,7 +10,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
-public class EyeshellSnailModel extends GeoModel<EyeshellSnailEntity> {
+public class EyeshellSnailModel<T extends EyeshellSnailEntity> extends GeoModel<EyeshellSnailEntity> {
     @Override
     public ResourceLocation getModelResource(EyeshellSnailEntity object) {
         return new ResourceLocation(FirstMod.MODID, "geo/eyeshellsnail.geo.json");

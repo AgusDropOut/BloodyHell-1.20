@@ -28,6 +28,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<ScarletSpeckledFishEntity>> SCARLETSPECKLED_FISH = ENTITY_TYPES.register("scarletspeckledfish",
             () -> EntityType.Builder.of(ScarletSpeckledFishEntity::new,MobCategory.AMBIENT).sized(0.2f,0.2f).build(new ResourceLocation(FirstMod.MODID,
                     "scarletspeckledfish").toString()));
+    public static final RegistryObject<EntityType<BloodPigEntity>> BLOODPIG = ENTITY_TYPES.register("bloodpig",
+            () -> EntityType.Builder.of(BloodPigEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(FirstMod.MODID,
+                    "bloodpig").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

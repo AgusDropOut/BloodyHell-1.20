@@ -190,6 +190,7 @@ public class FirstMod
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
             event.accept(ModItems.DIRTY_BLOOD_FLOWER);
             event.accept(ModItems.BLOOD_LILY);
+            event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
 
 
 
@@ -214,6 +215,7 @@ public class FirstMod
             event.accept(ModBlocks.BLOODY_STONE_FENCE);
             event.accept(ModBlocks.BLOODY_STONE_FENCE_GATE);
             event.accept(ModBlocks.BLOODY_STONE_SLAB);
+            event.accept(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
 
 
 
@@ -239,6 +241,7 @@ public class FirstMod
             event.accept(ModBlocks.BLOOD_BUSH);
             event.accept(ModBlocks.BLOOD_PETALS);
             event.accept(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK);
+            event.accept(ModBlocks.LIGHT_MUSHROOM_BLOCK);
 
 
             event.accept(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK);
@@ -261,14 +264,15 @@ public class FirstMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());  //RENDERIZADO DE LOS LIQUIDOS PARA QUE SEAN TRANSPARNETES
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLOOD.get(), RenderType.translucent());  //RENDERIZADO DE LOS LIQUIDOS PARA QUE SEAN TRANSPARNETES
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLOOD.get(), RenderType.translucent());
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishRenderer::new);
             EntityRenderers.register(ModEntityTypes.CRIMSON_RAVEN.get(), CrimsonRavenRenderer::new);
             EntityRenderers.register(ModEntityTypes.EYESHELL_SNAIL.get(), EyeshellSnailRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOODPIG.get(), BloodPigRenderer::new);
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
