@@ -1,0 +1,21 @@
+{
+
+  "structures": [
+    {
+      "structure": "bloodyhell:portal",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1643176474,
+
+
+    "spacing": 20,
+
+    "separation": 6,
+
+
+    "type": "minecraft:random_spread"
+  }
+}

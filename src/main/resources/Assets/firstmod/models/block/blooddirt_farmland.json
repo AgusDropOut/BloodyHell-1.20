@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_farmland",
-  "textures": {
-    "particle": "firstmod:block/blood_dirt_block",
-    "dirt": "firstmod:block/blood_dirt_block",
-    "top": "firstmod:block/blooddirt_farmland"
-  }
-}

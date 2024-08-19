@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bloodyhell:block/blood_wall_mushroom_block"
+    },
+    "facing=south": {
+      "model": "bloodyhell:block/blood_wall_mushroom_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bloodyhell:block/blood_wall_mushroom_block",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "bloodyhell:block/blood_wall_mushroom_block",
+      "y": 90
+    }
+  }
+}

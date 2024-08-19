@@ -1,10 +1,10 @@
 {
   "values": [
-    "firstmod:soul_block",
-    "firstmod:soul_ore",
-    "firstmod:deepslate_soul_ore",
-    "firstmod:jumpy_block",
-    "firstmod:blood_workbench",
-    "firstmod:bleeding_block"
+    "bloodyhell:soul_block",
+    "bloodyhell:soul_ore",
+    "bloodyhell:deepslate_soul_ore",
+    "bloodyhell:jumpy_block",
+    "bloodyhell:blood_workbench",
+    "bloodyhell:bleeding_block"
   ]
 }

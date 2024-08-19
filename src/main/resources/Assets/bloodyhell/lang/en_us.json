@@ -1,0 +1,73 @@
+{
+  "item.bloodyhell.soul" : "Soul",
+  "item.bloodyhell.raw_soul" : "Raw Soul",
+  "item.bloodyhell.eight_ball" : "Eight Ball",
+  "item.bloodyhell.eyeball_seeds" : "Eyeball Seed",
+  "item.bloodyhell.eyeball" : "Eyeball",
+  "itemGroup.bloodyhelltab" : "Soul Tab",
+
+  "item.bloodyhell.soul_ore" : "Soul Ore",
+  "item.bloodyhell.bloody_soul_dust" : "Bloody Soul Dust",
+  "item.bloodyhell.materialized_soul" : "Materialized Soul",
+  "item.bloodyhell.eyeball_seed" : "Eyeball Seeds",
+  "block.bloodyhell.blood_sapling" : "Blood Sapling",
+  "block.bloodyhell.soul_sapling" : "Soul Sapling",
+
+  "block.bloodyhell.blood_flower" : "Blood Flower",
+  "block.bloodyhell.blood_bush" : "Blood Bush",
+  "block.bloodyhell.blood_petals" : "Blood Petals",
+  "block.bloodyhell.blood_small_rocks" : "Blood Small Rocks",
+
+
+
+
+
+
+  "block.bloodyhell.deepslate_soul_ore" : "Deepslate Soul Ore ",
+  "block.bloodyhell.soul_block" : "Soul Block",
+  "block.bloodyhell.soul_lamp" : "Soul Lamp",
+  "block.bloodyhell.blood_workbench" : "Blood Workbench",
+  "block.bloodyhell.jumpy_block" : "Jumpy Block",
+  "block.bloodyhell.bleeding_block" : "Bleeding Block",
+  "block.bloodyhell.blood_log" : "Blood Log",
+  "block.bloodyhell.blood_wood" : "Blood Wood",
+  "block.bloodyhell.blood_leaves" : "Blood Leaves",
+  "block.bloodyhell.stripped_blood_log" : " Stripped Blood Log",
+  "block.bloodyhell.blood_planks" : "Blood Planks",
+  "block.bloodyhell.soul_log" : "Soul Log",
+  "block.bloodyhell.soul_wood" : "Soul Wood",
+  "block.bloodyhell.soul_leaves" : "Soul Leaves",
+  "block.bloodyhell.stripped_soul_log" : " Stripped Soul Log",
+  "block.bloodyhell.soul_planks" : "Soul Planks",
+  "block.bloodyhell.blood_grass_block" : "Blood Grass",
+  "block.bloodyhell.blood_dirt_block" : "Blood Dirt",
+  "block.bloodyhell.eyeballshell_snail_goo_block" : "Eyeball Snail Goo Block",
+  "block.bloodyhell.eyeballshell_snail_goo" : "Eyeball Snail Goo",
+
+
+
+
+
+
+  "entity.minecraft.villager.bloodyhell.jump_master": "Jumpy Master",
+  "key.category.bloodyhell.tutorial": "Let The Living Be Aware Mod",
+  "key.bloodyhell.drink_blood": "Drink Blood",
+  "message.bloodyhell.drink_water": "Drinking Water",
+  "message.bloodyhell.no_water": "No water nearby!",
+
+  "item.bloodyhell.blood_bucket": "Blood Bucket",
+  "item.bloodyhell.blood_scythe": "Blood Scythe",
+  "item.bloodyhell.blood_pickaxe": "Blood Pickaxe",
+  "item.bloodyhell.blood_sword": "Blood Sword",
+  "item.bloodyhell.soul_sword": "Soul Sword",
+  "item.bloodyhell.soul_pickaxe": "Soul Pickaxe",
+
+  "effect.bloodyhell.bleeding": "Bleeding",
+
+
+
+  "item.bloodyhell.bloodthirstybeast_spawn_egg": "Blood Thirsty Beast",
+  "item.bloodyhell.bloodseeker_spawn_egg": "Blood Seeker",
+  "item.bloodyhell.eyeshellsnail_spawn_egg": "Eyeshell Snail",
+  "item.bloodyhell.crimsonraven_spawn_egg": "Crimson Raven"
+}

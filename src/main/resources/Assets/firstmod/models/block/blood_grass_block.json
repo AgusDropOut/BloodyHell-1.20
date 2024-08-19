@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "firstmod:block/blood_grass_block_top",
-    "side": "firstmod:block/blood_grass_block_side"
-  }
-}

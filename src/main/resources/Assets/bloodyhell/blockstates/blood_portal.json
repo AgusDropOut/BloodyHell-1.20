@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=z": { "model": "bloodyhell:block/blood_portal_ew" },
+    "axis=x": { "model": "bloodyhell:block/blood_portal_ns" }
+  }
+}

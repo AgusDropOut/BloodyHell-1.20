@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "bloodyhell:block/stripped_blood_log_top",
+    "side": "bloodyhell:block/stripped_blood_log"
+  }
+}
