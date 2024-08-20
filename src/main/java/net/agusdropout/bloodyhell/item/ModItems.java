@@ -4,10 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
-import net.agusdropout.bloodyhell.item.custom.BloodScytheItem;
-import net.agusdropout.bloodyhell.item.custom.CatalystItem;
-import net.agusdropout.bloodyhell.item.custom.EightBallItem;
-import net.agusdropout.bloodyhell.item.custom.SoulItem;
+import net.agusdropout.bloodyhell.item.custom.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -46,6 +43,10 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SOUL_SWORD = ITEMS.register("soul_sword",() -> new SoulItem(Tiers.NETHERITE,11,6,
             new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> BLOOD_BOW = ITEMS.register("blood_bow",() -> new ModBow(
+            new Item.Properties().stacksTo(1).durability(500)));
+
     public static final RegistryObject<Item> BLOOD_PICKAXE = ITEMS.register("blood_pickaxe",() -> new PickaxeItem(Tiers.DIAMOND,5,5,
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SOUL_PICKAXE = ITEMS.register("soul_pickaxe",() -> new PickaxeItem(Tiers.NETHERITE,6,6,

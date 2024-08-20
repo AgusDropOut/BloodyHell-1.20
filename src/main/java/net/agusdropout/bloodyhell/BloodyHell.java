@@ -19,6 +19,7 @@ import net.agusdropout.bloodyhell.recipe.ModRecipes;
 import net.agusdropout.bloodyhell.registry.BloodCapabilities;
 import net.agusdropout.bloodyhell.screen.BloodWorkBenchScreen;
 import net.agusdropout.bloodyhell.screen.ModMenuTypes;
+import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.villager.ModPOIs;
 import net.agusdropout.bloodyhell.worldgen.biome.ModTerrablender;
 import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
@@ -140,6 +141,7 @@ public class BloodyHell
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);
             ModMessages.register();
+            ModItemProperties.addCustomItemProperties();
            //ModVillagers.registerPOIs();
             MinecraftForge.EVENT_BUS.addListener(this::onPlayerInteract);
 
@@ -195,6 +197,7 @@ public class BloodyHell
             event.accept(ModItems.DIRTY_BLOOD_FLOWER);
             event.accept(ModItems.BLOOD_LILY);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
+            event.accept(ModItems.BLOOD_BOW);
 
 
 
