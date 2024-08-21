@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.datagen;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -32,5 +33,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.SOUL_PLANKS.get().asItem());
+        this.tag(ItemTags.ARROWS)
+                .add(ModItems.BLOOD_ARROW.get());
     }
 }

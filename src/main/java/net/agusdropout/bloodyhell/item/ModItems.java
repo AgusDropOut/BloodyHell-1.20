@@ -68,6 +68,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily",
             () -> new PlaceOnWaterBlockItem(ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_ARROW = ITEMS.register("blood_arrow",
+            () -> new BloodArrowItem(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus){

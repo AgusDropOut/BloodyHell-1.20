@@ -31,6 +31,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodPigEntity>> BLOODPIG = ENTITY_TYPES.register("bloodpig",
             () -> EntityType.Builder.of(BloodPigEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodpig").toString()));
+    public static final RegistryObject<EntityType<BloodArrowEntity>> BLOOD_ARROW = ENTITY_TYPES.register("blood_arrow_entity",
+            () -> EntityType.Builder.<BloodArrowEntity>of(BloodArrowEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "blood_arrow_entity").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

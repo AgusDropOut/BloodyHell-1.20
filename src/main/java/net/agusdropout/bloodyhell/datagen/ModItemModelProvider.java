@@ -56,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_FENCE_GATE);
 
         normalItem(ModItems.DIRTY_BLOOD_FLOWER);
+        normalItem(ModItems.BLOOD_ARROW);
 
         simpleBlockItemBlockTexture(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
 

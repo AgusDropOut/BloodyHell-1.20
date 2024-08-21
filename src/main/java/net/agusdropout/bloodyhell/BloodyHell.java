@@ -198,6 +198,8 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_LILY);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.BLOOD_BOW);
+            event.accept(ModItems.BLOOD_ARROW);
+
 
 
 
@@ -280,6 +282,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.CRIMSON_RAVEN.get(), CrimsonRavenRenderer::new);
             EntityRenderers.register(ModEntityTypes.EYESHELL_SNAIL.get(), EyeshellSnailRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODPIG.get(), BloodPigRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
 
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
