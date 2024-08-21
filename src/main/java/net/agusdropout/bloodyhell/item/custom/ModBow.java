@@ -41,7 +41,7 @@ public class ModBow extends BowItem {
                 if (!((double) f < 0.1)) {
                     boolean flag1 = player.getAbilities().instabuild || itemstack.getItem() instanceof ArrowItem && ((ArrowItem) itemstack.getItem()).isInfinite(itemstack, itemStack, player);
                     if (!level.isClientSide) {
-                        ArrowItem arrowitem = (ArrowItem) (itemstack.getItem() instanceof BloodArrowItem ? itemstack.getItem() : ModItems.BLOOD_ARROW);
+                        ArrowItem arrowitem = (ArrowItem) (itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
                         AbstractArrow abstractarrow = arrowitem.createArrow(level, itemstack, player);
                         AbstractArrow abstractarrow1 = arrowitem.createArrow(level, itemstack, player);
                         AbstractArrow abstractarrow2 = arrowitem.createArrow(level, itemstack, player);
