@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "bloodyhell:block/blood_glow_stone",
+    "side": "bloodyhell:block/blood_glow_stone"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bloodyhell:block/blood_glow_stone",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bloodyhell:block/blood_glow_stone_top"
+    },
+    "axis=z": {
+      "model": "bloodyhell:block/blood_glow_stone_top",
+      "x": 90
+    }
+  }
+}

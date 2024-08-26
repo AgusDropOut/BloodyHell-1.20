@@ -4,7 +4,7 @@
   "coordinate_scale": 1.0,
   "effects": "minecraft:overworld",
   "fixed_time": 12000,
-  "has_ceiling": false,
+  "has_ceiling": true,
   "has_raids": false,
   "has_skylight": false,
   "height": 256,

@@ -1,0 +1,31 @@
+{
+
+
+
+  "name": "bloodyhell:blood_lighthouse/start_pool",
+
+
+  "fallback": "minecraft:empty",
+
+
+  "elements": [
+    {
+
+
+      "weight": 2,
+      "element": {
+
+        "location": "bloodyhell:blood_lighthouse",
+
+
+        "processors": "minecraft:empty",
+
+
+        "projection": "rigid",
+
+
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

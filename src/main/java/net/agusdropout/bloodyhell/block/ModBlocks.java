@@ -176,6 +176,8 @@ public class ModBlocks {
                     super.createBlockStateDefinition(stateManager);
                 }
             });
+    public static final RegistryObject<Block> BLOOD_GLOW_STONE = registerBlock("blood_glow_stone",
+            ()-> new EffectBlock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).lightLevel((state)->15)));
 
 
 

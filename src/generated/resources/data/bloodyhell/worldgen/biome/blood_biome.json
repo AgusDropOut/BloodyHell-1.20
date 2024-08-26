@@ -117,6 +117,12 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 10
+      },
+      {
+        "type": "bloodyhell:bloodpig",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 10
       }
     ],
     "misc": [],
@@ -141,12 +147,6 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 1
-      },
-      {
-        "type": "bloodyhell:bloodpig",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 10
       }
     ],
     "water_creature": []

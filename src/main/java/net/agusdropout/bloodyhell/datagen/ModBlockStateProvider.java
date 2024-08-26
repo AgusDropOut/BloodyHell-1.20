@@ -43,6 +43,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOODY_STONE_BLOCK);
         blockWithItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+        blockWithItem(ModBlocks.BLOOD_GLOW_STONE);
+
+
         stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_STAIRS.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
         slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_SLAB.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
 
@@ -125,6 +128,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     public void fence(Supplier<? extends FenceBlock> block, Supplier<? extends Block> fullBlock) {
         fenceBlock(block.get(), texture(name(fullBlock)));
         fenceColumn(block, name(fullBlock));
+
     }
 
     private void fenceColumn(Supplier<? extends FenceBlock> block, String name) {
@@ -161,6 +165,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     public void sign(Supplier<? extends StandingSignBlock> standingBlock, Supplier<? extends WallSignBlock> wallBlock, String name) {
         signBlock(standingBlock.get(), wallBlock.get(), modLoc("block/" + name));
     }
+
+
 
     public void hangingSign(Supplier<? extends CeilingHangingSignBlock> standingBlock, Supplier<? extends WallHangingSignBlock> wallBlock, String name) {
         ModelFile model = models().getBuilder(name(standingBlock)).texture("particle", modLoc("block/" + name));

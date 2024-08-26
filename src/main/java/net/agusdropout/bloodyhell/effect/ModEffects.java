@@ -14,6 +14,8 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> BLEEDING = MOB_EFFECTS.register("bleeding",
             () -> new BleedingEffect(MobEffectCategory.HARMFUL, 0xAA0000));
+    public static final RegistryObject<MobEffect> ILLUMINATED = MOB_EFFECTS.register("illuminated",
+            () -> new IlluminatedEffect(MobEffectCategory.BENEFICIAL, 0xFFE800));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

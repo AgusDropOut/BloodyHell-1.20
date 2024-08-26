@@ -2,18 +2,18 @@
 
   "structures": [
     {
-      "structure": "bloodyhell:portal",
+      "structure": "bloodyhell:blood_lighthouse",
       "weight": 1
     }
   ],
   "placement": {
 
-    "salt": 1643176474,
+    "salt": 1643176475,
 
 
-    "spacing": 8,
+    "spacing": 3,
 
-    "separation": 6,
+    "separation": 1,
 
 
     "type": "minecraft:random_spread"

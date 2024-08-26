@@ -225,6 +225,7 @@ public class BloodyHell
             event.accept(ModBlocks.BLOODY_STONE_FENCE_GATE);
             event.accept(ModBlocks.BLOODY_STONE_SLAB);
             event.accept(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
+            event.accept(ModBlocks.BLOOD_GLOW_STONE);
 
 
 

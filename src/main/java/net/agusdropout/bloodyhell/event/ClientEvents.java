@@ -7,13 +7,14 @@ import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
 import net.agusdropout.bloodyhell.particle.custom.LightParticle;
+import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-public class ClientEvents {
+public class ClientEvents  {
     @Mod.EventBusSubscriber(modid = BloodyHell.MODID, value = Dist.CLIENT)
     public static class ClientForgeEvents {
 

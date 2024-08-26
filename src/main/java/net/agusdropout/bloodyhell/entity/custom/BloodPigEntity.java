@@ -52,7 +52,7 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
                 .add(Attributes.MAX_HEALTH, 150)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.4D).build();
+                .add(Attributes.MOVEMENT_SPEED, 1.0f).build();
     }
 
     @Override
