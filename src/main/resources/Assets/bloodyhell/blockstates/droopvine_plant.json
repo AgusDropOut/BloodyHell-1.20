@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "glowy=false":	{ "model": "bloodyhell:block/droopvine_plant" },
+
+    "glowy=true":  { "model": "bloodyhell:block/droopvine_plant_glowy" }
+  }
+}

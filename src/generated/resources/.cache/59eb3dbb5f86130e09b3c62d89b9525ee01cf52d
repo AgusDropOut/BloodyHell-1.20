@@ -1,4 +1,4 @@
-// 1.20	2024-08-25T00:40:09.1489657	Loot Tables
+// 1.20	2024-09-02T00:03:00.4049508	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -25,6 +25,8 @@ dd6721ff08957b9d66d5881b75ef11d293f95d61 data/bloodyhell/loot_tables/blocks/bloo
 8b32ade876780d337cbb850b42f0e785bb019af7 data/bloodyhell/loot_tables/blocks/blood_wood.json
 1b90a90f1fba253bf529052322b08ec8ee81925e data/bloodyhell/loot_tables/blocks/blood_workbench.json
 397b7923701b741af25ed347e777239e8a7c3a51 data/bloodyhell/loot_tables/blocks/deepslate_soul_ore.json
+3964ed8bb12f5cb1d5f07f4acb52b306f7d10cd3 data/bloodyhell/loot_tables/blocks/droopvine.json
+76a0c75dcf7974caf6a6b074aca61ba33607c4b2 data/bloodyhell/loot_tables/blocks/droopvine_plant.json
 c5611f5bc9c4b26e66b27f5cc9d3674810f5b685 data/bloodyhell/loot_tables/blocks/eyeballshell_snail_goo.json
 534ae84e12ffffb399cb8fa3ba4dfccdf02de68a data/bloodyhell/loot_tables/blocks/eyeballshell_snail_goo_block.json
 36fbcfa7c729718064356118a549c97826a01021 data/bloodyhell/loot_tables/blocks/eyeball_crop.json

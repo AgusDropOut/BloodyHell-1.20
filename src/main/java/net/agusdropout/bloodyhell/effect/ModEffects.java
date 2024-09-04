@@ -16,6 +16,8 @@ public class ModEffects {
             () -> new BleedingEffect(MobEffectCategory.HARMFUL, 0xAA0000));
     public static final RegistryObject<MobEffect> ILLUMINATED = MOB_EFFECTS.register("illuminated",
             () -> new IlluminatedEffect(MobEffectCategory.BENEFICIAL, 0xFFE800));
+    public static final RegistryObject<MobEffect> BLOOD_LUST = MOB_EFFECTS.register("blood_lust",
+            () -> new BloodLustEffect(MobEffectCategory.HARMFUL, 0xFFE800));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

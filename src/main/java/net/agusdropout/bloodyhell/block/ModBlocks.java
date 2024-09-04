@@ -164,7 +164,7 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
     public static final RegistryObject<Block> BLOOD_LILY_BLOCK = registerBlock("blood_lily_block",
             ()-> new BloodLilyBlock(
-                    BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
+                    BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().lightLevel((state)->20).instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals",
             ()-> new FlowerBlock(()-> MobEffects.HARM,5,BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
     public static final RegistryObject<Block> LIGHT_MUSHROOM_BLOCK = registerBlock("light_mushroom_block",
@@ -178,6 +178,10 @@ public class ModBlocks {
             });
     public static final RegistryObject<Block> BLOOD_GLOW_STONE = registerBlock("blood_glow_stone",
             ()-> new EffectBlock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).lightLevel((state)->15)));
+
+    public static final RegistryObject<Block> DROOPVINE = registerBlock("droopvine", () -> new DroopvineBlock(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES).strength(0.1F).lightLevel(Droopvine.light())));
+    public static final RegistryObject<Block> DROOPVINE_PLANT = registerBlock("droopvine_plant", () -> new DroopvinePlantBlock(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES_PLANT).strength(0.1F).lightLevel(Droopvine.light())));
+
 
 
 

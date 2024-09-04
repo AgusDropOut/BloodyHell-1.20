@@ -75,11 +75,17 @@ public class ModEvents {
         public static class ForgeEvents{
             @SubscribeEvent
             public static void PlayerTickEvent(TickEvent.PlayerTickEvent event){
-                    MobEffectInstance bleeding = new MobEffectInstance(ModEffects.BLEEDING.get(),200,1);
-                    event.player.addEffect(bleeding);
-                    if(event.player.level().dimension().equals(ModDimensions.SOUL_LEVEL_KEY)){
-                        System.out.println("holaaa");
-                    }
+                   // if(!event.player.level().isClientSide) {
+                   //     if (event.player.level().dimension().equals(ModDimensions.SOUL_LEVEL_KEY)) {
+                   //         if (!event.player.hasEffect(ModEffects.BLOOD_LUST.get())) {
+                   //             if (!event.player.hasEffect(ModEffects.ILLUMINATED.get())) {
+                   //                 MobEffectInstance bloodLust = new MobEffectInstance(ModEffects.BLOOD_LUST.get(), 100, 1);
+                   //                 event.player.addEffect(bloodLust);
+                   //             }
+                   //         }
+                   //     }
+                   // }
+
 
 
 

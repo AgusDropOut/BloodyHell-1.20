@@ -9,6 +9,7 @@ import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;
 
+import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
 import net.agusdropout.bloodyhell.item.ModItems;
@@ -21,10 +22,12 @@ import net.agusdropout.bloodyhell.screen.BloodWorkBenchScreen;
 import net.agusdropout.bloodyhell.screen.ModMenuTypes;
 import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.villager.ModPOIs;
-import net.agusdropout.bloodyhell.worldgen.biome.ModTerrablender;
 import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
+import net.agusdropout.bloodyhell.worldgen.feature.ModFeatures;
 import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
 
+import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
+import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -58,7 +61,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
-import terrablender.api.SurfaceRuleManager;
+
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -79,32 +82,30 @@ public class BloodyHell
 
         MinecraftForge.EVENT_BUS.addListener(this::portalTick);
         ModCreativeModeTab.register(modEventBus);
+        GeckoLib.initialize();
         ModPOIs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         //ModVillagers.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModParticles.register(modEventBus);
-
-        ModTerrablender.registerBiomes();
-
-
         ModFluids.register(modEventBus);
-        net.agusdropout.bloodyhell.fluid.ModFluidTypes.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
-        net.agusdropout.bloodyhell.entity.ModEntityTypes.register(modEventBus);
-        net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
+        ModTrunkPlacerTypes.register(modEventBus);
         ModEffects.register(modEventBus);
-        net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes.register(modEventBus);
+        ModTreeDecoratorTypes.register(modEventBus);
         ModStructures.register(modEventBus);
+        ModFeatures.register(modEventBus);
 
 
 
 
 
-        GeckoLib.initialize();
+
 
 
 
@@ -147,7 +148,7 @@ public class BloodyHell
 
 
 
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, ModSurfaceRules.makeRules());
+
         });
 
 
@@ -199,6 +200,7 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.BLOOD_BOW);
             event.accept(ModItems.BLOOD_ARROW);
+            event.accept(ModItems.BLOOD_FRUIT);
 
 
 
@@ -226,6 +228,8 @@ public class BloodyHell
             event.accept(ModBlocks.BLOODY_STONE_SLAB);
             event.accept(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
             event.accept(ModBlocks.BLOOD_GLOW_STONE);
+            event.accept(ModBlocks.DROOPVINE);
+            event.accept(ModBlocks.DROOPVINE_PLANT);
 
 
 

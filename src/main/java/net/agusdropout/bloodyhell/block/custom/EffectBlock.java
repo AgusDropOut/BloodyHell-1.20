@@ -24,12 +24,12 @@ public class EffectBlock extends Block {
         public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
 
 
-                double range = 5.0D;
-                AABB effectArea = (new AABB(blockPos)).inflate(range);
-                List<Player> players = level.getEntitiesOfClass(Player.class, effectArea);
-                for (Player player : players) { // Iterate over the players
-                    player.addEffect(new MobEffectInstance(ModEffects.ILLUMINATED.get(), 200));
-                }
+                    double range = 5.0D;
+                    AABB effectArea = (new AABB(blockPos)).inflate(range);
+                    List<Player> players = level.getEntitiesOfClass(Player.class, effectArea);
+                    for (Player player : players) { // Iterate over the players
+                        player.removeEffect(ModEffects.BLOOD_LUST.get());
+                    }
 
 
 

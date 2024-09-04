@@ -4,7 +4,9 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.worldgen.feature.custom.DroopvineFeature;
 import net.agusdropout.bloodyhell.worldgen.tree.custom.*;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -14,22 +16,29 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.function.Supplier;
 
 public class ModConfiguredFeatures {
@@ -49,6 +58,11 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LIQUID_KEY = registerKey("blood_liquid_block");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_GRASS_KEY = registerKey("blood_grass");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LILY_KEY = registerKey("blood_lily");
+    public static final ResourceKey<ConfiguredFeature<?,?>> DROOPVINE_KEY = registerKey("droopvine");
+
+
+
+
 
 
 
@@ -108,8 +122,7 @@ public class ModConfiguredFeatures {
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));
         context.register(BLOOD_PETALS_KEY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, patch(ModBlocks.BLOOD_PETALS.get(), 70)));
         context.register(BLOOD_LILY_KEY,new ConfiguredFeature<> (Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.BLOOD_LILY_BLOCK.get()))))));
-
-
+        context.register(DROOPVINE_KEY, new ConfiguredFeature<>(ModFeatures.DROOPVINE.get(),NoneFeatureConfiguration.NONE));
 
 }
 

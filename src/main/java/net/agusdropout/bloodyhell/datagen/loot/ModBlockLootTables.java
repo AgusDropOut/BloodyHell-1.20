@@ -67,6 +67,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.GIANT_BLOOD_SAPLING.get());
         this.dropSelf(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get());
         this.dropSelf(ModBlocks.BLOOD_GLOW_STONE.get());
+        this.dropSelf(ModBlocks.DROOPVINE.get());
+        this.dropSelf(ModBlocks.DROOPVINE_PLANT.get());
 
 
 

@@ -9,16 +9,16 @@
           "biome": "bloodyhell:blood_biome",
           "parameters": {
             "continentalness": 0.0,
-            "depth": 0.0,
+            "depth": -2.0,
             "erosion": 0.0,
-            "humidity": 0.0,
+            "humidity": 0.4,
             "offset": 0.0,
-            "temperature": 0.0,
+            "temperature": 1.0,
             "weirdness": 0.0
           }
         }
       ]
     },
-    "settings": "minecraft:amplified"
+    "settings": "bloodyhell:soul_dimension"
   }
 }

@@ -78,26 +78,20 @@
       "bloodyhell:soul_placed"
     ],
     [],
-    [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
-    ],
+    [],
     [
       "minecraft:glow_lichen",
       "minecraft:patch_grass_badlands",
-      "minecraft:trees_plains",
+      "bloodyhell:giant_blood_tree_placed",
+      "bloodyhell:blood_tree_placed",
+      "bloodyhell:small_blood_tree_placed",
+      "bloodyhell:droopvine_placed",
       "bloodyhell:blood_flower_placed",
       "bloodyhell:light_mushroom_placed",
       "bloodyhell:blood_grass_placed",
       "bloodyhell:blood_bush_placed",
-      "bloodyhell:blood_tree_placed",
-      "bloodyhell:giant_blood_tree_placed",
-      "bloodyhell:small_blood_tree_placed",
       "bloodyhell:soul_tree_placed",
       "bloodyhell:blood_lily_block_placed"
-    ],
-    [
-      "minecraft:freeze_top_layer"
     ]
   ],
   "has_precipitation": true,

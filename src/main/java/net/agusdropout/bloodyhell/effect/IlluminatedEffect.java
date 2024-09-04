@@ -14,7 +14,7 @@ public class IlluminatedEffect extends MobEffect {
     public void applyEffectTick(LivingEntity entity, int amplifier) {
 
 
-            entity.removeEffect(ModEffects.BLEEDING.get());
+            entity.removeEffect(ModEffects.BLOOD_LUST.get());
 
         super.applyEffectTick(entity, amplifier);
     }
