@@ -23,7 +23,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> BLOODY_SOUL_DUST = ITEMS.register("bloody_soul_dust", () -> new Item( new Item.Properties()));
     public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem( new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> BLOOD_FRUIT = ITEMS.register("blood_fruit", () -> new Item( new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(3).build())));
+    public static final RegistryObject<Item> GLOW_FRUIT = ITEMS.register("glow_fruit", () -> new Item( new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(3).build())));
+    public static final RegistryObject<Item> GLOW_MUSHROOM = ITEMS.register("glow_mushroom", () -> new BlockItem( ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(3)
+            .effect(
+            () -> new MobEffectInstance(MobEffects.GLOWING,200,0),1)
+            .effect(
+                    () -> new MobEffectInstance(MobEffects.CONFUSION,200,0),1
+            ).build())));
     public static final RegistryObject<Item> Eyeball_seed = ITEMS.register("eyeball_seed", () -> new ItemNameBlockItem(ModBlocks.Eyeball_crop.get(), new Item.Properties()));
     public static final RegistryObject<Item> Eyeball = ITEMS.register("eyeball", () ->
             new Item(new Item.Properties()

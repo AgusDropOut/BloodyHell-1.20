@@ -38,7 +38,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLOOD_LIQUID_PLACED_KEY = createKey("blood_liquid_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_LILY_BLOCK_PLACED_KEY = createKey("blood_lily_block_placed");
     public static final ResourceKey<PlacedFeature> DROOPVINE_PLACED_KEY = createKey("droopvine_placed");
-
+    public static final ResourceKey<PlacedFeature> BLOOD_SCRAPPER_PLANT_PLACED_KEY = createKey("blood_scrapper_plant_placed");
 
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
@@ -70,6 +70,7 @@ public class ModPlacedFeatures {
         register(context, BLOOD_PETALS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_PETALS_KEY),patch(70));
         register(context, BLOOD_LILY_BLOCK_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_LILY_KEY),patch(70));
         register(context,DROOPVINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DROOPVINE_KEY), patch(100));
+        register(context,BLOOD_SCRAPPER_PLANT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SCRAPPER_PLANT_KEY), patch(30));
     }
 
     private static List<PlacementModifier> patch(int count) {

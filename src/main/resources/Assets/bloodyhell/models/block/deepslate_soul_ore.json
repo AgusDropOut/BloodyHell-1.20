@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "bloodyhell:block/deepslate_soul_ore"
+    "all": "nombre_mod:block/nombre_bloque"
   }
 }

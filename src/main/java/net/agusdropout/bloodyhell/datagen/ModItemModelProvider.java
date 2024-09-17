@@ -45,7 +45,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+
         normalItem(ModItems.BLOOD_LILY);
+        normalItem(ModItems.GLOW_FRUIT);
+        normalItem(ModItems.GLOW_MUSHROOM);
         fenceItem(ModBlocks.BLOODY_STONE_FENCE, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
         wallItem(ModBlocks.BLOODY_STONE_WALL, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);

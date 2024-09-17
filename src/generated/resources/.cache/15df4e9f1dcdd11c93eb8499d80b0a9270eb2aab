@@ -1,4 +1,5 @@
-// 1.20	2024-08-18T20:11:17.1634888	Tags for minecraft:block mod id bloodyhell
+// 1.20	2024-09-15T19:49:14.125777	Tags for minecraft:block mod id bloodyhell
+d1d9a1ff91a8b39e470b1677893c67bb6fe41586 data/bloodyhell/tags/blocks/blood_scrapper_plant_placeable_on.json
 3de357e004aea326aa2f58ba53720751bdd546e0 data/minecraft/tags/blocks/dirt.json
 7d4bb91e3edc733157dc51e4e9ef0c7af4068622 data/minecraft/tags/blocks/fences.json
 f1b7841b6c3426c4d9b5e34a4dfcf2e9576dd29b data/minecraft/tags/blocks/fence_gates.json

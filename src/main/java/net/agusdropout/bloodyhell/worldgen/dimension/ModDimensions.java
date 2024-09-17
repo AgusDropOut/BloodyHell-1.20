@@ -46,8 +46,8 @@ public class ModDimensions {
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(SOUL_DIMENSION_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
-                false, // hasSkylight
-                false, // hasCeiling
+                true, // hasSkylight
+                true, // hasCeiling
                 false, // ultraWarm
                 true, // natural
                 4.0D, // coordinateScale

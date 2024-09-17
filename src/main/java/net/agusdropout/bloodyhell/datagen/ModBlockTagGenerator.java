@@ -3,21 +3,33 @@ package net.agusdropout.bloodyhell.datagen;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
 
-public class ModBlockTagGenerator extends BlockTagsProvider {
+public class  ModBlockTagGenerator extends BlockTagsProvider {
     public ModBlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, BloodyHell.MODID, existingFileHelper);
     }
 
+
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.Provider provider) {
+        tag(ModTags.Blocks.BLOOD_SCRAPPER_PLANT_PLACEABLE_ON).add(
+                ModBlocks.BLOOD_DIRT_BLOCK.get(),
+                Blocks.DIRT,ModBlocks.BLOOD_SCRAPPER_PLANT.get(),
+                ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get(),
+                ModBlocks.BLOOD_GRASS_BLOCK.get());
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.soul_BLOCK.get(),
                         ModBlocks.soul_ORE.get(),
@@ -25,9 +37,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.Jumpy_Block.get(),
                         ModBlocks.BLOOD_WORKBENCH.get(),
                         ModBlocks.BLEEDING_BLOCK.get());
-                        ModBlocks.BLOODY_STONE_BLOCK.get();
-                        ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get();
+        ModBlocks.BLOODY_STONE_BLOCK.get();
+        ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
+        ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get();
         this.tag(BlockTags.DIRT).add(ModBlocks.BLOOD_GRASS_BLOCK.get(), ModBlocks.BLOOD_DIRT_BLOCK.get());
 
 
@@ -37,11 +49,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.soul_ORE.get())
                 .add(ModBlocks.DEEPSLATE_soul_ORE.get());
-
-
-
-
-
 
 
         this.tag(BlockTags.LOGS_THAT_BURN)
@@ -67,6 +74,5 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BLOODY_STONE_FENCE_GATE.get());
         this.tag(BlockTags.WALLS)
                 .add(ModBlocks.BLOODY_STONE_WALL.get());
-
     }
 }

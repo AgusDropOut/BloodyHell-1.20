@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.block;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.base.BaseWallPlantBlock;
+import net.agusdropout.bloodyhell.block.base.TallGrowingPlant;
 import net.agusdropout.bloodyhell.block.custom.*;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModItems;
@@ -41,7 +42,8 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
     public static final RegistryObject<Block> soul_BLOCK = registerBlock("soul_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> BLOODY_STONE_BLOCK = registerBlock("bloody_stone_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_BLOCK = registerBlock("bloody_stone_block",
+            ()-> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BLOODY_STONE_TILES_BLOCK = registerBlock("bloody_stone_tiles_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> POLISHED_BLOODY_STONE_BLOCK = registerBlock("polished_bloody_stone_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BLOODY_STONE_STAIRS = registerBlock("bloody_stone_stairs",
@@ -182,13 +184,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> DROOPVINE = registerBlock("droopvine", () -> new DroopvineBlock(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES).strength(0.1F).lightLevel(Droopvine.light())));
     public static final RegistryObject<Block> DROOPVINE_PLANT = registerBlock("droopvine_plant", () -> new DroopvinePlantBlock(BlockBehaviour.Properties.copy(Blocks.CAVE_VINES_PLANT).strength(0.1F).lightLevel(Droopvine.light())));
 
+    public static final RegistryObject<Block> BLOOD_SCRAPPER_PLANT = registerBlock("blood_scrapper_plant", () -> new TallGrowingPlant(BlockBehaviour.Properties.copy(Blocks.BAMBOO).strength(0.1F).dynamicShape().noOcclusion().noCollission().randomTicks().forceSolidOn().lightLevel((state)->20)));
+    public static final RegistryObject<Block> BLOOD_SCRAPPER_PLANT_SAPLING = registerBlock("blood_scrapper_plant_sapling", () -> new BloodScrapperPlantSapling(BlockBehaviour.Properties.copy(Blocks.BAMBOO).strength(0.1F)));
 
 
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }
-
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

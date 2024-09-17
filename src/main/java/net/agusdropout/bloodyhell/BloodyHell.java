@@ -114,6 +114,7 @@ public class BloodyHell
 
 
 
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -200,7 +201,9 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.BLOOD_BOW);
             event.accept(ModItems.BLOOD_ARROW);
-            event.accept(ModItems.BLOOD_FRUIT);
+            event.accept(ModItems.GLOW_FRUIT);
+            event.accept(ModItems.GLOW_MUSHROOM);
+
 
 
 
@@ -230,6 +233,7 @@ public class BloodyHell
             event.accept(ModBlocks.BLOOD_GLOW_STONE);
             event.accept(ModBlocks.DROOPVINE);
             event.accept(ModBlocks.DROOPVINE_PLANT);
+            event.accept(ModBlocks.BLOOD_SCRAPPER_PLANT);
 
 
 

@@ -1,4 +1,4 @@
-// 1.20	2024-09-02T00:03:00.4049508	Loot Tables
+// 1.20	2024-09-10T22:54:04.7302349	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -20,6 +20,8 @@ d37dea2c06f307e9867c34ce7be382d770d37eb3 data/bloodyhell/loot_tables/blocks/bloo
 d269ae466fe78d75ba783fe2e6ad2f27d527ddd5 data/bloodyhell/loot_tables/blocks/blood_petals.json
 2034b973fa1dc02b7826153c589b0e553ec6cb0a data/bloodyhell/loot_tables/blocks/blood_planks.json
 dd6721ff08957b9d66d5881b75ef11d293f95d61 data/bloodyhell/loot_tables/blocks/blood_sapling.json
+78d5319a7f53fff6a46c3c02cb9204809c76ee62 data/bloodyhell/loot_tables/blocks/blood_scrapper_plant.json
+74091ad9c1f0ce28173bbb6ff3919954d7f09759 data/bloodyhell/loot_tables/blocks/blood_scrapper_plant_sapling.json
 6abf277a417da4e1ad449dc6e972dd322d2c4565 data/bloodyhell/loot_tables/blocks/blood_small_rocks.json
 7336536d3f61596d6dc856ddbd0a785a9e274fec data/bloodyhell/loot_tables/blocks/blood_wall_mushroom_block.json
 8b32ade876780d337cbb850b42f0e785bb019af7 data/bloodyhell/loot_tables/blocks/blood_wood.json
@@ -34,7 +36,7 @@ db4ad30c9a94a31c678e5c5e09c7fbcb0184938b data/bloodyhell/loot_tables/blocks/gian
 cf1ac83c140ea550f9fe5599e9e31e5cbfa02592 data/bloodyhell/loot_tables/blocks/hanging_bloodtree_leaves.json
 0d5c37b64d3a4c5a0a5194d514250f3199ffc2e4 data/bloodyhell/loot_tables/blocks/hanging_soultree_leaves.json
 0738d6bac0804e7fd86f0048d5a0b6bf9324b421 data/bloodyhell/loot_tables/blocks/jumpy_block.json
-f632ffe1de7261bbb6cacfe259eb7070e491ccf6 data/bloodyhell/loot_tables/blocks/light_mushroom_block.json
+63cef8239cb564067858e20c2490d7011d6e68d3 data/bloodyhell/loot_tables/blocks/light_mushroom_block.json
 7b9823899a8c5dd9b04b7f045ce07a3145f85f79 data/bloodyhell/loot_tables/blocks/polished_bloody_stone_block.json
 ab4409a655a7de70d77129b11ec3125a2c0720c6 data/bloodyhell/loot_tables/blocks/potted_blood_flower.json
 be65ff0e064ddda4036136c7164bd48ab49b6548 data/bloodyhell/loot_tables/blocks/small_blood_sapling.json

@@ -48,7 +48,7 @@ public class DroopvinePlantBlock extends GrowingPlantBodyBlock implements Droopv
 
 
     public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
-        return new ItemStack(ModItems.BLOOD_FRUIT.get());
+        return new ItemStack(ModItems.GLOW_FRUIT.get());
     }
 
     @Override

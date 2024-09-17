@@ -1,0 +1,60 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        }
+      ],
+      "when": {
+        "age": "0"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        },
+        {
+          "model": "bloodyhell:block/blood_scrapper_plant"
+        }
+      ],
+      "when": {
+        "age": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "bloodyhell:block/blood_scrapper_plant"
+      },
+      "when": {
+        "leaves": "small"
+      }
+    },
+    {
+      "apply": {
+        "model": "bloodyhell:block/blood_scrapper_plant_large"
+      },
+      "when": {
+        "leaves": "large"
+      }
+    }
+  ]
+}
+
+

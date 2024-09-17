@@ -8,6 +8,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
     public ModBlockLootTables() {
@@ -63,12 +65,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLOOD_LILY_BLOCK.get());
         this.dropSelf(ModBlocks.SMALL_BLOOD_SAPLING.get());
         this.dropSelf(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK.get());
-        this.dropSelf(ModBlocks.LIGHT_MUSHROOM_BLOCK.get());
         this.dropSelf(ModBlocks.GIANT_BLOOD_SAPLING.get());
         this.dropSelf(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get());
         this.dropSelf(ModBlocks.BLOOD_GLOW_STONE.get());
         this.dropSelf(ModBlocks.DROOPVINE.get());
         this.dropSelf(ModBlocks.DROOPVINE_PLANT.get());
+
+        this.dropSelf(ModBlocks.BLOOD_SCRAPPER_PLANT.get());
+        this.dropSelf(ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get());
+
+        this.dropOther(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),ModItems.GLOW_MUSHROOM.get());
 
 
 
@@ -119,5 +125,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+    }
+
+    public void dropOther(Supplier<? extends Block> brokenBlock, ItemLike droppedBlock) {
+        this.dropOther(brokenBlock.get(), droppedBlock);
     }
 }
