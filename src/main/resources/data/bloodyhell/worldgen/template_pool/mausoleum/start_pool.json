@@ -2,7 +2,7 @@
 
 
 
-  "name": "bloodyhell:blood_lighthouse/start_pool",
+  "name": "bloodyhell:mausoleum/start_pool",
 
 
   "fallback": "minecraft:empty",
@@ -15,7 +15,7 @@
       "weight": 2,
       "element": {
 
-        "location": "bloodyhell:blood_lighthouse",
+        "location": "bloodyhell:mausoleum",
 
 
         "processors": "minecraft:empty",

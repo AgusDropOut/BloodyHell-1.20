@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -73,6 +74,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.BLOOD_SCRAPPER_PLANT.get());
         this.dropSelf(ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get());
+        this.dropSelf(ModBlocks.GLOWING_CRYSTAL.get());
+        this.dropSelf(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK.get());
+        this.dropSelf(ModBlocks.GLOWING_CRYSTAL_LANTERN.get());
+        this.dropSelf(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK.get());
 
         this.dropOther(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),ModItems.GLOW_MUSHROOM.get());
 

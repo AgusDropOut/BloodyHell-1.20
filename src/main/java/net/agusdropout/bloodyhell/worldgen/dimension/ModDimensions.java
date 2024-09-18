@@ -47,15 +47,15 @@ public class ModDimensions {
         context.register(SOUL_DIMENSION_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
                 true, // hasSkylight
-                true, // hasCeiling
+                false, // hasCeiling
                 false, // ultraWarm
                 true, // natural
                 4.0D, // coordinateScale
                 true, // bedWorks
                 false, // respawnAnchorWorks
                 0, // minY
-                80, // height
-                80, // logicalHeight
+                128, // height
+                128, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
                 0.1f, // ambientLight
@@ -133,9 +133,8 @@ public class ModDimensions {
 
                         //bedrock floor
                         SurfaceRules.ifTrue(SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
-                        //bedrock ceiling
-                        //SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.verticalGradient("minecraft:bedrock_roof", VerticalAnchor.belowTop(5), VerticalAnchor.top())), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
                         //filler depthrock
+                        SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110),1),SurfaceRules.state(Blocks.AIR.defaultBlockState())),
                         //SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0), SurfaceRules.state(ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState())),
                         //sediment
                         SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState()))),

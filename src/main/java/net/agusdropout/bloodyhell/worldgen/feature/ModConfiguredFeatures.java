@@ -60,7 +60,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LILY_KEY = registerKey("blood_lily");
     public static final ResourceKey<ConfiguredFeature<?,?>> DROOPVINE_KEY = registerKey("droopvine");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SCRAPPER_PLANT_KEY = registerKey("blood_scrapper_plant");
-
+    public static final ResourceKey<ConfiguredFeature<?,?>> GLOWING_CRYSTAL_KEY = registerKey("glowing_crystal_key");
 
 
 
@@ -121,6 +121,7 @@ public class ModConfiguredFeatures {
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));
         context.register(BLOOD_PETALS_KEY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, patch(ModBlocks.BLOOD_PETALS.get(), 70)));
+        context.register(GLOWING_CRYSTAL_KEY, new ConfiguredFeature<>(ModFeatures.GLOWING_CRYSTAL.get(),NoneFeatureConfiguration.NONE));
         context.register(BLOOD_LILY_KEY,new ConfiguredFeature<> (Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.BLOOD_LILY_BLOCK.get()))))));
         context.register(DROOPVINE_KEY, new ConfiguredFeature<>(ModFeatures.DROOPVINE.get(),NoneFeatureConfiguration.NONE));
         context.register(BLOOD_SCRAPPER_PLANT_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get(), 5)));

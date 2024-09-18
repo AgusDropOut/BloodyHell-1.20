@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "bloodyhell:block/glowing_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "bloodyhell:block/glowing_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bloodyhell:block/glowing_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "bloodyhell:block/glowing_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "bloodyhell:block/glowing_crystal"
+    },
+    "facing=west": {
+      "model": "bloodyhell:block/glowing_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// 1.20	2024-09-10T22:54:04.7302349	Loot Tables
+// 1.20	2024-09-18T19:24:26.3202343	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -11,6 +11,7 @@ f3f8a5018609f7f435df41df61e4e938882aab03 data/bloodyhell/loot_tables/blocks/bloo
 43df4b734999b41796e280725983a65934bc9ec0 data/bloodyhell/loot_tables/blocks/blood_bush.json
 98eebfb6345089a147b98d3482cae40e330347b9 data/bloodyhell/loot_tables/blocks/blood_dirt_block.json
 439069339898078e1d24f2372e7e52dd376fc102 data/bloodyhell/loot_tables/blocks/blood_flower.json
+9727611f9634613bab655ab416fb5eabd8a5dc57 data/bloodyhell/loot_tables/blocks/blood_glowing_chains_block.json
 f21336a79de305eb35c9e89ae73b2db6e299c030 data/bloodyhell/loot_tables/blocks/blood_glow_stone.json
 281cc3c293e56c524b68d2f023e854bfb525dd90 data/bloodyhell/loot_tables/blocks/blood_grass.json
 d37dea2c06f307e9867c34ce7be382d770d37eb3 data/bloodyhell/loot_tables/blocks/blood_grass_block.json
@@ -33,6 +34,9 @@ c5611f5bc9c4b26e66b27f5cc9d3674810f5b685 data/bloodyhell/loot_tables/blocks/eyeb
 534ae84e12ffffb399cb8fa3ba4dfccdf02de68a data/bloodyhell/loot_tables/blocks/eyeballshell_snail_goo_block.json
 36fbcfa7c729718064356118a549c97826a01021 data/bloodyhell/loot_tables/blocks/eyeball_crop.json
 db4ad30c9a94a31c678e5c5e09c7fbcb0184938b data/bloodyhell/loot_tables/blocks/giant_blood_sapling.json
+3369f93fb9cd95a9ff4dbf72983c0fb8ffd2930a data/bloodyhell/loot_tables/blocks/glowing_crystal.json
+480a8b05bc84fcc9ad4c59609c6603f9a552c751 data/bloodyhell/loot_tables/blocks/glowing_crystal_glass_block.json
+15e1b5dc1505cddaed69acac3dff2ba5b98c2693 data/bloodyhell/loot_tables/blocks/glowing_crystal_lantern.json
 cf1ac83c140ea550f9fe5599e9e31e5cbfa02592 data/bloodyhell/loot_tables/blocks/hanging_bloodtree_leaves.json
 0d5c37b64d3a4c5a0a5194d514250f3199ffc2e4 data/bloodyhell/loot_tables/blocks/hanging_soultree_leaves.json
 0738d6bac0804e7fd86f0048d5a0b6bf9324b421 data/bloodyhell/loot_tables/blocks/jumpy_block.json

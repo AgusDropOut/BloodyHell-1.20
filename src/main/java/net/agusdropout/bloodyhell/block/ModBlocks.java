@@ -1,6 +1,7 @@
 package net.agusdropout.bloodyhell.block;
 
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.block.base.BaseFacingAnyDirectionBlock;
 import net.agusdropout.bloodyhell.block.base.BaseWallPlantBlock;
 import net.agusdropout.bloodyhell.block.base.TallGrowingPlant;
 import net.agusdropout.bloodyhell.block.custom.*;
@@ -186,6 +187,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BLOOD_SCRAPPER_PLANT = registerBlock("blood_scrapper_plant", () -> new TallGrowingPlant(BlockBehaviour.Properties.copy(Blocks.BAMBOO).strength(0.1F).dynamicShape().noOcclusion().noCollission().randomTicks().forceSolidOn().lightLevel((state)->20)));
     public static final RegistryObject<Block> BLOOD_SCRAPPER_PLANT_SAPLING = registerBlock("blood_scrapper_plant_sapling", () -> new BloodScrapperPlantSapling(BlockBehaviour.Properties.copy(Blocks.BAMBOO).strength(0.1F)));
+
+    public static final RegistryObject<Block> GLOWING_CRYSTAL = registerBlock("glowing_crystal", () -> new GlowingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK).strength(1F).lightLevel((state)-> 20).explosionResistance(20f).noOcclusion()));
+    public static final RegistryObject<Block> GLOWING_CRYSTAL_GLASS_BLOCK = registerBlock("glowing_crystal_glass_block", () -> new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(1F).lightLevel((state)-> 20).noOcclusion()));
+    public static final RegistryObject<Block> GLOWING_CRYSTAL_LANTERN = registerBlock("glowing_crystal_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).strength(1F).lightLevel((state)-> 14).noOcclusion()));
+    public static final RegistryObject<Block> BLOOD_GLOWING_CHAINS_BLOCK = registerBlock("blood_glowing_chains_block", () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).strength(1F).lightLevel((state)-> 7).noOcclusion()));
+
 
 
 

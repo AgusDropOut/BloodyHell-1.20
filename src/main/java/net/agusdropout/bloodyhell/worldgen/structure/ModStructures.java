@@ -14,7 +14,7 @@ public class ModStructures {
     public static final DeferredRegister<StructureType<?>> STRUCTURES = DeferredRegister.create(Registries.STRUCTURE_TYPE, BloodyHell.MODID);
     public static final ResourceKey<Structure> CATACOMBS = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "portal"));
     //public static final ResourceKey<Structure> BLOOD_LIGHTHOUSE = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "blood_lighthouse"));
-
+    public static final ResourceKey<Structure> MAUSOLEUM = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "mausoleum"));
 
     public static void register(IEventBus eventBus){
         STRUCTURES.register(eventBus);

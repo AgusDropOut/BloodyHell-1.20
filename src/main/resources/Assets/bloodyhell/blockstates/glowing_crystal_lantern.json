@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "bloodyhell:block/glowing_crystal_lantern_not_hanging"
+    },
+    "hanging=true": {
+      "model": "bloodyhell:block/glowing_crystal_lantern"
+    }
+  }
+}

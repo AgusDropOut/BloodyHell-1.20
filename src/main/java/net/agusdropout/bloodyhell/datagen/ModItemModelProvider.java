@@ -45,6 +45,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
+        evenSimplerBlockItem(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK);
 
         normalItem(ModItems.BLOOD_LILY);
         normalItem(ModItems.GLOW_FRUIT);
@@ -62,6 +64,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.BLOOD_ARROW);
 
         simpleBlockItemBlockTexture(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
+        simpleBlockItemBlockTexture(ModBlocks.GLOWING_CRYSTAL);
 
 
     }

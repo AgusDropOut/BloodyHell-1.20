@@ -209,6 +209,7 @@ public class BloodyHell
 
 
 
+
             event.accept(ModBlocks.BLOOD_WORKBENCH);
             event.accept(ModBlocks.Jumpy_Block);
             event.accept(ModBlocks.soul_BLOCK);
@@ -260,6 +261,10 @@ public class BloodyHell
             event.accept(ModBlocks.BLOOD_PETALS);
             event.accept(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK);
             event.accept(ModBlocks.LIGHT_MUSHROOM_BLOCK);
+            event.accept(ModBlocks.GLOWING_CRYSTAL);
+            event.accept(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
+            event.accept(ModBlocks.GLOWING_CRYSTAL_LANTERN);
+            event.accept(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK);
 
 
             event.accept(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK);

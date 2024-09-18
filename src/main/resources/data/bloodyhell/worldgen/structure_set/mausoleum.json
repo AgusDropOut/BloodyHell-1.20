@@ -2,18 +2,18 @@
 
   "structures": [
     {
-      "structure": "bloodyhell:blood_lighthouse",
+      "structure": "bloodyhell:mausoleum",
       "weight": 1
     }
   ],
   "placement": {
 
-    "salt": 1643176475,
+    "salt": 1643176490,
 
 
-    "spacing": 3,
+    "spacing": 24,
 
-    "separation": 1,
+    "separation": 12,
 
 
     "type": "minecraft:random_spread"
