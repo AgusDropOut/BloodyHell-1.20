@@ -25,45 +25,39 @@ import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
+public class OniEntity extends Monster implements GeoEntity, NeutralMob {
     private static final UniformInt PERSISTENT_ANGER_TIME = null;
     private int remainingPersistentAngerTime;
-    @javax.annotation.Nullable
+    @Nullable
     private UUID persistentAngerTarget;
 
-    public BloodPigEntity(EntityType<? extends Animal> p_27557_, Level p_27558_) {
+    public OniEntity(EntityType<? extends Monster> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
     }
 
     private static final int EAT_ANIMATION_TICKS = 40;
-    private int eatAnimationTick;
-    private EatBlockGoal eatBlockGoal;
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-    private static final EntityDataAccessor<Byte> DATA_EYE_ID = SynchedEntityData.defineId(BloodPigEntity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_EYE_ID = SynchedEntityData.defineId(OniEntity.class, EntityDataSerializers.BYTE);
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 150)
                 .add(Attributes.ATTACK_SPEED, 2.0f)
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
-                .add(Attributes.MOVEMENT_SPEED, 1.0f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.23).build();
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, true));
-        this.eatBlockGoal = new EatBlockGoal(this);
         this.goalSelector.addGoal(1, new FloatGoal(this));
         //this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.1D, Ingredient.of(Items.WHEAT), false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
@@ -73,33 +67,22 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
 
     }
     protected void customServerAiStep() {
-        this.eatAnimationTick = this.eatBlockGoal.getEatAnimationTick();
         super.customServerAiStep();
-    }
-
-    public void handleEntityEvent(byte p_29814_) {
-        if (p_29814_ == 10) {
-            this.eatAnimationTick = 40;
-        } else {
-            super.handleEntityEvent(p_29814_);
-        }
-
     }
 
     private PlayState predicate(AnimationState animationState) {
         if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("animation.bloodpig.walk", Animation.LoopType.LOOP));
+            animationState.getController().setAnimation(RawAnimation.begin().then("animation.oni.walking", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-
-        animationState.getController().setAnimation(RawAnimation.begin().then("animation.bloodpig.idle", Animation.LoopType.LOOP));
+        animationState.getController().setAnimation(RawAnimation.begin().then("animation.oni.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
     private PlayState attackPredicate(AnimationState state) {
         if(this.swinging && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
             state.getController().forceAnimationReset();
-            state.getController().setAnimation(RawAnimation.begin().then("animation.bloodpig.attack", Animation.LoopType.PLAY_ONCE));
+            state.getController().setAnimation(RawAnimation.begin().then("animation.oni.baseattack", Animation.LoopType.PLAY_ONCE));
             this.swinging = false;
         }
 
@@ -122,14 +105,9 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
         return factory;
     }
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.PIG_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.AXE_SCRAPE, 0.15F, 1.0F);
     }
 
-
-    @javax.annotation.Nullable
-    public BloodPigEntity getBreedOffspring(ServerLevel p_149044_, AgeableMob p_149045_) {
-        return ModEntityTypes.BLOODPIG.get().create(this.level());
-    }
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_EYE_ID, (byte)0);
@@ -144,15 +122,15 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
 
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.PIG_AMBIENT;
+        return SoundEvents.WARDEN_AMBIENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.PIG_HURT;
+        return SoundEvents.IRON_GOLEM_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PIG_DEATH;
+        return SoundEvents.WARDEN_DEATH;
     }
 
     protected float getSoundVolume() {
@@ -169,7 +147,7 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
         this.remainingPersistentAngerTime = i;
     }
 
-    public void setPersistentAngerTarget(@javax.annotation.Nullable UUID persistentAngerTarget) {
+    public void setPersistentAngerTarget(@Nullable UUID persistentAngerTarget) {
         this.persistentAngerTarget = persistentAngerTarget;
     }
 

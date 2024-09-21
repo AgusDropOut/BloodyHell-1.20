@@ -78,6 +78,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK.get());
         this.dropSelf(ModBlocks.GLOWING_CRYSTAL_LANTERN.get());
         this.dropSelf(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOOD_WOOD_CHEST.get());
 
         this.dropOther(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),ModItems.GLOW_MUSHROOM.get());
 
