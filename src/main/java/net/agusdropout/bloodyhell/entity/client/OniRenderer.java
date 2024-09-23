@@ -33,7 +33,7 @@ public class OniRenderer extends GeoEntityRenderer<OniEntity> {
 
     @Override
     public void render(OniEntity entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        poseStack.scale(1.5f, 1.5f, 1.5f);
+        poseStack.scale(2f, 2f, 2f);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }
