@@ -4,14 +4,33 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
+      "weight": 6,
+      "element": {
+        "location": "bloodyhell:corridor",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "bloodyhell:crosscorridor",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
       "weight": 1,
       "element": {
-        "location": "bloodyhell:tunnel2",
+        "location": "bloodyhell:end_corridor",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     }
+
 
   ]
 }
