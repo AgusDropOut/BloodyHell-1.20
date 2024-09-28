@@ -31,9 +31,15 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodPigEntity>> BLOODPIG = ENTITY_TYPES.register("bloodpig",
             () -> EntityType.Builder.of(BloodPigEntity::new,MobCategory.AMBIENT).sized(0.9f,0.9f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodpig").toString()));
+    public static final RegistryObject<EntityType<OniEntity>> ONI = ENTITY_TYPES.register("oni",
+            () -> EntityType.Builder.of(OniEntity::new,MobCategory.MONSTER).sized(1.5f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
+                    "oni").toString()));
     public static final RegistryObject<EntityType<BloodArrowEntity>> BLOOD_ARROW = ENTITY_TYPES.register("blood_arrow_entity",
             () -> EntityType.Builder.<BloodArrowEntity>of(BloodArrowEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_arrow_entity").toString()));
+    public static final RegistryObject<EntityType<CrystalPillar>> CRYSTAL_PILLAR = ENTITY_TYPES.register("crystal_pillar",
+            () -> EntityType.Builder.<CrystalPillar>of(CrystalPillar::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "crystal_pillar").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

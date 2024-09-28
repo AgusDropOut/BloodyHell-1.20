@@ -34,8 +34,8 @@ public class BloodPigModel extends GeoModel<BloodPigEntity> {
         if (head != null) {
             EntityModelData entityData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
 
-            head.setRotX(-entityData.headPitch() * Mth.DEG_TO_RAD);
-            head.setRotY(-entityData.netHeadYaw() * Mth.DEG_TO_RAD);
+            head.setRotX(-entityData.headPitch() * Mth.DEG_TO_RAD *0.5f);
+            head.setRotY(-entityData.netHeadYaw() * Mth.DEG_TO_RAD*0.5f);
 
         }
     }

@@ -2,10 +2,12 @@ package net.agusdropout.bloodyhell.event;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.effect.ModEffects;
+import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.custom.*;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
+import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
 import net.agusdropout.bloodyhell.particle.custom.LightParticle;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
@@ -37,6 +39,8 @@ public class ModEvents {
                 event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
                 Minecraft.getInstance().particleEngine.register(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
+                Minecraft.getInstance().particleEngine.register(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
             }
 
 
@@ -56,6 +60,7 @@ public class ModEvents {
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());
                 event.put(SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishEntity.setAttributes());
                 event.put(BLOODPIG.get(), BloodPigEntity.setAttributes());
+                event.put(ONI.get(), OniEntity.setAttributes());
 
 
             }

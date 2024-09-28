@@ -4,9 +4,12 @@ package net.agusdropout.bloodyhell.event;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
+import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
+import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
 import net.agusdropout.bloodyhell.particle.custom.LightParticle;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
@@ -14,10 +17,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.client.event.ViewportEvent;
+import net.minecraftforge.client.event.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -32,6 +32,7 @@ public class ClientEvents  {
                 event.registerSpriteSet(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
                 event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
             }
 
 
@@ -39,6 +40,12 @@ public class ClientEvents  {
             public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
                 // Puedes realizar registros de superposiciones de GUI aquí si es necesario
             }
+            @SubscribeEvent
+            public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+                event.registerLayerDefinition(ModModelLayers.CRYSTAL_PILLAR, CrystalPillarModel::createBodyLayer);
+
+            }
+
 
         }
     }

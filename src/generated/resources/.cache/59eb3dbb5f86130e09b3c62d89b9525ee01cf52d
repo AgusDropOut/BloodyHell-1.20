@@ -1,4 +1,4 @@
-// 1.20	2024-09-18T19:24:26.3202343	Loot Tables
+// 1.20	2024-09-18T21:30:46.6783574	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -26,6 +26,7 @@ dd6721ff08957b9d66d5881b75ef11d293f95d61 data/bloodyhell/loot_tables/blocks/bloo
 6abf277a417da4e1ad449dc6e972dd322d2c4565 data/bloodyhell/loot_tables/blocks/blood_small_rocks.json
 7336536d3f61596d6dc856ddbd0a785a9e274fec data/bloodyhell/loot_tables/blocks/blood_wall_mushroom_block.json
 8b32ade876780d337cbb850b42f0e785bb019af7 data/bloodyhell/loot_tables/blocks/blood_wood.json
+eb84c500de23e9c019b588464d8b39f217ef7ecb data/bloodyhell/loot_tables/blocks/blood_wood_chest.json
 1b90a90f1fba253bf529052322b08ec8ee81925e data/bloodyhell/loot_tables/blocks/blood_workbench.json
 397b7923701b741af25ed347e777239e8a7c3a51 data/bloodyhell/loot_tables/blocks/deepslate_soul_ore.json
 3964ed8bb12f5cb1d5f07f4acb52b306f7d10cd3 data/bloodyhell/loot_tables/blocks/droopvine.json

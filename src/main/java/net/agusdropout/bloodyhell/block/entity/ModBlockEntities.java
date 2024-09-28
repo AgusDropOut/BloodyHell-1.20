@@ -16,6 +16,9 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("blood_workbench", () ->
                     BlockEntityType.Builder.of(BloodWorkbenchBlockEntity::new,
                             ModBlocks.BLOOD_WORKBENCH.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BHChestBlockEntity>> BH_CHEST = BLOCK_ENTITIES.register("bh_chest", () ->
+            BlockEntityType.Builder.of(BHChestBlockEntity::new,
+                    ModBlocks.BLOOD_WOOD_CHEST.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

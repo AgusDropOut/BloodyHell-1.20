@@ -46,7 +46,7 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
     private int eatAnimationTick;
     private EatBlockGoal eatBlockGoal;
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-    private static final EntityDataAccessor<Byte> DATA_EYE_ID = SynchedEntityData.defineId(EyeshellSnailEntity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_EYE_ID = SynchedEntityData.defineId(BloodPigEntity.class, EntityDataSerializers.BYTE);
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 150)
@@ -192,6 +192,7 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
         if (flag) {
             double d2;
             if (p_28837_ instanceof LivingEntity) {
+
                 LivingEntity livingentity = (LivingEntity)p_28837_;
                 d2 = livingentity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
             } else {
@@ -210,4 +211,6 @@ public class BloodPigEntity extends Animal implements GeoEntity, NeutralMob {
     private float getAttackDamage() {
         return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
+
+
 }
