@@ -7,6 +7,7 @@
   "itemGroup.bloodyhelltab" : "Soul Tab",
 
   "item.bloodyhell.soul_ore" : "Soul Ore",
+  "block.bloodyhell.soul_ore": "Soul Ore",
   "item.bloodyhell.bloody_soul_dust" : "Bloody Soul Dust",
   "item.bloodyhell.materialized_soul" : "Materialized Soul",
   "item.bloodyhell.eyeball_seed" : "Eyeball Seeds",
@@ -17,10 +18,12 @@
   "block.bloodyhell.blood_bush" : "Blood Bush",
   "block.bloodyhell.blood_petals" : "Blood Petals",
   "block.bloodyhell.blood_small_rocks" : "Blood Small Rocks",
+  "item.bloodyhell.dirty_blood_flower": "Dirty Blood Flower",
+  "block.bloodyhell.blood_lily_block": "Blood Lily Block",
 
-
-
-
+  "item.bloodyhell.glow_fruit": "Glow Fruit",
+  "block.bloodyhell.light_mushroom_block": "Light Mushroom Block",
+  "block.bloodyhell.blood_wall_mushroom_block": "Blood Wall Mushroom Block",
 
 
   "block.bloodyhell.deepslate_soul_ore" : "Deepslate Soul Ore ",
@@ -46,9 +49,6 @@
 
 
 
-
-
-
   "entity.minecraft.villager.bloodyhell.jump_master": "Jumpy Master",
   "key.category.bloodyhell.tutorial": "Let The Living Be Aware Mod",
   "key.bloodyhell.drink_blood": "Drink Blood",
@@ -61,6 +61,8 @@
   "item.bloodyhell.blood_sword": "Blood Sword",
   "item.bloodyhell.soul_sword": "Soul Sword",
   "item.bloodyhell.soul_pickaxe": "Soul Pickaxe",
+  "item.bloodyhell.blood_bow": "Blood Bow",
+  "item.bloodyhell.blood_arrow": "Blood Arrow",
 
   "effect.bloodyhell.bleeding": "Bleeding",
   "effect.bloodyhell.illuminated": "illuminated",
@@ -71,5 +73,29 @@
   "item.bloodyhell.bloodthirstybeast_spawn_egg": "Blood Thirsty Beast",
   "item.bloodyhell.bloodseeker_spawn_egg": "Blood Seeker",
   "item.bloodyhell.eyeshellsnail_spawn_egg": "Eyeshell Snail",
-  "item.bloodyhell.crimsonraven_spawn_egg": "Crimson Raven"
+  "item.bloodyhell.crimsonraven_spawn_egg": "Crimson Raven",
+  "item.bloodyhell.bloodpig_spawn_egg": "Blood Pig",
+  "item.bloodyhell.scarletspeckledfish_spawn_egg": "Scarlet Speckled Fish",
+
+  "block.bloodyhell.bloody_stone_block": "Bloody Stone Block",
+  "block.bloodyhell.polished_bloody_stone_block": "Bloody Polished Stone Block",
+  "block.bloodyhell.bloody_stone_tiles_block": "Bloody Stone Tiles Block",
+  "block.bloodyhell.bloody_stone_stairs": "Bloody Stone Stairs",
+  "block.bloodyhell.bloody_stone_wall": "Bloody Stone Wall",
+  "block.bloodyhell.bloody_stone_fence": "Bloody Stone Fence",
+  "block.bloodyhell.bloody_stone_fence_gate": "Bloody Stone Gate",
+  "block.bloodyhell.bloody_stone_slab": "Bloody Stone Slab",
+
+  "block.bloodyhell.hanging_bloodtree_leaves": "Hanging Bloodtree Leaves",
+  "block.bloodyhell.blood_glow_stone": "Blood Glow Stone",
+  "block.bloodyhell.droopvine": "Droopvine",
+  "block.bloodyhell.droopvine_plant": "Droopvine Plant",
+  "block.bloodyhell.blood_scrapper_plant": "Blood Scrapper Plant",
+  "block.bloodyhell.blood_grass": "Blood Grass",
+
+  "block.bloodyhell.glowing_crystal": "Glowing Cristal",
+  "block.bloodyhell.glowing_crystal_glass_block": "Glowing Cristal Glass Block",
+  "block.bloodyhell.glowing_crystal_lantern": "Glowing Crystal Lantern",
+  "block.bloodyhell.blood_glowing_chains_block": "Blood Glowing Chains Block"
+
 }
