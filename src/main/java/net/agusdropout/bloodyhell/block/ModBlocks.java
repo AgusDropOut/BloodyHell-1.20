@@ -197,6 +197,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_GLOWING_CHAINS_BLOCK = registerBlock("blood_glowing_chains_block", () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).strength(1F).lightLevel((state)-> 7).noOcclusion()));
     public static final RegistryObject<Block> BLOOD_WOOD_CHEST = registerBlock("blood_wood_chest", () -> new BHChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).strength(1F).lightLevel((state)-> 7).noOcclusion()));
 
+    public static final RegistryObject<Block> ONI_STATUE = registerBlock("oni_statue", () -> new OniStatueBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).strength(1F).noOcclusion().randomTicks().noLootTable()));
+
 
 
 

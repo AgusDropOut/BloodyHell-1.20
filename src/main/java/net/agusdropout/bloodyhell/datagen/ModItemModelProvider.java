@@ -51,6 +51,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.BLOOD_LILY);
         normalItem(ModItems.GLOW_FRUIT);
         normalItem(ModItems.GLOW_MUSHROOM);
+
+        normalItem(ModItems.BLOOD_HELMET);
+        normalItem(ModItems.BLOOD_CHESTPLATE);
+        normalItem(ModItems.BLOOD_LEGGINGS);
+        normalItem(ModItems.BLOOD_BOOTS);
+
         fenceItem(ModBlocks.BLOODY_STONE_FENCE, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
         wallItem(ModBlocks.BLOODY_STONE_WALL, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);

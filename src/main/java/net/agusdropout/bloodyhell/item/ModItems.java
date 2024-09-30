@@ -23,10 +23,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> BLOODY_SOUL_DUST = ITEMS.register("bloody_soul_dust", () -> new Item( new Item.Properties()));
     public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem( new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> GLOW_FRUIT = ITEMS.register("glow_fruit", () -> new Item( new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(3).build())));
-    public static final RegistryObject<Item> GLOW_MUSHROOM = ITEMS.register("glow_mushroom", () -> new BlockItem( ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(3)
+    public static final RegistryObject<Item> GLOW_MUSHROOM = ITEMS.register("glow_mushroom", () -> new BlockItem( ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),new Item.Properties().stacksTo(64).food(new FoodProperties.Builder().nutrition(3)
             .effect(
             () -> new MobEffectInstance(MobEffects.GLOWING,200,0),1)
+            .effect(
+                    () -> new MobEffectInstance(MobEffects.CONFUSION,200,0),1
+            ).build())));
+    public static final RegistryObject<Item> GLOW_FRUIT = ITEMS.register("glow_fruit", () -> new BlockItem( ModBlocks.DROOPVINE.get(),new Item.Properties().stacksTo(64).food(new FoodProperties.Builder().nutrition(3)
+            .effect(
+                    () -> new MobEffectInstance(MobEffects.GLOWING,200,0),1)
             .effect(
                     () -> new MobEffectInstance(MobEffects.CONFUSION,200,0),1
             ).build())));
@@ -77,6 +82,15 @@ public class ModItems {
             () -> new PlaceOnWaterBlockItem(ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_ARROW = ITEMS.register("blood_arrow",
             () -> new BloodArrowItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> BLOOD_HELMET = ITEMS.register("blood_helmet",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_CHESTPLATE = ITEMS.register("blood_chestplate",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_LEGGINGS = ITEMS.register("blood_leggings",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_BOOTS = ITEMS.register("blood_boots",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus){

@@ -1,4 +1,4 @@
-// 1.20	2024-09-18T19:24:26.3212342	Item Models: bloodyhell
+// 1.20	2024-09-28T21:05:15.0392945	Item Models: bloodyhell
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 84646a6cee79a234066f1caf7c1f37529fb99953 assets/bloodyhell/models/item/bloody_stone_fence.json
 69acd85dca66cf703c6b1df35b7ed0085e4694fe assets/bloodyhell/models/item/bloody_stone_fence_gate.json
@@ -7,9 +7,13 @@ ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_st
 f18f7420174be7909433749494222db00f0cad8e assets/bloodyhell/models/item/bloody_stone_tiles_block.json
 2b8bb492e3175877c89bab98d8ef3ca79fc2881d assets/bloodyhell/models/item/bloody_stone_wall.json
 439b5e1961284e369b053d5100c3c0676938858a assets/bloodyhell/models/item/blood_arrow.json
+c3448e8886690f83221cb730ea17f18aa3e5208b assets/bloodyhell/models/item/blood_boots.json
+377fc4900ef4e80a5b08b2a4d6405f282e52a775 assets/bloodyhell/models/item/blood_chestplate.json
 9d344eb71c2cf1433524bc33bbaa5e169f682648 assets/bloodyhell/models/item/blood_flower.json
 18ef5b45822a7717043d9779f5e5525d8555e715 assets/bloodyhell/models/item/blood_glowing_chains_block.json
 85b82409ddd6893ee2a65862a8716826762d96a7 assets/bloodyhell/models/item/blood_grass.json
+70ba345100d42407c93c98520215548ac4f49b0a assets/bloodyhell/models/item/blood_helmet.json
+e9edce19e908fa73a34349c5cd10d548f4f4c53c assets/bloodyhell/models/item/blood_leggings.json
 86fc22bcb2b532bf30ccdf54104a202d481523fd assets/bloodyhell/models/item/blood_lily.json
 77c313c5cd8748df19f86deca8aad9cb23b999f8 assets/bloodyhell/models/item/dirty_blood_flower.json
 23982bc52544092e63c6cb8e97a5ebd535ca6ef9 assets/bloodyhell/models/item/glowing_crystal.json

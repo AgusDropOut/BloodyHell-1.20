@@ -13,6 +13,7 @@ import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
 import net.agusdropout.bloodyhell.item.ModItems;
+import net.agusdropout.bloodyhell.item.custom.ModArmorItem;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.painting.ModPaintings;
 import net.agusdropout.bloodyhell.particle.ModParticles;
@@ -42,6 +43,7 @@ import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -179,6 +181,7 @@ public class BloodyHell
 
     }
     private void addCreative(BuildCreativeModeTabContentsEvent event){
+
         if(event.getTab() == ModCreativeModeTab.FIRST_TAB.get()){
             event.accept(ModItems.soul);
             event.accept(ModItems.RAW_soul);
@@ -206,6 +209,11 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_ARROW);
             event.accept(ModItems.GLOW_FRUIT);
             event.accept(ModItems.GLOW_MUSHROOM);
+
+            event.accept(ModItems.BLOOD_HELMET);
+            event.accept(ModItems.BLOOD_CHESTPLATE);
+            event.accept(ModItems.BLOOD_LEGGINGS);
+            event.accept(ModItems.BLOOD_BOOTS);
 
 
 
@@ -235,9 +243,8 @@ public class BloodyHell
             event.accept(ModBlocks.BLOODY_STONE_SLAB);
             event.accept(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
             event.accept(ModBlocks.BLOOD_GLOW_STONE);
-            event.accept(ModBlocks.DROOPVINE);
-            event.accept(ModBlocks.DROOPVINE_PLANT);
             event.accept(ModBlocks.BLOOD_SCRAPPER_PLANT);
+            event.accept(ModBlocks.ONI_STATUE);
 
 
 
@@ -277,7 +284,10 @@ public class BloodyHell
 
 
         }
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.soul);
+            event.accept(ModItems.RAW_soul);
+        }
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -303,6 +313,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.CRYSTAL_PILLAR.get(), CrystalPillarRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.BH_CHEST.get(),BHChestRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
 
