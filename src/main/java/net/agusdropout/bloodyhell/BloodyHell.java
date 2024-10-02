@@ -183,21 +183,40 @@ public class BloodyHell
     private void addCreative(BuildCreativeModeTabContentsEvent event){
 
         if(event.getTab() == ModCreativeModeTab.FIRST_TAB.get()){
-            event.accept(ModItems.soul);
-            event.accept(ModItems.RAW_soul);
+            //Sanguinite Items
+            event.accept(ModItems.RAW_SANGUINITE);
+            event.accept(ModItems.SANGUINITE);
+            event.accept(ModItems.SANGUINITE_PICKAXE);
+            event.accept(ModItems.SANGUINITE_SWORD);
+            event.accept(ModItems.SANGUINITE_AXE);
+            event.accept(ModItems.SANGUINITE_SHOVEL);
+            event.accept(ModItems.SANGUINITE_HOE);
+            event.accept(ModItems.BLOOD_BOW);
+            event.accept(ModItems.BLOOD_ARROW);
+            event.accept(ModItems.BLOOD_HELMET);
+            event.accept(ModItems.BLOOD_CHESTPLATE);
+            event.accept(ModItems.BLOOD_LEGGINGS);
+            event.accept(ModItems.BLOOD_BOOTS);
+
+
+            //Rhnull Items
+            event.accept(ModItems.RHNULL);
+            event.accept(ModItems.RHNULL_PICKAXE);
+            event.accept(ModItems.RHNULL_SWORD);
+            event.accept(ModItems.RHNULL_AXE);
+            event.accept(ModItems.RHNULL_SHOVEL);
+            event.accept(ModItems.RHNULL_HOE);
+
+
             event.accept(ModItems.BLOOD_BUCKET);
             event.accept(ModItems.BLOODTHIRSTYBEAST_SPAWN_EGG);
             event.accept(ModItems.BLOOD_SEEKER_SPAWN_EGG);
             event.accept(ModItems.BLOODY_SOUL_DUST);
             event.accept(ModItems.MATERIALIZED_SOUL);
-            event.accept(ModItems.BLOOD_PICKAXE);
-            event.accept(ModItems.BLOOD_SWORD);
             event.accept(ModItems.BLOOD_SCYTHE);
             event.accept(ModItems.Eight_ball);
             event.accept(ModItems.Eyeball);
             event.accept(ModItems.Eyeball_seed);
-            event.accept(ModItems.SOUL_PICKAXE);
-            event.accept(ModItems.SOUL_SWORD);
             event.accept(ModItems.CRIMSON_RAVEN_SPAWN_EGG);
             event.accept(ModItems.EYESHELLSNAIL_SPAWN_EGG);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
@@ -205,15 +224,9 @@ public class BloodyHell
             event.accept(ModItems.DIRTY_BLOOD_FLOWER);
             event.accept(ModItems.BLOOD_LILY);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
-            event.accept(ModItems.BLOOD_BOW);
-            event.accept(ModItems.BLOOD_ARROW);
             event.accept(ModItems.GLOW_FRUIT);
             event.accept(ModItems.GLOW_MUSHROOM);
 
-            event.accept(ModItems.BLOOD_HELMET);
-            event.accept(ModItems.BLOOD_CHESTPLATE);
-            event.accept(ModItems.BLOOD_LEGGINGS);
-            event.accept(ModItems.BLOOD_BOOTS);
 
 
 
@@ -221,12 +234,12 @@ public class BloodyHell
 
 
 
-            event.accept(ModBlocks.BLOOD_WORKBENCH);
+
+            event.accept(ModBlocks.SANGUINE_CRUCIBLE);
             event.accept(ModBlocks.Jumpy_Block);
             event.accept(ModBlocks.soul_BLOCK);
-            event.accept(ModBlocks.DEEPSLATE_soul_ORE);
             event.accept(ModBlocks.soul_Lamp);
-            event.accept(ModBlocks.soul_ORE);
+            event.accept(ModBlocks.SANGUINITE_ORE);
             event.accept(ModBlocks.BLOOD_SAPLING);
             event.accept(ModBlocks.SOUL_SAPLING);
             event.accept(ModBlocks.BLOOD_SMALL_ROCKS);
@@ -285,8 +298,8 @@ public class BloodyHell
 
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.soul);
-            event.accept(ModItems.RAW_soul);
+            event.accept(ModItems.SANGUINITE);
+            event.accept(ModItems.RAW_SANGUINITE);
         }
     }
 
@@ -316,6 +329,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
 
 
         }

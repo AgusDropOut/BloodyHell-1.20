@@ -32,10 +32,9 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.soul_BLOCK.get(),
-                        ModBlocks.soul_ORE.get(),
-                        ModBlocks.DEEPSLATE_soul_ORE.get(),
+                        ModBlocks.SANGUINITE_ORE.get(),
                         ModBlocks.Jumpy_Block.get(),
-                        ModBlocks.BLOOD_WORKBENCH.get(),
+                        ModBlocks.SANGUINE_CRUCIBLE.get(),
                         ModBlocks.BLEEDING_BLOCK.get());
         ModBlocks.BLOODY_STONE_BLOCK.get();
         ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
@@ -47,8 +46,8 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.soul_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.soul_ORE.get())
-                .add(ModBlocks.DEEPSLATE_soul_ORE.get());
+                .add(ModBlocks.SANGUINITE_ORE.get());
+
 
 
         this.tag(BlockTags.LOGS_THAT_BURN)
@@ -60,6 +59,10 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SOUL_WOOD.get())
                 .add(ModBlocks.STRIPPED_SOUL_LOG.get())
                 .add(ModBlocks.STRIPPED_SOUL_WOOD.get());
+
+        this.tag(ModTags.Blocks.BLOOD_ORE_REPLACEABLES)
+                .add(ModBlocks.BLOODY_STONE_BLOCK.get());
+
 
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.BLOOD_LEAVES.get())

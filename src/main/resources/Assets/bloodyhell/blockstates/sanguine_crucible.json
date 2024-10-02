@@ -1,0 +1,35 @@
+
+{
+  "variants": {
+    "facing=north,on=true": {
+      "model": "bloodyhell:block/sanguine_crucible"
+    },
+    "facing=north,on=false": {
+      "model": "bloodyhell:block/sanguine_crucible_empty"
+    },
+    "facing=south,on=true": {
+      "model": "bloodyhell:block/sanguine_crucible",
+      "y": 180
+    },
+    "facing=south,on=false": {
+      "model": "bloodyhell:block/sanguine_crucible_empty",
+      "y": 180
+    },
+    "facing=west,on=true": {
+      "model": "bloodyhell:block/sanguine_crucible",
+      "y": 270
+    },
+    "facing=west,on=false": {
+      "model": "bloodyhell:block/sanguine_crucible_empty",
+      "y": 270
+    },
+    "facing=east,on=true": {
+      "model": "bloodyhell:block/sanguine_crucible",
+      "y": 90
+    },
+    "facing=east,on=false": {
+      "model": "bloodyhell:block/sanguine_crucible_empty",
+      "y": 90
+    }
+  }
+}

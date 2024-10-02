@@ -14,7 +14,7 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBiomeModifiers {
-    public static final ResourceKey<BiomeModifier> ADD_SOUL_ORE = registerKey("add_soul_ore");
+    public static final ResourceKey<BiomeModifier> ADD_SOUL_ORE = registerKey("add_sanguinite_ore");
 
     public static final ResourceKey<BiomeModifier> ADD_BLOOD_TREE = registerKey("add_blood_tree");
     public static final ResourceKey<BiomeModifier> ADD_BLOOD_FLOWER = registerKey("add_blood_flower");

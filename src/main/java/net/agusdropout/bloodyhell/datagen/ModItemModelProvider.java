@@ -39,6 +39,30 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
     @Override
     protected void registerModels() {
+        //Sanguinite Items
+        toolItem(ModItems.SANGUINITE_SWORD);
+        toolItem(ModItems.SANGUINITE_PICKAXE);
+        toolItem(ModItems.SANGUINITE_AXE);
+        toolItem(ModItems.SANGUINITE_SHOVEL);
+        toolItem(ModItems.SANGUINITE_HOE);
+        normalItem(ModItems.BLOOD_HELMET);
+        normalItem(ModItems.BLOOD_CHESTPLATE);
+        normalItem(ModItems.BLOOD_LEGGINGS);
+        normalItem(ModItems.BLOOD_BOOTS);
+        normalItem(ModItems.SANGUINITE);
+        normalItem(ModItems.RAW_SANGUINITE);
+
+        //Rhnull Items
+        toolItem(ModItems.RHNULL_SWORD);
+        toolItem(ModItems.RHNULL_PICKAXE);
+        toolItem(ModItems.RHNULL_AXE);
+        toolItem(ModItems.RHNULL_SHOVEL);
+        toolItem(ModItems.RHNULL_HOE);
+        normalItem(ModItems.RHNULL);
+
+
+
+
 
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_FLOWER);
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_GRASS);
@@ -52,10 +76,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.GLOW_FRUIT);
         normalItem(ModItems.GLOW_MUSHROOM);
 
-        normalItem(ModItems.BLOOD_HELMET);
-        normalItem(ModItems.BLOOD_CHESTPLATE);
-        normalItem(ModItems.BLOOD_LEGGINGS);
-        normalItem(ModItems.BLOOD_BOOTS);
+
 
         fenceItem(ModBlocks.BLOODY_STONE_FENCE, ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
 
@@ -179,5 +200,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  new ResourceLocation(BloodyHell.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
+
 
 }

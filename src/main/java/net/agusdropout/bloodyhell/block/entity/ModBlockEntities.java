@@ -12,10 +12,10 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BloodyHell.MODID);
 
-    public static final RegistryObject<BlockEntityType<BloodWorkbenchBlockEntity>> BLOOD_WORKBENCH =
-            BLOCK_ENTITIES.register("blood_workbench", () ->
+    public static final RegistryObject<BlockEntityType<BloodWorkbenchBlockEntity>> SANGUINE_CRUCIBLE =
+            BLOCK_ENTITIES.register("sanguine_crucible", () ->
                     BlockEntityType.Builder.of(BloodWorkbenchBlockEntity::new,
-                            ModBlocks.BLOOD_WORKBENCH.get()).build(null));
+                            ModBlocks.SANGUINE_CRUCIBLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<BHChestBlockEntity>> BH_CHEST = BLOCK_ENTITIES.register("bh_chest", () ->
             BlockEntityType.Builder.of(BHChestBlockEntity::new,
                     ModBlocks.BLOOD_WOOD_CHEST.get()).build(null));

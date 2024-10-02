@@ -18,8 +18,42 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, BloodyHell.MODID);
-    public static final RegistryObject<Item> soul = ITEMS.register("soul", () -> new Item( new Item.Properties()));
-    public static final RegistryObject<Item> RAW_soul = ITEMS.register("raw_soul", () -> new Item( new Item.Properties()));
+
+    //Sanguinite Items
+    public static final RegistryObject<Item> SANGUINITE = ITEMS.register("sanguinite", () ->
+            new Item( new Item.Properties()));
+    public static final RegistryObject<Item> RAW_SANGUINITE = ITEMS.register("raw_sanguinite", () ->
+            new Item( new Item.Properties()));
+    public static final RegistryObject<Item> SANGUINITE_SWORD = ITEMS.register("sanguinite_sword",() -> new SwordItem(Tiers.DIAMOND,8,5,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGUINITE_PICKAXE = ITEMS.register("sanguinite_pickaxe",() -> new PickaxeItem(Tiers.DIAMOND,5,5,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGUINITE_AXE = ITEMS.register("sanguinite_axe",() -> new AxeItem(Tiers.DIAMOND,5,5,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGUINITE_HOE = ITEMS.register("sanguinite_hoe",() -> new HoeItem(Tiers.DIAMOND,5,5,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGUINITE_SHOVEL = ITEMS.register("sanguinite_shovel",() -> new ShovelItem(Tiers.DIAMOND,5,5,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLOOD_BOW = ITEMS.register("blood_bow",() -> new ModBow(
+            new Item.Properties().stacksTo(1).durability(500)));
+
+
+    //Rhnull Items
+    public static final RegistryObject<Item> RHNULL = ITEMS.register("rhnull", () ->
+            new Item( new Item.Properties()));
+    public static final RegistryObject<Item> RHNULL_SWORD = ITEMS.register("rhnull_sword",() -> new SoulItem(Tiers.NETHERITE,11,6,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RHNULL_PICKAXE = ITEMS.register("rhnull_pickaxe",() -> new PickaxeItem(Tiers.NETHERITE,6,6,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RHNULL_AXE = ITEMS.register("rhnull_axe",() -> new AxeItem(Tiers.NETHERITE,6,6,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RHNULL_HOE = ITEMS.register("rhnull_hoe",() -> new HoeItem(Tiers.NETHERITE,6,6,
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RHNULL_SHOVEL = ITEMS.register("rhnull_shovel",() -> new ShovelItem(Tiers.NETHERITE,6,6,
+            new Item.Properties().stacksTo(1)));
+
+
+
 
     public static final RegistryObject<Item> BLOODY_SOUL_DUST = ITEMS.register("bloody_soul_dust", () -> new Item( new Item.Properties()));
     public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem( new Item.Properties().stacksTo(1)));
@@ -51,18 +85,7 @@ public class ModItems {
     public static final RegistryObject<Item> BLOOD_SCYTHE = ITEMS.register("blood_scythe",
             () -> new BloodScytheItem(Tiers.NETHERITE, 10, 5f,
                     new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> BLOOD_SWORD = ITEMS.register("blood_sword",() -> new SwordItem(Tiers.DIAMOND,8,5,
-            new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SOUL_SWORD = ITEMS.register("soul_sword",() -> new SoulItem(Tiers.NETHERITE,11,6,
-            new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> BLOOD_BOW = ITEMS.register("blood_bow",() -> new ModBow(
-            new Item.Properties().stacksTo(1).durability(500)));
-
-    public static final RegistryObject<Item> BLOOD_PICKAXE = ITEMS.register("blood_pickaxe",() -> new PickaxeItem(Tiers.DIAMOND,5,5,
-            new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SOUL_PICKAXE = ITEMS.register("soul_pickaxe",() -> new PickaxeItem(Tiers.NETHERITE,6,6,
-            new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLOODTHIRSTYBEAST_SPAWN_EGG = ITEMS.register("bloodthirstybeast_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOODTHIRSTYBEAST,0x400303,0x00FFA0,
             new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_SEEKER_SPAWN_EGG = ITEMS.register("bloodseeker_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOOD_SEEKER,0x660000 ,0xFFDD00,

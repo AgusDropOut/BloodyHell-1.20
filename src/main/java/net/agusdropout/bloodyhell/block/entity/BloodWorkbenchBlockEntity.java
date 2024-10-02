@@ -27,6 +27,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -42,6 +43,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
     private static final int INPUT_SLOT = 1;
     private static final int OUTPUT_SLOT = 2;
 
+    private static boolean isWorking = false;
 
     private int timer = 0;
     private static int max_energy_transfer_time = 350;
@@ -79,7 +81,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
     }
 
     public BloodWorkbenchBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BLOOD_WORKBENCH.get(), pos, state);
+        super(ModBlockEntities.SANGUINE_CRUCIBLE.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
@@ -153,7 +155,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("inventory", itemHandler.serializeNBT());
-        nbt.putInt("blood_workbench.progress", this.progress);
+        nbt.putInt("sanguine_crucible.progress", this.progress);
         nbt.putInt("gem_infusing_station.energy", ENERGY_STORAGE.getEnergyStored());
 
 
@@ -164,7 +166,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("blood_workbench.progress");
+        progress = nbt.getInt("sanguine_crucible.progress");
         ENERGY_STORAGE.setEnergy(nbt.getInt("gem_infusing_station.energy"));
 
     }
@@ -231,20 +233,22 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
             }
         }
 
-        if(hasRecipe() && hasEnoughEnergy() ) {
-
+        if(hasRecipe() && hasEnoughEnergy()) {
+                this.setWorking(true);
                 increaseCraftingProgress();
                 extractEnergy();
 
                 if (hasProgressFinished()) {
                     craftItem();
                     resetProgress();
-
                 }
 
 
             } else {
                 resetProgress();
+                if(isWorking()) {
+                    this.setWorking(false);
+                }
 
             }
         setChanged(level, pos, state);
@@ -279,11 +283,9 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
 
 
     private void transformBucket() {
-        // Código para transformar el blood_bucket en un balde vacío
-        // Puedes usar ItemStack.EMPTY para un balde vacío o el ItemStack del balde vacío según tu implementación
+
         ItemStack emptyBucket = new ItemStack(Items.BUCKET);
 
-        // Asegúrate de que itemHandler esté inicializado
         if (itemHandler != null && itemHandler.getSlots() > 0) {
             itemHandler.setStackInSlot(0, emptyBucket);
             setChanged();
@@ -300,7 +302,16 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
         return saveWithoutMetadata();
     }
 
+    public boolean isHasFuel() {
+         return ENERGY_STORAGE.getEnergyStored() > 0;
+    }
+    public boolean isWorking() {
+        return isWorking;
+    }
 
+    public void setWorking(boolean working) {
+        isWorking = working;
+    }
 
 
 }

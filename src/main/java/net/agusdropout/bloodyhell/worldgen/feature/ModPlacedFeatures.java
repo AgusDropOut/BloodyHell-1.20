@@ -21,7 +21,7 @@ import java.util.List;
 public class ModPlacedFeatures {
 
 
-    public static final ResourceKey<PlacedFeature> SOUL_PLACED_KEY = createKey("soul_placed");
+    public static final ResourceKey<PlacedFeature> SANGUINE_ORE_PLACED_KEY = createKey("sanguine_ore_placed");
 
     public static final ResourceKey<PlacedFeature> BLOOD_TREE_PLACED_KEY = createKey("blood_tree_placed");
     public static final ResourceKey<PlacedFeature> GIANT_BLOOD_TREE_PLACED_KEY = createKey("giant_blood_tree_placed");
@@ -46,9 +46,9 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
 
-        register(context, SOUL_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_SOUL_ORE_KEY),
+        register(context, SANGUINE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SOUL_DIMENSION_SANGUINE_ORE_KEY),
                 commonOrePlacement(12, // VeinsPerChunk
-                        HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+                        HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-10), VerticalAnchor.aboveBottom(100))));
         register(context, BLEEDING_BLOCK_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLEEDING_BLOCK_KEY),
                 commonOrePlacement(24, // VeinsPerChunk
                         HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(80))));

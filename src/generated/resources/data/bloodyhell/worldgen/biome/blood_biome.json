@@ -42,8 +42,7 @@
     ],
     [
       "bloodyhell:blood_small_rocks_placed",
-      "bloodyhell:blood_petals_placed",
-      "bloodyhell:soul_placed"
+      "bloodyhell:blood_petals_placed"
     ],
     [],
     [
@@ -75,7 +74,7 @@
       "minecraft:ore_gold_extra",
       "bloodyhell:blood_liquid_placed",
       "bloodyhell:bleeding_block_placed",
-      "bloodyhell:soul_placed"
+      "bloodyhell:sanguine_ore_placed"
     ],
     [
       "bloodyhell:glowing_crystal_placed_key"
@@ -131,20 +130,20 @@
         "type": "bloodyhell:bloodpig",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 1
+        "weight": 10
       }
     ],
     "misc": [],
     "monster": [],
-    "underground_water_creature": [
+    "underground_water_creature": [],
+    "water_ambient": [
       {
         "type": "bloodyhell:scarletspeckledfish",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 10
+        "weight": 1
       }
     ],
-    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 0.7

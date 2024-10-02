@@ -36,7 +36,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ItemTags.ARROWS)
                 .add(ModItems.BLOOD_ARROW.get());
         this.tag(ItemTags.SWORDS)
-                .add(ModItems.BLOOD_SWORD.get().asItem())
-                .add(ModItems.SOUL_SWORD.get().asItem());
+                .add(ModItems.SANGUINITE_SWORD.get().asItem())
+                .add(ModItems.RHNULL_SWORD.get().asItem());
     }
 }

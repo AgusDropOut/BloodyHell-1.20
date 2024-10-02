@@ -34,7 +34,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.Jumpy_Block.get());
         this.dropSelf(ModBlocks.soul_Lamp.get());
         this.dropSelf(ModBlocks.BLOOD_PLANKS.get());
-        this.dropSelf(ModBlocks.BLOOD_WORKBENCH.get());
+        this.dropSelf(ModBlocks.SANGUINE_CRUCIBLE.get());
         this.dropSelf(ModBlocks.BLOOD_SAPLING.get());
         this.dropSelf(ModBlocks.STRIPPED_BLOOD_WOOD.get());
         this.dropSelf(ModBlocks.STRIPPED_BLOOD_LOG.get());
@@ -88,10 +88,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 
 
-        this.add(ModBlocks.soul_ORE.get(),
-                block -> createCopperLikeOreDrops(ModBlocks.soul_ORE.get(), ModItems.RAW_soul.get()));
-        this.add(ModBlocks.DEEPSLATE_soul_ORE.get(),
-                block -> createCopperLikeOreDrops(ModBlocks.DEEPSLATE_soul_ORE.get(), ModItems.RAW_soul.get()));
+        this.add(ModBlocks.SANGUINITE_ORE.get(),
+                block -> createCopperLikeOreDrops(ModBlocks.SANGUINITE_ORE.get(), ModItems.RAW_SANGUINITE.get()));
+
 
 
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class ModToolTiers {
     public static final Tier BLOOD = TierSortingRegistry.registerTier(
             new ForgeTier(5, 1500, 5f, 4f, 25,
-                    ModTags.Blocks.NEEDS_BLOOD_TOOL, () -> Ingredient.of(ModItems.soul.get())),
+                    ModTags.Blocks.NEEDS_BLOOD_TOOL, () -> Ingredient.of(ModItems.SANGUINITE.get())),
             new ResourceLocation(BloodyHell.MODID, "blood"), List.of(Tiers.DIAMOND), List.of());
 
 }

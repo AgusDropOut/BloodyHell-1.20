@@ -91,7 +91,7 @@ public class ScarletSpeckledFishEntity extends AbstractFish implements GeoEntity
     }
 
     public int getMaxSpawnClusterSize() {
-        return 8;
+        return 1;
     }
 
     protected void defineSynchedData() {

@@ -69,8 +69,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_GRASS_BLOCK = registerBlock("blood_grass_block", ()-> new BloodGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(2f).randomTicks().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> BLOODDIRT_FARMLAND = registerBlock("blooddirt_farmland", () -> new BloodDirtFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
     public static final RegistryObject<Block> BLOOD_DIRT_BLOCK = registerBlock("blood_dirt_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).strength(2f)));
-    public static final RegistryObject<Block> soul_ORE = registerBlock("soul_ore", ()-> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3,7)));
-    public static final RegistryObject<Block> DEEPSLATE_soul_ORE = registerBlock("deepslate_soul_ore", ()-> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(7f).requiresCorrectToolForDrops(), UniformInt.of(3,7)));
+    public static final RegistryObject<Block> SANGUINITE_ORE = registerBlock("sanguinite_ore", ()-> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3,7)));
     public static final RegistryObject<Block> Jumpy_Block = registerBlock("jumpy_block", ()-> new JumpyBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> BLEEDING_BLOCK = registerBlock("bleeding_block", () -> new BleedingBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(6f).requiresCorrectToolForDrops() ));
@@ -82,8 +81,8 @@ public class ModBlocks {
     public static final RegistryObject<LiquidBlock> BLOOD_FLUID_BLOCK = BLOCKS.register("blood_fluid_block",
             () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable().lightLevel((state)->50).liquid()));
 
-    public static final RegistryObject<Block> BLOOD_WORKBENCH = registerBlock("blood_workbench",
-            ()-> new BloodWorkbenchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> SANGUINE_CRUCIBLE = registerBlock("sanguine_crucible",
+            ()-> new BloodWorkbenchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().noCollission()));
     public static final RegistryObject<Block> BLOOD_LOG = registerBlock("blood_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
     public static final RegistryObject<Block> BLOOD_WOOD = registerBlock("blood_wood",

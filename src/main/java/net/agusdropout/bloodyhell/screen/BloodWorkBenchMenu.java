@@ -116,7 +116,7 @@ public class BloodWorkBenchMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                player, ModBlocks.BLOOD_WORKBENCH.get());
+                player, ModBlocks.SANGUINE_CRUCIBLE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

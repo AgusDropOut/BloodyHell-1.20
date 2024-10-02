@@ -1,5 +1,5 @@
-// 1.20	2024-09-23T07:38:30.0434814	Tags for minecraft:item mod id bloodyhell
+// 1.20	2024-10-02T12:28:09.02846	Tags for minecraft:item mod id bloodyhell
 2ae2294df205e3989ee75e74b69a64de09c90096 data/minecraft/tags/items/arrows.json
 64291e02bfee7938ee203b9cacce4a11964f76fc data/minecraft/tags/items/logs_that_burn.json
 84114d7adceb7dff2fbea6df7aa151e76b40ba3a data/minecraft/tags/items/planks.json
-ff1bb3f0938a14292cf62bf4cb7f1fd7b3a93a03 data/minecraft/tags/items/swords.json
+74b3922df5ba4a4fffdbfb50c8cba0c8e893bbbe data/minecraft/tags/items/swords.json

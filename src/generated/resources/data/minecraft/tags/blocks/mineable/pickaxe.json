@@ -1,10 +1,9 @@
 {
   "values": [
     "bloodyhell:soul_block",
-    "bloodyhell:soul_ore",
-    "bloodyhell:deepslate_soul_ore",
+    "bloodyhell:sanguinite_ore",
     "bloodyhell:jumpy_block",
-    "bloodyhell:blood_workbench",
+    "bloodyhell:sanguine_crucible",
     "bloodyhell:bleeding_block"
   ]
 }

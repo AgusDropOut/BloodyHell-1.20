@@ -21,6 +21,7 @@ public class ModTags {
 
         public static final TagKey<Block> BLOOD_SCRAPPER_PLANT_PLACEABLE_ON = tag("blood_scrapper_plant_placeable_on");
         public static final TagKey<Block> NEEDS_BLOOD_TOOL = tag("needs_blood_tool");
+        public static final TagKey<Block> BLOOD_ORE_REPLACEABLES = tag("blood_ore_replaceables");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(BloodyHell.MODID, name));

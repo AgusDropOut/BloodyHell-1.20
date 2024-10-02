@@ -4,7 +4,7 @@
   "experience": 0.7,
   "group": "zircon",
   "ingredient": {
-    "item": "bloodyhell:raw_soul"
+    "item": "bloodyhell:raw_sanguinite"
   },
-  "result": "bloodyhell:soul"
+  "result": "bloodyhell:sanguinite"
 }
