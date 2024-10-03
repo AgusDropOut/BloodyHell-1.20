@@ -63,7 +63,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
 
-
+        evenSimplerBlockItem(ModBlocks.SANGUINE_CRUCIBLE);
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_FLOWER);
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_GRASS);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
