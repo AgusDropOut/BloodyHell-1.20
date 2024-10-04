@@ -1,10 +1,10 @@
-// 1.20	2024-10-02T18:19:51.260769	Tags for minecraft:block mod id bloodyhell
+// 1.20	2024-10-03T16:43:32.5301423	Tags for minecraft:block mod id bloodyhell
 7182fe8c05e70b77f178bc6b735292d640159bde data/bloodyhell/tags/blocks/blood_ore_replaceables.json
 d1d9a1ff91a8b39e470b1677893c67bb6fe41586 data/bloodyhell/tags/blocks/blood_scrapper_plant_placeable_on.json
 3de357e004aea326aa2f58ba53720751bdd546e0 data/minecraft/tags/blocks/dirt.json
 7d4bb91e3edc733157dc51e4e9ef0c7af4068622 data/minecraft/tags/blocks/fences.json
 f1b7841b6c3426c4d9b5e34a4dfcf2e9576dd29b data/minecraft/tags/blocks/fence_gates.json
-4e0b52398141d76ed97102169e8b1865612d2c91 data/minecraft/tags/blocks/leaves.json
+95f465653637d27491bc308b9848342b20bca002 data/minecraft/tags/blocks/leaves.json
 64291e02bfee7938ee203b9cacce4a11964f76fc data/minecraft/tags/blocks/logs_that_burn.json
 21dac709b76af1bc0f14ab1917278753d4ac13e9 data/minecraft/tags/blocks/mineable/pickaxe.json
 1dd45520fedc6af93c05c989c3a4479aec88a2fb data/minecraft/tags/blocks/needs_diamond_tool.json

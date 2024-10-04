@@ -1,8 +1,10 @@
 package net.agusdropout.bloodyhell.block.custom;
 
+import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -71,8 +73,13 @@ public class HangingSoulTreeLeavesBlock extends DoublePlantBlock {
         if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
             return this.mayPlaceOn(level.getBlockState(upPos), level, pos);
         } else {
-            return upState.is(this) && upState.getValue(HALF) == DoubleBlockHalf.LOWER;
+            return upState.is(this) && mayPlaceOn(level.getBlockState(upPos.above()), level, upPos);
         }
     }
 
+    @Override
+    public void animateTick(BlockState p_220827_, Level p_220828_, BlockPos p_220829_, RandomSource p_220830_) {
+        super.animateTick(p_220827_, p_220828_, p_220829_, p_220830_);
+        System.out.println(this.canSurvive(p_220827_, p_220828_, p_220829_));
+    }
 }

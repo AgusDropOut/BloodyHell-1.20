@@ -117,7 +117,7 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1,1,1)).build()
         );
         context.register(BLOOD_FLOWER_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_FLOWER.get(), 64)));
-        context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 64)));
+        context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 50)));
         context.register(BLOOD_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_GRASS.get(), 100)));
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));

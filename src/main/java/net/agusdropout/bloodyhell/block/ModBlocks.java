@@ -109,7 +109,7 @@ public class ModBlocks {
                 }
             });
     public static final RegistryObject<Block> BLOOD_LEAVES = registerBlock("blood_leaves",
-            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).lightLevel((state)->15)));
     public static final RegistryObject<Block> BLOOD_SAPLING = registerBlock("blood_sapling",
             ()-> new SaplingBlock(new BloodTreeGrower(),BlockBehaviour.Properties.copy(Blocks.CHERRY_SAPLING)));
     public static final RegistryObject<Block> SMALL_BLOOD_SAPLING = registerBlock("small_blood_sapling",

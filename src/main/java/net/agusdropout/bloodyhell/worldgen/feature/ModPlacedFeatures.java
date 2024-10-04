@@ -65,7 +65,7 @@ public class ModPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,1), ModBlocks.SOUL_SAPLING.get()));
         register(context, BLOOD_SMALL_ROCKS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SMALL_ROCKS_KEY),patch(50));
         register(context, BLOOD_FLOWER_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_FLOWER_KEY),patch(64));
-        register(context, LIGHT_MUSHROOM_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.LIGHT_MUSHROOM_KEY),patch(64));
+        register(context, LIGHT_MUSHROOM_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.LIGHT_MUSHROOM_KEY),patch(50));
         register(context, BLOOD_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_GRASS_KEY),patch(100));
         register(context, BLOOD_BUSH_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_BUSH_KEY),patch(64));
         register(context, BLOOD_PETALS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_PETALS_KEY),patch(70));
@@ -73,6 +73,7 @@ public class ModPlacedFeatures {
         register(context, BLOOD_LILY_BLOCK_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_LILY_KEY),patch(70));
         register(context,DROOPVINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DROOPVINE_KEY), patch(100));
         register(context,BLOOD_SCRAPPER_PLANT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SCRAPPER_PLANT_KEY), patch(30));
+        
     }
 
     private static List<PlacementModifier> patch(int count) {

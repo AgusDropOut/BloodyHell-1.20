@@ -5,11 +5,11 @@
         "model": "bloodyhell:block/light_mushroom_block"
       },
       {
-        "model": "bloodyhell:block/light_mushroom_block_1",
+        "model": "bloodyhell:block/light_mushroom_block_small",
         "y": 90
       },
       {
-        "model": "bloodyhell:block/light_mushroom_block_2",
+        "model": "bloodyhell:block/light_mushroom_block_big",
         "y": 180
       }
 

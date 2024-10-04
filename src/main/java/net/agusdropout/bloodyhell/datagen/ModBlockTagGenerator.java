@@ -66,7 +66,8 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.BLOOD_LEAVES.get())
-                .add(ModBlocks.SOUL_LEAVES.get());
+                .add(ModBlocks.SOUL_LEAVES.get())
+                .add(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get());
 
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.BLOOD_PLANKS.get())
