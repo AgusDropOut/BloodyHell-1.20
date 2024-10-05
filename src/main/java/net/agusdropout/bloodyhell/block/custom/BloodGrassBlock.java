@@ -41,7 +41,6 @@ public class BloodGrassBlock extends SpreadingBloodSoilBlock implements Bonemeal
                     continue label48;
                 }
             }
-            System.out.println("exitoo!!!");
             BlockState blockstate2 = level.getBlockState(blockpos1);
             if (blockstate2.is(deepturfOrShimmerweed(random).getBlock()) && random.nextInt(10) == 0) {
                 ((BonemealableBlock) deepturfOrShimmerweed(random).getBlock()).performBonemeal(level, random, blockpos1, blockstate2);

@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.block.custom.SmallRocks;
 import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.worldgen.feature.custom.DroopvineFeature;
 import net.agusdropout.bloodyhell.worldgen.tree.custom.*;
@@ -37,6 +38,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 import java.util.OptionalInt;
@@ -53,13 +55,14 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_FLOWER_KEY = registerKey("blood_flower");
     public static final ResourceKey<ConfiguredFeature<?,?>> LIGHT_MUSHROOM_KEY = registerKey("light_mushroom");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_BUSH_KEY = registerKey("blood_bush_flower");
-    public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SMALL_ROCKS_KEY = registerKey("blood_small_rocks");
+    public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SMALL_ROCKS_KEY = registerKey("small_rocks");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_PETALS_KEY = registerKey("blood_petals");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLEEDING_BLOCK_KEY = registerKey("bleeding_block");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LIQUID_KEY = registerKey("blood_liquid_block");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_GRASS_KEY = registerKey("blood_grass");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LILY_KEY = registerKey("blood_lily");
     public static final ResourceKey<ConfiguredFeature<?,?>> DROOPVINE_KEY = registerKey("droopvine");
+    public static final ResourceKey<ConfiguredFeature<?,?>> STONE_PILLAR_KEY = registerKey("stone_pillar");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SCRAPPER_PLANT_KEY = registerKey("blood_scrapper_plant");
     public static final ResourceKey<ConfiguredFeature<?,?>> GLOWING_CRYSTAL_KEY = registerKey("glowing_crystal_key");
 
@@ -117,14 +120,15 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1,1,1)).build()
         );
         context.register(BLOOD_FLOWER_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_FLOWER.get(), 64)));
-        context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 50)));
+        context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 35)));
         context.register(BLOOD_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_GRASS.get(), 100)));
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
-        context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SMALL_ROCKS.get(), 50)));
+        context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, rocks(ModBlocks.SMALL_ROCKS.get(),List.of(ModBlocks.BLOODY_STONE_BLOCK.get(), ModBlocks.BLOOD_GRASS_BLOCK.get(),ModBlocks.BLOOD_DIRT_BLOCK.get()))));
         context.register(BLOOD_PETALS_KEY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, patch(ModBlocks.BLOOD_PETALS.get(), 70)));
         context.register(GLOWING_CRYSTAL_KEY, new ConfiguredFeature<>(ModFeatures.GLOWING_CRYSTAL.get(),NoneFeatureConfiguration.NONE));
         context.register(BLOOD_LILY_KEY,new ConfiguredFeature<> (Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.BLOOD_LILY_BLOCK.get()))))));
         context.register(DROOPVINE_KEY, new ConfiguredFeature<>(ModFeatures.DROOPVINE.get(),NoneFeatureConfiguration.NONE));
+        context.register(STONE_PILLAR_KEY, new ConfiguredFeature<>(ModFeatures.STONE_PILLAR.get(),NoneFeatureConfiguration.NONE));
         context.register(BLOOD_SCRAPPER_PLANT_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get(), 5)));
 
 }
@@ -150,4 +154,8 @@ public class ModConfiguredFeatures {
                                                                                           ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
+    private static RandomPatchConfiguration rocks(Block block, List<Block> whitelist) {
+        return FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(block), SmallRocks.ROCKS, UniformInt.of(1, 2))), whitelist, 32);
+    }
+
 }

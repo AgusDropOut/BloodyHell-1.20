@@ -80,6 +80,5 @@ public class HangingSoulTreeLeavesBlock extends DoublePlantBlock {
     @Override
     public void animateTick(BlockState p_220827_, Level p_220828_, BlockPos p_220829_, RandomSource p_220830_) {
         super.animateTick(p_220827_, p_220828_, p_220829_, p_220830_);
-        System.out.println(this.canSurvive(p_220827_, p_220828_, p_220829_));
     }
 }

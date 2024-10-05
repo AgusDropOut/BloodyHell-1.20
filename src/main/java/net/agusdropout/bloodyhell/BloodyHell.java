@@ -242,7 +242,7 @@ public class BloodyHell
             event.accept(ModBlocks.SANGUINITE_ORE);
             event.accept(ModBlocks.BLOOD_SAPLING);
             event.accept(ModBlocks.SOUL_SAPLING);
-            event.accept(ModBlocks.BLOOD_SMALL_ROCKS);
+            event.accept(ModBlocks.SMALL_ROCKS);
             event.accept(ModBlocks.BLEEDING_BLOCK);
             event.accept(ModBlocks.BLOOD_GRASS_BLOCK);
             event.accept(ModBlocks.BLOOD_DIRT_BLOCK);

@@ -4,6 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.worldgen.feature.custom.BloodScrapperPlantFeature;
 import net.agusdropout.bloodyhell.worldgen.feature.custom.DroopvineFeature;
 import net.agusdropout.bloodyhell.worldgen.feature.custom.GlowingCrystalFeature;
+import net.agusdropout.bloodyhell.worldgen.feature.custom.StonePillarFeature;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -27,6 +28,8 @@ public class ModFeatures {
             new GlowingCrystalFeature(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> BLOOD_SCRAPPER_PLANT = FEATURES.register("blood_scrapper_plant", () ->
             new BloodScrapperPlantFeature(ProbabilityFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> STONE_PILLAR = FEATURES.register("stone_pillar", () ->
+            new StonePillarFeature(NoneFeatureConfiguration.CODEC));
 
 
     public static void register(IEventBus eventBus){

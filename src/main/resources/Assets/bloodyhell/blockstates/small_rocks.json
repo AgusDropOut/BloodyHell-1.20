@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "rocks=1": [
+      { "model": "bloodyhell:block/small_rocks" },
+      { "model": "bloodyhell:block/small_rocks", "y": 90 },
+      { "model": "bloodyhell:block/small_rocks", "y": 180 },
+      { "model": "bloodyhell:block/small_rocks", "y": 270 }
+    ],
+    "rocks=2": [
+      { "model": "bloodyhell:block/small_rocks_add" },
+      { "model": "bloodyhell:block/small_rocks_add", "y": 90 },
+      { "model": "bloodyhell:block/small_rocks_add", "y": 180 },
+      { "model": "bloodyhell:block/small_rocks_add", "y": 270 }
+    ]
+  }
+}

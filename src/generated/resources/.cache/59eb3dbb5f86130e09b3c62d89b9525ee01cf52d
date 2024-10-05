@@ -1,4 +1,4 @@
-// 1.20	2024-10-02T18:19:51.2587671	Loot Tables
+// 1.20	2024-10-04T19:53:53.2713824	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -23,7 +23,6 @@ d269ae466fe78d75ba783fe2e6ad2f27d527ddd5 data/bloodyhell/loot_tables/blocks/bloo
 dd6721ff08957b9d66d5881b75ef11d293f95d61 data/bloodyhell/loot_tables/blocks/blood_sapling.json
 78d5319a7f53fff6a46c3c02cb9204809c76ee62 data/bloodyhell/loot_tables/blocks/blood_scrapper_plant.json
 74091ad9c1f0ce28173bbb6ff3919954d7f09759 data/bloodyhell/loot_tables/blocks/blood_scrapper_plant_sapling.json
-6abf277a417da4e1ad449dc6e972dd322d2c4565 data/bloodyhell/loot_tables/blocks/blood_small_rocks.json
 7336536d3f61596d6dc856ddbd0a785a9e274fec data/bloodyhell/loot_tables/blocks/blood_wall_mushroom_block.json
 8b32ade876780d337cbb850b42f0e785bb019af7 data/bloodyhell/loot_tables/blocks/blood_wood.json
 eb84c500de23e9c019b588464d8b39f217ef7ecb data/bloodyhell/loot_tables/blocks/blood_wood_chest.json
@@ -45,6 +44,7 @@ ab4409a655a7de70d77129b11ec3125a2c0720c6 data/bloodyhell/loot_tables/blocks/pott
 12e8f6e7dbe9b1f72d77d26cf3384ca3ea5e80bd data/bloodyhell/loot_tables/blocks/sanguine_crucible.json
 e7251d37a8ecbdac702f8f7d7ca6b42d5a99431e data/bloodyhell/loot_tables/blocks/sanguinite_ore.json
 be65ff0e064ddda4036136c7164bd48ab49b6548 data/bloodyhell/loot_tables/blocks/small_blood_sapling.json
+6a4602b9f8aefe9b38e86a6743baae3ed57d8dcb data/bloodyhell/loot_tables/blocks/small_rocks.json
 e774cca68ee5c300528cdb9aeda21c2de01fe95c data/bloodyhell/loot_tables/blocks/soul_block.json
 536baa8222cd44c6fba585b5355b3a3d07664cd7 data/bloodyhell/loot_tables/blocks/soul_lamp.json
 6cb97836523d329a6afa5e2169c4d0b5745871bf data/bloodyhell/loot_tables/blocks/soul_leaves.json

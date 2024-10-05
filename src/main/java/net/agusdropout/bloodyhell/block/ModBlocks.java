@@ -161,9 +161,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_BLOOD_FLOWER = BLOCKS.register("potted_blood_flower",
             ()-> new FlowerPotBlock(()-> ((FlowerPotBlock) Blocks.FLOWER_POT) ,ModBlocks.BLOOD_FLOWER,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
-    public static final RegistryObject<Block> BLOOD_SMALL_ROCKS = registerBlock("blood_small_rocks",
-            ()-> new FlowerBlock(()-> MobEffects.POISON,5,
-                    BlockBehaviour.Properties.copy(Blocks.PINK_PETALS).noCollission().noOcclusion()));
+    public static final RegistryObject<Block> SMALL_ROCKS = registerBlock("small_rocks",
+            ()-> new SmallRocks(
+                    BlockBehaviour.Properties.copy(Blocks.STONE).noCollission().noOcclusion().strength(1)));
     public static final RegistryObject<Block> BLOOD_BUSH = registerBlock("blood_bush",
             ()-> new DoublePlantBlock(
                     BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));

@@ -40,7 +40,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_BLOOD_LOG.get());
         this.dropSelf(ModBlocks.BLOOD_WOOD.get());
         this.dropSelf(ModBlocks.BLOOD_LOG.get());
-        this.dropSelf(ModBlocks.BLOOD_SMALL_ROCKS.get());
+        this.dropSelf(ModBlocks.SMALL_ROCKS.get());
         this.dropSelf(ModBlocks.BLOOD_PETALS.get());
         this.dropSelf(ModBlocks.BLEEDING_BLOCK.get());
         this.dropSelf(ModBlocks.SOUL_PLANKS.get());

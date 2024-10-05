@@ -42,7 +42,8 @@
     ],
     [
       "bloodyhell:blood_small_rocks_placed",
-      "bloodyhell:blood_petals_placed"
+      "bloodyhell:blood_petals_placed",
+      "bloodyhell:stone_pillar_placed"
     ],
     [],
     [
@@ -103,18 +104,6 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "bloodyhell:bloodthirstybeast",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
-        "type": "bloodyhell:bloodseeker",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 5
-      },
-      {
         "type": "bloodyhell:crimsonraven",
         "maxCount": 2,
         "minCount": 1,
@@ -134,7 +123,20 @@
       }
     ],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "bloodyhell:bloodthirstybeast",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 5
+      },
+      {
+        "type": "bloodyhell:bloodseeker",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 5
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [
       {
