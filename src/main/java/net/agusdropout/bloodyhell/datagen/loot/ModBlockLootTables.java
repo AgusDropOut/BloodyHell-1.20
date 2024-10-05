@@ -30,9 +30,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.soul_BLOCK.get());
+        this.dropSelf(ModBlocks.SANGUINITE_BLOCK.get());
         this.dropSelf(ModBlocks.Jumpy_Block.get());
-        this.dropSelf(ModBlocks.soul_Lamp.get());
+        this.dropSelf(ModBlocks.SOUL_LAMP.get());
         this.dropSelf(ModBlocks.BLOOD_PLANKS.get());
         this.dropSelf(ModBlocks.SANGUINE_CRUCIBLE.get());
         this.dropSelf(ModBlocks.BLOOD_SAPLING.get());
@@ -96,14 +96,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 
         LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(ModBlocks.Eyeball_crop.get())
+                .hasBlockStateProperties(ModBlocks.EYEBALL_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(EyeballCropBlock.AGE, 6))
                 .or(LootItemBlockStatePropertyCondition
-                        .hasBlockStateProperties(ModBlocks.Eyeball_crop.get())
+                        .hasBlockStateProperties(ModBlocks.EYEBALL_CROP.get())
                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(EyeballCropBlock.AGE, 6)));
 
 
-        this.add(ModBlocks.Eyeball_crop.get(), createCropDrops(ModBlocks.Eyeball_crop.get(), ModItems.Eyeball.get(),
+        this.add(ModBlocks.EYEBALL_CROP.get(), createCropDrops(ModBlocks.EYEBALL_CROP.get(), ModItems.Eyeball.get(),
                 ModItems.Eyeball_seed.get(), lootitemcondition$builder2));
 
         this.add(ModBlocks.BLOOD_LEAVES.get(), block ->

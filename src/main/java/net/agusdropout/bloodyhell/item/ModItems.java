@@ -36,6 +36,19 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLOOD_BOW = ITEMS.register("blood_bow",() -> new ModBow(
             new Item.Properties().stacksTo(1).durability(500)));
+    public static final RegistryObject<Item> BLOOD_SCYTHE = ITEMS.register("blood_scythe", () -> new BloodScytheItem(Tiers.NETHERITE, 10, 5f, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLOOD_ARROW = ITEMS.register("blood_arrow", () -> new BloodArrowItem(
+            new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_HELMET = ITEMS.register("blood_helmet",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_CHESTPLATE = ITEMS.register("blood_chestplate",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_LEGGINGS = ITEMS.register("blood_leggings",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_BOOTS = ITEMS.register("blood_boots",
+            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_BUCKET = ITEMS.register("blood_bucket", () -> new BucketItem(ModFluids.SOURCE_BLOOD,
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 
     //Rhnull Items
@@ -52,14 +65,10 @@ public class ModItems {
     public static final RegistryObject<Item> RHNULL_SHOVEL = ITEMS.register("rhnull_shovel",() -> new ShovelItem(Tiers.NETHERITE,6,6,
             new Item.Properties().stacksTo(1)));
 
-
-
-
-    public static final RegistryObject<Item> BLOODY_SOUL_DUST = ITEMS.register("bloody_soul_dust", () -> new Item( new Item.Properties()));
-    public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem( new Item.Properties().stacksTo(1)));
+    //Food Items
     public static final RegistryObject<Item> GLOW_MUSHROOM = ITEMS.register("glow_mushroom", () -> new BlockItem( ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),new Item.Properties().stacksTo(64).food(new FoodProperties.Builder().nutrition(3)
             .effect(
-            () -> new MobEffectInstance(MobEffects.GLOWING,200,0),1)
+                    () -> new MobEffectInstance(MobEffects.GLOWING,200,0),1)
             .effect(
                     () -> new MobEffectInstance(MobEffects.CONFUSION,200,0),1
             ).build())));
@@ -69,7 +78,6 @@ public class ModItems {
             .effect(
                     () -> new MobEffectInstance(MobEffects.CONFUSION,200,0),1
             ).build())));
-    public static final RegistryObject<Item> Eyeball_seed = ITEMS.register("eyeball_seed", () -> new ItemNameBlockItem(ModBlocks.Eyeball_crop.get(), new Item.Properties()));
     public static final RegistryObject<Item> Eyeball = ITEMS.register("eyeball", () ->
             new Item(new Item.Properties()
                     .food(new FoodProperties.Builder().nutrition(3).saturationMod(2f)
@@ -78,14 +86,7 @@ public class ModItems {
                             .build())
             )
     );
-    public static final RegistryObject<Item> BLOOD_BUCKET = ITEMS.register("blood_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_BLOOD,
-                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-
-    public static final RegistryObject<Item> BLOOD_SCYTHE = ITEMS.register("blood_scythe",
-            () -> new BloodScytheItem(Tiers.NETHERITE, 10, 5f,
-                    new Item.Properties().stacksTo(1)));
-
+    //Spawn eggs
     public static final RegistryObject<Item> BLOODTHIRSTYBEAST_SPAWN_EGG = ITEMS.register("bloodthirstybeast_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOODTHIRSTYBEAST,0x400303,0x00FFA0,
             new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_SEEKER_SPAWN_EGG = ITEMS.register("bloodseeker_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOOD_SEEKER,0x660000 ,0xFFDD00,
@@ -98,22 +99,21 @@ public class ModItems {
             new Item.Properties()));
     public static final RegistryObject<Item> SCARLETSPECKLED_FISH_SPAWN_EGG = ITEMS.register("scarletspeckledfish_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.SCARLETSPECKLED_FISH,0xFF3434 ,0xFCFF00,
             new Item.Properties()));
-    public static final RegistryObject<Item> MATERIALIZED_SOUL = ITEMS.register("materialized_soul", () -> new CatalystItem());
-    public static final RegistryObject<Item> DIRTY_BLOOD_FLOWER = ITEMS.register("dirty_blood_flower",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily",
-            () -> new PlaceOnWaterBlockItem(ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
-    public static final RegistryObject<Item> BLOOD_ARROW = ITEMS.register("blood_arrow",
-            () -> new BloodArrowItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> BLOOD_HELMET = ITEMS.register("blood_helmet",
-            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final RegistryObject<Item> BLOOD_CHESTPLATE = ITEMS.register("blood_chestplate",
-            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final RegistryObject<Item> BLOOD_LEGGINGS = ITEMS.register("blood_leggings",
-            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final RegistryObject<Item> BLOOD_BOOTS = ITEMS.register("blood_boots",
-            () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.BOOTS, new Item.Properties()));
+    //Misc Items
+    public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem(
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLOODY_SOUL_DUST = ITEMS.register("bloody_soul_dust", () -> new Item(
+            new Item.Properties()));
+    public static final RegistryObject<Item> Eyeball_seed = ITEMS.register("eyeball_seed", () -> new ItemNameBlockItem(ModBlocks.EYEBALL_CROP.get(),
+            new Item.Properties()));
+    public static final RegistryObject<Item> MATERIALIZED_SOUL = ITEMS.register("materialized_soul", () -> new CatalystItem());
+    public static final RegistryObject<Item> DIRTY_BLOOD_FLOWER = ITEMS.register("dirty_blood_flower", () -> new Item(
+            new Item.Properties()));
+    public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily", () -> new PlaceOnWaterBlockItem(
+            ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
+
+
 
 
     public static void register(IEventBus eventBus){

@@ -197,6 +197,8 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_CHESTPLATE);
             event.accept(ModItems.BLOOD_LEGGINGS);
             event.accept(ModItems.BLOOD_BOOTS);
+            event.accept(ModItems.BLOOD_BUCKET);
+            event.accept(ModItems.BLOOD_SCYTHE);
 
 
             //Rhnull Items
@@ -208,91 +210,91 @@ public class BloodyHell
             event.accept(ModItems.RHNULL_HOE);
 
 
-            event.accept(ModItems.BLOOD_BUCKET);
+            //Spawn Eggs
             event.accept(ModItems.BLOODTHIRSTYBEAST_SPAWN_EGG);
             event.accept(ModItems.BLOOD_SEEKER_SPAWN_EGG);
-            event.accept(ModItems.BLOODY_SOUL_DUST);
-            event.accept(ModItems.MATERIALIZED_SOUL);
-            event.accept(ModItems.BLOOD_SCYTHE);
-            event.accept(ModItems.Eight_ball);
-            event.accept(ModItems.Eyeball);
-            event.accept(ModItems.Eyeball_seed);
             event.accept(ModItems.CRIMSON_RAVEN_SPAWN_EGG);
             event.accept(ModItems.EYESHELLSNAIL_SPAWN_EGG);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
-            event.accept(ModItems.DIRTY_BLOOD_FLOWER);
-            event.accept(ModItems.BLOOD_LILY);
-            event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
+
+            //Food Items
+            event.accept(ModItems.Eyeball);
+            event.accept(ModItems.Eyeball_seed);
             event.accept(ModItems.GLOW_FRUIT);
             event.accept(ModItems.GLOW_MUSHROOM);
 
+            //Misc Items
+            event.accept(ModItems.BLOODY_SOUL_DUST);
+            event.accept(ModItems.MATERIALIZED_SOUL);
+            event.accept(ModItems.Eight_ball);
+            event.accept(ModItems.DIRTY_BLOOD_FLOWER);
+            event.accept(ModItems.BLOOD_LILY);
 
-
-
-
-
-
-
-
+            //Sanguinite
             event.accept(ModBlocks.SANGUINE_CRUCIBLE);
-            event.accept(ModBlocks.Jumpy_Block);
-            event.accept(ModBlocks.soul_BLOCK);
-            event.accept(ModBlocks.soul_Lamp);
+            event.accept(ModBlocks.SANGUINITE_BLOCK);
+
+            //Ores
             event.accept(ModBlocks.SANGUINITE_ORE);
+            event.accept(ModBlocks.Jumpy_Block);
+
+            //Vegetation
             event.accept(ModBlocks.BLOOD_SAPLING);
             event.accept(ModBlocks.SOUL_SAPLING);
-            event.accept(ModBlocks.SMALL_ROCKS);
-            event.accept(ModBlocks.BLEEDING_BLOCK);
-            event.accept(ModBlocks.BLOOD_GRASS_BLOCK);
-            event.accept(ModBlocks.BLOOD_DIRT_BLOCK);
-            event.accept(ModBlocks.BLOODY_STONE_BLOCK);
-            event.accept(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
-            event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
-            event.accept(ModBlocks.BLOODY_STONE_STAIRS);
-            event.accept(ModBlocks.BLOODY_STONE_WALL);
-            event.accept(ModBlocks.BLOODY_STONE_FENCE);
-            event.accept(ModBlocks.BLOODY_STONE_FENCE_GATE);
-            event.accept(ModBlocks.BLOODY_STONE_SLAB);
             event.accept(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
-            event.accept(ModBlocks.BLOOD_GLOW_STONE);
-            event.accept(ModBlocks.BLOOD_SCRAPPER_PLANT);
-            event.accept(ModBlocks.ONI_STATUE);
-
-
-
-
-
-
-
-            event.accept(ModBlocks.BLOOD_LOG);
-            event.accept(ModBlocks.STRIPPED_BLOOD_LOG);
-            event.accept(ModBlocks.SOUL_LOG);
-            event.accept(ModBlocks.STRIPPED_SOUL_LOG);
-
-
-
-            event.accept(ModBlocks.BLOOD_PLANKS);
-            event.accept(ModBlocks.BLOOD_LEAVES);
-            event.accept(ModBlocks.SOUL_PLANKS);
-            event.accept(ModBlocks.SOUL_LEAVES);
             event.accept(ModBlocks.HANGING_SOUL_TREE_LEAVES);
-
             event.accept(ModBlocks.BLOOD_FLOWER);
             event.accept(ModBlocks.BLOOD_GRASS);
             event.accept(ModBlocks.BLOOD_BUSH);
             event.accept(ModBlocks.BLOOD_PETALS);
             event.accept(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK);
             event.accept(ModBlocks.LIGHT_MUSHROOM_BLOCK);
+
+            //Dirt
+            event.accept(ModBlocks.BLOOD_GRASS_BLOCK);
+            event.accept(ModBlocks.BLOOD_DIRT_BLOCK);
+            event.accept(ModBlocks.BLOOD_SCRAPPER_PLANT);
+
+
+            //Bloody Stone
+            event.accept(ModBlocks.BLOODY_STONE_BLOCK);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+            event.accept(ModBlocks.BLOODY_STONE_STAIRS);
+            event.accept(ModBlocks.BLOODY_STONE_WALL);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE_GATE);
+            event.accept(ModBlocks.BLOODY_STONE_SLAB);
+
+            //Polished Bloody Stone
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+
+            //Wood
+            event.accept(ModBlocks.BLOOD_LOG);
+            event.accept(ModBlocks.STRIPPED_BLOOD_LOG);
+            event.accept(ModBlocks.BLOOD_PLANKS);
+            event.accept(ModBlocks.BLOOD_LEAVES);
+            event.accept(ModBlocks.SOUL_LOG);
+            event.accept(ModBlocks.STRIPPED_SOUL_LOG);
+            event.accept(ModBlocks.SOUL_PLANKS);
+            event.accept(ModBlocks.SOUL_LEAVES);
+
+            //Glowing
             event.accept(ModBlocks.GLOWING_CRYSTAL);
             event.accept(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
             event.accept(ModBlocks.GLOWING_CRYSTAL_LANTERN);
             event.accept(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK);
+            event.accept(ModBlocks.SOUL_LAMP);
+            event.accept(ModBlocks.BLOOD_GLOW_STONE);
 
-
+            //Mob Generated
             event.accept(ModBlocks.EYEBALLSHELL_SNAIL_GOO_BLOCK);
             event.accept(ModBlocks.EYEBALLSHELL_SNAIL_GOO);
 
+            //Misc
+            event.accept(ModBlocks.SMALL_ROCKS);
+            event.accept(ModBlocks.BLEEDING_BLOCK);
+            event.accept(ModBlocks.ONI_STATUE);
 
 
 

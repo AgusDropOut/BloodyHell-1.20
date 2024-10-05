@@ -31,7 +31,7 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.BLOOD_GRASS_BLOCK.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.soul_BLOCK.get(),
+                .add(ModBlocks.SANGUINITE_BLOCK.get(),
                         ModBlocks.SANGUINITE_ORE.get(),
                         ModBlocks.Jumpy_Block.get(),
                         ModBlocks.SANGUINE_CRUCIBLE.get(),
@@ -43,7 +43,7 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
 
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.soul_BLOCK.get());
+                .add(ModBlocks.SANGUINITE_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.SANGUINITE_ORE.get());
