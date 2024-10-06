@@ -223,6 +223,14 @@ public class BloodyHell
             event.accept(ModItems.Eyeball_seed);
             event.accept(ModItems.GLOW_FRUIT);
             event.accept(ModItems.GLOW_MUSHROOM);
+            event.accept(ModItems.SCARLET_RAW_CHICKEN);
+            event.accept(ModItems.GOREHOG_RAW_STEAK);
+
+            //Mob Drops
+            event.accept(ModItems.AUREAL_REVENANT_DAGGER);
+            event.accept(ModItems.VEINREAVER_HORN);
+            event.accept(ModItems.CRIMSON_SHELL);
+            event.accept(ModItems.SCARLET_FEATHER);
 
             //Misc Items
             event.accept(ModItems.BLOODY_SOUL_DUST);

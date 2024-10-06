@@ -86,6 +86,21 @@ public class ModItems {
                             .build())
             )
     );
+    public static final RegistryObject<Item> SCARLET_RAW_CHICKEN = ITEMS.register("scarlet_raw_chicken", () ->
+            new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f)
+                            .build())
+            )
+    );
+    public static final RegistryObject<Item> GOREHOG_RAW_STEAK = ITEMS.register("gorehog_raw_steak", () ->
+            new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f)
+                            .build())
+            )
+    );
+
+
+
     //Spawn eggs
     public static final RegistryObject<Item> BLOODTHIRSTYBEAST_SPAWN_EGG = ITEMS.register("bloodthirstybeast_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLOODTHIRSTYBEAST,0x400303,0x00FFA0,
             new Item.Properties()));
@@ -100,6 +115,16 @@ public class ModItems {
     public static final RegistryObject<Item> SCARLETSPECKLED_FISH_SPAWN_EGG = ITEMS.register("scarletspeckledfish_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.SCARLETSPECKLED_FISH,0xFF3434 ,0xFCFF00,
             new Item.Properties()));
 
+    //Mobs Drops
+    public static final RegistryObject<Item> VEINREAVER_HORN = ITEMS.register("veinreaver_horn", () -> new Item(
+            new Item.Properties()));
+    public static final RegistryObject<Item> AUREAL_REVENANT_DAGGER = ITEMS.register("aureal_revenant_dagger", () -> new Item(
+            new Item.Properties()));
+    public static final RegistryObject<Item> CRIMSON_SHELL = ITEMS.register("crimson_shell", () -> new Item(
+            new Item.Properties()));
+    public static final RegistryObject<Item> SCARLET_FEATHER = ITEMS.register("scarlet_feather", () -> new Item(
+            new Item.Properties()));
+
     //Misc Items
     public static final RegistryObject<Item> Eight_ball = ITEMS.register("eight_ball", () -> new EightBallItem(
             new Item.Properties().stacksTo(1)));
@@ -112,6 +137,7 @@ public class ModItems {
             new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily", () -> new PlaceOnWaterBlockItem(
             ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
+
 
 
 

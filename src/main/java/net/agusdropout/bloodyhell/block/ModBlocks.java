@@ -55,6 +55,8 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BLOODY_STONE_TILES_BLOCK = registerBlock("bloody_stone_tiles_block", ()-> new Block(
             BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS = registerBlock("bloody_stone_bricks", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BLOODY_STONE_STAIRS = registerBlock("bloody_stone_stairs", () -> new StairBlock(() -> ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get().defaultBlockState(),
             BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS)));
     public static final RegistryObject<Block> BLOODY_STONE_SLAB = registerBlock("bloody_stone_slab", () -> new SlabBlock(

@@ -36,11 +36,19 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.Jumpy_Block.get(),
                         ModBlocks.SANGUINE_CRUCIBLE.get(),
                         ModBlocks.BLEEDING_BLOCK.get());
-        ModBlocks.BLOODY_STONE_BLOCK.get();
-        ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
-        ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get();
-        this.tag(BlockTags.DIRT).add(ModBlocks.BLOOD_GRASS_BLOCK.get(), ModBlocks.BLOOD_DIRT_BLOCK.get());
+                        ModBlocks.BLOODY_STONE_BLOCK.get();
+                        ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
+                        ModBlocks.BLOODY_STONE_BRICKS.get();
+                        ModBlocks.BLOODY_STONE_SLAB.get();
+                        ModBlocks.BLOODY_STONE_STAIRS.get();
+                        ModBlocks.BLOODY_STONE_FENCE.get();
+                        ModBlocks.BLOODY_STONE_FENCE_GATE.get();
+                        ModBlocks.BLOODY_STONE_WALL.get();
+                        ModBlocks.SMALL_ROCKS.get();
+                        ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get();
 
+
+                        this.tag(BlockTags.DIRT).add(ModBlocks.BLOOD_GRASS_BLOCK.get(), ModBlocks.BLOOD_DIRT_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SANGUINITE_BLOCK.get());

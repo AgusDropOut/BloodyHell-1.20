@@ -1,6 +1,7 @@
 package net.agusdropout.bloodyhell.datagen;
 
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.datagen.loot.ModLootTables;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -22,7 +23,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeServer(), ModLootTablesProvider.create(packOutput));
+        generator.addProvider(event.includeClient(), new ModLootTables(packOutput));
 
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
 

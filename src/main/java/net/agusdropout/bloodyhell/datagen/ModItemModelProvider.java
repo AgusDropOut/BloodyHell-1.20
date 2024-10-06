@@ -60,6 +60,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         toolItem(ModItems.RHNULL_HOE);
         normalItem(ModItems.RHNULL);
 
+        //Mobs Drops
+        normalItem(ModItems.AUREAL_REVENANT_DAGGER);
+        normalItem(ModItems.VEINREAVER_HORN);
+        normalItem(ModItems.CRIMSON_SHELL);
+        normalItem(ModItems.SCARLET_FEATHER);
+
+        //Food Items
+        normalItem(ModItems.GOREHOG_RAW_STEAK);
+        normalItem(ModItems.SCARLET_RAW_CHICKEN);
+        normalItem(ModItems.GLOW_FRUIT);
+        normalItem(ModItems.GLOW_MUSHROOM);
+
 
 
 
@@ -67,14 +79,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_FLOWER);
         simpleBlockItemBlockTexture(ModBlocks.BLOOD_GRASS);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.BLOODY_STONE_BRICKS);
         evenSimplerBlockItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         evenSimplerBlockItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
         evenSimplerBlockItem(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
         evenSimplerBlockItem(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK);
 
         normalItem(ModItems.BLOOD_LILY);
-        normalItem(ModItems.GLOW_FRUIT);
-        normalItem(ModItems.GLOW_MUSHROOM);
+
 
 
 
@@ -92,6 +104,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleBlockItemBlockTexture(ModBlocks.HANGING_BLOOD_TREE_LEAVES);
         simpleBlockItemBlockTexture(ModBlocks.GLOWING_CRYSTAL);
+        simpleBlockItemBlockTexture(ModBlocks.DROOPVINE);
+        simpleBlockItemBlockTexture(ModBlocks.DROOPVINE_PLANT);
 
 
     }
