@@ -21,6 +21,7 @@ import net.agusdropout.bloodyhell.recipe.ModRecipes;
 import net.agusdropout.bloodyhell.registry.BloodCapabilities;
 import net.agusdropout.bloodyhell.screen.BloodWorkBenchScreen;
 import net.agusdropout.bloodyhell.screen.ModMenuTypes;
+import net.agusdropout.bloodyhell.screen.VesperScreen;
 import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.villager.ModPOIs;
 import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
@@ -326,6 +327,7 @@ public class BloodyHell
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLOOD.get(), RenderType.translucent());  //RENDERIZADO DE LOS LIQUIDOS PARA QUE SEAN TRANSPARNETES
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLOOD.get(), RenderType.translucent());
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
+            MenuScreens.register(ModMenuTypes.VESPER_MENU.get(), VesperScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
@@ -337,6 +339,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.BH_CHEST.get(),BHChestRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
+            EntityRenderers.register(ModEntityTypes.VESPER.get(), VesperRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());

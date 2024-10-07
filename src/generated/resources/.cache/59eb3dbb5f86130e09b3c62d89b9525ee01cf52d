@@ -1,7 +1,8 @@
-// 1.20	2024-10-05T14:44:57.5343919	Loot Tables
+// 1.20	2024-10-06T00:33:39.8137826	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
+9c59e48da444a80bf3f7d17e790b928a460099b9 data/bloodyhell/loot_tables/blocks/bloody_stone_bricks.json
 bfb182f6b2fa0c61c660cbb7d447d12be89742c2 data/bloodyhell/loot_tables/blocks/bloody_stone_fence.json
 975d419e699d937f072f2a93305d573a45910c85 data/bloodyhell/loot_tables/blocks/bloody_stone_fence_gate.json
 211c5e9d4073802f64b0c3424e122cb545810a61 data/bloodyhell/loot_tables/blocks/bloody_stone_slab.json
@@ -65,3 +66,4 @@ bed27736f94946aabb6b424511030941a2f80f63 data/bloodyhell/loot_tables/entities/cr
 ad1f2c670790c4885788fcae7c5e44efdcc800a4 data/bloodyhell/loot_tables/entities/eyeshellsnail.json
 a0d131f807d5bbbfcced3d1a170cacc8edfa286f data/bloodyhell/loot_tables/entities/oni.json
 d01fd441f22deb61cfaa67697e0b8eae7d305684 data/bloodyhell/loot_tables/entities/scarletspeckledfish.json
+0e7c49e407c7e538f34945268d44e2946b04aeda data/bloodyhell/loot_tables/entities/vesper.json

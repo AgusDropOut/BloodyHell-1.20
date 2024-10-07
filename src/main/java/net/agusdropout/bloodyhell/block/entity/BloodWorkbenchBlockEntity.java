@@ -138,6 +138,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
         return super.getCapability(cap, side);
     }
 
+
     @Override
     public void onLoad() {
         super.onLoad();

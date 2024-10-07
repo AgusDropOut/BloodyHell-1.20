@@ -44,6 +44,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOODY_STONE_TILES_BLOCK);
         blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
         blockWithItem(ModBlocks.BLOOD_GLOW_STONE);
+        blockWithItem(ModBlocks.BLOODY_STONE_BRICKS);
 
         blockTranslucent(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
 

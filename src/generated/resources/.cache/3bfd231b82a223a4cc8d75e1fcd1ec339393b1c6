@@ -1,6 +1,7 @@
-// 1.20	2024-09-18T19:24:26.3182312	Block States: bloodyhell
+// 1.20	2024-10-06T00:33:39.811781	Block States: bloodyhell
 24178f379f0f48a39cac2158a25ddf9898f75bbc assets/bloodyhell/blockstates/bleeding_block.json
 ff360f24b89a5391c8186e96f4cbaaf2f06e2a46 assets/bloodyhell/blockstates/bloody_stone_block.json
+1f81eec8edd28399deccdd8ab024e64bdd25af55 assets/bloodyhell/blockstates/bloody_stone_bricks.json
 138c1a0d76765318f4d488043f29f9940b630351 assets/bloodyhell/blockstates/bloody_stone_fence.json
 af91b4180ab1d28dbf226761d26084c745867902 assets/bloodyhell/blockstates/bloody_stone_fence_gate.json
 1092e5411ea07d95f6bff1cc1a8e9077098ca2c7 assets/bloodyhell/blockstates/bloody_stone_slab.json
@@ -18,6 +19,7 @@ db80e859b4704ed91cf399462199365def27a9ad assets/bloodyhell/blockstates/polished_
 7ce82326ce695d80e07a96fe121b9f8d14e31731 assets/bloodyhell/blockstates/potted_blood_flower.json
 3000575a973d5e618c9bfb8c12799ffca5edaf1d assets/bloodyhell/models/block/bleeding_block.json
 4582d27684d383b1f4f58a80d0f394a18017eb98 assets/bloodyhell/models/block/bloody_stone_block.json
+6f1f7427cae8ad14a6244fd9f3916dd36d049659 assets/bloodyhell/models/block/bloody_stone_bricks.json
 e100ba63a0ea500498c9393e6a14af5484bbc59c assets/bloodyhell/models/block/bloody_stone_fence_gate.json
 ab10d1fb14593c6a75cabac49125d05b329f1b1e assets/bloodyhell/models/block/bloody_stone_fence_gate_open.json
 d3c976fb415ab4d8f6d34f11571f597a1ef0e04f assets/bloodyhell/models/block/bloody_stone_fence_gate_wall.json
@@ -46,6 +48,7 @@ a6626629783537989374186ad70f4e69c3921b01 assets/bloodyhell/models/block/polished
 84ac95d61b93c8bfc83c51328361a21ea5387d23 assets/bloodyhell/models/block/potted_blood_flower.json
 c6744ff2eceda39b7c68d6b81fd5ffff7f027d43 assets/bloodyhell/models/item/bleeding_block.json
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
+e2361eb75c1aaf06e1d379ba1b31797fc15fd3f3 assets/bloodyhell/models/item/bloody_stone_bricks.json
 f18f7420174be7909433749494222db00f0cad8e assets/bloodyhell/models/item/bloody_stone_tiles_block.json
 4b3ef8ca7f1f37e1b5df2c33786b241819207a67 assets/bloodyhell/models/item/blood_flower.json
 632f8ebc375bb1c38b6c417d82dc8b1cc191dc02 assets/bloodyhell/models/item/blood_glow_stone.json

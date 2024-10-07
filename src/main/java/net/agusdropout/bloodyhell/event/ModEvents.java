@@ -61,6 +61,7 @@ public class ModEvents {
                 event.put(SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishEntity.setAttributes());
                 event.put(BLOODPIG.get(), BloodPigEntity.setAttributes());
                 event.put(ONI.get(), OniEntity.setAttributes());
+                event.put(VESPER.get(), VesperEntity.setAttributes());
 
 
             }

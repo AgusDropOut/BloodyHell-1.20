@@ -40,6 +40,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<CrystalPillar>> CRYSTAL_PILLAR = ENTITY_TYPES.register("crystal_pillar",
             () -> EntityType.Builder.<CrystalPillar>of(CrystalPillar::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "crystal_pillar").toString()));
+    public static final RegistryObject<EntityType<VesperEntity>> VESPER = ENTITY_TYPES.register("vesper",
+            () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "vesper").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITY_TYPES.register(eventBus);

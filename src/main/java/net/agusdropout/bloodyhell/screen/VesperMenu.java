@@ -2,7 +2,9 @@ package net.agusdropout.bloodyhell.screen;
 
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.block.entity.BloodWorkbenchBlockEntity;
+import net.agusdropout.bloodyhell.entity.custom.VesperEntity;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.npc.ClientSideMerchant;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -10,50 +12,34 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class BloodWorkBenchMenu extends AbstractContainerMenu {
-    public final BloodWorkbenchBlockEntity blockEntity;
-    private final Level level;
-    private final ContainerData data;
-    public BloodWorkbenchBlockEntity getBlockEntity() {
-        return this.blockEntity;
+public class VesperMenu extends AbstractContainerMenu {
+    public final VesperEntity vesperEntity;
+    // Client menu constructor
+    public VesperMenu(int containerId, Inventory playerinventory) {
+        this(containerId, playerinventory,new ItemStackHandler(3), null);
+        System.out.println("VesperMenu constructor");
     }
 
 
-    public BloodWorkBenchMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-        this(id, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+    public VesperMenu(int containerId, Inventory playerinv,IItemHandler dataInventory, VesperEntity vesperEntity) {
+        super(ModMenuTypes.VESPER_MENU.get(), containerId);
+        this.vesperEntity = vesperEntity;
+        this.addSlot(new SlotItemHandler(dataInventory, 0, 12, 15));
+        addPlayerInventory(playerinv);
+        addPlayerHotbar(playerinv);
+
     }
 
-    public BloodWorkBenchMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), id);
-        checkContainerSize(inv, 3);
-        blockEntity = (BloodWorkbenchBlockEntity) entity;
-        this.level = inv.player.level();
-        this.data = data;
 
-        addPlayerInventory(inv);
-        addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 12, 15));
-            this.addSlot(new SlotItemHandler(handler, 1, 86, 15));
-            this.addSlot(new SlotItemHandler(handler, 2, 86, 60));
-        });
 
-        addDataSlots(data);
-    }
-    public boolean isCrafting() {
-        return data.get(0) > 0;
-    }
 
-    public int getScaledProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the height in pixels of your arrow
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
+
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.
@@ -115,9 +101,9 @@ public class BloodWorkBenchMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                player, ModBlocks.SANGUINE_CRUCIBLE.get());
+        return true;
     }
+
 
     private void addPlayerInventory(Inventory playerinventory) {
         for (int i = 0; i < 3; ++i) {
@@ -132,6 +118,4 @@ public class BloodWorkBenchMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(playerinventory, i, 8 + i * 18, 144));
         }
     }
-
-
 }
