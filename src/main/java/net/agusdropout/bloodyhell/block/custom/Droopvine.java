@@ -30,6 +30,6 @@ public interface Droopvine {
     }
 
     static ToIntFunction<BlockState> light() {
-        return (state) -> state.getValue(GLOWY) ? 15 : 0;
+        return (state) -> state.getValue(GLOWY) ? 10 : 0;
     }
 }

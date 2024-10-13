@@ -1,0 +1,21 @@
+{
+
+  "structures": [
+    {
+      "structure": "bloodyhell:vespers_hut",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1623176464,
+
+
+    "spacing": 8,
+
+    "separation": 6,
+
+
+    "type": "minecraft:random_spread"
+  }
+}

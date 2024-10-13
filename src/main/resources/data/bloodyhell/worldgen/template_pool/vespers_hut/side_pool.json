@@ -1,0 +1,16 @@
+{
+
+  "name": "bloodyhell:vespers_hut/side_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 6,
+      "element": {
+        "location": "bloodyhell:vesper",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

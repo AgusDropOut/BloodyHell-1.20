@@ -6,6 +6,7 @@ import com.mojang.blaze3d.shaders.FogShape;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
 import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
+import net.agusdropout.bloodyhell.entity.client.VesperModel;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
@@ -43,6 +44,7 @@ public class ClientEvents  {
             @SubscribeEvent
             public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
                 event.registerLayerDefinition(ModModelLayers.CRYSTAL_PILLAR, CrystalPillarModel::createBodyLayer);
+                event.registerLayerDefinition(ModModelLayers.VESPER, VesperModel::createBodyLayer);
 
             }
 

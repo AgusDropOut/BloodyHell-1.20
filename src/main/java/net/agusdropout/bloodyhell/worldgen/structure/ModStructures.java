@@ -16,6 +16,7 @@ public class ModStructures {
     public static final ResourceKey<Structure> CATACOMBS = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "portal"));
     //public static final ResourceKey<Structure> BLOOD_LIGHTHOUSE = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "blood_lighthouse"));
     public static final ResourceKey<Structure> MAUSOLEUM = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "mausoleum"));
+    public static final ResourceKey<Structure> VESPERS_HUT = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(BloodyHell.MODID, "vespers_hut"));
     public static final RegistryObject<StructureType<BiggerJigsawStructure>> BIGGER_JIGSAW = STRUCTURES.register("bigger_jigsaw", () -> () -> BiggerJigsawStructure.CODEC);
     public static void register(IEventBus eventBus){
         STRUCTURES.register(eventBus);

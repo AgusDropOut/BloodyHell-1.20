@@ -18,9 +18,10 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class VesperMenu extends AbstractContainerMenu {
     public final VesperEntity vesperEntity;
+    private ItemStackHandler lazyItemHandler = new ItemStackHandler(2);
     // Client menu constructor
     public VesperMenu(int containerId, Inventory playerinventory) {
-        this(containerId, playerinventory,new ItemStackHandler(3), null);
+        this(containerId, playerinventory,new ItemStackHandler(2), null);
         System.out.println("VesperMenu constructor");
     }
 
@@ -28,7 +29,9 @@ public class VesperMenu extends AbstractContainerMenu {
     public VesperMenu(int containerId, Inventory playerinv,IItemHandler dataInventory, VesperEntity vesperEntity) {
         super(ModMenuTypes.VESPER_MENU.get(), containerId);
         this.vesperEntity = vesperEntity;
-        this.addSlot(new SlotItemHandler(dataInventory, 0, 12, 15));
+        this.lazyItemHandler = (ItemStackHandler) dataInventory;
+        this.addSlot(new SlotItemHandler(dataInventory, 0, 22, 56));
+        this.addSlot(new SlotItemHandler(dataInventory, 1, 136, 56));
         addPlayerInventory(playerinv);
         addPlayerHotbar(playerinv);
 

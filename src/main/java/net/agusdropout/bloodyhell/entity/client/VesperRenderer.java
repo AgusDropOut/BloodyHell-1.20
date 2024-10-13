@@ -3,39 +3,33 @@ package net.agusdropout.bloodyhell.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.entity.client.layer.VesperEyesLayer;
 import net.agusdropout.bloodyhell.entity.custom.CrystalPillar;
 import net.agusdropout.bloodyhell.entity.custom.VesperEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class VesperRenderer extends EntityRenderer<VesperEntity> {
-    private static final ResourceLocation TEXTURE = BloodyHell.prefix("textures/entity/crystal_pillar.png");
-    private final VesperModel<VesperEntity> model;
+public class VesperRenderer extends MobRenderer<VesperEntity, VesperModel<VesperEntity>> {
+    private static final ResourceLocation TEXTURE = BloodyHell.prefix("textures/entity/vesper.png");
+
 
     public VesperRenderer(EntityRendererProvider.Context context) {
-        super(context);
-        this.model = new VesperModel<>(context.bakeLayer(ModModelLayers.CRYSTAL_PILLAR));
-
+        super(context, new VesperModel<>(context.bakeLayer(ModModelLayers.VESPER)), 1f);
+        this.addLayer(new VesperEyesLayer<>(this));
     }
 
     @Override
-    public void render(VesperEntity entity, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.5F, 1.5F, 1.5F);
-        float ticks = entity.tickCount + g;
-        poseStack.pushPose();
-        poseStack.scale(1.0F, -1.0F, 1.0F);
-        poseStack.translate(0.0F, -1.0F, 0.0F);
-        this.model.setupAnim(entity, 0.0F, 0.0f, ticks, entity.getYRot(), entity.getXRot());
-        VertexConsumer vertexConsumer = multiBufferSource.getBuffer(this.model.renderType(TEXTURE));
-        this.model.renderToBuffer(poseStack, vertexConsumer, i, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
-        poseStack.popPose();
-        super.render(entity, f, g, poseStack, multiBufferSource, i);
+    public void render(VesperEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+                       MultiBufferSource pBuffer, int pPackedLight) {
+        pMatrixStack.scale(1.2f, 1.2f, 1.2f);
+        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 
     @Override

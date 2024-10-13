@@ -5,6 +5,8 @@ import com.mojang.logging.LogUtils;
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.block.entity.ModBlockEntities;
 import net.agusdropout.bloodyhell.capability.IBloodPortal;
+import net.agusdropout.bloodyhell.datagen.ModEntityTagGenerator;
+import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;

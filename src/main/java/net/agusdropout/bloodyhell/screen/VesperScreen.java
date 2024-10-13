@@ -13,7 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class VesperScreen extends AbstractContainerScreen<VesperMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(BloodyHell.MODID,"textures/gui/blood_workbench_gui.png");
+            new ResourceLocation(BloodyHell.MODID,"textures/gui/vesper_gui.png");
     private EnergyInfoArea energyInfoArea;
 
     public VesperScreen(VesperMenu menu, Inventory inventory, Component component) {

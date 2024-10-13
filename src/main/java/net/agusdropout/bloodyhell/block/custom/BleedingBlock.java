@@ -1,5 +1,6 @@
 package net.agusdropout.bloodyhell.block.custom;
 
+import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.extensions.IForgeBlock;
 
 public class BleedingBlock extends Block {
 
@@ -21,7 +23,9 @@ public class BleedingBlock extends Block {
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState state, Entity entity) {
         if(entity instanceof LivingEntity LivingEntity){
-            LivingEntity.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), 200));
+            if(!entity.getType().is(ModTags.Entities.INMUNE_TO_BLEEDING_BLOCK)){
+                LivingEntity.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), 200));
+            }
         }
         
 

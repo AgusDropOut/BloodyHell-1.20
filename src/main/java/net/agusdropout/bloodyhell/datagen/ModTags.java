@@ -4,6 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -30,7 +31,7 @@ public class ModTags {
     }
 
     public static class Entities {
-
+        public static final TagKey<EntityType<?>> INMUNE_TO_BLEEDING_BLOCK = tag("inmune_to_bleeding_block");
         private static TagKey<EntityType<?>> tag(String name) {
             return EntityTypeTags.create(new ResourceLocation(BloodyHell.MODID, name).toString());
         }

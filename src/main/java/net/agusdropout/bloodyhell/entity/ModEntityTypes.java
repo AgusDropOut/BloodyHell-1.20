@@ -17,7 +17,7 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(BloodThirstyBeastEntity::new, MobCategory.MONSTER).sized(1.5f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodthirstybeast").toString()));
     public static final RegistryObject<EntityType<BloodSeekerEntity>> BLOOD_SEEKER = ENTITY_TYPES.register("bloodseeker",
-            () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.MONSTER).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
+            () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodseeker").toString()));
     public static final RegistryObject<EntityType<CrimsonRavenEntity>> CRIMSON_RAVEN = ENTITY_TYPES.register("crimsonraven",
             () -> EntityType.Builder.of(CrimsonRavenEntity::new,MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
@@ -41,7 +41,7 @@ public class ModEntityTypes {
             () -> EntityType.Builder.<CrystalPillar>of(CrystalPillar::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "crystal_pillar").toString()));
     public static final RegistryObject<EntityType<VesperEntity>> VESPER = ENTITY_TYPES.register("vesper",
-            () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+            () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "vesper").toString()));
 
     public static void register(IEventBus eventBus){

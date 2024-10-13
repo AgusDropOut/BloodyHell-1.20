@@ -145,4 +145,7 @@ public class BloodSeekerEntity extends Monster implements GeoEntity {
         return flag;
 
     }
+    
+
+
 }
