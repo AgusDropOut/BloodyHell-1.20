@@ -238,6 +238,8 @@ public class BloodyHell
             //Misc Items
             event.accept(ModItems.BLOODY_SOUL_DUST);
             event.accept(ModItems.MATERIALIZED_SOUL);
+            event.accept(ModItems.CRIMSON_IDOL_COIN);
+            event.accept(ModItems.CHALICE_OF_THE_DAMMED);
             event.accept(ModItems.Eight_ball);
             event.accept(ModItems.DIRTY_BLOOD_FLOWER);
             event.accept(ModItems.BLOOD_LILY);

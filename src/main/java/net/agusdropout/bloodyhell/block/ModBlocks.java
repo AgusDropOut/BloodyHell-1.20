@@ -126,9 +126,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals", ()-> new FlowerBlock(()-> MobEffects.HARM,5,
             BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
     public static final RegistryObject<Block> LIGHT_MUSHROOM_BLOCK = registerBlock("light_mushroom_block", ()-> new FlowerBlock(()-> MobEffects.POISON,5,
-            BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).noCollission().noOcclusion().lightLevel((state)->8)));
+            BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).noCollission().noOcclusion().lightLevel((state)->15)));
     public static final RegistryObject<Block> BLOOD_WALL_MUSHROOM_BLOCK = registerBlock("blood_wall_mushroom_block", ()-> new BaseWallPlantBlock(
-            BlockBehaviour.Properties.copy(Blocks.COCOA).noOcclusion().dynamicShape().lightLevel( (state)->8 )) {
+            BlockBehaviour.Properties.copy(Blocks.COCOA).noOcclusion().dynamicShape().lightLevel( (state)->15 )) {
                 @Override
                 protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateManager) {
                     super.createBlockStateDefinition(stateManager);

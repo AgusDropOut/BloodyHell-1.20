@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "bloodyhell:block/oni_statue"
+    },
+    "facing=south": {
+      "model": "bloodyhell:block/oni_statue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bloodyhell:block/oni_statue",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "bloodyhell:block/oni_statue",
+      "y": 90
     }
   }
 }

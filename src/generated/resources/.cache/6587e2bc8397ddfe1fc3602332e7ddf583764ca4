@@ -1,4 +1,4 @@
-// 1.20	2024-10-06T00:33:39.8147848	Item Models: bloodyhell
+// 1.20	2024-10-13T23:11:27.6780981	Item Models: bloodyhell
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 e2361eb75c1aaf06e1d379ba1b31797fc15fd3f3 assets/bloodyhell/models/item/bloody_stone_bricks.json
@@ -17,6 +17,8 @@ c3448e8886690f83221cb730ea17f18aa3e5208b assets/bloodyhell/models/item/blood_boo
 70ba345100d42407c93c98520215548ac4f49b0a assets/bloodyhell/models/item/blood_helmet.json
 e9edce19e908fa73a34349c5cd10d548f4f4c53c assets/bloodyhell/models/item/blood_leggings.json
 86fc22bcb2b532bf30ccdf54104a202d481523fd assets/bloodyhell/models/item/blood_lily.json
+c887e2ce7f7fa3be28a4a14282b01d7012168424 assets/bloodyhell/models/item/chalice_of_the_dammed.json
+ab6939c6717581b28e5d5d1d393aab3decfaada9 assets/bloodyhell/models/item/crimson_idol_coin.json
 dea138f0ecc896706a9be7ba1dbaec5431c34b59 assets/bloodyhell/models/item/crimson_shell.json
 77c313c5cd8748df19f86deca8aad9cb23b999f8 assets/bloodyhell/models/item/dirty_blood_flower.json
 870ecccbc926884bf8c11c3f0b9760081830ca15 assets/bloodyhell/models/item/droopvine.json

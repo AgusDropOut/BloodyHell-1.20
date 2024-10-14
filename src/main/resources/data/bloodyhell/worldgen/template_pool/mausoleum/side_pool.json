@@ -31,9 +31,18 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "bloodyhell:challenge_room_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "bloodyhell:mausoleum_boss",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

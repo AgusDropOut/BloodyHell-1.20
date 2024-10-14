@@ -86,5 +86,7 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BLOODY_STONE_FENCE_GATE.get());
         this.tag(BlockTags.WALLS)
                 .add(ModBlocks.BLOODY_STONE_WALL.get());
+
     }
+
 }
