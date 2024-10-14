@@ -4,7 +4,7 @@
       "model": "bloodyhell:block/bloody_stone_slab"
     },
     "type=double": {
-      "model": "bloodyhell:block/polished_bloody_stone_block"
+      "model": "bloodyhell:block/bloody_stone_block"
     },
     "type=top": {
       "model": "bloodyhell:block/bloody_stone_slab_top"

@@ -15,6 +15,11 @@ import net.minecraft.world.level.material.Fluid;
 public class ModTags {
 
     public static class Items {
+        public static final TagKey<Item> BLOOD_LOGS = tag("blood_logs");
+
+        private static TagKey<Item> tag(String name) {
+            return ItemTags.create(new ResourceLocation(BloodyHell.MODID, name));
+        }
     }
 
     public static class Blocks {

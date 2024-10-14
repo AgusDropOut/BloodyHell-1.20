@@ -48,16 +48,14 @@ public class ModBlocks {
     //Sanguinite
     public static final RegistryObject<Block> SANGUINITE_BLOCK = registerBlock("sanguinite_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
 
+    //Rhnull
+    public static final RegistryObject<Block> RHNULL_BLOCK = registerBlock("rhnull_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
 
 
     //Bloody Stone
     public static final RegistryObject<Block> BLOODY_STONE_BLOCK = registerBlock("bloody_stone_block", ()-> new Block(
             BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).strength(3f).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> BLOODY_STONE_TILES_BLOCK = registerBlock("bloody_stone_tiles_block", ()-> new Block(
-            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> BLOODY_STONE_BRICKS = registerBlock("bloody_stone_bricks", ()-> new Block(
-            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> BLOODY_STONE_STAIRS = registerBlock("bloody_stone_stairs", () -> new StairBlock(() -> ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get().defaultBlockState(),
+    public static final RegistryObject<Block> BLOODY_STONE_STAIRS = registerBlock("bloody_stone_stairs", () -> new StairBlock(() -> ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState(),
             BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS)));
     public static final RegistryObject<Block> BLOODY_STONE_SLAB = registerBlock("bloody_stone_slab", () -> new SlabBlock(
             BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_FENCE)));
@@ -72,7 +70,44 @@ public class ModBlocks {
     //Polished Bloody Stone
     public static final RegistryObject<Block> POLISHED_BLOODY_STONE_BLOCK = registerBlock("polished_bloody_stone_block", ()-> new Block(
             BlockBehaviour.Properties.copy(Blocks.POLISHED_GRANITE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_BLOODY_STONE_STAIRS = registerBlock("polished_bloody_stone_stairs", () -> new StairBlock(() -> ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get().defaultBlockState(),
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_BLOODY_STONE_SLAB = registerBlock("polished_bloody_stone_slab", () -> new SlabBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_FENCE).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_BLOODY_STONE_FENCE = registerBlock("polished_bloody_stone_fence", () -> new FenceBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_BLOODY_STONE_FENCE_GATE = registerBlock("polished_bloody_stone_fence_gate", () -> new FenceGateBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops(), SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
+    public static final RegistryObject<Block> POLISHED_BLOODY_STONE_WALL = registerBlock("polished_bloody_stone_wall", () -> new WallBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
 
+    //Bloody Stone Tiles
+    public static final RegistryObject<Block> BLOODY_STONE_TILES_BLOCK = registerBlock("bloody_stone_tiles_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_TILES_STAIRS = registerBlock("bloody_stone_tiles_stairs", () -> new StairBlock(() -> ModBlocks.BLOODY_STONE_TILES_BLOCK.get().defaultBlockState(),
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_STAIRS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_TILES_SLAB = registerBlock("bloody_stone_tiles_slab", () -> new SlabBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_TILES_FENCE = registerBlock("bloody_stone_tiles_fence", () -> new FenceBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_FENCE_TILES_GATE = registerBlock("bloody_stone_fence_tiles_gate", () -> new FenceGateBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).requiresCorrectToolForDrops(), SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
+    public static final RegistryObject<Block> BLOODY_STONE_TILES_WALL = registerBlock("bloody_stone_tiles_wall", () -> new WallBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).requiresCorrectToolForDrops()));
+
+    //Bloody Stone Bricks
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS = registerBlock("bloody_stone_bricks", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS_STAIRS = registerBlock("bloody_stone_bricks_stairs", () -> new StairBlock(() -> ModBlocks.BLOODY_STONE_BRICKS.get().defaultBlockState(),
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS_SLAB = registerBlock("bloody_stone_bricks_slab", () -> new SlabBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICK_FENCE).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS_FENCE = registerBlock("bloody_stone_bricks_fence", () -> new FenceBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> BLOODY_STONE_FENCE_BRICKS_GATE = registerBlock("bloody_stone_fence_bricks_gate", () -> new FenceGateBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops(), SoundEvents.CHAIN_PLACE, SoundEvents.ANVIL_BREAK));
+    public static final RegistryObject<Block> BLOODY_STONE_BRICKS_WALL = registerBlock("bloody_stone_bricks_wall", () -> new WallBlock(
+            BlockBehaviour.Properties.copy(Blocks.NETHER_BRICKS).requiresCorrectToolForDrops()));
 
 
     //Blood Grass
@@ -153,6 +188,7 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).strength(3f)));
     public static final RegistryObject<Block> STRIPPED_BLOOD_WOOD = registerBlock("stripped_blood_wood", ()-> new ModFlammableRotatedPillarBlock(
             BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).strength(3f)));
+
     public static final RegistryObject<Block> BLOOD_PLANKS = registerBlock("blood_planks", ()-> new Block(
             BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
                 @Override
@@ -170,6 +206,16 @@ public class ModBlocks {
                     return 5;
                 }
             });
+    public static final RegistryObject<Block> BLOOD_PLANKS_STAIRS = registerBlock("blood_planks_stairs", () -> new StairBlock(() -> ModBlocks.BLOOD_PLANKS.get().defaultBlockState(),
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> BLOOD_PLANKS_SLAB = registerBlock("blood_planks_slab", () -> new SlabBlock(
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> BLOOD_PLANKS_FENCE = registerBlock("blood_planks_fence", () -> new FenceBlock(
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> BLOOD_PLANKS_FENCE_GATE = registerBlock("blood_planks_fence_gate", () -> new FenceGateBlock(
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), SoundEvents.WOOD_PLACE, SoundEvents.WOOD_BREAK));
+
+
     public static final RegistryObject<Block> BLOOD_WOOD_CHEST = registerBlock("blood_wood_chest", () -> new BHChestBlock(
             BlockBehaviour.Properties.copy(Blocks.CHEST).strength(1F).lightLevel((state)-> 7).noOcclusion()));
     public static final RegistryObject<Block> BLOOD_LEAVES = registerBlock("blood_leaves", ()-> new LeavesBlock(

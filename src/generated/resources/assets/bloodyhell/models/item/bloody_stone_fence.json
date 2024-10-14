@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "bloodyhell:block/polished_bloody_stone_block"
+    "texture": "bloodyhell:block/bloody_stone_block"
   }
 }

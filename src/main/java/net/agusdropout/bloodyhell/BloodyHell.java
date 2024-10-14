@@ -189,6 +189,7 @@ public class BloodyHell
             //Sanguinite Items
             event.accept(ModItems.RAW_SANGUINITE);
             event.accept(ModItems.SANGUINITE);
+            event.accept(ModItems.SANGUINITE_NUGGET);
             event.accept(ModItems.SANGUINITE_PICKAXE);
             event.accept(ModItems.SANGUINITE_SWORD);
             event.accept(ModItems.SANGUINITE_AXE);
@@ -206,6 +207,8 @@ public class BloodyHell
 
             //Rhnull Items
             event.accept(ModItems.RHNULL);
+            event.accept(ModItems.RHNULL_NUGGET);
+            event.accept(ModBlocks.RHNULL_BLOCK);
             event.accept(ModItems.RHNULL_PICKAXE);
             event.accept(ModItems.RHNULL_SWORD);
             event.accept(ModItems.RHNULL_AXE);
@@ -243,6 +246,7 @@ public class BloodyHell
             event.accept(ModItems.Eight_ball);
             event.accept(ModItems.DIRTY_BLOOD_FLOWER);
             event.accept(ModItems.BLOOD_LILY);
+            event.accept(ModItems.SANGUINE_CRUCIBLE_CORE);
 
             //Sanguinite
             event.accept(ModBlocks.SANGUINE_CRUCIBLE);
@@ -272,7 +276,6 @@ public class BloodyHell
 
             //Bloody Stone
             event.accept(ModBlocks.BLOODY_STONE_BLOCK);
-            event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
             event.accept(ModBlocks.BLOODY_STONE_STAIRS);
             event.accept(ModBlocks.BLOODY_STONE_WALL);
             event.accept(ModBlocks.BLOODY_STONE_FENCE);
@@ -281,11 +284,36 @@ public class BloodyHell
 
             //Polished Bloody Stone
             event.accept(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_STAIRS);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_WALL);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_FENCE);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_FENCE_GATE);
+            event.accept(ModBlocks.POLISHED_BLOODY_STONE_SLAB);
+
+            //Bloody Stone Tiles
+            event.accept(ModBlocks.BLOODY_STONE_TILES_BLOCK);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_STAIRS);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_WALL);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_FENCE);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE_TILES_GATE);
+            event.accept(ModBlocks.BLOODY_STONE_TILES_SLAB);
+
+            //Bloody Stone Bricks
+            event.accept(ModBlocks.BLOODY_STONE_BRICKS);
+            event.accept(ModBlocks.BLOODY_STONE_BRICKS_STAIRS);
+            event.accept(ModBlocks.BLOODY_STONE_BRICKS_WALL);
+            event.accept(ModBlocks.BLOODY_STONE_BRICKS_FENCE);
+            event.accept(ModBlocks.BLOODY_STONE_FENCE_BRICKS_GATE);
+            event.accept(ModBlocks.BLOODY_STONE_BRICKS_SLAB);
 
             //Wood
             event.accept(ModBlocks.BLOOD_LOG);
             event.accept(ModBlocks.STRIPPED_BLOOD_LOG);
             event.accept(ModBlocks.BLOOD_PLANKS);
+            event.accept(ModBlocks.BLOOD_PLANKS_STAIRS);
+            event.accept(ModBlocks.BLOOD_PLANKS_SLAB);
+            event.accept(ModBlocks.BLOOD_PLANKS_FENCE);
+            event.accept(ModBlocks.BLOOD_PLANKS_FENCE_GATE);
             event.accept(ModBlocks.BLOOD_LEAVES);
             event.accept(ModBlocks.SOUL_LOG);
             event.accept(ModBlocks.STRIPPED_SOUL_LOG);

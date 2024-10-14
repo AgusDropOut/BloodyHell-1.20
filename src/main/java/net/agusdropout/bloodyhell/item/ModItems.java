@@ -22,6 +22,8 @@ public class ModItems {
     //Sanguinite Items
     public static final RegistryObject<Item> SANGUINITE = ITEMS.register("sanguinite", () ->
             new Item( new Item.Properties()));
+    public static final RegistryObject<Item> SANGUINITE_NUGGET = ITEMS.register("sanguinite_nugget", () ->
+            new Item( new Item.Properties()));
     public static final RegistryObject<Item> RAW_SANGUINITE = ITEMS.register("raw_sanguinite", () ->
             new Item( new Item.Properties()));
     public static final RegistryObject<Item> SANGUINITE_SWORD = ITEMS.register("sanguinite_sword",() -> new SwordItem(Tiers.DIAMOND,8,5,
@@ -53,6 +55,8 @@ public class ModItems {
 
     //Rhnull Items
     public static final RegistryObject<Item> RHNULL = ITEMS.register("rhnull", () ->
+            new Item( new Item.Properties()));
+    public static final RegistryObject<Item> RHNULL_NUGGET = ITEMS.register("rhnull_nugget", () ->
             new Item( new Item.Properties()));
     public static final RegistryObject<Item> RHNULL_SWORD = ITEMS.register("rhnull_sword",() -> new SoulItem(Tiers.NETHERITE,11,6,
             new Item.Properties().stacksTo(1)));
@@ -135,6 +139,8 @@ public class ModItems {
     public static final RegistryObject<Item> MATERIALIZED_SOUL = ITEMS.register("materialized_soul", () -> new CatalystItem());
     public static final RegistryObject<Item> CHALICE_OF_THE_DAMMED = ITEMS.register("chalice_of_the_dammed", () -> new CatalystItem());
     public static final RegistryObject<Item> CRIMSON_IDOL_COIN = ITEMS.register("crimson_idol_coin", () -> new Item(
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SANGUINE_CRUCIBLE_CORE = ITEMS.register("sanguine_crucible_core", () -> new Item(
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> DIRTY_BLOOD_FLOWER = ITEMS.register("dirty_blood_flower", () -> new Item(
             new Item.Properties()));

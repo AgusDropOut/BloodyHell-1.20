@@ -15,12 +15,15 @@ import net.agusdropout.bloodyhell.particle.custom.LightParticle;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import javax.swing.plaf.DimensionUIResource;
 
 public class ClientEvents  {
     @Mod.EventBusSubscriber(modid = BloodyHell.MODID, value = Dist.CLIENT)
@@ -47,10 +50,6 @@ public class ClientEvents  {
                 event.registerLayerDefinition(ModModelLayers.VESPER, VesperModel::createBodyLayer);
 
             }
-
-            
-
-
         }
     }
 }

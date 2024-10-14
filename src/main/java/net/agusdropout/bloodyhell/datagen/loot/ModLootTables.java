@@ -61,11 +61,10 @@ public class ModLootTables extends LootTableProvider {
 
         @Override
         protected void generate() {
-            dropSelf(ModBlocks.SANGUINITE_BLOCK);
             this.dropSelf(ModBlocks.SANGUINITE_BLOCK.get());
+            this.dropSelf(ModBlocks.RHNULL_BLOCK);
             this.dropSelf(ModBlocks.Jumpy_Block.get());
             this.dropSelf(ModBlocks.SOUL_LAMP.get());
-            this.dropSelf(ModBlocks.BLOOD_PLANKS.get());
             this.dropSelf(ModBlocks.SANGUINE_CRUCIBLE.get());
             this.dropSelf(ModBlocks.BLOOD_SAPLING.get());
             this.dropSelf(ModBlocks.STRIPPED_BLOOD_WOOD.get());
@@ -88,14 +87,46 @@ public class ModLootTables extends LootTableProvider {
             this.dropSelf(ModBlocks.BLOOD_DIRT_BLOCK.get());
             this.dropSelf(ModBlocks.BLOODDIRT_FARMLAND.get());
             this.dropSelf(ModBlocks.BLOODY_STONE_BLOCK.get());
-            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_BLOCK.get());
+
+
+
             this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get());
+            this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_SLAB.get());
+            this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_FENCE_GATE.get());
+            this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_FENCE.get());
+            this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_WALL.get());
+            this.dropSelf(ModBlocks.POLISHED_BLOODY_STONE_STAIRS.get());
+
+            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_BLOCK.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_SLAB.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_FENCE_TILES_GATE.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_FENCE.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_WALL.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_TILES_STAIRS.get());
+
+
+
+
             this.dropSelf(ModBlocks.BLOODY_STONE_SLAB.get());
-            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS.get());
             this.dropSelf(ModBlocks.BLOODY_STONE_FENCE_GATE.get());
             this.dropSelf(ModBlocks.BLOODY_STONE_FENCE.get());
             this.dropSelf(ModBlocks.BLOODY_STONE_WALL.get());
             this.dropSelf(ModBlocks.BLOODY_STONE_STAIRS.get());
+
+            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS_SLAB.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_FENCE_BRICKS_GATE.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS_FENCE.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS_WALL.get());
+            this.dropSelf(ModBlocks.BLOODY_STONE_BRICKS_STAIRS.get());
+
+            this.dropSelf(ModBlocks.BLOOD_PLANKS.get());
+            this.dropSelf(ModBlocks.BLOOD_PLANKS_STAIRS.get());
+            this.dropSelf(ModBlocks.BLOOD_PLANKS_SLAB.get());
+            this.dropSelf(ModBlocks.BLOOD_PLANKS_FENCE.get());
+            this.dropSelf(ModBlocks.BLOOD_PLANKS_FENCE_GATE.get());
+
+
             this.dropSelf(ModBlocks.BLOOD_LILY_BLOCK.get());
             this.dropSelf(ModBlocks.SMALL_BLOOD_SAPLING.get());
             this.dropSelf(ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK.get());

@@ -32,11 +32,31 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.STRIPPED_SOUL_WOOD.get().asItem());
 
         this.tag(ItemTags.PLANKS)
-                .add(ModBlocks.SOUL_PLANKS.get().asItem());
+                .add(ModBlocks.SOUL_PLANKS.get().asItem())
+                .add(ModBlocks.BLOOD_PLANKS.get().asItem());
         this.tag(ItemTags.ARROWS)
                 .add(ModItems.BLOOD_ARROW.get());
         this.tag(ItemTags.SWORDS)
                 .add(ModItems.SANGUINITE_SWORD.get().asItem())
                 .add(ModItems.RHNULL_SWORD.get().asItem());
+        this.tag(ItemTags.PICKAXES)
+                .add(ModItems.SANGUINITE_PICKAXE.get().asItem())
+                .add(ModItems.RHNULL_PICKAXE.get().asItem());
+        this.tag(ItemTags.SHOVELS)
+                .add(ModItems.SANGUINITE_SHOVEL.get().asItem())
+                .add(ModItems.RHNULL_SHOVEL.get().asItem());
+        this.tag(ItemTags.SWORDS)
+                .add(ModItems.SANGUINITE_AXE.get().asItem())
+                .add(ModItems.RHNULL_AXE.get().asItem());
+        this.tag(ItemTags.HOES)
+                .add(ModItems.SANGUINITE_HOE.get().asItem())
+                .add(ModItems.RHNULL_HOE.get().asItem());
+        this.tag(ItemTags.STONE_CRAFTING_MATERIALS)
+                .add(ModBlocks.BLOODY_STONE_BLOCK.get().asItem());
+        this.tag(ItemTags.STONE_TOOL_MATERIALS)
+                .add(ModBlocks.BLOODY_STONE_BLOCK.get().asItem());
+        this.tag(ModTags.Items.BLOOD_LOGS)
+                .add(ModBlocks.STRIPPED_BLOOD_LOG.get().asItem())
+                .add(ModBlocks.BLOOD_LOG.get().asItem());
     }
 }

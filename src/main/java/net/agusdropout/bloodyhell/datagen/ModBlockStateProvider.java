@@ -45,19 +45,41 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.POLISHED_BLOODY_STONE_BLOCK);
         blockWithItem(ModBlocks.BLOOD_GLOW_STONE);
         blockWithItem(ModBlocks.BLOODY_STONE_BRICKS);
+        blockWithItem(ModBlocks.RHNULL_BLOCK);
 
         blockTranslucent(ModBlocks.GLOWING_CRYSTAL_GLASS_BLOCK);
 
         crossBlock(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK);
 
-
-        stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_STAIRS.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
-        slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_SLAB.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
-
-        fenceBlock(((FenceBlock) ModBlocks.BLOODY_STONE_FENCE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
-        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOODY_STONE_FENCE_GATE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
-        wallBlock(((WallBlock) ModBlocks.BLOODY_STONE_WALL.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
-
+        //Bloody Stone
+        stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_STAIRS.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()));
+        slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_SLAB.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()));
+        fenceBlock(((FenceBlock) ModBlocks.BLOODY_STONE_FENCE.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOODY_STONE_FENCE_GATE.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()));
+        wallBlock(((WallBlock) ModBlocks.BLOODY_STONE_WALL.get()), blockTexture(ModBlocks.BLOODY_STONE_BLOCK.get()));
+        //Bloody Stone Tiles
+        stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_TILES_STAIRS.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()));
+        slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_TILES_SLAB.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()));
+        fenceBlock(((FenceBlock) ModBlocks.BLOODY_STONE_TILES_FENCE.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOODY_STONE_FENCE_TILES_GATE.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()));
+        wallBlock(((WallBlock) ModBlocks.BLOODY_STONE_TILES_WALL.get()), blockTexture(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()));
+        //Polished Bloody Stone
+        stairsBlock(((StairBlock) ModBlocks.POLISHED_BLOODY_STONE_STAIRS.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        slabBlock(((SlabBlock) ModBlocks.POLISHED_BLOODY_STONE_SLAB.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        fenceBlock(((FenceBlock) ModBlocks.POLISHED_BLOODY_STONE_FENCE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.POLISHED_BLOODY_STONE_FENCE_GATE.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        wallBlock(((WallBlock) ModBlocks.POLISHED_BLOODY_STONE_WALL.get()), blockTexture(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get()));
+        //Bloody Stone Bricks
+        stairsBlock(((StairBlock) ModBlocks.BLOODY_STONE_BRICKS_STAIRS.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.BLOODY_STONE_BRICKS_SLAB.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()));
+        fenceBlock(((FenceBlock) ModBlocks.BLOODY_STONE_BRICKS_FENCE.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOODY_STONE_FENCE_BRICKS_GATE.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()));
+        wallBlock(((WallBlock) ModBlocks.BLOODY_STONE_BRICKS_WALL.get()), blockTexture(ModBlocks.BLOODY_STONE_BRICKS.get()));
+        //Blood Planks
+        stairsBlock(((StairBlock) ModBlocks.BLOOD_PLANKS_STAIRS.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.BLOOD_PLANKS_SLAB.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
+        fenceBlock(((FenceBlock) ModBlocks.BLOOD_PLANKS_FENCE.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BLOOD_PLANKS_FENCE_GATE.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
     }
     private String name(Block block) {
         return key(block).getPath();
