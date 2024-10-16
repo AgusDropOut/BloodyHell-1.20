@@ -78,7 +78,7 @@ public class CrimsonRavenEntity extends Parrot implements GeoEntity, FlyingAnima
     }
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 150)
+                .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.FLYING_SPEED, 9.0f)
 
                 .add(Attributes.MOVEMENT_SPEED, 0.2D).build();

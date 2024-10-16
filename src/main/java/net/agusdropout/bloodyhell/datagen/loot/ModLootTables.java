@@ -171,7 +171,8 @@ public class ModLootTables extends LootTableProvider {
 
             this.dropSelf(ModBlocks.BLOOD_BUSH.get());
             this.dropSelf(ModBlocks.BLOOD_FLOWER.get());
-            this.dropSelf(ModBlocks.BLOOD_GRASS.get());
+            this.createGrassDrops(ModBlocks.BLOOD_GRASS, ModItems.Eyeball_seed.get());
+
             this.add(ModBlocks.POTTED_BLOOD_FLOWER.get(), createPotFlowerItemTable(ModBlocks.BLOOD_FLOWER.get()));
         }
 
@@ -268,7 +269,7 @@ public class ModLootTables extends LootTableProvider {
             this.add(ModEntityTypes.ONI.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(ModItems.RHNULL.get())
+                            .add(LootItem.lootTableItem(ModItems.SANGUINE_CRUCIBLE_CORE.get())
                                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
                                     .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
                                     .when(LootItemKilledByPlayerCondition.killedByPlayer())

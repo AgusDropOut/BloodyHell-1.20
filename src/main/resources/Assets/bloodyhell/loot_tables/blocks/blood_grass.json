@@ -42,7 +42,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bloodyhell:eyeball_seed"
+              "name": "minecraft:eyeball"
             }
           ]
         }
@@ -50,5 +50,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "bloodyhell:blocks/blood_grass"
+  "random_sequence": "minecraft:blocks/grass"
 }

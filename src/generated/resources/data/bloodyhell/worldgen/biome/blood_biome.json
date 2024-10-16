@@ -138,14 +138,7 @@
       }
     ],
     "underground_water_creature": [],
-    "water_ambient": [
-      {
-        "type": "bloodyhell:scarletspeckledfish",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
-      }
-    ],
+    "water_ambient": [],
     "water_creature": []
   },
   "temperature": 0.7

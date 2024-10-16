@@ -4,6 +4,8 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Dynamic;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.entity.BloodWorkbenchBlockEntity;
+import net.agusdropout.bloodyhell.datagen.ModTags;
+import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ai.goals.VesperAttackGoal;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.screen.BloodWorkBenchMenu;
@@ -41,14 +43,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.MerchantMenu;
-import net.minecraft.world.item.BookItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.WrittenBookItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.Merchant;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -60,6 +60,7 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.OptionalInt;
 import java.util.UUID;
@@ -70,6 +71,7 @@ public class VesperEntity extends PathfinderMob implements MenuProvider,NeutralM
     private static final UniformInt ANGER_TIME_RANGE = TimeUtil.rangeOfSeconds(20, 39);
     private int angerTime;
     private UUID targetUuid;
+    private UUID clientUuid;
     public AnimationState attackAnimationState = new AnimationState();
     public AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
@@ -85,15 +87,15 @@ public class VesperEntity extends PathfinderMob implements MenuProvider,NeutralM
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20)
-                .add(Attributes.ATTACK_SPEED, 0.5f)
-                .add(Attributes.ATTACK_DAMAGE, 7.0f)
+                .add(Attributes.MAX_HEALTH, 150)
+                .add(Attributes.ATTACK_SPEED, 1f)
+                .add(Attributes.ATTACK_DAMAGE, 10.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.25f).build();
     }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.3D));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, LivingEntity.class, 32.0F));
+        this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, LivingEntity.class, 32.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(1, new VesperAttackGoal(this, 1.0D, true));
         this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
@@ -129,8 +131,15 @@ public class VesperEntity extends PathfinderMob implements MenuProvider,NeutralM
     @Override
     public void aiStep() {
         super.aiStep();
-        if (lazyItemHandler.getStackInSlot(0).getItem() == ModItems.GLOW_FRUIT.get()) {
-            System.out.println("lo logre!");
+        if (isItemQuantityValid(Items.BONE,10,0) && isItemQuantityValid(Items.ENDER_PEARL,1,1)) {
+            double range = 5.0D;
+            AABB effectArea = (new AABB(this.getOnPos())).inflate(range);
+            List<Player> players = this.level().getEntitiesOfClass(Player.class, effectArea);
+            for (Player player : players) { // Iterate over the players
+                lazyItemHandler.getStackInSlot(0).shrink(10);
+                lazyItemHandler.getStackInSlot(1).shrink(1);
+                player.getInventory().add(ModItems.CHALICE_OF_THE_DAMMED.get().getDefaultInstance());
+            }
 
         }
     }
@@ -242,7 +251,9 @@ public class VesperEntity extends PathfinderMob implements MenuProvider,NeutralM
     protected boolean shouldDespawnInPeaceful() {
         return false;
     }
-
+    public boolean isItemQuantityValid(Item item, int quantity, int slot) {
+        return lazyItemHandler.getStackInSlot(slot).getCount() >= quantity && lazyItemHandler.getStackInSlot(slot).getItem().equals(item);
+    }
 
 }
 

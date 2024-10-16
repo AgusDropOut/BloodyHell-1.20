@@ -1,4 +1,4 @@
-// 1.20	2024-10-14T11:55:51.3096112	Loot Tables
+// 1.20	2024-10-14T20:27:16.9415007	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -24,7 +24,7 @@ e1e6bc6cb2033ec8e0ba67f15ad11a3858fd3f06 data/bloodyhell/loot_tables/blocks/bloo
 439069339898078e1d24f2372e7e52dd376fc102 data/bloodyhell/loot_tables/blocks/blood_flower.json
 9727611f9634613bab655ab416fb5eabd8a5dc57 data/bloodyhell/loot_tables/blocks/blood_glowing_chains_block.json
 f21336a79de305eb35c9e89ae73b2db6e299c030 data/bloodyhell/loot_tables/blocks/blood_glow_stone.json
-281cc3c293e56c524b68d2f023e854bfb525dd90 data/bloodyhell/loot_tables/blocks/blood_grass.json
+e9dfae9dd70e17f108dcb42e0bb514c0deaad485 data/bloodyhell/loot_tables/blocks/blood_grass.json
 d37dea2c06f307e9867c34ce7be382d770d37eb3 data/bloodyhell/loot_tables/blocks/blood_grass_block.json
 75558e2d802f96ed2ad14d7cd901ecc2445afafb data/bloodyhell/loot_tables/blocks/blood_leaves.json
 6b3a2c1e2928580936f3b16e84f4443bb3e11729 data/bloodyhell/loot_tables/blocks/blood_lily_block.json
@@ -84,6 +84,6 @@ d4573b5306a4cfa7fbc7f9b1cce8e92651486cef data/bloodyhell/loot_tables/entities/bl
 6b3f4bf8140d34dc1ce1305959f376e91f019426 data/bloodyhell/loot_tables/entities/crimsonraven.json
 bed27736f94946aabb6b424511030941a2f80f63 data/bloodyhell/loot_tables/entities/crystal_pillar.json
 ad1f2c670790c4885788fcae7c5e44efdcc800a4 data/bloodyhell/loot_tables/entities/eyeshellsnail.json
-a0d131f807d5bbbfcced3d1a170cacc8edfa286f data/bloodyhell/loot_tables/entities/oni.json
+5cf7c93bc0b9b76c44dc4ccb26e04aa332398e7c data/bloodyhell/loot_tables/entities/oni.json
 d01fd441f22deb61cfaa67697e0b8eae7d305684 data/bloodyhell/loot_tables/entities/scarletspeckledfish.json
 0e7c49e407c7e538f34945268d44e2946b04aeda data/bloodyhell/loot_tables/entities/vesper.json

@@ -1,7 +1,7 @@
-// 1.20	2024-10-14T11:32:54.3956203	Registries
+// 1.20	2024-10-14T22:23:07.3144227	Registries
 95b4343910ae4d43ac4295b295fb8f472921bdd0 data/bloodyhell/dimension/soul_dimension.json
 f619897691161d596a04af87928e3ce721caed9f data/bloodyhell/dimension_type/soul_dimension.json
-9f10b3379841867856a539d911306ca8ed3dba21 data/bloodyhell/worldgen/biome/blood_biome.json
+2f7f9d000185adf842964e9a02ff8c81e881a18c data/bloodyhell/worldgen/biome/blood_biome.json
 890ef8d0b2177cfd298bf9c2d92430a1e982b2c0 data/bloodyhell/worldgen/configured_feature/bleeding_block.json
 10e044f2de6bdf65cf7b4cf71804195b9a6e7e8d data/bloodyhell/worldgen/configured_feature/blood_bush_flower.json
 5353111ad898c5a2ee4b505544889a572bfb4cd9 data/bloodyhell/worldgen/configured_feature/blood_flower.json

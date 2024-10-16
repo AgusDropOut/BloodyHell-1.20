@@ -49,7 +49,7 @@ public class OniEntity extends Monster implements GeoEntity {
         super(entityType, level);
     }
 
-    private static final int MAX_HEALTH = 150;
+    private static final int MAX_HEALTH = 200;
     private Phase PHASE = Phase.MELEE_ATTACK;
     private int counter = 0;
 
