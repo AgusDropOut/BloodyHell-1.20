@@ -11,7 +11,6 @@ import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 public final class BloodArmorRenderer extends GeoArmorRenderer<BloodArmorItem> {
     public BloodArmorRenderer() {
             super(new BloodArmorModel());
-            addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
 }

@@ -19,6 +19,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BHChestBlockEntity>> BH_CHEST = BLOCK_ENTITIES.register("bh_chest", () ->
             BlockEntityType.Builder.of(BHChestBlockEntity::new,
                     ModBlocks.BLOOD_WOOD_CHEST.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BloodAltarBlockEntity>> BLOOD_ALTAR =
+            BLOCK_ENTITIES.register("blood_altar_entity", () ->
+                    BlockEntityType.Builder.of(BloodAltarBlockEntity::new,
+                            ModBlocks.BLOOD_ALTAR.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

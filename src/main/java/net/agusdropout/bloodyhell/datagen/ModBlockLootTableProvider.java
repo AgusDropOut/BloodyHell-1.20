@@ -61,4 +61,15 @@ public abstract class ModBlockLootTableProvider extends BlockLootSubProvider {
     public void createGrassDrops(Supplier<? extends Block> grass, Item drop) {
         this.add(grass.get(), (block) -> createShearsDispatchTable(block, applyExplosionDecay(block, (LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(0.125F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
     }
+
+    public void createPlantsDrops(Supplier<? extends Block> grass, Item drop) {
+        this.add(grass.get(), (block) -> createShearsDispatchTable(block, applyExplosionDecay(block, (LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(0.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
+    }
+
+
+    public void  createSilkTouchOrShearsDispatchTable(Block blockDrop, Item drop) {
+        this.add(blockDrop, (block) -> createSilkTouchOrShearsDispatchTable(block, (LootItem.lootTableItem(drop))));
+    }
+
+
 }

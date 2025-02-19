@@ -12,6 +12,7 @@ import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
 import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
 import net.agusdropout.bloodyhell.particle.custom.LightParticle;
+import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -20,6 +21,7 @@ import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -50,6 +52,15 @@ public class ClientEvents  {
                 event.registerLayerDefinition(ModModelLayers.VESPER, VesperModel::createBodyLayer);
 
             }
+
+
+        }
+        @SubscribeEvent
+        public static void clientTickEvent(TickEvent.ClientTickEvent event) {
+            if (event.phase == TickEvent.Phase.START) {
+                ClientTickHandler.ticksInGame++;
+            }
+
         }
     }
 }

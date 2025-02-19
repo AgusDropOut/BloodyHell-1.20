@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.worldgen.dimension;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.worldgen.ModBiomeModifiers;
 import net.agusdropout.bloodyhell.worldgen.biome.ModBiomes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -42,10 +43,10 @@ public class ModDimensions {
         return new ResourceLocation(BloodyHell.MODID, name);
     }
 
-
+    public static final ResourceLocation DIMENSION_RENDERER = BloodyHell.prefix("renderer");
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(SOUL_DIMENSION_TYPE, new DimensionType(
-                OptionalLong.of(20000), // fixedTime
+                OptionalLong.of(15000L), // fixedTime
                 true, // hasSkylight
                 false, // hasCeiling
                 false, // ultraWarm
@@ -57,7 +58,7 @@ public class ModDimensions {
                 128, // height
                 128, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
+                DIMENSION_RENDERER, // effectsLocation
                 0.05f, // ambientLight
                 new DimensionType.MonsterSettings(true, false, UniformInt.of(0, 7), 7)));
     }
@@ -134,7 +135,9 @@ public class ModDimensions {
                         //bedrock floor
                         SurfaceRules.ifTrue(SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
                         //filler depthrock
+                        //Delete cealing and adding grass on top to prevent dark dead zone
                         SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110),1),SurfaceRules.state(Blocks.AIR.defaultBlockState())),
+                        SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107),1), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))),
                         //SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0), SurfaceRules.state(ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState())),
                         //sediment
                         SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState()))),
@@ -221,7 +224,9 @@ public class ModDimensions {
                 false,
                 false
         ));
+
     }
+
 
 
 }

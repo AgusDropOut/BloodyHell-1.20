@@ -66,13 +66,12 @@ public class ModLootTables extends LootTableProvider {
             this.dropSelf(ModBlocks.Jumpy_Block.get());
             this.dropSelf(ModBlocks.SOUL_LAMP.get());
             this.dropSelf(ModBlocks.SANGUINE_CRUCIBLE.get());
+            this.dropSelf(ModBlocks.BLOOD_ALTAR.get());
             this.dropSelf(ModBlocks.BLOOD_SAPLING.get());
             this.dropSelf(ModBlocks.STRIPPED_BLOOD_WOOD.get());
             this.dropSelf(ModBlocks.STRIPPED_BLOOD_LOG.get());
             this.dropSelf(ModBlocks.BLOOD_WOOD.get());
             this.dropSelf(ModBlocks.BLOOD_LOG.get());
-            this.dropSelf(ModBlocks.SMALL_ROCKS.get());
-            this.dropSelf(ModBlocks.BLOOD_PETALS.get());
             this.dropSelf(ModBlocks.BLEEDING_BLOCK.get());
             this.dropSelf(ModBlocks.SOUL_PLANKS.get());
             this.dropSelf(ModBlocks.SOUL_SAPLING.get());
@@ -142,7 +141,6 @@ public class ModLootTables extends LootTableProvider {
             this.dropSelf(ModBlocks.GLOWING_CRYSTAL_LANTERN.get());
             this.dropSelf(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK.get());
             this.dropSelf(ModBlocks.BLOOD_WOOD_CHEST.get());
-            this.dropOther(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(),ModItems.GLOW_MUSHROOM.get());
             this.dropOther(ModBlocks.DROOPVINE.get(),ModItems.GLOW_FRUIT.get());
             this.dropOther(ModBlocks.DROOPVINE_PLANT.get(),ModItems.GLOW_FRUIT.get());
 
@@ -169,9 +167,15 @@ public class ModLootTables extends LootTableProvider {
                     createLeavesDrops(block, ModBlocks.BLOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 
-            this.dropSelf(ModBlocks.BLOOD_BUSH.get());
-            this.dropSelf(ModBlocks.BLOOD_FLOWER.get());
+
             this.createGrassDrops(ModBlocks.BLOOD_GRASS, ModItems.Eyeball_seed.get());
+
+            this.createPlantsDrops(ModBlocks.BLOOD_PETALS, ModBlocks.BLOOD_PETALS.get().asItem());
+            this.createPlantsDrops(ModBlocks.LIGHT_MUSHROOM_BLOCK, ModItems.GLOW_MUSHROOM.get());
+            this.createPlantsDrops(ModBlocks.SMALL_ROCKS, ModBlocks.SMALL_ROCKS.get().asItem());
+            this.createPlantsDrops(ModBlocks.BLOOD_FLOWER, ModBlocks.BLOOD_FLOWER.get().asItem());
+            this.createPlantsDrops(ModBlocks.BLOOD_BUSH, ModBlocks.BLOOD_BUSH.get().asItem());
+
 
             this.add(ModBlocks.POTTED_BLOOD_FLOWER.get(), createPotFlowerItemTable(ModBlocks.BLOOD_FLOWER.get()));
         }

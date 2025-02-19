@@ -2,7 +2,6 @@ package net.agusdropout.bloodyhell.block;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.base.BHChestBlock;
-import net.agusdropout.bloodyhell.block.base.BaseFacingAnyDirectionBlock;
 import net.agusdropout.bloodyhell.block.base.BaseWallPlantBlock;
 import net.agusdropout.bloodyhell.block.base.TallGrowingPlant;
 import net.agusdropout.bloodyhell.block.custom.*;
@@ -21,11 +20,9 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -159,7 +156,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_LILY_BLOCK = registerBlock("blood_lily_block", ()-> new BloodLilyBlock(
             BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().lightLevel((state)->20).instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals", ()-> new FlowerBlock(()-> MobEffects.HARM,5,
-            BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
+            BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> LIGHT_MUSHROOM_BLOCK = registerBlock("light_mushroom_block", ()-> new FlowerBlock(()-> MobEffects.POISON,5,
             BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).noCollission().noOcclusion().lightLevel((state)->15)));
     public static final RegistryObject<Block> BLOOD_WALL_MUSHROOM_BLOCK = registerBlock("blood_wall_mushroom_block", ()-> new BaseWallPlantBlock(
@@ -266,6 +263,10 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.GLASS).strength(1F).lightLevel((state)-> 14).noOcclusion()));
     public static final RegistryObject<Block> BLOOD_GLOWING_CHAINS_BLOCK = registerBlock("blood_glowing_chains_block", () -> new ChainBlock(
             BlockBehaviour.Properties.copy(Blocks.CHAIN).strength(1F).lightLevel((state)-> 7).noOcclusion()));
+
+    //Tranfusion Power Generating Mushrooms
+    public static final RegistryObject<Block> BLOOD_ALTAR = BLOCKS.register("blood_altar", ()-> new BloodAltarBlock(
+            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).noOcclusion().lightLevel((state)->15)));
 
 
 

@@ -2,6 +2,11 @@
   "values": [
     "bloodyhell:blood_leaves",
     "bloodyhell:soul_leaves",
-    "bloodyhell:hanging_bloodtree_leaves"
+    "bloodyhell:hanging_bloodtree_leaves",
+    "bloodyhell:blood_grass",
+    "bloodyhell:blood_petals",
+    "bloodyhell:light_mushroom_block",
+    "bloodyhell:small_rocks",
+    "bloodyhell:blood_flower"
   ]
 }

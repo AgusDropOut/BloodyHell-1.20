@@ -147,6 +147,11 @@ public class ModItems {
     public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily", () -> new PlaceOnWaterBlockItem(
             ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
 
+    // Animated Items
+    public static final RegistryObject<Item> BLOOD_ALTAR = ITEMS.register("blood_altar", () -> new BloodAltarItem(
+            ModBlocks.BLOOD_ALTAR.get(),new Item.Properties()));
+
+
 
 
 

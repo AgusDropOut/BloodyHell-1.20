@@ -105,7 +105,12 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.BLOOD_LEAVES.get())
                 .add(ModBlocks.SOUL_LEAVES.get())
-                .add(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get());
+                .add(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get())
+                .add(ModBlocks.BLOOD_GRASS.get())
+                .add(ModBlocks.BLOOD_PETALS.get())
+                .add(ModBlocks.LIGHT_MUSHROOM_BLOCK.get())
+                .add(ModBlocks.SMALL_ROCKS.get())
+                .add(ModBlocks.BLOOD_FLOWER.get());
 
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.BLOOD_PLANKS.get())
@@ -124,6 +129,10 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BLOODY_STONE_TILES_WALL.get())
                 .add(ModBlocks.POLISHED_BLOODY_STONE_WALL.get())
                 .add(ModBlocks.BLOODY_STONE_WALL.get());
+
+
+
+
 
     }
 

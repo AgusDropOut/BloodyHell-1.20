@@ -1,26 +1,36 @@
 package net.agusdropout.bloodyhell.event;
 
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
 import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.networking.ModMessages;
+import net.agusdropout.bloodyhell.networking.packet.ThirstDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
 import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
 import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
 import net.agusdropout.bloodyhell.particle.custom.LightParticle;
+import net.agusdropout.bloodyhell.thirst.PlayerThirstProvider;
+import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -48,6 +58,9 @@ public class ModEvents {
             public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
 
 
+            }
+            private void RegisterDimensionSpecialEffectsEvent(RegisterDimensionSpecialEffectsEvent event) {
+                event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
             }
 
 
@@ -79,8 +92,8 @@ public class ModEvents {
         }
         @Mod.EventBusSubscriber(modid = BloodyHell.MODID)
         public static class ForgeEvents{
-            @SubscribeEvent
-            public static void PlayerTickEvent(TickEvent.PlayerTickEvent event){
+            //@SubscribeEvent
+            //public static void PlayerTickEvent(TickEvent.PlayerTickEvent event){
                    // if(!event.player.level().isClientSide) {
                    //     if (event.player.level().dimension().equals(ModDimensions.SOUL_LEVEL_KEY)) {
                    //         if (!event.player.hasEffect(ModEffects.BLOOD_LUST.get())) {
@@ -91,11 +104,13 @@ public class ModEvents {
                    //         }
                    //     }
                    // }
-
-
-
-
+            private void RegisterDimensionSpecialEffectsEvent(RegisterDimensionSpecialEffectsEvent event) {
+                event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
             }
+
+
+
+
 
 
         }
@@ -103,15 +118,5 @@ public class ModEvents {
 
 
 
-  //  @SubscribeEvent
-  //  public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-  //      if(event.side == LogicalSide.SERVER) {
-  //          event.player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
-  //              if(thirst.getThirst() > 0 && event.player.getRandom().nextFloat() < 0.005f) { // Once Every 10 Seconds on Avg
-  //                  thirst.subThirst(1);
-  //                  ModMessages.sendToPlayer(new ThirstDataSyncS2CPacket(thirst.getThirst()), ((ServerPlayer) event.player));
-  //              }
-  //          });
-  //      }
-  //  }
+
 
