@@ -24,8 +24,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public class BloodAltarBlock extends BaseEntityBlock {
-    private BloodAltarBlockEntity bloodAltarEntity;
+    private BloodAltarBlockEntity mainBloodAltarEntity;
     public static final BooleanProperty ITEMINSIDE = BooleanProperty.create("iteminside");
     public BloodAltarBlock(Properties properties) {
         super(properties);
@@ -45,16 +47,16 @@ public class BloodAltarBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        bloodAltarEntity = new BloodAltarBlockEntity(pos, state);
-        return bloodAltarEntity;
+        mainBloodAltarEntity = new BloodAltarBlockEntity(pos, state);
+        return mainBloodAltarEntity;
     }
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof BloodWorkbenchBlockEntity) {
-                ((BloodWorkbenchBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof BloodAltarBlockEntity) {
+                ((BloodAltarBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -65,6 +67,7 @@ public class BloodAltarBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(blockPos) instanceof BloodAltarBlockEntity altar)) {
             return InteractionResult.PASS;
         }
+
 
         if (interactionHand == InteractionHand.MAIN_HAND) {
             ItemStack heldItem = player.getMainHandItem();
@@ -111,5 +114,13 @@ public class BloodAltarBlock extends BaseEntityBlock {
 
 
         super.animateTick(state, level, pos, random);
+    }
+
+    public List<ItemStack> getItemsInside(){
+        return mainBloodAltarEntity.getItemsInside();
+    }
+
+    public boolean clearItemsInside(){
+        return mainBloodAltarEntity.clearItemsInside();
     }
 }

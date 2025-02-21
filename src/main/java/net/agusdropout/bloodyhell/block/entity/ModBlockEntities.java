@@ -23,6 +23,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("blood_altar_entity", () ->
                     BlockEntityType.Builder.of(BloodAltarBlockEntity::new,
                             ModBlocks.BLOOD_ALTAR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MainBloodAltarBlockEntity>> MAIN_BLOOD_ALTAR =
+            BLOCK_ENTITIES.register("main_blood_altar_entity", () ->
+                    BlockEntityType.Builder.of(MainBloodAltarBlockEntity::new,
+                            ModBlocks.MAIN_BLOOD_ALTAR.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

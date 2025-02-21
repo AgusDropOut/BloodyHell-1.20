@@ -2,13 +2,18 @@ package net.agusdropout.bloodyhell.item;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.custom.*;
+import net.agusdropout.bloodyhell.item.potions.BloodFlaskItem;
+import net.agusdropout.bloodyhell.item.potions.BloodPotionItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -150,6 +155,14 @@ public class ModItems {
     // Animated Items
     public static final RegistryObject<Item> BLOOD_ALTAR = ITEMS.register("blood_altar", () -> new BloodAltarItem(
             ModBlocks.BLOOD_ALTAR.get(),new Item.Properties()));
+    public static final RegistryObject<Item> MAIN_BLOOD_ALTAR = ITEMS.register("main_blood_altar", () -> new MainBloodAltarItem(
+            ModBlocks.MAIN_BLOOD_ALTAR.get(),new Item.Properties()));
+
+    //Flasks
+    public static final RegistryObject<Item> BLOOD_FLASK = ITEMS.register("blood_flask", () -> new BloodFlaskItem(
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> FILLED_BLOOD_FLASK = ITEMS.register("filled_blood_flask", () -> new BloodPotionItem(
+            new Item.Properties().stacksTo(1), new MobEffectInstance(ModEffects.BLOOD_LUST.get(), 6000, 0)));
 
 
 

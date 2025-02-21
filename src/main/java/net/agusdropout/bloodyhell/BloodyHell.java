@@ -21,6 +21,7 @@ import net.agusdropout.bloodyhell.item.custom.ModArmorItem;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.painting.ModPaintings;
 import net.agusdropout.bloodyhell.particle.ModParticles;
+import net.agusdropout.bloodyhell.potion.ModPotions;
 import net.agusdropout.bloodyhell.recipe.ModRecipes;
 import net.agusdropout.bloodyhell.registry.BloodCapabilities;
 import net.agusdropout.bloodyhell.screen.BloodWorkBenchScreen;
@@ -115,6 +116,7 @@ public class BloodyHell
         ModTreeDecoratorTypes.register(modEventBus);
         ModStructures.register(modEventBus);
         ModFeatures.register(modEventBus);
+        ModPotions.register(modEventBus);
 
 
 
@@ -352,6 +354,12 @@ public class BloodyHell
             //Animated Block Items
             event.accept(ModItems.BLOOD_ALTAR);
             event.accept(ModBlocks.BLOOD_ALTAR);
+            event.accept(ModItems.MAIN_BLOOD_ALTAR);
+            event.accept(ModBlocks.MAIN_BLOOD_ALTAR);
+
+            //Potions
+            event.accept(ModItems.BLOOD_FLASK);
+            event.accept(ModItems.FILLED_BLOOD_FLASK);
 
 
 
@@ -393,6 +401,7 @@ public class BloodyHell
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), RenderType.translucent());
             BlockEntityRenderers.register(ModBlockEntities.BLOOD_ALTAR.get(), BloodAltarRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.MAIN_BLOOD_ALTAR.get(), MainBloodAltarRenderer::new);
 
 
         }

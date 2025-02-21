@@ -267,6 +267,8 @@ public class ModBlocks {
     //Tranfusion Power Generating Mushrooms
     public static final RegistryObject<Block> BLOOD_ALTAR = BLOCKS.register("blood_altar", ()-> new BloodAltarBlock(
             BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).noOcclusion().lightLevel((state)->15)));
+    public static final RegistryObject<Block> MAIN_BLOOD_ALTAR = BLOCKS.register("main_blood_altar", ()-> new MainBloodAltarBlock(
+            BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).noOcclusion().lightLevel((state)->15)));
 
 
 

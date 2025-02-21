@@ -1,4 +1,4 @@
-// 1.20	2025-02-17T17:12:06.5525033	Loot Tables
+// 1.20	2025-02-20T11:25:30.6716025	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -55,6 +55,7 @@ cf1ac83c140ea550f9fe5599e9e31e5cbfa02592 data/bloodyhell/loot_tables/blocks/hang
 0d5c37b64d3a4c5a0a5194d514250f3199ffc2e4 data/bloodyhell/loot_tables/blocks/hanging_soultree_leaves.json
 0738d6bac0804e7fd86f0048d5a0b6bf9324b421 data/bloodyhell/loot_tables/blocks/jumpy_block.json
 242f17b3bdb96935b0d086013d92b755ec171f2f data/bloodyhell/loot_tables/blocks/light_mushroom_block.json
+efbde252fc53646e432e33543c03bcb2a1b645d4 data/bloodyhell/loot_tables/blocks/main_blood_altar.json
 7b9823899a8c5dd9b04b7f045ce07a3145f85f79 data/bloodyhell/loot_tables/blocks/polished_bloody_stone_block.json
 89e6ebeaabed35a43b02733c25cc1cd750e87ff0 data/bloodyhell/loot_tables/blocks/polished_bloody_stone_fence.json
 158ee4d1eec75987ac5eb774b7a0d4857e83af14 data/bloodyhell/loot_tables/blocks/polished_bloody_stone_fence_gate.json

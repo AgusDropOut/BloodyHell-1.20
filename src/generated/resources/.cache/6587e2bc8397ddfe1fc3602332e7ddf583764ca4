@@ -1,4 +1,4 @@
-// 1.20	2024-10-14T14:46:49.1256911	Item Models: bloodyhell
+// 1.20	2025-02-20T13:29:44.5715978	Item Models: bloodyhell
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 e2361eb75c1aaf06e1d379ba1b31797fc15fd3f3 assets/bloodyhell/models/item/bloody_stone_bricks.json
@@ -21,6 +21,7 @@ a1814ad5586de1a0eef7d19eb5a0429af9810f00 assets/bloodyhell/models/item/bloody_st
 439b5e1961284e369b053d5100c3c0676938858a assets/bloodyhell/models/item/blood_arrow.json
 c3448e8886690f83221cb730ea17f18aa3e5208b assets/bloodyhell/models/item/blood_boots.json
 377fc4900ef4e80a5b08b2a4d6405f282e52a775 assets/bloodyhell/models/item/blood_chestplate.json
+08f3e91ce44841765fe7d5adc04fefa92e86c213 assets/bloodyhell/models/item/blood_flask.json
 9d344eb71c2cf1433524bc33bbaa5e169f682648 assets/bloodyhell/models/item/blood_flower.json
 18ef5b45822a7717043d9779f5e5525d8555e715 assets/bloodyhell/models/item/blood_glowing_chains_block.json
 85b82409ddd6893ee2a65862a8716826762d96a7 assets/bloodyhell/models/item/blood_grass.json
@@ -37,6 +38,7 @@ dea138f0ecc896706a9be7ba1dbaec5431c34b59 assets/bloodyhell/models/item/crimson_s
 77c313c5cd8748df19f86deca8aad9cb23b999f8 assets/bloodyhell/models/item/dirty_blood_flower.json
 870ecccbc926884bf8c11c3f0b9760081830ca15 assets/bloodyhell/models/item/droopvine.json
 f5ff9ba8a120c615965a3f2a028ea27bf6213f6c assets/bloodyhell/models/item/droopvine_plant.json
+bbfff094130350ee848c3a6a2d8a5daa4de8d7a2 assets/bloodyhell/models/item/filled_blood_flask.json
 23982bc52544092e63c6cb8e97a5ebd535ca6ef9 assets/bloodyhell/models/item/glowing_crystal.json
 e1f78623e8a208ea87b34bf8c60bc34c8c7545f8 assets/bloodyhell/models/item/glowing_crystal_glass_block.json
 a397b608816eda99958178fd959e947a9106c880 assets/bloodyhell/models/item/glow_fruit.json

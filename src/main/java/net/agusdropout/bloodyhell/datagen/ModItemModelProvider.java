@@ -79,6 +79,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.CRIMSON_IDOL_COIN);
         normalItem(ModItems.SANGUINE_CRUCIBLE_CORE);
 
+        //Potions
+        normalItem(ModItems.BLOOD_FLASK);
+        normalItem(ModItems.FILLED_BLOOD_FLASK);
+
 
 
 

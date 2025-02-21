@@ -11,6 +11,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.fluids.FluidType;
 
 public class ModTags {
 
@@ -45,7 +46,7 @@ public class ModTags {
     public static class Fluids {
 
 
-
+        public static final TagKey<Fluid> BLOODY_LIQUID = tag("bloody_liquid");
         private static TagKey<Fluid> tag(String name) {
             return FluidTags.create(new ResourceLocation(BloodyHell.MODID, name));
         }
