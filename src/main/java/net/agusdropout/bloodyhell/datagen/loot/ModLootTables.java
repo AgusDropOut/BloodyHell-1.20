@@ -291,6 +291,11 @@ public class ModLootTables extends LootTableProvider {
                             .setRolls(ConstantValue.exactly(1))
                     )
             );
+            this.add(ModEntityTypes.UNKNOWN_EYE_ENTITY.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
             this.add(ModEntityTypes.VESPER.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))

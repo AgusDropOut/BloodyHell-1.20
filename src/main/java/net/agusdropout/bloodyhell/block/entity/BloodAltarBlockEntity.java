@@ -11,6 +11,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -216,10 +217,10 @@ public class BloodAltarBlockEntity extends BlockEntity implements GeoBlockEntity
     public ItemStackHandler getItemHandler() {
         return itemHandler;
     }
-    public List<ItemStack> getItemsInside(){
-        List<ItemStack> items = new ArrayList<>();
+    public List<Item> getItemsInside(){
+        List<Item> items = new ArrayList<>();
         for (int i = 0; i < itemHandler.getSlots(); i++) {
-            items.add(itemHandler.getStackInSlot(i));
+            items.add(itemHandler.getStackInSlot(i).getItem());
         }
         return items;
     }

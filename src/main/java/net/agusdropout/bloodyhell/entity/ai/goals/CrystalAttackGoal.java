@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.custom.CrystalPillar;
 import net.agusdropout.bloodyhell.entity.custom.OniEntity;
+import net.agusdropout.bloodyhell.entity.custom.UnknownEyeEntity;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -45,7 +46,7 @@ public class CrystalAttackGoal extends Goal {
         } while ((blockPos = blockPos.below()).getY() >= Mth.floor(f) - 1);
         if (bl) {
             if (damageLowerRate > 0) damage -= index * damageLowerRate;
-            mob.level().addFreshEntity(new CrystalPillar(mob.level(), d, (double)blockPos.getY() + j, e, h, index, damage, mob));
+            mob.level().addFreshEntity(new UnknownEyeEntity(mob.level(), d, (double)blockPos.getY() + j, e, h, index, damage, mob));
         }
     }
 

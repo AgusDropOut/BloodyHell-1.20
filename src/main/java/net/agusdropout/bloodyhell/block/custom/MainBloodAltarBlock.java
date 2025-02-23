@@ -3,15 +3,19 @@ package net.agusdropout.bloodyhell.block.custom;
 import net.agusdropout.bloodyhell.block.entity.BloodAltarBlockEntity;
 import net.agusdropout.bloodyhell.block.entity.BloodWorkbenchBlockEntity;
 import net.agusdropout.bloodyhell.block.entity.MainBloodAltarBlockEntity;
+import net.agusdropout.bloodyhell.entity.custom.UnknownEyeEntity;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.util.VanillaPacketDispatcher;
+import net.agusdropout.bloodyhell.util.rituals.SummonCowRitual;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
@@ -80,8 +84,6 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(blockPos) instanceof MainBloodAltarBlockEntity altar)) {
             return InteractionResult.PASS;
         }
-        System.out.println(isAltarSetupReady(level,blockPos));
-
         if (interactionHand == InteractionHand.MAIN_HAND) {
             ItemStack heldItem = player.getMainHandItem();
             if (heldItem.is(ModItems.FILLED_BLOOD_FLASK.get())){
@@ -92,9 +94,15 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
                 level.setBlock(blockPos,blockState.setValue(ACTIVE,true), 3);
                 return InteractionResult.sidedSuccess(level.isClientSide());
             } else if (altar.isActive() && isAltarSetupReady(level,blockPos)){
-               if(rainRitual(blockState,level,blockPos,player,interactionHand,blockHitResult)){
+                SummonCowRitual summonCowRitual = new SummonCowRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(summonCowRitual.performRitual()){
+                    consumeItemsFromAltars(level,blockPos);
+                    altar.setActive(false);
+                    level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
+                    level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                    return InteractionResult.sidedSuccess(level.isClientSide());
                }
+
             }
 
 
@@ -138,8 +146,8 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
         return true;
     }
 
-    public List<List<ItemStack>> getItemsFromAltars(Level level, BlockPos pos){
-        List<List<ItemStack>> items = new ArrayList<>();
+    public List<List<Item>> getItemsFromAltars(Level level, BlockPos pos){
+        List<List<Item>> items = new ArrayList<>();
         BlockPos[] altarPositions = {
                 pos.north(4),
                 pos.east(4),
@@ -152,7 +160,7 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
                 BloodAltarBlockEntity bloodAltarBlockEntity =
                         (BloodAltarBlockEntity) level.getBlockEntity(altarPos);
                 if (bloodAltarBlockEntity != null) { // Verifica si la entidad del bloque no es nula
-                    List<ItemStack> itemStacks = bloodAltarBlockEntity.getItemsInside();
+                    List<Item> itemStacks = bloodAltarBlockEntity.getItemsInside();
                     if (!itemStacks.isEmpty()) { // Asegúrate de que no esté vacío antes de agregarlo
                         items.add(itemStacks);
                     }
@@ -193,11 +201,11 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(blockPos) instanceof MainBloodAltarBlockEntity altar)) {
             return false;
         }
-            List<List<ItemStack>> items = getItemsFromAltars(level,blockPos);
+            List<List<Item>> items = getItemsFromAltars(level,blockPos);
             if(items.size() == 4){
-                for (List<ItemStack> altarContainer : items) {
-                    for (ItemStack stack : altarContainer) {
-                        if(stack.is(ModItems.BLOOD_FLASK.get())){
+                for (List<Item> altarContainer : items) {
+                    for (Item stack : altarContainer) {
+                        if(stack.equals(ModItems.BLOOD_FLASK.get())){
                             consumeItemsFromAltars(level,blockPos);
                             altar.setActive(false);
                             VanillaPacketDispatcher.dispatchTEToNearbyPlayers(altar);

@@ -12,6 +12,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -116,7 +117,7 @@ public class BloodAltarBlock extends BaseEntityBlock {
         super.animateTick(state, level, pos, random);
     }
 
-    public List<ItemStack> getItemsInside(){
+    public List<Item> getItemsInside(){
         return mainBloodAltarEntity.getItemsInside();
     }
 
