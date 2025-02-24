@@ -17,6 +17,15 @@ public class ModFluids {
             () -> new ForgeFlowingFluid.Source(ModFluids.BLOOD_FLUID_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_BLOOD = FLUIDS.register("flowing_blood_block",
             () -> new ForgeFlowingFluid.Flowing(ModFluids.BLOOD_FLUID_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> SOURCE_RHNULL_BLOOD = FLUIDS.register("rhnull_blood_fluid_block",
+            () -> new ForgeFlowingFluid.Source(ModFluids.RHNULL_BLOOD_FLUID_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_RHNULL_BLOOD = FLUIDS.register("flowing_rhnull_blood_block",
+            () -> new ForgeFlowingFluid.Flowing(ModFluids.RHNULL_BLOOD_FLUID_PROPERTIES));
+
+    public static final ForgeFlowingFluid.Properties RHNULL_BLOOD_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(
+            ModFluidTypes.RHNULL_BLOOD_FLUID_TYPE, SOURCE_RHNULL_BLOOD, FLOWING_RHNULL_BLOOD)
+            .slopeFindDistance(2).levelDecreasePerBlock(2).block(ModBlocks.RHNULL_BLOOD_FLUID_BLOCK)
+            .bucket(ModItems.RHNULL_BLOOD_BUCKET);
 
 
     public static final ForgeFlowingFluid.Properties BLOOD_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(

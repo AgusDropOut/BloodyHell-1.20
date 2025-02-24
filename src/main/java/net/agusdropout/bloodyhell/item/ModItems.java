@@ -56,6 +56,8 @@ public class ModItems {
             () -> new BloodArmorItem(ModArmorMaterials.BLOOD, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_BUCKET = ITEMS.register("blood_bucket", () -> new BucketItem(ModFluids.SOURCE_BLOOD,
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final RegistryObject<Item> RHNULL_BLOOD_BUCKET = ITEMS.register("rhnull_blood_bucket", () -> new BucketItem(ModFluids.SOURCE_RHNULL_BLOOD,
+            new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 
     //Rhnull Items
@@ -162,6 +164,8 @@ public class ModItems {
     public static final RegistryObject<Item> BLOOD_FLASK = ITEMS.register("blood_flask", () -> new BloodFlaskItem(
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> FILLED_BLOOD_FLASK = ITEMS.register("filled_blood_flask", () -> new BloodPotionItem(
+            new Item.Properties().stacksTo(1), new MobEffectInstance(ModEffects.BLOOD_LUST.get(), 6000, 0)));
+    public static final RegistryObject<Item> FILLED_RHNULL_BLOOD_FLASK = ITEMS.register("filled_rhnull_blood_flask", () -> new BloodPotionItem(
             new Item.Properties().stacksTo(1), new MobEffectInstance(ModEffects.BLOOD_LUST.get(), 6000, 0)));
 
 

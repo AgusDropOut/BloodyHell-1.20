@@ -175,7 +175,6 @@ public class UnknownEyeEntity extends Entity implements TraceableEntity, GeoEnti
         }
         if (--this.warmupDelayTicks < 0) {
             List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(0.2, 0.0, 0.2));
-            System.out.println(lifeTicks);
             for (LivingEntity livingEntity : list) {
                 this.dealDamageTo(livingEntity);
             }

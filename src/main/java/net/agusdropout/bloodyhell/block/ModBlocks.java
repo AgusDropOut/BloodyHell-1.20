@@ -248,7 +248,9 @@ public class ModBlocks {
 
     //Fluid
     public static final RegistryObject<LiquidBlock> BLOOD_FLUID_BLOCK = BLOCKS.register("blood_fluid_block",
-            () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable().lightLevel((state)->50).liquid()));
+            () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->50).liquid()));
+    public static final RegistryObject<LiquidBlock> RHNULL_BLOOD_FLUID_BLOCK = BLOCKS.register("rhnull_blood_fluid_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_RHNULL_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->50).liquid()));
 
     //Glowing
     public static final RegistryObject<Block> SOUL_LAMP = registerBlock("soul_lamp", ()-> new Soullampblock(

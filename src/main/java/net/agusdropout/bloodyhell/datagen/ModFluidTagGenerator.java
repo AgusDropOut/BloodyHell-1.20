@@ -22,6 +22,9 @@ public class ModFluidTagGenerator extends FluidTagsProvider {
         this.tag(ModTags.Fluids.BLOODY_LIQUID)
                 .add(ModFluids.FLOWING_BLOOD.get())
                 .add(ModFluids.SOURCE_BLOOD.get());
+        this.tag(ModTags.Fluids.RHNULL_LIQUID)
+                .add(ModFluids.FLOWING_RHNULL_BLOOD.get())
+                .add(ModFluids.SOURCE_RHNULL_BLOOD.get());
 
 
 

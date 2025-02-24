@@ -216,6 +216,7 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_LEGGINGS);
             event.accept(ModItems.BLOOD_BOOTS);
             event.accept(ModItems.BLOOD_BUCKET);
+            event.accept(ModItems.RHNULL_BLOOD_BUCKET);
             event.accept(ModItems.BLOOD_SCYTHE);
 
 
@@ -360,6 +361,7 @@ public class BloodyHell
             //Potions
             event.accept(ModItems.BLOOD_FLASK);
             event.accept(ModItems.FILLED_BLOOD_FLASK);
+            event.accept(ModItems.FILLED_RHNULL_BLOOD_FLASK);
 
 
 

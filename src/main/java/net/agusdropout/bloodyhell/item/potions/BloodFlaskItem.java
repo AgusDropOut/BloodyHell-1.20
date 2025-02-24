@@ -23,32 +23,6 @@ public class BloodFlaskItem extends Item {
         super(p_42979_);
     }
 
-   // public InteractionResultHolder<ItemStack> use(Level level, Player context, InteractionHand interactionHand) {
-//
-//
-   //         ItemStack itemStack = context.getItemInHand(interactionHand);
-   //         BlockHitResult hitResult = getPlayerPOVHitResult(level, context, ClipContext.Fluid.SOURCE_ONLY);
-   //         if (hitResult.getType() == HitResult.Type.MISS) {
-   //             return InteractionResultHolder.pass(itemStack);
-   //         } else {
-   //             if (hitResult.getType() == HitResult.Type.BLOCK) {
-   //                 context.getMainHandItem().shrink(1);
-   //                 BlockPos $$8 = hitResult.getBlockPos();
-   //                 if (!level.mayInteract(context, $$8)) {
-   //                     return InteractionResultHolder.pass(itemStack);
-   //                 }
-//
-   //                 if (level.getFluidState($$8).is(FluidTags.WATER)) {
-   //                     level.playSound(context, context.getX(), context.getY(), context.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
-   //                     level.gameEvent(context, GameEvent.FLUID_PICKUP, $$8);
-   //                     return InteractionResultHolder.sidedSuccess(turnBottleIntoItem(itemStack, context,new ItemStack (ModItems.Eight_ball.get())), level.isClientSide());
-   //                 }
-   //             }
-//
-   //             return InteractionResultHolder.pass(itemStack);
-   //         }
-   //
-   // }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
@@ -72,6 +46,12 @@ public class BloodFlaskItem extends Item {
                     level.playSound(player, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                     level.gameEvent(player, GameEvent.FLUID_PICKUP, $$8);
                     player.setItemInHand(interactionHand, new ItemStack(ModItems.FILLED_BLOOD_FLASK.get()));
+                    return InteractionResult.sidedSuccess(level.isClientSide());
+                }
+                if (level.getFluidState($$8).is(ModTags.Fluids.RHNULL_LIQUID)) {
+                    level.playSound(player, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
+                    level.gameEvent(player, GameEvent.FLUID_PICKUP, $$8);
+                    player.setItemInHand(interactionHand, new ItemStack(ModItems.FILLED_RHNULL_BLOOD_FLASK.get()));
                     return InteractionResult.sidedSuccess(level.isClientSide());
                 }
             }

@@ -47,6 +47,7 @@ public class ModTags {
 
 
         public static final TagKey<Fluid> BLOODY_LIQUID = tag("bloody_liquid");
+        public static final TagKey<Fluid> RHNULL_LIQUID = tag("rhnull_liquid");
         private static TagKey<Fluid> tag(String name) {
             return FluidTags.create(new ResourceLocation(BloodyHell.MODID, name));
         }

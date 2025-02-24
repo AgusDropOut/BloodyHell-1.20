@@ -7,6 +7,7 @@ import net.agusdropout.bloodyhell.entity.custom.UnknownEyeEntity;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.util.VanillaPacketDispatcher;
 import net.agusdropout.bloodyhell.util.rituals.SummonCowRitual;
+import net.agusdropout.bloodyhell.util.rituals.TurnBloodIntoRhnullRitual;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -102,6 +103,14 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
                     level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                    return InteractionResult.sidedSuccess(level.isClientSide());
                }
+                TurnBloodIntoRhnullRitual turnBloodIntoRhnullRitual = new TurnBloodIntoRhnullRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(turnBloodIntoRhnullRitual.performRitual()){
+                    consumeItemsFromAltars(level,blockPos);
+                    altar.setActive(false);
+                    level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
+                    level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                    return InteractionResult.sidedSuccess(level.isClientSide());
+                }
 
             }
 
