@@ -54,7 +54,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
             ModMessages.sendToClients(new EnergySyncS2CPacket(this.energy, getBlockPos()));
         }
     };
-    private static final int ENERGY_REQ = 32;
+    private static final int ENERGY_REQ = 300;
 
     private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
@@ -266,7 +266,7 @@ public class BloodWorkbenchBlockEntity extends BlockEntity implements MenuProvid
 
     private boolean hasBloodBucketInFirstSlot() {
         if (this.itemHandler != null && this.itemHandler.getSlots() > 0) {
-            return this.itemHandler.getStackInSlot(0).getItem() == ModItems.BLOOD_BUCKET.get();
+            return this.itemHandler.getStackInSlot(0).getItem() == ModItems.RHNULL_BLOOD_BUCKET.get();
         }
         return false;
     }

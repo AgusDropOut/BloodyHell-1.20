@@ -2,10 +2,10 @@
   "type": "bloodyhell:blood_infusing",
   "ingredients": [
     {
-      "item": "bloodyhell:raw_sanguinite"
+      "item": "bloodyhell:sanguinite"
     }
   ],
   "output": {
-    "item": "bloodyhell:sanguinite"
+    "item": "bloodyhell:rhnull"
   }
 }
