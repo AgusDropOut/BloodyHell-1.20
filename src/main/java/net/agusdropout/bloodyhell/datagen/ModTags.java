@@ -1,17 +1,14 @@
 package net.agusdropout.bloodyhell.datagen;
 
 import net.agusdropout.bloodyhell.BloodyHell;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.*;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidType;
 
 public class ModTags {
 
@@ -61,5 +58,14 @@ public class ModTags {
             return BiomeTags.create(new ResourceLocation(BloodyHell.MODID, name).toString());
         }
     }
+    public static class Structures {
+
+        public static final TagKey<Structure> MAUSOLEUM = tag("mausoleum");
+
+        private static TagKey<Structure> tag(String name) {
+            return StructureTags.create(new ResourceLocation(BloodyHell.MODID, name).toString());
+        }
+    }
+
 
 }

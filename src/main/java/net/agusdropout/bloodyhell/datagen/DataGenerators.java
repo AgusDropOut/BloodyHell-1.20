@@ -32,6 +32,8 @@ public class DataGenerators {
                 new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
         ModFluidTagGenerator fluidTagGenerator = generator.addProvider(event.includeServer(),
                 new ModFluidTagGenerator(packOutput, lookupProvider, existingFileHelper));
+        ModStructuresTagGenerator structureTagGenerator = generator.addProvider(event.includeServer(),
+                new ModStructuresTagGenerator(packOutput, lookupProvider, existingFileHelper));
         ModEntityTagGenerator entityTagGenerator = generator.addProvider(event.includeServer(),
                 new ModEntityTagGenerator(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
