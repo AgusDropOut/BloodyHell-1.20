@@ -43,6 +43,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -363,6 +364,14 @@ public class BloodyHell
             event.accept(ModItems.FILLED_BLOOD_FLASK);
             event.accept(ModItems.FILLED_RHNULL_BLOOD_FLASK);
 
+            //Dagger
+            event.accept(ModItems.SACRIFICIAL_DAGGER);
+            event.accept(ModItems.HERETIC_SACRIFICIAL_DAGGER);
+
+            //Unknown Entity
+            event.accept(ModItems.UNKNOWN_ENTITY_FINGER);
+
+
 
 
         }
@@ -395,6 +404,8 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOODPIG.get(), BloodPigRenderer::new);
             EntityRenderers.register(ModEntityTypes.CRYSTAL_PILLAR.get(), CrystalPillarRenderer::new);
             EntityRenderers.register(ModEntityTypes.UNKNOWN_EYE_ENTITY.get(), UnknownEyeEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.UNKNOWN_ENTITY_ARMS.get(), UnknownEntityArmsRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SANGUINE_SACRIFICE_ENTITY.get(), SanguineSacrificeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.BH_CHEST.get(),BHChestRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
@@ -405,6 +416,7 @@ public class BloodyHell
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), RenderType.translucent());
             BlockEntityRenderers.register(ModBlockEntities.BLOOD_ALTAR.get(), BloodAltarRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.MAIN_BLOOD_ALTAR.get(), MainBloodAltarRenderer::new);
+
 
 
         }

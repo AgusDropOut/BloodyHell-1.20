@@ -1,4 +1,4 @@
-// 1.20	2025-02-23T18:44:43.4515671	Item Models: bloodyhell
+// 1.20	2025-02-25T16:58:37.4449327	Item Models: bloodyhell
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 e2361eb75c1aaf06e1d379ba1b31797fc15fd3f3 assets/bloodyhell/models/item/bloody_stone_bricks.json
@@ -46,6 +46,7 @@ a397b608816eda99958178fd959e947a9106c880 assets/bloodyhell/models/item/glow_frui
 635d595c3ea04fa1143a4d30583f8550008be757 assets/bloodyhell/models/item/glow_mushroom.json
 12e4beecfd107330dd5348b56a515eea6bdd6635 assets/bloodyhell/models/item/gorehog_raw_steak.json
 4c952dd758467b86eb9c5a5e36b2074800e74213 assets/bloodyhell/models/item/hanging_bloodtree_leaves.json
+6fb8b9c78f4725650867573003c1d815a8ee8509 assets/bloodyhell/models/item/heretic_sacrificial_dagger.json
 3d3d71936a869a8f5ca9d53e9e4f1220091793d2 assets/bloodyhell/models/item/polished_bloody_stone_block.json
 84646a6cee79a234066f1caf7c1f37529fb99953 assets/bloodyhell/models/item/polished_bloody_stone_fence.json
 16785a3ea9e8c3a548f3aedf7031b4841c15b39f assets/bloodyhell/models/item/polished_bloody_stone_fence_gate.json
@@ -61,6 +62,7 @@ dff1eafd178ad2f31834847098d01165ff91efcb assets/bloodyhell/models/item/rhnull_ho
 cfb405d37848c044887fc36a0dc93a68bd064b9c assets/bloodyhell/models/item/rhnull_pickaxe.json
 342e670bcfb230e648da9b1a4ea74e79d3a15a51 assets/bloodyhell/models/item/rhnull_shovel.json
 f7561157683889ee337b18dc37e9e482760e48fe assets/bloodyhell/models/item/rhnull_sword.json
+c0005043d3b29aeb278145a741036919d20d0a00 assets/bloodyhell/models/item/sacrificial_dagger.json
 694fbf937e2d94c6b8892df3696a1fb780ec44db assets/bloodyhell/models/item/sanguine_crucible.json
 b5725455f7d7f214e077e36cc28e58f7c3df4455 assets/bloodyhell/models/item/sanguine_crucible_core.json
 d3baf72c56f81f0db878cd73eaa6afc3f4a00d22 assets/bloodyhell/models/item/sanguinite.json
@@ -72,4 +74,5 @@ f5db2d75b3736a03233ce2ae08643d55d9d0576d assets/bloodyhell/models/item/sanguinit
 6cbd1126ecd24c2cf06b475122869df6c7476d71 assets/bloodyhell/models/item/sanguinite_sword.json
 bde90edaa91f04800b51f5b60e7a83dfb518a7a5 assets/bloodyhell/models/item/scarlet_feather.json
 9ff225660d84b7438abd8155d1a34542977ba7f8 assets/bloodyhell/models/item/scarlet_raw_chicken.json
+3ec0ba33d99064809ef0ebfc0dfff8fb2fc2d27a assets/bloodyhell/models/item/unknown_entity_finger.json
 41ab3b73e3e61976fc1471fa796fa375c37e41b1 assets/bloodyhell/models/item/veinreaver_horn.json

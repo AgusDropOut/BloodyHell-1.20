@@ -84,6 +84,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.FILLED_BLOOD_FLASK);
         normalItem(ModItems.FILLED_RHNULL_BLOOD_FLASK);
 
+        //Dagger
+        toolItem(ModItems.SACRIFICIAL_DAGGER);
+        toolItem(ModItems.HERETIC_SACRIFICIAL_DAGGER);
+
+        //Unknown entity items
+        normalItem(ModItems.UNKNOWN_ENTITY_FINGER);
+
 
 
 
