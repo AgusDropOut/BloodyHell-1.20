@@ -69,6 +69,8 @@ public class ModEvents {
             public static void EntityAttributeEvent(EntityAttributeCreationEvent event) {
                 event.put(BLOODTHIRSTYBEAST.get(), BloodThirstyBeastEntity.setAttributes());
                 event.put(BLOOD_SEEKER.get(), BloodSeekerEntity.setAttributes());
+                event.put(BLOODY_SOUL_ENTITY.get(), BloodySoulEntity.setAttributes());
+                event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());
                 event.put(SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishEntity.setAttributes());

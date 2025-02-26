@@ -5,6 +5,7 @@ import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,6 +30,38 @@ public class ModEntityTagGenerator extends EntityTypeTagsProvider {
                .add(ModEntityTypes.BLOOD_SEEKER.get())
                .add(ModEntityTypes.BLOODTHIRSTYBEAST.get())
                .add(ModEntityTypes.ONI.get())
+               .add(ModEntityTypes.BLOODPIG.get());
+
+       tag(ModTags.Entities.SACRIFICEABLE_ENTITY)
+               .add(EntityType.COW)
+               .add(EntityType.SHEEP)
+               .add(EntityType.CHICKEN)
+               .add(EntityType.HORSE)
+               .add(EntityType.PIG)
+               .add(EntityType.RABBIT)
+               .add(EntityType.WOLF)
+               .add(EntityType.CAT)
+               .add(EntityType.OCELOT)
+               .add(EntityType.PARROT)
+               .add(EntityType.PANDA)
+               .add(EntityType.POLAR_BEAR)
+               .add(EntityType.ZOMBIE)
+               .add(EntityType.SKELETON)
+               .add(EntityType.SPIDER)
+               .add(EntityType.CAVE_SPIDER)
+               .add(EntityType.ZOMBIE_VILLAGER)
+               .add(EntityType.STRAY)
+               .add(EntityType.PHANTOM)
+               .add(EntityType.PILLAGER)
+               .add(EntityType.CREEPER)
+               .add(EntityType.ENDERMAN);
+
+
+         tag(ModTags.Entities.CORRUPTED_SACRIFICEABLE_ENTITY)
+               .add(ModEntityTypes.BLOODTHIRSTYBEAST.get())
+               .add(ModEntityTypes.BLOOD_SEEKER.get())
+               .add(ModEntityTypes.CRIMSON_RAVEN.get())
+               .add(ModEntityTypes.EYESHELL_SNAIL.get())
                .add(ModEntityTypes.BLOODPIG.get());
 
     }

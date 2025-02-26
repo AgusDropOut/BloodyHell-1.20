@@ -81,6 +81,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //Potions
         normalItem(ModItems.BLOOD_FLASK);
+        normalItem(ModItems.CORRUPTED_BLOOD_FLASK);
         normalItem(ModItems.FILLED_BLOOD_FLASK);
         normalItem(ModItems.FILLED_RHNULL_BLOOD_FLASK);
 

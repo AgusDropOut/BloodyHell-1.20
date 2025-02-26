@@ -361,6 +361,7 @@ public class BloodyHell
 
             //Potions
             event.accept(ModItems.BLOOD_FLASK);
+            event.accept(ModItems.CORRUPTED_BLOOD_FLASK);
             event.accept(ModItems.FILLED_BLOOD_FLASK);
             event.accept(ModItems.FILLED_RHNULL_BLOOD_FLASK);
 
@@ -396,6 +397,8 @@ public class BloodyHell
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
             MenuScreens.register(ModMenuTypes.VESPER_MENU.get(), VesperScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), BloodySoulEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
             EntityRenderers.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishRenderer::new);

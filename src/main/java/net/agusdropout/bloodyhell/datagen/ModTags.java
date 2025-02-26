@@ -35,6 +35,8 @@ public class ModTags {
 
     public static class Entities {
         public static final TagKey<EntityType<?>> INMUNE_TO_BLEEDING_BLOCK = tag("inmune_to_bleeding_block");
+        public static final TagKey<EntityType<?>> SACRIFICEABLE_ENTITY = tag("sacrificeable_entity");
+        public static final TagKey<EntityType<?>> CORRUPTED_SACRIFICEABLE_ENTITY = tag("corrupted_sacrificeable_entity");
         private static TagKey<EntityType<?>> tag(String name) {
             return EntityTypeTags.create(new ResourceLocation(BloodyHell.MODID, name).toString());
         }

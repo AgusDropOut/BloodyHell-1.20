@@ -19,6 +19,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodSeekerEntity>> BLOOD_SEEKER = ENTITY_TYPES.register("bloodseeker",
             () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodseeker").toString()));
+    public static final RegistryObject<EntityType<BloodySoulEntity>> BLOODY_SOUL_ENTITY = ENTITY_TYPES.register("bloody_soul_entity",
+            () -> EntityType.Builder.of(BloodySoulEntity::new, MobCategory.CREATURE).sized(1f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
+                    "bloody_soul_entity").toString()));
+    public static final RegistryObject<EntityType<CorruptedBloodySoulEntity>> CORRUPTED_BLOODY_SOUL_ENTITY = ENTITY_TYPES.register("corrupted_bloody_soul_entity",
+            () -> EntityType.Builder.of(CorruptedBloodySoulEntity::new, MobCategory.CREATURE).sized(1f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
+                    "corrupted_bloody_soul_entity").toString()));
     public static final RegistryObject<EntityType<CrimsonRavenEntity>> CRIMSON_RAVEN = ENTITY_TYPES.register("crimsonraven",
             () -> EntityType.Builder.of(CrimsonRavenEntity::new,MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
                     "crimsonraven").toString()));

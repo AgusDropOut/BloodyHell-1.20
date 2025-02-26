@@ -1,5 +1,6 @@
 package net.agusdropout.bloodyhell.entity.custom;
 
+import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -37,6 +38,9 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
     private boolean emergePhase = true;
     private boolean retractPhase = false;
     private boolean idlePhase = false;
+    private boolean isTargetAlive;
+    private boolean isSacrificeableTarget;
+    private boolean isCorruptedSacrificeableTarget;
     private int lifeTicks = 200;
     public static final float DEFAULT_DAMAGE = 30.0F;
     private float damage = DEFAULT_DAMAGE;
@@ -47,6 +51,9 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
     private static final EntityDataAccessor<Boolean> EMERGE_PHASE = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IDLE_PHASE = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> LIFE_TICKS = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> IS_TARGET_ALIVE = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IS_SACRIFICEABLE_TARGET = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IS_CORRUPTED_SACRIFICEABLE_TARGET = SynchedEntityData.defineId(SanguineSacrificeEntity.class, EntityDataSerializers.BOOLEAN);
 
     public SanguineSacrificeEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
@@ -76,6 +83,9 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
         this.entityData.define(EMERGE_PHASE, true);
         this.entityData.define(IDLE_PHASE, false);
         this.entityData.define(LIFE_TICKS, 200);
+        this.entityData.define(IS_TARGET_ALIVE, true);
+        this.entityData.define(IS_SACRIFICEABLE_TARGET, false);
+        this.entityData.define(IS_CORRUPTED_SACRIFICEABLE_TARGET, false);
     }
 
 
@@ -91,6 +101,10 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
             idlePhase = entityData.get(IDLE_PHASE);
             retractPhase = entityData.get(RETRACT_PHASE);
             lifeTicks = entityData.get(LIFE_TICKS)-1;
+            isTargetAlive = entityData.get(IS_TARGET_ALIVE);
+            isSacrificeableTarget = entityData.get(IS_SACRIFICEABLE_TARGET);
+            isCorruptedSacrificeableTarget = entityData.get(IS_CORRUPTED_SACRIFICEABLE_TARGET);
+
         }
 
         // 🔹 Efecto sobre flechas cercanas
@@ -106,6 +120,7 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
                     normalizedDirection.z() * knockback
             ));
         }
+
 
         if(lifeTicks == 195 && emergePhase){
             if (level().isClientSide) {
@@ -135,11 +150,11 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
             target.hasImpulse = false;
             target.teleportTo(this.getX(), this.getY(), this.getZ());
             if (!target.isAlive() && lifeTicks > 15) {
+                entityData.set(IS_TARGET_ALIVE, false);
                 idlePhase = false;
                 emergePhase = false;
                 retractPhase = true;
                 lifeTicks = 15;
-                System.out.println("Target is dead, transitioning to retract phase");
             } else {
                 // 🔹 Manejo de daño a entidades cercanas
                 List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(0.2, 0.0, 0.2));
@@ -160,33 +175,42 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
 
             }
 
+            if(lifeTicks == 200){
+                if(target.getType().is(ModTags.Entities.SACRIFICEABLE_ENTITY)){
+                    isSacrificeableTarget = true;
+                }else if(target.getType().is(ModTags.Entities.CORRUPTED_SACRIFICEABLE_ENTITY)){
+                    isCorruptedSacrificeableTarget = true;
+                }
+            }
+
             // 🔹 Sincronizar fases con SynchedEntityData (solo en servidor)
             entityData.set(EMERGE_PHASE, emergePhase);
             entityData.set(RETRACT_PHASE, retractPhase);
             entityData.set(IDLE_PHASE, idlePhase);
             entityData.set(LIFE_TICKS, lifeTicks);
+            entityData.set(IS_TARGET_ALIVE, isTargetAlive);
+            entityData.set(IS_SACRIFICEABLE_TARGET, isSacrificeableTarget);
 
-            // 🔹 Manejo de la fase de retracción
-            if (retractPhase && lifeTicks < 0) {
-                this.discard();
+
+        }
+
+        // 🔹 Manejo de la fase de retracción
+        if (retractPhase && lifeTicks==0) {
+            if (!isTargetAlive){
+                if(isSacrificeableTarget){
+                    BloodySoulEntity bloodySoulEntity = new BloodySoulEntity(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), this.level());
+                    level().addFreshEntity(bloodySoulEntity);
+                    bloodySoulEntity.setPos(this.getOnPos().getX(), this.getOnPos().getY()+1, this.getOnPos().getZ());
+                }
             }
+
+            this.discard();
+
         }
 
         lifeTicks--;
 
-        // 🔹 Debug: Imprimir estado en consola
-        if (level().isClientSide) {
-            System.out.println("Life ticks Cliente: " + lifeTicks);
-            System.out.println("Emerge phase Cliente: " + emergePhase);
-            System.out.println("Idle phase Cliente: " + idlePhase);
-            System.out.println("Retract phase Cliente: " + retractPhase);
-        }
-        if (!level().isClientSide) {
-            System.out.println("Life ticks Server: " + lifeTicks);
-            System.out.println("Emerge phase Server: " + emergePhase);
-            System.out.println("Idle phase Server: " + idlePhase);
-            System.out.println("Retract phase Server: " + retractPhase);
-        }
+
     }
 
 
@@ -224,6 +248,12 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
         if(compoundTag.contains("life_ticks")){
             this.entityData.set(LIFE_TICKS, compoundTag.getInt("life_ticks"));
         }
+        if(compoundTag.contains("is_sacrificeable_target")){
+            this.entityData.set(IS_SACRIFICEABLE_TARGET, compoundTag.getBoolean("is_sacrificeable_target"));
+        }
+        if(compoundTag.contains("is_corrupted_sacrificeable_target")){
+            this.entityData.set(IS_CORRUPTED_SACRIFICEABLE_TARGET, compoundTag.getBoolean("is_corrupted_sacrificeable_target"));
+        }
     }
 
     @Override
@@ -232,6 +262,9 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
         compoundTag.putBoolean("retract_phase", this.entityData.get(RETRACT_PHASE));
         compoundTag.putBoolean("idle_phase", this.entityData.get(IDLE_PHASE));
         compoundTag.putInt("life_ticks", this.entityData.get(LIFE_TICKS));
+        compoundTag.putBoolean("is_sacrificeable_target", this.entityData.get(IS_SACRIFICEABLE_TARGET));
+        compoundTag.putBoolean("is_corrupted_sacrificeable_target", this.entityData.get(IS_CORRUPTED_SACRIFICEABLE_TARGET));
+
 
     }
 
