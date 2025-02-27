@@ -1,0 +1,86 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "book",
+					"pivot": [0.125, 2.5, 0.125]
+				},
+				{
+					"name": "cover",
+					"parent": "book",
+					"pivot": [6, 0, 0]
+				},
+				{
+					"name": "secondcover",
+					"parent": "cover",
+					"pivot": [5, 0.5, 0],
+					"cubes": [
+						{"origin": [-5, 0, -7], "size": [10, 1, 14], "uv": [0, 0]},
+						{"origin": [-6, 0, 7], "size": [1, 0, 1], "uv": [48, 20]},
+						{"origin": [-6, 0, -8], "size": [1, 0, 1], "uv": [48, 21]}
+					]
+				},
+				{
+					"name": "secondpage",
+					"parent": "secondcover",
+					"pivot": [5.125, 1.5, 0.125],
+					"cubes": [
+						{"origin": [-4.75, 1, -6.5], "size": [9.75, 1, 13.25], "uv": [46, 30]}
+					]
+				},
+				{
+					"name": "secondthinpage",
+					"parent": "secondpage",
+					"pivot": [4.125, 1.5, 0.125],
+					"cubes": [
+						{"origin": [-4.75, 2, -6.5], "size": [10.75, 0, 13.25], "uv": [0, 43]}
+					]
+				},
+				{
+					"name": "backcover",
+					"parent": "cover",
+					"pivot": [5, 0.5, 0],
+					"cubes": [
+						{"origin": [5, 0, -7], "size": [1, 4, 14], "uv": [48, 0]}
+					]
+				},
+				{
+					"name": "firstcover",
+					"parent": "backcover",
+					"pivot": [5, 4, 0],
+					"cubes": [
+						{"origin": [-5, 3, -7], "size": [10, 1, 14], "uv": [0, 15]},
+						{"origin": [-6, 4, -8], "size": [1, 0, 1], "uv": [48, 18]},
+						{"origin": [-6, 4, 7], "size": [1, 0, 1], "uv": [48, 19]}
+					]
+				},
+				{
+					"name": "firstpage",
+					"parent": "firstcover",
+					"pivot": [5, 1, 0],
+					"cubes": [
+						{"origin": [-4.75, 2, -6.5], "size": [9.75, 1, 13.25], "uv": [46, 44]}
+					]
+				},
+				{
+					"name": "firtsthinpage",
+					"parent": "firstpage",
+					"pivot": [5.125, 2, 0.125],
+					"cubes": [
+						{"origin": [-4.75, 2, -6.5], "size": [10.75, 0, 13.25], "uv": [0, 30]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,4 +1,4 @@
-// 1.20	2025-02-26T01:44:15.5227095	Loot Tables
+// 1.20	2025-02-26T20:59:34.9913795	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -84,6 +84,7 @@ c3dd1c31e7eb744cbc88d261ea5bf981ded3661f data/bloodyhell/loot_tables/entities/bl
 d4573b5306a4cfa7fbc7f9b1cce8e92651486cef data/bloodyhell/loot_tables/entities/bloodthirstybeast.json
 fc914da92603abe7d2aae3521ef9f6d9daf2fad0 data/bloodyhell/loot_tables/entities/bloody_soul_entity.json
 19376ea19f1289c3a302d15217aaa5421b3d94d2 data/bloodyhell/loot_tables/entities/blood_arrow_entity.json
+d7d4177ef473756e6a71bcc096f8b0495de3391d data/bloodyhell/loot_tables/entities/blood_slash_entity.json
 6ef604dd12bc7e656c39b4743972f42f96fcf334 data/bloodyhell/loot_tables/entities/corrupted_bloody_soul_entity.json
 6b3f4bf8140d34dc1ce1305959f376e91f019426 data/bloodyhell/loot_tables/entities/crimsonraven.json
 bed27736f94946aabb6b424511030941a2f80f63 data/bloodyhell/loot_tables/entities/crystal_pillar.json

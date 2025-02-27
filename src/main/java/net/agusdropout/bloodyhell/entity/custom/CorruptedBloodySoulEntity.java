@@ -126,8 +126,8 @@ public class CorruptedBloodySoulEntity extends Animal implements GeoEntity {
     }
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if(player.getMainHandItem().getItem() == ModItems.CORRUPTED_BLOOD_FLASK.get()) {
-            player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.FILLED_BLOOD_FLASK.get()));
+        if(player.getMainHandItem().getItem() == ModItems.BLOOD_FLASK.get()) {
+            player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ModItems.CORRUPTED_BLOOD_FLASK.get()));
             this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             this.discard();
             return InteractionResult.sidedSuccess(this.level().isClientSide);

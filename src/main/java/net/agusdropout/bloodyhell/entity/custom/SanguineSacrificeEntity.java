@@ -38,7 +38,7 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
     private boolean emergePhase = true;
     private boolean retractPhase = false;
     private boolean idlePhase = false;
-    private boolean isTargetAlive;
+    private boolean isTargetAlive=true;
     private boolean isSacrificeableTarget;
     private boolean isCorruptedSacrificeableTarget;
     private int lifeTicks = 200;
@@ -100,7 +100,8 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
             emergePhase = entityData.get(EMERGE_PHASE);
             idlePhase = entityData.get(IDLE_PHASE);
             retractPhase = entityData.get(RETRACT_PHASE);
-            lifeTicks = entityData.get(LIFE_TICKS)-1;
+            entityData.set(LIFE_TICKS, entityData.get(LIFE_TICKS) - 1);
+            lifeTicks = entityData.get(LIFE_TICKS);
             isTargetAlive = entityData.get(IS_TARGET_ALIVE);
             isSacrificeableTarget = entityData.get(IS_SACRIFICEABLE_TARGET);
             isCorruptedSacrificeableTarget = entityData.get(IS_CORRUPTED_SACRIFICEABLE_TARGET);
@@ -140,7 +141,10 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
 
 
         if (!level().isClientSide()) {
-            // 🔹 Efectos visuales y de sonido al final del ciclo de vida
+            if(!target.isAlive()) {
+                isTargetAlive = false;
+                entityData.set(IS_TARGET_ALIVE, false);
+            }
 
             if(target == null){
                 this.discard();
@@ -167,7 +171,7 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
                     idlePhase = true;
                     emergePhase = false;
                 }
-                if (idlePhase && lifeTicks < 30) {
+                if (idlePhase && lifeTicks < 20) {
                     retractPhase = true;
                     idlePhase = false;
                 }
@@ -201,6 +205,11 @@ public class SanguineSacrificeEntity extends Entity implements TraceableEntity, 
                     BloodySoulEntity bloodySoulEntity = new BloodySoulEntity(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), this.level());
                     level().addFreshEntity(bloodySoulEntity);
                     bloodySoulEntity.setPos(this.getOnPos().getX(), this.getOnPos().getY()+1, this.getOnPos().getZ());
+                }
+                if(isCorruptedSacrificeableTarget){
+                    CorruptedBloodySoulEntity CorruptedBloodySoulEntity = new CorruptedBloodySoulEntity(ModEntityTypes.CORRUPTED_BLOODY_SOUL_ENTITY.get(), this.level());
+                    level().addFreshEntity(CorruptedBloodySoulEntity);
+                    CorruptedBloodySoulEntity.setPos(this.getOnPos().getX(), this.getOnPos().getY()+1, this.getOnPos().getZ());
                 }
             }
 

@@ -182,6 +182,10 @@ public class ModItems {
     public static final RegistryObject<Item> UNKNOWN_ENTITY_FINGER = ITEMS.register("unknown_entity_finger", () -> new Item(
             new Item.Properties().stacksTo(1)));
 
+    //Spell Books
+    public static final RegistryObject<Item> BLOOD_SPELL_BOOK_SCRATCH = ITEMS.register("blood_spell_book_scratch", () -> new BloodSpellBookScratchItem(
+            new Item.Properties().stacksTo(1)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

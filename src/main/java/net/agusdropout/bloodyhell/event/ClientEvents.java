@@ -9,10 +9,7 @@ import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.entity.client.UnknownEyeEntityModel;
 import net.agusdropout.bloodyhell.entity.client.VesperModel;
 import net.agusdropout.bloodyhell.particle.ModParticles;
-import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
-import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
-import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
-import net.agusdropout.bloodyhell.particle.custom.LightParticle;
+import net.agusdropout.bloodyhell.particle.custom.*;
 import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
@@ -40,6 +37,7 @@ public class ClientEvents  {
                 event.registerSpriteSet(ModParticles.LIGHT_PARTICLES.get(), LightParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
             }
 
 

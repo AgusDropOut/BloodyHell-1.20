@@ -1,6 +1,7 @@
 package net.agusdropout.bloodyhell.entity.custom;
 
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
+import net.agusdropout.bloodyhell.item.ModItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -11,9 +12,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -39,6 +42,7 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
     private boolean retractPhase = false;
     private boolean idlePhase = false;
     private int lifeTicks = 200;
+    private boolean isTargetAlive = true;
     public static final float DEFAULT_DAMAGE = 3.0F;
     private float damage = DEFAULT_DAMAGE;
     public AnimationState emergeAnimationState = new AnimationState();
@@ -47,6 +51,8 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
     private static final EntityDataAccessor<Boolean> RETRACT_PHASE = SynchedEntityData.defineId(UnknownEntityArms.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> EMERGE_PHASE = SynchedEntityData.defineId(UnknownEntityArms.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IDLE_PHASE = SynchedEntityData.defineId(UnknownEntityArms.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IS_TARGET_ALIVE = SynchedEntityData.defineId(UnknownEntityArms.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> LIFE_TICKS = SynchedEntityData.defineId(UnknownEntityArms.class, EntityDataSerializers.INT);
 
     public UnknownEntityArms(EntityType<?> entityType, Level level) {
         super(entityType, level);
@@ -75,6 +81,8 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
         this.entityData.define(RETRACT_PHASE, false);
         this.entityData.define(EMERGE_PHASE, true);
         this.entityData.define(IDLE_PHASE, false);
+        this.entityData.define(IS_TARGET_ALIVE, true);
+        this.entityData.define(LIFE_TICKS, 200);
     }
 
 
@@ -84,11 +92,26 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
         super.tick();
 
 
+
+
+
+
+
+
+        if(!this.level().isClientSide()){
+            if (!target.isAlive()){
+                entityData.set(IS_TARGET_ALIVE, false);
+            }
+        }
+
+        isTargetAlive = entityData.get(IS_TARGET_ALIVE);
         // 🔹 Actualizar fases en CLIENTE leyendo de SynchedEntityData
         if (this.level().isClientSide) {
             emergePhase = entityData.get(EMERGE_PHASE);
             idlePhase = entityData.get(IDLE_PHASE);
             retractPhase = entityData.get(RETRACT_PHASE);
+            entityData.set(LIFE_TICKS, entityData.get(LIFE_TICKS) - 1);
+            lifeTicks = entityData.get(LIFE_TICKS);
         }
 
         // 🔹 Efecto sobre flechas cercanas
@@ -105,10 +128,20 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
             ));
         }
 
+
+
+
         if (!level().isClientSide()) {
+
             if(target == null){
                 this.discard();
                 return;
+            }
+            if (!this.target.isAlive() && lifeTicks == 1) {
+                    ItemStack dropItem = new ItemStack(ModItems.UNKNOWN_ENTITY_FINGER.get(), 1);
+                    ItemEntity itemEntity = new ItemEntity(level(), this.getX(), this.getY() + 0.5, this.getZ(), dropItem);
+                    level().addFreshEntity(itemEntity);
+                    itemEntity.setPickUpDelay(40);
             }
             target.setDeltaMovement(0,0,0);
             target.hasImpulse = false;
@@ -118,7 +151,6 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
                 emergePhase = false;
                 retractPhase = true;
                 lifeTicks = 40;
-                System.out.println("Target is dead, transitioning to retract phase");
             } else {
                 // 🔹 Manejo de daño a entidades cercanas
                 List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(0.2, 0.0, 0.2));
@@ -149,6 +181,7 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
             entityData.set(EMERGE_PHASE, emergePhase);
             entityData.set(RETRACT_PHASE, retractPhase);
             entityData.set(IDLE_PHASE, idlePhase);
+            entityData.set(LIFE_TICKS, lifeTicks);
 
             // 🔹 Manejo de la fase de retracción
             if (retractPhase && lifeTicks < 0) {
@@ -158,19 +191,6 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
 
         lifeTicks--;
 
-        // 🔹 Debug: Imprimir estado en consola
-        if (level().isClientSide) {
-            System.out.println("Life ticks Cliente: " + lifeTicks);
-            System.out.println("Emerge phase Cliente: " + emergePhase);
-            System.out.println("Idle phase Cliente: " + idlePhase);
-            System.out.println("Retract phase Cliente: " + retractPhase);
-        }
-        if (!level().isClientSide) {
-            System.out.println("Life ticks Server: " + lifeTicks);
-            System.out.println("Emerge phase Server: " + emergePhase);
-            System.out.println("Idle phase Server: " + idlePhase);
-            System.out.println("Retract phase Server: " + retractPhase);
-        }
     }
 
 
@@ -205,6 +225,12 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
         if (compoundTag.contains("idle_phase")) {
             this.entityData.set(IDLE_PHASE, compoundTag.getBoolean("idle_phase"));
         }
+        if (compoundTag.contains("is_target_alive")) {
+            this.entityData.set(IS_TARGET_ALIVE, compoundTag.getBoolean("is_target_alive"));
+        }
+        if(compoundTag.contains("life_ticks")){
+            this.entityData.set(LIFE_TICKS, compoundTag.getInt("life_ticks"));
+        }
     }
 
     @Override
@@ -212,6 +238,8 @@ public class UnknownEntityArms extends Entity implements TraceableEntity, GeoEnt
         compoundTag.putBoolean("emerge_phase", this.entityData.get(EMERGE_PHASE));
         compoundTag.putBoolean("retract_phase", this.entityData.get(RETRACT_PHASE));
         compoundTag.putBoolean("idle_phase", this.entityData.get(IDLE_PHASE));
+        compoundTag.putBoolean("is_target_alive", this.entityData.get(IS_TARGET_ALIVE));
+        compoundTag.putInt("life_ticks", this.entityData.get(LIFE_TICKS));
 
     }
 

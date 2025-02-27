@@ -8,10 +8,7 @@ import net.agusdropout.bloodyhell.entity.custom.*;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.networking.packet.ThirstDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
-import net.agusdropout.bloodyhell.particle.custom.BloodParticles;
-import net.agusdropout.bloodyhell.particle.custom.DirtyBloodFlowerParticle;
-import net.agusdropout.bloodyhell.particle.custom.ImpactParticle;
-import net.agusdropout.bloodyhell.particle.custom.LightParticle;
+import net.agusdropout.bloodyhell.particle.custom.*;
 import net.agusdropout.bloodyhell.thirst.PlayerThirstProvider;
 import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
@@ -51,6 +48,8 @@ public class ModEvents {
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
                 Minecraft.getInstance().particleEngine.register(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
+                Minecraft.getInstance().particleEngine.register(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
             }
 
 
