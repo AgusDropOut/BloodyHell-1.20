@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.entity;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -62,6 +63,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodProjectileEntity>> BLOOD_PROJECTILE = ENTITY_TYPES.register("blood_projectile",
             () -> EntityType.Builder.<BloodProjectileEntity>of(BloodProjectileEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_projectile").toString()));
+    public static final RegistryObject<EntityType<BloodNovaEntity>> BLOOD_NOVA_ENTITY = ENTITY_TYPES.register("blood_nova_entity",
+            () -> EntityType.Builder.<BloodNovaEntity>of(BloodNovaEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "blood_nova_entity").toString()));
 
     public static final RegistryObject<EntityType<VesperEntity>> VESPER = ENTITY_TYPES.register("vesper",
             () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,

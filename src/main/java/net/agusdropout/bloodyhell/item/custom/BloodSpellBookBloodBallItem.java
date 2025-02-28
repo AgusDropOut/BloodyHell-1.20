@@ -1,6 +1,7 @@
 package net.agusdropout.bloodyhell.item.custom;
 
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
+import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodBallItemRenderer;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
@@ -83,7 +84,10 @@ public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
 
 
 
-                    BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                    //BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                    //level.addFreshEntity(projectile);
+
+                    BloodNovaEntity projectile = new BloodNovaEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
                     level.addFreshEntity(projectile);
 
                     triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel), "Controller", "idle");

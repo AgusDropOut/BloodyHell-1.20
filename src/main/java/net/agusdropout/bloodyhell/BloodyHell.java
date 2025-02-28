@@ -420,6 +420,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             EntityRenderers.register(ModEntityTypes.VESPER.get(), VesperRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_PROJECTILE.get(), BloodProjectileEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_NOVA_ENTITY.get(), BloodNovaEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
