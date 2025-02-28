@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"flying": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"projectile": {
+					"rotation": {
+						"vector": ["query.anim_time*1000", "query.anim_time*1000  ", "query.anim_time*1000 "]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

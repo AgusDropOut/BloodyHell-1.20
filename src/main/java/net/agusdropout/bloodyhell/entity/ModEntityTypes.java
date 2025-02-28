@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.entity;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -56,8 +57,11 @@ public class ModEntityTypes {
             () -> EntityType.Builder.<SanguineSacrificeEntity>of(SanguineSacrificeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "sanguine_sacrifice_entity").toString()));
     public static final RegistryObject<EntityType<BloodSlashEntity>> BLOOD_SLASH_ENTITY = ENTITY_TYPES.register("blood_slash_entity",
-            () -> EntityType.Builder.<BloodSlashEntity>of(BloodSlashEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+            () -> EntityType.Builder.<BloodSlashEntity>of(BloodSlashEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_slash_entity").toString()));
+    public static final RegistryObject<EntityType<BloodProjectileEntity>> BLOOD_PROJECTILE = ENTITY_TYPES.register("blood_projectile",
+            () -> EntityType.Builder.<BloodProjectileEntity>of(BloodProjectileEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "blood_projectile").toString()));
 
     public static final RegistryObject<EntityType<VesperEntity>> VESPER = ENTITY_TYPES.register("vesper",
             () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,

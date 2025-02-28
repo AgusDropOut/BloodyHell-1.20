@@ -27,8 +27,8 @@ public class BloodSlashEntityModel extends GeoModel<BloodSlashEntity> {
         return null;
     }
 
-@Override
-public void setCustomAnimations(BloodSlashEntity animatable, long instanceId, AnimationState<BloodSlashEntity> animationState) {
+    @Override
+    public void setCustomAnimations(BloodSlashEntity animatable, long instanceId, AnimationState<BloodSlashEntity> animationState) {
 
-}
+    }
 }

@@ -4,7 +4,9 @@ import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -13,13 +15,16 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.CatVariant;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -30,6 +35,7 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
+import javax.swing.plaf.SeparatorUI;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,37 +49,41 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
     private LivingEntity owner;
     @Nullable
     private UUID ownerUUID;
-    private float yaw;  // El ángulo de rotación del jugador
+    private static final EntityDataAccessor<Float> YAW = SynchedEntityData.defineId(BloodSlashEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> PITCH = SynchedEntityData.defineId(BloodSlashEntity.class, EntityDataSerializers.FLOAT);
+    private float yaw;
+    private float pitch;
 
     public BloodSlashEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }
 
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(YAW, 0F);
+        this.entityData.define(PITCH, 0F);
+    }
+
     // Constructor modificado para aceptar yaw
-    public BloodSlashEntity(Level level, double d, double e, double f, float damage, LivingEntity livingEntity, float yaw) {
+    public BloodSlashEntity(Level level, double d, double e, double f, float damage, LivingEntity livingEntity, float yaw, float pitch) {
         this(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), level);
         this.damage = damage;
         this.setOwner(livingEntity);
         this.setPos(d, e, f);
-        this.yaw = yaw;
-        float radYaw = (float) Math.toRadians(livingEntity.getYRot());
-        float radPitch = (float) Math.toRadians(-livingEntity.getXRot());
         this.setNoGravity(true);
-
-// ✅ Calcular la dirección correcta en 3D
-        float x = (float) (Math.cos(radYaw) * Math.cos(radPitch));
-        float y = (float) Math.sin(radPitch);
-        float z = (float) (Math.sin(radYaw) * Math.cos(radPitch));
-
-
-// 🔹 Establecer la rotación y dirección final
-        this.setYRot((float) Math.toDegrees(radYaw + Math.PI / 2)); // Yaw + 90°
-        this.setXRot((float) Math.toDegrees(radPitch));
-
-
+        if(!this.level().isClientSide()) {
+            this.pitch = pitch;
+            this.setPitch(pitch);
+            this.yaw = yaw;
+            this.setYaw(yaw);
+        } else {
+            this.yaw = entityData.get(YAW);
+            this.pitch = entityData.get(PITCH);
+        }
         level().playLocalSound(d, e, f, SoundEvents.AMETHYST_BLOCK_PLACE, SoundSource.BLOCKS, 1.0f, random.nextFloat() * 0.2f + 0.85f, false);
 
     }
+
 
     public void setOwner(@Nullable LivingEntity livingEntity) {
         this.owner = livingEntity;
@@ -91,17 +101,21 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
     }
 
     @Override
-    protected void defineSynchedData() {
-    }
-
-    @Override
     public void tick() {
         super.tick();
+        if(this.level().isClientSide()) {
+            this.yaw = this.entityData.get(YAW);
+            this.pitch = this.entityData.get(PITCH);
+        }
 
-        // Mover la entidad hacia adelante según el yaw
+        this.setYRot(yaw);
+
+
+
+
+
         moveEntityForward();
 
-        // Comprobamos si la entidad entra en contacto con otros enemigos o jugadores
         List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(0.2, 0.0, 0.2));
         for (LivingEntity livingEntity : list) {
             this.dealDamageTo(livingEntity);
@@ -113,17 +127,13 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
         lifeTicks--;
     }
 
-    // Método para mover la entidad hacia adelante según el yaw
     private void moveEntityForward() {
         if (this.owner != null) {
-            // Convertimos el yaw en radianes para el cálculo trigonométrico
             float radianYaw = (float) Math.toRadians(this.yaw);
 
-            // Calculamos la nueva posición de la entidad en el plano XZ
-            double offsetX = Math.sin(radianYaw) * 0.3; // Ajusta la distancia
-            double offsetZ = Math.cos(radianYaw) * 0.3; // Ajusta la distancia
+            double offsetX = Math.sin(radianYaw) * 0.3;
+            double offsetZ = Math.cos(radianYaw) * 0.3;
 
-            // Movemos la entidad hacia adelante
             this.setPos(this.getX() + offsetX, this.getY(), this.getZ() + offsetZ);
         }
     }
@@ -152,16 +162,23 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
 
     @Override
     protected void readAdditionalSaveData(CompoundTag compoundTag) {
-        if (compoundTag.hasUUID("Owner")) {
-            this.ownerUUID = compoundTag.getUUID("Owner");
+        if (yaw != 0) {
+            this.setYaw(yaw);
         }
+        if (pitch != 0) {
+            this.setPitch(pitch);
+        }
+    }
+    public void setYaw(float yaw) {
+        this.entityData.set(YAW, this.yaw);
+    }
+    public void setPitch(float pitch) {
+        this.entityData.set(PITCH, this.pitch);
     }
 
     @Override
     protected void addAdditionalSaveData(CompoundTag compoundTag) {
-        if (this.ownerUUID != null) {
-            compoundTag.putUUID("Owner", this.ownerUUID);
-        }
+        compoundTag.putFloat("yaw", this.yaw);
     }
 
     // Controlador de animaciones (se puede ajustar según sea necesario)
@@ -213,5 +230,6 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
                     0, velocityY, 0);
         }
     }
+
 }
 

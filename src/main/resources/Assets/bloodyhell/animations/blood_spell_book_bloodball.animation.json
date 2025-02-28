@@ -1,0 +1,153 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"close": {
+			"animation_length": 1.0417,
+			"bones": {
+				"book": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"firstcover": {
+					"rotation": {
+						"0.0417": {
+							"vector": [0, 0, 27.5]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"secondcover": {
+					"rotation": {
+						"0.0417": {
+							"vector": [0, 0, 60]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"cover": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"firstpage": {
+					"rotation": {
+						"0.0417": {
+							"vector": [0, 0, 0]
+						},
+						"0.6667": {
+							"vector": [0, 0, -25]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"secondpage": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"backcover": {
+					"rotation": {
+						"0.0417": {
+							"vector": [0, 0, 87.5]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"secondthinpage": {
+					"rotation": {
+						"0.375": {
+							"vector": [0, 0, 5]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"firtsthinpage": {
+					"rotation": {
+						"0.375": {
+							"vector": [0, 0, -2.5]
+						},
+						"1.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"idle": {
+			"loop": true,
+			"animation_length": 4.25,
+			"bones": {
+				"firstcover": {
+					"rotation": {
+						"vector": [0, 0, 27.5]
+					}
+				},
+				"secondcover": {
+					"rotation": {
+						"vector": [0, 0, 60]
+					}
+				},
+				"firstpage": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"backcover": {
+					"rotation": {
+						"vector": [0, 0, 87.5]
+					}
+				},
+				"firtsthinpage": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -2.5]
+						},
+						"2.25": {
+							"vector": [0, 0, -2.5]
+						},
+						"2.75": {
+							"vector": [0, 0, -47.5]
+						},
+						"3.5": {
+							"vector": [0, 0, -47.5]
+						},
+						"4.25": {
+							"vector": [0, 0, -5]
+						}
+					}
+				},
+				"secondthinpage": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 5]
+						},
+						"0.75": {
+							"vector": [0, 0, 50]
+						},
+						"1.25": {
+							"vector": [0, 0, 51]
+						},
+						"1.7083": {
+							"vector": [0, 0, 2.5]
+						},
+						"2.25": {
+							"vector": [0, 0, 2.5]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

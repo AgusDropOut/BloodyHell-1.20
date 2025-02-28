@@ -12,6 +12,7 @@ import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;
 
+import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
@@ -374,6 +375,7 @@ public class BloodyHell
 
             //Spell Book
             event.accept(ModItems.BLOOD_SPELL_BOOK_SCRATCH);
+            event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODBALL);
 
 
 
@@ -417,6 +419,7 @@ public class BloodyHell
             BlockEntityRenderers.register(ModBlockEntities.BH_CHEST.get(),BHChestRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             EntityRenderers.register(ModEntityTypes.VESPER.get(), VesperRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_PROJECTILE.get(), BloodProjectileEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());

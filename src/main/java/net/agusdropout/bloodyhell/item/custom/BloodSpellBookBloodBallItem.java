@@ -2,11 +2,9 @@ package net.agusdropout.bloodyhell.item.custom;
 
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
+import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodBallItemRenderer;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
-import net.agusdropout.bloodyhell.particle.ModParticles;
-import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -21,13 +19,15 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class BloodSpellBookScratchItem extends Item implements GeoItem {
+public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
     private static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation CLOSE_ANIM = RawAnimation.begin().thenPlay("close");
     private int useTicks = 0;
@@ -35,7 +35,7 @@ public class BloodSpellBookScratchItem extends Item implements GeoItem {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public BloodSpellBookScratchItem(Properties properties) {
+    public BloodSpellBookBloodBallItem(Properties properties) {
         super(properties);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
@@ -48,12 +48,12 @@ public class BloodSpellBookScratchItem extends Item implements GeoItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private BloodSpellBookScratchItemRenderer renderer;
+            private BloodSpellBookBloodBallItemRenderer renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new BloodSpellBookScratchItemRenderer();
+                    this.renderer = new BloodSpellBookBloodBallItemRenderer();
 
                 return this.renderer;
             }
@@ -81,25 +81,10 @@ public class BloodSpellBookScratchItem extends Item implements GeoItem {
                     double baseY = player.getY() + 0.5;
                     double baseZ = player.getZ() + Math.cos(radians) * 1.0;
 
-                    // 🔹 Calcular desplazamientos laterales
-                    double offsetX = Math.sin(radians + Math.PI / 2) * 1.0; // Lado derecho
-                    double offsetZ = Math.cos(radians + Math.PI / 2) * 1.0; // Lado derecho
-
-                    double leftX = baseX - offsetX;
-                    double leftZ = baseZ - offsetZ;
-
-                    double rightX = baseX + offsetX;
-                    double rightZ = baseZ + offsetZ;
 
 
-                    BloodSlashEntity centerSlash = new BloodSlashEntity(level, baseX, baseY, baseZ, 30.0F, player, -yaw, pitch);
-                    BloodSlashEntity leftSlash = new BloodSlashEntity(level, leftX, baseY, leftZ, 30.0F, player, -yaw - 15,pitch);  // Izquierda
-                    BloodSlashEntity rightSlash = new BloodSlashEntity(level, rightX, baseY, rightZ, 30.0F, player, -yaw + 15,pitch); // Derecha
-
-                    level.addFreshEntity(centerSlash);
-                    level.addFreshEntity(leftSlash);
-                    level.addFreshEntity(rightSlash);
-
+                    BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                    level.addFreshEntity(projectile);
 
                     triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel), "Controller", "idle");
                     open = false;
