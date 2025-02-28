@@ -376,10 +376,7 @@ public class BloodyHell
             //Spell Book
             event.accept(ModItems.BLOOD_SPELL_BOOK_SCRATCH);
             event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODBALL);
-
-
-
-
+            event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODNOVA);
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SANGUINITE);

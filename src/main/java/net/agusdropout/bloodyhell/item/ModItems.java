@@ -187,6 +187,9 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLOOD_SPELL_BOOK_BLOODBALL = ITEMS.register("blood_spell_book_bloodball", () -> new BloodSpellBookBloodBallItem(
             new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLOOD_SPELL_BOOK_BLOODNOVA = ITEMS.register("blood_spell_book_bloodnova", () -> new BloodSpellBookBloodNovaItem(
+            new Item.Properties().stacksTo(1)));
+
 
 
     public static void register(IEventBus eventBus){

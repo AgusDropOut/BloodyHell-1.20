@@ -2,6 +2,8 @@ package net.agusdropout.bloodyhell.entity.projectile;
 
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.particle.ModParticles;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +27,7 @@ import java.util.List;
 
 public class BloodNovaEntity extends Projectile implements GeoEntity {
     private int lifeTicks = 150; // Duración antes de desaparecer
+    private int tickCounter = 0;
     private float damage;
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     private boolean increasingPhase = true;
@@ -64,16 +67,21 @@ public class BloodNovaEntity extends Projectile implements GeoEntity {
             increasingPhase = false;
             idlingPhase = true;
         }
-
+        if(lifeTicks == 2){
+            this.repulsion();
+        }
 
 
         if (this.lifeTicks == 0) {
             this.discard();
         }
 
+        spawnSpiralParticles();
+
         checkCollisions();
         spawnFlyingParticles(); // Partículas en el aire
         this.lifeTicks--;
+        this.tickCounter++;
     }
 
     private void checkCollisions() {
@@ -91,6 +99,18 @@ public class BloodNovaEntity extends Projectile implements GeoEntity {
 
         if (!level().noCollision(this, getBoundingBox().inflate(0.05))) {
             this.playSound(SoundEvents.GENERIC_SPLASH, 1.0F, 1.0F);
+        }
+    }
+    private void repulsion() {
+        if (!this.level().isClientSide) {
+            AABB boundingBox = this.getBoundingBox().inflate(5);
+            List<LivingEntity> entities = this.level().getEntitiesOfClass(LivingEntity.class, boundingBox,
+                    e -> e != this.getOwner() && e.isAlive());
+
+            for (LivingEntity entity : entities) {
+                Vec3 novaVector = entity.position().subtract(this.position()).normalize();
+                entity.setDeltaMovement(novaVector.scale(1.5));
+            }
         }
     }
 
@@ -126,8 +146,26 @@ public class BloodNovaEntity extends Projectile implements GeoEntity {
                 double vz = Math.sin(angle) * speed;
 
                 this.level().addParticle(ModParticles.BLOOD_PARTICLES.get(),
-                        this.getX(), this.getY(), this.getZ(), vx, vy, vz);
+                        this.getX(), this.getY()-0.5, this.getZ(), vx, vy, vz);
             }
+        }
+    }
+    private void spawnSpiralParticles(){
+        if (this.level().isClientSide) {
+            float factorDeRadio = 0.2F;
+            float tiempo = tickCounter;
+            float angle = tiempo * 1.5F;  // tiempo se incrementa para hacer el movimiento dinámico
+            float radius = factorDeRadio;  // El tamaño del círculo donde las partículas giran
+
+            float x = (float) Math.cos(angle) * radius;
+            float z = (float) Math.sin(angle) * radius;
+            float y = tiempo * 0.05F;
+            if(tiempo > 40){
+                tickCounter = 0;
+            }
+
+            this.level().addParticle(ModParticles.BLOOD_PARTICLES.get(),
+                    this.getX()+x, this.getY()+y -0.5, this.getZ()+z, 0, 0, 0);
         }
     }
 
@@ -150,7 +188,7 @@ public class BloodNovaEntity extends Projectile implements GeoEntity {
         if(increasingPhase) {
             animationState.getController().setAnimation(RawAnimation.begin().then("sizeup", Animation.LoopType.PLAY_ONCE));
         } else if(idlingPhase) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+            animationState.getController().setAnimation(RawAnimation.begin().then("active", Animation.LoopType.LOOP));
         } else if(decreasingPhase) {
             animationState.getController().setAnimation(RawAnimation.begin().then("sizedown", Animation.LoopType.PLAY_ONCE));
         }

@@ -2,8 +2,7 @@ package net.agusdropout.bloodyhell.item.custom;
 
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
-import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
-import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodBallItemRenderer;
+import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodNovaItemRenderer;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.server.level.ServerLevel;
@@ -28,7 +27,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
+public class BloodSpellBookBloodNovaItem extends Item implements GeoItem {
     private static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation CLOSE_ANIM = RawAnimation.begin().thenPlay("close");
     private int useTicks = 0;
@@ -36,7 +35,7 @@ public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public BloodSpellBookBloodBallItem(Properties properties) {
+    public BloodSpellBookBloodNovaItem(Properties properties) {
         super(properties);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
@@ -49,12 +48,12 @@ public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private BloodSpellBookBloodBallItemRenderer renderer;
+            private BloodSpellBookBloodNovaItemRenderer renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new BloodSpellBookBloodBallItemRenderer();
+                    this.renderer = new BloodSpellBookBloodNovaItemRenderer();
 
                 return this.renderer;
             }
@@ -82,11 +81,19 @@ public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
                     double baseY = player.getY() + 0.5;
                     double baseZ = player.getZ() + Math.cos(radians) * 1.0;
 
+                    // 🔹 Calcular desplazamientos laterales
+                    double offsetX = Math.sin(radians + Math.PI / 2) * 1.0; // Lado derecho
+                    double offsetZ = Math.cos(radians + Math.PI / 2) * 1.0; // Lado derecho
+
+                    double leftX = baseX - offsetX;
+                    double leftZ = baseZ - offsetZ;
+
+                    double rightX = baseX + offsetX;
+                    double rightZ = baseZ + offsetZ;
 
 
-                    BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                    BloodNovaEntity projectile = new BloodNovaEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
                     level.addFreshEntity(projectile);
-
 
 
                     triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel), "Controller", "idle");
