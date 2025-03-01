@@ -1,9 +1,9 @@
 package net.agusdropout.bloodyhell.networking;
 
 import net.agusdropout.bloodyhell.BloodyHell;
-import net.agusdropout.bloodyhell.networking.packet.DrinkWaterC2SPacket;
+import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilC2SPacket;
+import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.networking.packet.EnergySyncS2CPacket;
-import net.agusdropout.bloodyhell.networking.packet.ThirstDataSyncS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -30,15 +30,15 @@ public class ModMessages {
 
 
 
-        net.messageBuilder(DrinkWaterC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(DrinkWaterC2SPacket::new)
-                .encoder(DrinkWaterC2SPacket::toBytes)
-                .consumerMainThread(DrinkWaterC2SPacket::handle)
+        net.messageBuilder(CrimsonVeilC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(CrimsonVeilC2SPacket::new)
+                .encoder(CrimsonVeilC2SPacket::toBytes)
+                .consumerMainThread(CrimsonVeilC2SPacket::handle)
                 .add();
-        net.messageBuilder(ThirstDataSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(ThirstDataSyncS2CPacket::new)
-                .encoder(ThirstDataSyncS2CPacket::toBytes)
-                .consumerMainThread(ThirstDataSyncS2CPacket::handle)
+        net.messageBuilder(CrimsonVeilDataSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(CrimsonVeilDataSyncS2CPacket::new)
+                .encoder(CrimsonVeilDataSyncS2CPacket::toBytes)
+                .consumerMainThread(CrimsonVeilDataSyncS2CPacket::handle)
                 .add();
         net.messageBuilder(EnergySyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(EnergySyncS2CPacket::new)

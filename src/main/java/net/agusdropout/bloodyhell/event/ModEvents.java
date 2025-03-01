@@ -1,33 +1,26 @@
 package net.agusdropout.bloodyhell.event;
 
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonVeil;
+import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonveilProvider;
 import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
-import net.agusdropout.bloodyhell.effect.ModEffects;
-import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.custom.*;
-import net.agusdropout.bloodyhell.networking.ModMessages;
-import net.agusdropout.bloodyhell.networking.packet.ThirstDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.*;
-import net.agusdropout.bloodyhell.thirst.PlayerThirstProvider;
-import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -64,6 +57,7 @@ public class ModEvents {
 
 
 
+
             @SubscribeEvent
             public static void EntityAttributeEvent(EntityAttributeCreationEvent event) {
                 event.put(BLOODTHIRSTYBEAST.get(), BloodThirstyBeastEntity.setAttributes());
@@ -93,18 +87,34 @@ public class ModEvents {
         }
         @Mod.EventBusSubscriber(modid = BloodyHell.MODID)
         public static class ForgeEvents{
-            //@SubscribeEvent
-            //public static void PlayerTickEvent(TickEvent.PlayerTickEvent event){
-                   // if(!event.player.level().isClientSide) {
-                   //     if (event.player.level().dimension().equals(ModDimensions.SOUL_LEVEL_KEY)) {
-                   //         if (!event.player.hasEffect(ModEffects.BLOOD_LUST.get())) {
-                   //             if (!event.player.hasEffect(ModEffects.ILLUMINATED.get())) {
-                   //                 MobEffectInstance bloodLust = new MobEffectInstance(ModEffects.BLOOD_LUST.get(), 100, 1);
-                   //                 event.player.addEffect(bloodLust);
-                   //             }
-                   //         }
-                   //     }
-                   // }
+            @SubscribeEvent
+            public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+                if(event.getObject() instanceof Player) {
+                    if(!event.getObject().getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).isPresent()) {
+                        event.addCapability(new ResourceLocation(BloodyHell.MODID, "properties"), new PlayerCrimsonveilProvider());
+                    }
+                }
+            }
+
+            @SubscribeEvent
+            public static void onPlayerCloned(PlayerEvent.Clone event) {
+                if(event.isWasDeath()) {
+                    event.getOriginal().reviveCaps();
+                    System.out.println("a");
+                    event.getOriginal().getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(oldStore -> {
+                        event.getEntity().getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(newStore -> {
+                            System.out.println("k");
+                            newStore.copyFrom(oldStore);
+                        });
+                    });
+                    event.getOriginal().invalidateCaps();
+                }
+            }
+
+            @SubscribeEvent
+            public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+                event.register(PlayerCrimsonVeil.class);
+            }
             private void RegisterDimensionSpecialEffectsEvent(RegisterDimensionSpecialEffectsEvent event) {
                 event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
             }

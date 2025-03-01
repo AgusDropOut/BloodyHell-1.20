@@ -1,4 +1,4 @@
-package net.agusdropout.bloodyhell.thirst;
+package net.agusdropout.bloodyhell.CrimsonveilPower;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -13,24 +13,24 @@ import org.jetbrains.annotations.Nullable;
 
 
 
-    public class PlayerThirstProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-        public static Capability<PlayerThirst> PLAYER_THIRST = CapabilityManager.get(new CapabilityToken<PlayerThirst>() {
+    public class PlayerCrimsonveilProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+        public static Capability<PlayerCrimsonVeil> PLAYER_CRIMSONVEIL = CapabilityManager.get(new CapabilityToken<PlayerCrimsonVeil>() {
         });
 
-        private PlayerThirst thirst = null;
-        private final LazyOptional<PlayerThirst> optional = LazyOptional.of(this::createPlayerThirst);
+        private PlayerCrimsonVeil crimsonVeil = null;
+        private final LazyOptional<PlayerCrimsonVeil> optional = LazyOptional.of(this::createPlayerCrimsonVeil);
 
-        private PlayerThirst createPlayerThirst() {
-            if (this.thirst == null) {
-                this.thirst = new PlayerThirst();
+        private PlayerCrimsonVeil createPlayerCrimsonVeil() {
+            if (this.crimsonVeil == null) {
+                this.crimsonVeil = new PlayerCrimsonVeil();
             }
 
-            return this.thirst;
+            return this.crimsonVeil;
         }
 
         @Override
         public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-            if (cap == PLAYER_THIRST) {
+            if (cap == PLAYER_CRIMSONVEIL) {
                 return optional.cast();
             }
 
@@ -40,12 +40,12 @@ import org.jetbrains.annotations.Nullable;
         @Override
         public CompoundTag serializeNBT() {
             CompoundTag nbt = new CompoundTag();
-            createPlayerThirst().saveNBTData(nbt);
+            createPlayerCrimsonVeil().saveNBTData(nbt);
             return nbt;
         }
 
         @Override
         public void deserializeNBT(CompoundTag nbt) {
-            createPlayerThirst().loadNBTData(nbt);
+            createPlayerCrimsonVeil().loadNBTData(nbt);
         }
     }

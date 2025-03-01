@@ -1,5 +1,6 @@
 package net.agusdropout.bloodyhell.item.custom;
 
+import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonveilProvider;
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodNovaItemRenderer;
@@ -94,6 +95,10 @@ public class BloodSpellBookBloodNovaItem extends Item implements GeoItem {
 
                     BloodNovaEntity projectile = new BloodNovaEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
                     level.addFreshEntity(projectile);
+                    player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(playerCrimsonVeil -> {
+                        playerCrimsonVeil.addCrimsomveil(1);
+                        System.out.println(playerCrimsonVeil.getCrimsonVeil());
+                    });
 
 
                     triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel), "Controller", "idle");
