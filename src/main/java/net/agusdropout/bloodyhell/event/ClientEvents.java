@@ -4,6 +4,7 @@ package net.agusdropout.bloodyhell.event;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.client.CrimsonVeilHudOverlay;
 import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
 import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.entity.client.UnknownEyeEntityModel;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,8 +45,11 @@ public class ClientEvents  {
 
             @SubscribeEvent
             public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
-                // Puedes realizar registros de superposiciones de GUI aquí si es necesario
+                System.out.println("Registering GUI Overlays");
+                event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), "mana_hud", CrimsonVeilHudOverlay.OVERLAY);
             }
+
+
             @SubscribeEvent
             public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
                 event.registerLayerDefinition(ModModelLayers.CRYSTAL_PILLAR, CrystalPillarModel::createBodyLayer);

@@ -5,22 +5,29 @@ import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonVeil;
 import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonveilProvider;
 import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
 import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.item.ModItems;
+import net.agusdropout.bloodyhell.networking.ModMessages;
+import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.*;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -100,14 +107,33 @@ public class ModEvents {
             public static void onPlayerCloned(PlayerEvent.Clone event) {
                 if(event.isWasDeath()) {
                     event.getOriginal().reviveCaps();
-                    System.out.println("a");
                     event.getOriginal().getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(oldStore -> {
                         event.getEntity().getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(newStore -> {
-                            System.out.println("k");
                             newStore.copyFrom(oldStore);
                         });
                     });
                     event.getOriginal().invalidateCaps();
+                }
+            }
+            @SubscribeEvent
+            public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
+                if(!event.getLevel().isClientSide()) {
+                    if(event.getEntity() instanceof ServerPlayer player) {
+                        player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(crimsonVeil -> {
+                            ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), player);
+                        });
+                    }
+                }
+            }
+            @SubscribeEvent
+            public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+                if(event.side == LogicalSide.SERVER) {
+                    event.player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(crimsonVeil -> {
+                        if(crimsonVeil.getCrimsonVeil() < 100 && event.player.getRandom().nextFloat() < 0.01f && event.player.getInventory().contains(ModItems.AMULET_OF_ANCESTRAL_BLOOD.get().getDefaultInstance())) {
+                            crimsonVeil.addCrimsomveil(1);
+                            ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), ((ServerPlayer) event.player));
+                        }
+                    });
                 }
             }
 

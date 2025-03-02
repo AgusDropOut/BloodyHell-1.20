@@ -22,6 +22,10 @@ public class PlayerCrimsonVeil {
         this.crimsonVeil = Math.max(crimsonVeil - sub, MIN_CRIMSONVEIL);
     }
 
+    public int getMAX_CRIMSOMVEIL() {
+        return MAX_CRIMSOMVEIL;
+    }
+
     public void copyFrom(PlayerCrimsonVeil source) {
         this.crimsonVeil = source.crimsonVeil;
     }

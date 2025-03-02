@@ -1,13 +1,17 @@
 package net.agusdropout.bloodyhell.item.custom;
 
+import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonveilProvider;
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
+import net.agusdropout.bloodyhell.networking.ModMessages;
+import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -92,13 +96,29 @@ public class BloodSpellBookScratchItem extends Item implements GeoItem {
                     double rightZ = baseZ + offsetZ;
 
 
-                    BloodSlashEntity centerSlash = new BloodSlashEntity(level, baseX, baseY, baseZ, 30.0F, player, -yaw, pitch);
-                    BloodSlashEntity leftSlash = new BloodSlashEntity(level, leftX, baseY, leftZ, 30.0F, player, -yaw - 15,pitch);  // Izquierda
-                    BloodSlashEntity rightSlash = new BloodSlashEntity(level, rightX, baseY, rightZ, 30.0F, player, -yaw + 15,pitch); // Derecha
 
-                    level.addFreshEntity(centerSlash);
-                    level.addFreshEntity(leftSlash);
-                    level.addFreshEntity(rightSlash);
+                    player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(playerCrimsonVeil -> {
+
+                        if(playerCrimsonVeil.getCrimsonVeil() >= 5 && !player.getCooldowns().isOnCooldown(this)){
+
+                            player.getCooldowns().addCooldown(this, 50);
+
+
+                            playerCrimsonVeil.subCrimsomveil(10);
+
+                            BloodSlashEntity centerSlash = new BloodSlashEntity(level, baseX, baseY, baseZ, 30.0F, player, -yaw, pitch);
+                            BloodSlashEntity leftSlash = new BloodSlashEntity(level, leftX, baseY, leftZ, 30.0F, player, -yaw - 15, pitch);  // Izquierda
+                            BloodSlashEntity rightSlash = new BloodSlashEntity(level, rightX, baseY, rightZ, 30.0F, player, -yaw + 15, pitch); // Derecha
+
+                            level.addFreshEntity(centerSlash);
+                            level.addFreshEntity(leftSlash);
+                            level.addFreshEntity(rightSlash);
+
+                            if (!level.isClientSide()) {
+                                ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(playerCrimsonVeil.getCrimsonVeil()), ((ServerPlayer) player));
+                            }
+                        }
+                    });
 
 
                     triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), serverLevel), "Controller", "idle");

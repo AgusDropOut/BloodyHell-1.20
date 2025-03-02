@@ -37,6 +37,8 @@ import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
 
 import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
 import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -377,6 +379,9 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_SPELL_BOOK_SCRATCH);
             event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODBALL);
             event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODNOVA);
+
+            //Crimson Blood Items
+            event.accept(ModItems.AMULET_OF_ANCESTRAL_BLOOD);
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SANGUINITE);

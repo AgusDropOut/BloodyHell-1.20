@@ -5,8 +5,11 @@ import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookBloodNovaItemRenderer;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
+import net.agusdropout.bloodyhell.networking.ModMessages;
+import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -72,32 +75,40 @@ public class BloodSpellBookBloodNovaItem extends Item implements GeoItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (level instanceof ServerLevel serverLevel) {
                 if(open) {
-                    // 🔹 Obtener el yaw del jugador
-                    float yaw = player.getYRot();
-                    float pitch = player.getXRot();
-                    double radians = Math.toRadians(-yaw);
-
-                    // 🔹 Posición base (frontal)
-                    double baseX = player.getX() + Math.sin(radians) * 1.0;
-                    double baseY = player.getY() + 0.5;
-                    double baseZ = player.getZ() + Math.cos(radians) * 1.0;
-
-                    // 🔹 Calcular desplazamientos laterales
-                    double offsetX = Math.sin(radians + Math.PI / 2) * 1.0; // Lado derecho
-                    double offsetZ = Math.cos(radians + Math.PI / 2) * 1.0; // Lado derecho
-
-                    double leftX = baseX - offsetX;
-                    double leftZ = baseZ - offsetZ;
-
-                    double rightX = baseX + offsetX;
-                    double rightZ = baseZ + offsetZ;
-
-
-                    BloodNovaEntity projectile = new BloodNovaEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
-                    level.addFreshEntity(projectile);
                     player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(playerCrimsonVeil -> {
-                        playerCrimsonVeil.addCrimsomveil(1);
-                        System.out.println(playerCrimsonVeil.getCrimsonVeil());
+                        if(playerCrimsonVeil.getCrimsonVeil() >= 10 && !player.getCooldowns().isOnCooldown(this)) {
+                            // 🔹 Obtener el yaw del jugador
+                            float yaw = player.getYRot();
+                            float pitch = player.getXRot();
+                            double radians = Math.toRadians(-yaw);
+
+                            // 🔹 Posición base (frontal)
+                            double baseX = player.getX() + Math.sin(radians) * 1.0;
+                            double baseY = player.getY() + 0.5;
+                            double baseZ = player.getZ() + Math.cos(radians) * 1.0;
+
+                            // 🔹 Calcular desplazamientos laterales
+                            double offsetX = Math.sin(radians + Math.PI / 2) * 1.0; // Lado derecho
+                            double offsetZ = Math.cos(radians + Math.PI / 2) * 1.0; // Lado derecho
+
+                            double leftX = baseX - offsetX;
+                            double leftZ = baseZ - offsetZ;
+
+                            double rightX = baseX + offsetX;
+                            double rightZ = baseZ + offsetZ;
+
+
+                            BloodNovaEntity projectile = new BloodNovaEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                            level.addFreshEntity(projectile);
+
+                            playerCrimsonVeil.subCrimsomveil(10);
+                            player.getCooldowns().addCooldown(this, 50);
+
+                            if (!level.isClientSide()) {
+                                ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(playerCrimsonVeil.getCrimsonVeil()), ((ServerPlayer) player));
+                            }
+
+                        }
                     });
 
 

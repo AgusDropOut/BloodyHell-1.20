@@ -92,6 +92,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         //Unknown entity items
         normalItem(ModItems.UNKNOWN_ENTITY_FINGER);
 
+        //Crimson Veil Items
+        normalItem(ModItems.AMULET_OF_ANCESTRAL_BLOOD);
+
 
 
 

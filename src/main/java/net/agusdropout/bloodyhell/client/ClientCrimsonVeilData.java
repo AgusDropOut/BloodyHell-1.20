@@ -5,7 +5,7 @@ public class ClientCrimsonVeilData {
     public static void set(int crimsonVeil){
         ClientCrimsonVeilData.playerCrimsonVeil = crimsonVeil;
     }
-    public static int  getPlayerThirst() {
+    public static int  getPlayerCrimsonVeil() {
         return playerCrimsonVeil;
     }
 }
