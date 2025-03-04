@@ -51,7 +51,10 @@ public class CrimsonVeilHudOverlay  {
     public static boolean shouldDisplayBar() {
         Player player = minecraft.player;
         Item heldItem = player.getMainHandItem().getItem();
-        return heldItem.equals(ModItems.BLOOD_SPELL_BOOK_SCRATCH.get()) || heldItem.equals(ModItems.BLOOD_SPELL_BOOK_BLOODBALL.get()) || heldItem.equals(ModItems.BLOOD_SPELL_BOOK_BLOODNOVA.get());
+        return heldItem.equals(ModItems.BLOOD_SPELL_BOOK_SCRATCH.get()) ||
+                heldItem.equals(ModItems.BLOOD_SPELL_BOOK_BLOODBALL.get()) ||
+                heldItem.equals(ModItems.BLOOD_SPELL_BOOK_BLOODNOVA.get()) ||
+                heldItem.equals(ModItems.BLOOD_SPELL_BOOK_DAGGERSRAIN.get());
     }
 
     public static void renderOverlay(ForgeGui gui, GuiGraphics guiGraphics, float pt, int width, int height) {

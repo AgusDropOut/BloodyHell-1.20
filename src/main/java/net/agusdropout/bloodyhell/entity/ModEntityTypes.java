@@ -4,6 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.custom.*;
 import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
+import net.agusdropout.bloodyhell.entity.projectile.SmallCrimsonDagger;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -66,6 +67,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodNovaEntity>> BLOOD_NOVA_ENTITY = ENTITY_TYPES.register("blood_nova_entity",
             () -> EntityType.Builder.<BloodNovaEntity>of(BloodNovaEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_nova_entity").toString()));
+    public static final RegistryObject<EntityType<SmallCrimsonDagger>> SMALL_CRIMSON_DAGGER = ENTITY_TYPES.register("small_crimson_dagger",
+            () -> EntityType.Builder.<SmallCrimsonDagger>of(SmallCrimsonDagger::new,MobCategory.AMBIENT).sized(1.0f,1.0f).build(new ResourceLocation(BloodyHell.MODID,
+                    "small_crimson_dagger").toString()));
+    public static final RegistryObject<EntityType<BloodPortalEntity>> BLOOD_PORTAL_ENTITY = ENTITY_TYPES.register("blood_portal_entity",
+            () -> EntityType.Builder.<BloodPortalEntity>of(BloodPortalEntity::new,MobCategory.AMBIENT).sized(1.0f,1.0f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "blood_portal_entity").toString()));
 
     public static final RegistryObject<EntityType<VesperEntity>> VESPER = ENTITY_TYPES.register("vesper",
             () -> EntityType.Builder.<VesperEntity>of(VesperEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,

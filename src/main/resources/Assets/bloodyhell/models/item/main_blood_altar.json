@@ -1,6 +1,3 @@
 {
-  "parent": "builtin/entity",
-  "textures": {
-    "layer0": "bloodyhell:item/main_blood_altar"
-  }
+  "parent": "bloodyhell:block/main_blood_altar"
 }

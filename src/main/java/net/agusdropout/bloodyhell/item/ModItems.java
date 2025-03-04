@@ -189,10 +189,14 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLOOD_SPELL_BOOK_BLOODNOVA = ITEMS.register("blood_spell_book_bloodnova", () -> new BloodSpellBookBloodNovaItem(
             new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLOOD_SPELL_BOOK_DAGGERSRAIN = ITEMS.register("blood_spell_book_daggersrain", () -> new BloodSpellBookDaggersRainItem(
+            new Item.Properties().stacksTo(1)));
 
     //Crimson Veil Items
     public static final RegistryObject<Item> AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("amulet_of_ancestral_blood", () -> new Item(
             new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ANCIENT_GEM = ITEMS.register("ancient_gem", () -> new Item(
+            new Item.Properties().stacksTo(64)));
 
 
 

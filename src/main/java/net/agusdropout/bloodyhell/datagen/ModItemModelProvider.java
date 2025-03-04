@@ -94,6 +94,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //Crimson Veil Items
         normalItem(ModItems.AMULET_OF_ANCESTRAL_BLOOD);
+        normalItem(ModItems.ANCIENT_GEM);
 
 
 

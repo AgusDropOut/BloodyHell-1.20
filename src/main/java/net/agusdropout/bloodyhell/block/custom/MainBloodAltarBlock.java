@@ -6,9 +6,7 @@ import net.agusdropout.bloodyhell.block.entity.MainBloodAltarBlockEntity;
 import net.agusdropout.bloodyhell.entity.custom.UnknownEyeEntity;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.util.VanillaPacketDispatcher;
-import net.agusdropout.bloodyhell.util.rituals.FindMausoleumRitual;
-import net.agusdropout.bloodyhell.util.rituals.SummonCowRitual;
-import net.agusdropout.bloodyhell.util.rituals.TurnBloodIntoRhnullRitual;
+import net.agusdropout.bloodyhell.util.rituals.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -100,28 +98,36 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
             } else if (altar.isActive() && isAltarSetupReady(level,blockPos)){
                 SummonCowRitual summonCowRitual = new SummonCowRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
                 if(summonCowRitual.performRitual()){
-                    consumeItemsFromAltars(level,blockPos);
-                    altar.setActive(false);
-                    level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
-                    level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-                   return InteractionResult.sidedSuccess(level.isClientSide());
+                    return success(level,blockPos,player,blockState,altar);
                }
                 TurnBloodIntoRhnullRitual turnBloodIntoRhnullRitual = new TurnBloodIntoRhnullRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
                 if(turnBloodIntoRhnullRitual.performRitual()){
-                    consumeItemsFromAltars(level,blockPos);
-                    altar.setActive(false);
-                    level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
-                    level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-                    return InteractionResult.sidedSuccess(level.isClientSide());
+                    return success(level,blockPos,player,blockState,altar);
                 }
 
                 FindMausoleumRitual findMausoleumRitual = new FindMausoleumRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
                 if(findMausoleumRitual.performRitual()){
-                    consumeItemsFromAltars(level,blockPos);
-                    altar.setActive(false);
-                    level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
-                    level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-                    return InteractionResult.sidedSuccess(level.isClientSide());
+                    return success(level,blockPos,player,blockState,altar);
+                }
+                BloodAncientGemRitual bloodAncientGemRitual = new BloodAncientGemRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(bloodAncientGemRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
+                }
+                SpellBookScratchRitual spellBookScratchRitual = new SpellBookScratchRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(spellBookScratchRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
+                }
+                SpellBookBloodBallRitual spellBookBloodBallRitual = new SpellBookBloodBallRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(spellBookBloodBallRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
+                }
+                SpellBookBloodNovaRitual spellBookBloodNovaRitual = new SpellBookBloodNovaRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(spellBookBloodNovaRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
+                }
+                SpellBookDaggersRainRitual spellBookDaggersRainRitual = new SpellBookDaggersRainRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(spellBookDaggersRainRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
                 }
 
             }
@@ -130,6 +136,14 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
         }
 
         return InteractionResult.PASS;
+    }
+
+    private InteractionResult success(Level level, BlockPos blockPos, Player player, BlockState blockState, MainBloodAltarBlockEntity altar) {
+        consumeItemsFromAltars(level,blockPos);
+        altar.setActive(false);
+        level.addFreshEntity(new UnknownEyeEntity(level, blockPos.getX()+0.5, (double)blockPos.getY()+2, blockPos.getZ()+0.50, 0, 0, 0, player));
+        level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+        return InteractionResult.sidedSuccess(level.isClientSide());
     }
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {

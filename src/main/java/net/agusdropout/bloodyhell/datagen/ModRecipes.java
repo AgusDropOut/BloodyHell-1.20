@@ -22,6 +22,45 @@ public class ModRecipes extends ModRecipesProvider {
     @SuppressWarnings("removal")
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+
+        //---------------------------------Altars----------------------------------//
+        //Blood altar
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOOD_ALTAR.get(), 1)
+                .pattern("GDG")
+                .pattern("SCS")
+                .pattern("TST")
+                .define('S', ModItems.SANGUINITE.get())
+                .define('G', Items.GOLD_INGOT)
+                .define('C', ModItems.CORRUPTED_BLOOD_FLASK.get())
+                .define('D', ModItems.BLOODY_SOUL_DUST.get())
+                .define('T', ModBlocks.BLOODY_STONE_TILES_BLOCK.get())
+                .unlockedBy("has_sanguinite", has(ModItems.SANGUINITE.get()))
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .unlockedBy("has_bloody_stone_tiles_block", has(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()))
+                .unlockedBy("has_corrupted_blood_flask", has(ModItems.CORRUPTED_BLOOD_FLASK.get()))
+                .unlockedBy("has_bloody_soul_dust", has(ModItems.BLOODY_SOUL_DUST.get()))
+                .save(consumer, name("blood_altar"));
+        //Main blood altar
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MAIN_BLOOD_ALTAR.get(), 1)
+                .pattern("GDG")
+                .pattern("SCS")
+                .pattern("TST")
+                .define('S', ModItems.SANGUINITE.get())
+                .define('G', Items.GOLD_INGOT)
+                .define('C', ModItems.CORRUPTED_BLOOD_FLASK.get())
+                .define('D', ModItems.CHALICE_OF_THE_DAMMED.get())
+                .define('T', ModBlocks.BLOODY_STONE_TILES_BLOCK.get())
+                .unlockedBy("has_sanguinite", has(ModItems.SANGUINITE.get()))
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .unlockedBy("has_bloody_stone_tiles_block", has(ModBlocks.BLOODY_STONE_TILES_BLOCK.get()))
+                .unlockedBy("has_corrupted_blood_flask", has(ModItems.CORRUPTED_BLOOD_FLASK.get()))
+                .unlockedBy("has_chalice_of_the_dammed", has(ModItems.CHALICE_OF_THE_DAMMED.get()))
+                .save(consumer, name("manin_blood_altar"));
+
+
+
+
+
         makePlanks(ModBlocks.BLOOD_PLANKS, ModTags.Items.BLOOD_LOGS).save(consumer);
 
 
@@ -81,6 +120,29 @@ public class ModRecipes extends ModRecipesProvider {
         makeShovel(ModItems.RHNULL_SHOVEL, ModItems.RHNULL).save(consumer);
         makeAxe(ModItems.RHNULL_AXE, ModItems.RHNULL).save(consumer);
         makeHoe(ModItems.RHNULL_HOE, ModItems.RHNULL).save(consumer);
+
+        //Bow
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLOOD_BOW.get(), 1)
+                .pattern(" SG")
+                .pattern("S G")
+                .pattern(" SG")
+                .define('S', ModItems.SANGUINITE.get())
+                .define('G', Items.GOLD_INGOT)
+                .unlockedBy("has_sanguinite", has(ModItems.SANGUINITE.get()))
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(consumer, name("blood_bow"));
+        //Arrow
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4)
+                .pattern(" F ")
+                .pattern(" S ")
+                .pattern(" G ")
+                .define('S', Items.STICK)
+                .define('G', ModItems.SCARLET_FEATHER.get())
+                .define('F', Items.FLINT)
+                .unlockedBy("has_stick", has(Items.STICK))
+                .unlockedBy("has_scarlet_feather", has(ModItems.SCARLET_FEATHER.get()))
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer, name("arrow"));
 
         //------------------------------Armor crafting--------------------------------//
             //Sanguinite armor
@@ -192,6 +254,10 @@ public class ModRecipes extends ModRecipesProvider {
         makeBlockToIngot(ModItems.SANGUINITE,ModBlocks.SANGUINITE_BLOCK).save(consumer);
         makeBlockToIngot(ModItems.RHNULL,ModBlocks.RHNULL_BLOCK).save(consumer);
 
+        //-------------------------------Ingot to nugget----------------------------------//
+        makeIngotToNugget(ModItems.SANGUINITE_NUGGET,ModItems.SANGUINITE).save(consumer);
+        makeIngotToNugget(ModItems.RHNULL_NUGGET,ModItems.RHNULL).save(consumer);
+
         //---------------------------------Smelting & Blasting--------------------------//
         //Sanguinite
         smeltingRecipe(ModItems.SANGUINITE.get(), ModItems.RAW_SANGUINITE.get(), 1F).save(consumer, name("smelt_raw_sanguinite"));
@@ -215,8 +281,42 @@ public class ModRecipes extends ModRecipesProvider {
         bloodyStoneBricksStonecutting(ModBlocks.BLOODY_STONE_BRICKS_SLAB.get(),2).save(consumer, name("bloody_stone_bricks_slab_stonecutting"));
         bloodyStoneBricksStonecutting(ModBlocks.BLOODY_STONE_BRICKS_WALL.get(),1).save(consumer, name("bloody_stone_bricks_wall_stonecutting"));
 
+        //---------------------------------Flasks----------------------------------//
+        //Blood flask
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLOOD_FLASK.get(), 1)
+                .pattern("G G")
+                .pattern(" G ")
+                .define('G', Items.GOLD_INGOT)
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .save(consumer, name("blood_flask"));
 
 
+        //---------------------------------Daggers----------------------------------//
+        //sacrificial dagger
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SACRIFICIAL_DAGGER.get(), 1)
+                .pattern(" SS")
+                .pattern("GS ")
+                .pattern("DG ")
+                .define('G', Items.GOLD_INGOT)
+                .define('S', ModItems.SANGUINITE.get())
+                .define('D', ModItems.AUREAL_REVENANT_DAGGER.get())
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .unlockedBy("has_sanguinite", has(ModItems.SANGUINITE.get()))
+                .unlockedBy("has_aureal_revenant_dagger", has(ModItems.AUREAL_REVENANT_DAGGER.get()))
+                .save(consumer, name("sacrificial_dagger"));
+        //---------------------------------Crimson Veil----------------------------------//
+        //Amulet of ancestral blood
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMULET_OF_ANCESTRAL_BLOOD.get(), 1)
+                .pattern("GGG")
+                .pattern("G G")
+                .pattern("BAB")
+                .define('G', Items.GOLD_INGOT)
+                .define('B', ModItems.FILLED_BLOOD_FLASK.get())
+                .define('A', ModItems.ANCIENT_GEM.get())
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .unlockedBy("has_filled_blood_flask", has(ModItems.FILLED_BLOOD_FLASK.get()))
+                .unlockedBy("has_ancient_gem", has(ModItems.ANCIENT_GEM.get()))
+                .save(consumer, name("amulet_of_ancestral_blood"));
     }
 
     private ResourceLocation name(String name) {

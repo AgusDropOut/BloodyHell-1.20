@@ -6,19 +6,14 @@ import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.block.entity.ModBlockEntities;
 import net.agusdropout.bloodyhell.capability.IBloodPortal;
 import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
-import net.agusdropout.bloodyhell.datagen.ModEntityTagGenerator;
-import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;
 
-import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
 import net.agusdropout.bloodyhell.item.ModItems;
-import net.agusdropout.bloodyhell.item.client.BloodAltarItemRenderer;
-import net.agusdropout.bloodyhell.item.custom.ModArmorItem;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.painting.ModPaintings;
 import net.agusdropout.bloodyhell.particle.ModParticles;
@@ -30,23 +25,18 @@ import net.agusdropout.bloodyhell.screen.ModMenuTypes;
 import net.agusdropout.bloodyhell.screen.VesperScreen;
 import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.villager.ModPOIs;
-import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
 import net.agusdropout.bloodyhell.worldgen.feature.ModFeatures;
 import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
 
 import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
 import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.ItemEntityRenderer;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -379,9 +369,11 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_SPELL_BOOK_SCRATCH);
             event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODBALL);
             event.accept(ModItems.BLOOD_SPELL_BOOK_BLOODNOVA);
+            event.accept(ModItems.BLOOD_SPELL_BOOK_DAGGERSRAIN);
 
             //Crimson Blood Items
             event.accept(ModItems.AMULET_OF_ANCESTRAL_BLOOD);
+            event.accept(ModItems.ANCIENT_GEM);
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SANGUINITE);
@@ -423,6 +415,8 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.VESPER.get(), VesperRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_PROJECTILE.get(), BloodProjectileEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_NOVA_ENTITY.get(), BloodNovaEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SMALL_CRIMSON_DAGGER.get(), SmallCrimsonDaggerEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_PORTAL_ENTITY.get(), BloodPortalEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
