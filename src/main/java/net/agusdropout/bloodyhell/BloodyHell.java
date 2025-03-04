@@ -374,6 +374,9 @@ public class BloodyHell
             //Crimson Blood Items
             event.accept(ModItems.AMULET_OF_ANCESTRAL_BLOOD);
             event.accept(ModItems.ANCIENT_GEM);
+            event.accept(ModItems.GREAT_AMULET_OF_ANCESTRAL_BLOOD);
+            event.accept(ModItems.GREAT_ANCIENT_GEM);
+
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SANGUINITE);

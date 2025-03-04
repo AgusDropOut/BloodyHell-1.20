@@ -129,6 +129,10 @@ public class MainBloodAltarBlock extends BaseEntityBlock {
                 if(spellBookDaggersRainRitual.performRitual()){
                     return success(level,blockPos,player,blockState,altar);
                 }
+                GreatBloodAncientGemRitual greatBloodAncientGemRitual = new GreatBloodAncientGemRitual(blockState,level,blockPos,player,interactionHand,blockHitResult,getItemsFromAltars(level,blockPos));
+                if(greatBloodAncientGemRitual.performRitual()){
+                    return success(level,blockPos,player,blockState,altar);
+                }
 
             }
 

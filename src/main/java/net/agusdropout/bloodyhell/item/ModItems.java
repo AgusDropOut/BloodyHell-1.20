@@ -197,6 +197,10 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> ANCIENT_GEM = ITEMS.register("ancient_gem", () -> new Item(
             new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> GREAT_AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("great_amulet_of_ancestral_blood", () -> new Item(
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GREAT_ANCIENT_GEM = ITEMS.register("great_ancient_gem", () -> new Item(
+            new Item.Properties().stacksTo(64)));
 
 
 

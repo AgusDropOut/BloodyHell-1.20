@@ -129,9 +129,14 @@ public class ModEvents {
             public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
                 if(event.side == LogicalSide.SERVER) {
                     event.player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(crimsonVeil -> {
-                        if(crimsonVeil.getCrimsonVeil() < 100 && event.player.getRandom().nextFloat() < 0.01f && event.player.getInventory().contains(ModItems.AMULET_OF_ANCESTRAL_BLOOD.get().getDefaultInstance())) {
-                            crimsonVeil.addCrimsomveil(1);
-                            ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), ((ServerPlayer) event.player));
+                        if (crimsonVeil.getCrimsonVeil() < 100 && event.player.getRandom().nextFloat() < 0.01f) {
+                            if (event.player.getInventory().contains(ModItems.GREAT_AMULET_OF_ANCESTRAL_BLOOD.get().getDefaultInstance())) {
+                                crimsonVeil.addCrimsomveil(4);
+                                ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), ((ServerPlayer) event.player));
+                            } else if (event.player.getInventory().contains(ModItems.AMULET_OF_ANCESTRAL_BLOOD.get().getDefaultInstance())) {
+                                crimsonVeil.addCrimsomveil(1);
+                                ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), ((ServerPlayer) event.player));
+                            }
                         }
                     });
                 }

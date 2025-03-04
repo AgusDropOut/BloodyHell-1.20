@@ -12,7 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "bb_main",
+					"name": "blood_slash_entity",
 					"pivot": [0, 0, 0],
 					"cubes": [
 						{"origin": [0, 0, -8], "size": [0, 46, 21], "uv": [0, 0]}

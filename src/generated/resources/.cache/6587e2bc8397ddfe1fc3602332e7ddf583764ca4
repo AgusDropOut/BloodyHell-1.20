@@ -1,4 +1,4 @@
-// 1.20	2025-03-02T16:10:56.754455	Item Models: bloodyhell
+// 1.20	2025-03-03T22:15:39.8176761	Item Models: bloodyhell
 e033c901896a75f6a136de4a515a0448261803b7 assets/bloodyhell/models/item/amulet_of_ancestral_blood.json
 14a952b98c00afd133a0e452445054b35e60ecf8 assets/bloodyhell/models/item/ancient_gem.json
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
@@ -48,6 +48,8 @@ e1f78623e8a208ea87b34bf8c60bc34c8c7545f8 assets/bloodyhell/models/item/glowing_c
 a397b608816eda99958178fd959e947a9106c880 assets/bloodyhell/models/item/glow_fruit.json
 635d595c3ea04fa1143a4d30583f8550008be757 assets/bloodyhell/models/item/glow_mushroom.json
 12e4beecfd107330dd5348b56a515eea6bdd6635 assets/bloodyhell/models/item/gorehog_raw_steak.json
+fba7ac8b0eaf78b398a28eca9c2ba8455ddd7893 assets/bloodyhell/models/item/great_amulet_of_ancestral_blood.json
+5200afc2caadb8de7936ce944b382d61f4f23c92 assets/bloodyhell/models/item/great_ancient_gem.json
 4c952dd758467b86eb9c5a5e36b2074800e74213 assets/bloodyhell/models/item/hanging_bloodtree_leaves.json
 6fb8b9c78f4725650867573003c1d815a8ee8509 assets/bloodyhell/models/item/heretic_sacrificial_dagger.json
 3d3d71936a869a8f5ca9d53e9e4f1220091793d2 assets/bloodyhell/models/item/polished_bloody_stone_block.json

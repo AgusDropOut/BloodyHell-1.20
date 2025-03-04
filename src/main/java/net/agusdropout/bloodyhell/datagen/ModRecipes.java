@@ -132,7 +132,7 @@ public class ModRecipes extends ModRecipesProvider {
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(consumer, name("blood_bow"));
         //Arrow
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BLOOD_ARROW.get(), 4)
                 .pattern(" F ")
                 .pattern(" S ")
                 .pattern(" G ")
@@ -142,7 +142,7 @@ public class ModRecipes extends ModRecipesProvider {
                 .unlockedBy("has_stick", has(Items.STICK))
                 .unlockedBy("has_scarlet_feather", has(ModItems.SCARLET_FEATHER.get()))
                 .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer, name("arrow"));
+                .save(consumer, name("blood_arrow"));
 
         //------------------------------Armor crafting--------------------------------//
             //Sanguinite armor
@@ -317,6 +317,18 @@ public class ModRecipes extends ModRecipesProvider {
                 .unlockedBy("has_filled_blood_flask", has(ModItems.FILLED_BLOOD_FLASK.get()))
                 .unlockedBy("has_ancient_gem", has(ModItems.ANCIENT_GEM.get()))
                 .save(consumer, name("amulet_of_ancestral_blood"));
+        //Great amulet of ancestral blood
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GREAT_AMULET_OF_ANCESTRAL_BLOOD.get(), 1)
+                .pattern("GGG")
+                .pattern("G G")
+                .pattern("BAB")
+                .define('G', ModItems.RHNULL.get())
+                .define('B', ModItems.FILLED_RHNULL_BLOOD_FLASK.get())
+                .define('A', ModItems.GREAT_ANCIENT_GEM.get())
+                .unlockedBy("has_rhnull", has(ModItems.RHNULL.get()))
+                .unlockedBy("has_rhnull_filled_blood_flask", has(ModItems.FILLED_RHNULL_BLOOD_FLASK.get()))
+                .unlockedBy("has_great_ancient_gem", has(ModItems.GREAT_ANCIENT_GEM.get()))
+                .save(consumer, name("great_amulet_of_ancestral_blood"));
     }
 
     private ResourceLocation name(String name) {

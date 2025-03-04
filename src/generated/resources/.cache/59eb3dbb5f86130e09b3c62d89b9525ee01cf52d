@@ -1,4 +1,4 @@
-// 1.20	2025-03-03T00:35:54.2264942	Loot Tables
+// 1.20	2025-03-03T22:15:39.8156745	Loot Tables
 5cbea24dceea598b8613397f9ae1ed81629a267f data/bloodyhell/loot_tables/blocks/bleeding_block.json
 9ee66f4faea73123aa79017a3c21164129668cac data/bloodyhell/loot_tables/blocks/blooddirt_farmland.json
 22b44189cac2435ebfd708c5b5c6d6149764f9f7 data/bloodyhell/loot_tables/blocks/bloody_stone_block.json
@@ -85,6 +85,7 @@ d4573b5306a4cfa7fbc7f9b1cce8e92651486cef data/bloodyhell/loot_tables/entities/bl
 fc914da92603abe7d2aae3521ef9f6d9daf2fad0 data/bloodyhell/loot_tables/entities/bloody_soul_entity.json
 19376ea19f1289c3a302d15217aaa5421b3d94d2 data/bloodyhell/loot_tables/entities/blood_arrow_entity.json
 a6199d0714890864d412bdec0b5f538fc5e980ea data/bloodyhell/loot_tables/entities/blood_nova_entity.json
+3c1ad00eafb74e448369b954558221f0a942e169 data/bloodyhell/loot_tables/entities/blood_portal_entity.json
 9da5e7b95dd236e3e472b3d17a3e3ae391106720 data/bloodyhell/loot_tables/entities/blood_projectile.json
 d7d4177ef473756e6a71bcc096f8b0495de3391d data/bloodyhell/loot_tables/entities/blood_slash_entity.json
 6ef604dd12bc7e656c39b4743972f42f96fcf334 data/bloodyhell/loot_tables/entities/corrupted_bloody_soul_entity.json
