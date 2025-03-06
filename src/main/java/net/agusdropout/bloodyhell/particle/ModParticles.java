@@ -22,6 +22,8 @@ public class ModParticles {
             PARTICLE_TYPES.register("impact_particle", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> SLASH_PARTICLE =
             PARTICLE_TYPES.register("slash_particle", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> VICERAL_PARTICLE =
+            PARTICLE_TYPES.register("viceral_particle", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);

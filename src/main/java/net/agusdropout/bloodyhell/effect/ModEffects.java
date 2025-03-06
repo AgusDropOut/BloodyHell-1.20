@@ -18,6 +18,8 @@ public class ModEffects {
             () -> new IlluminatedEffect(MobEffectCategory.BENEFICIAL, 0xFFE800));
     public static final RegistryObject<MobEffect> BLOOD_LUST = MOB_EFFECTS.register("blood_lust",
             () -> new BloodLustEffect(MobEffectCategory.HARMFUL, 0xFFE800));
+    public static final RegistryObject<MobEffect> VISCERAL_EFFECT = MOB_EFFECTS.register("visceral_effect",
+            () -> new VisceralEffect(MobEffectCategory.HARMFUL, 0xa2ff00));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

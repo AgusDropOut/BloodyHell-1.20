@@ -5,6 +5,7 @@ package net.agusdropout.bloodyhell.event;
 import com.mojang.blaze3d.shaders.FogShape;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.client.CrimsonVeilHudOverlay;
+import net.agusdropout.bloodyhell.client.VisceralEffectHudOverlay;
 import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
 import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.entity.client.UnknownEyeEntityModel;
@@ -40,13 +41,15 @@ public class ClientEvents  {
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.VICERAL_PARTICLE.get(), ViceralParticle.Provider::new);
             }
 
 
             @SubscribeEvent
             public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
-                System.out.println("Registering GUI Overlays");
+
                 event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), "mana_hud", CrimsonVeilHudOverlay.OVERLAY);
+                event.registerBelow(VanillaGuiOverlay.CROSSHAIR.id(), "visceral_overlay", VisceralEffectHudOverlay.OVERLAY);
             }
 
 

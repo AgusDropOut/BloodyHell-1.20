@@ -17,6 +17,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> GRAWL_HURT = registerSoundEvents("grawl_hurt");
     public static final RegistryObject<SoundEvent> GRAWL_ATTACK = registerSoundEvents("grawl_attack");
     public static final RegistryObject<SoundEvent> GRAWL_DEATH = registerSoundEvents("grawl_death");
+    public static final RegistryObject<SoundEvent> VISCERAL_EXPLOSION = registerSoundEvents("visceral_explosion");
 
 
 

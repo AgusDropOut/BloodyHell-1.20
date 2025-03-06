@@ -22,6 +22,12 @@
         "sounds": [
         "bloodyhell:grawl_death"
         ]
+    },
+    "visceral_explosion": {
+      "subtitle": "sounds.bloodyhell.visceral_explosion",
+      "sounds": [
+        "bloodyhell:visceral_explosion"
+      ]
     }
 
 }

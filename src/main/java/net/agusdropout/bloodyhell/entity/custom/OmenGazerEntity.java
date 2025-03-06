@@ -3,6 +3,7 @@ package net.agusdropout.bloodyhell.entity.custom;
 import net.agusdropout.bloodyhell.entity.ai.goals.OmenGazerAttackGoal;
 import net.agusdropout.bloodyhell.entity.ai.goals.OmenGazerSuicideGoal;
 import net.agusdropout.bloodyhell.entity.ai.goals.OmenGazerThrowGoal;
+import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -114,7 +115,7 @@ public class OmenGazerEntity extends Monster implements GeoEntity {
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(10, new OmenGazerSuicideGoal(this));
 
-        this.targetSelector.addGoal(15, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(10, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(10, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(10, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
@@ -205,11 +206,12 @@ public class OmenGazerEntity extends Monster implements GeoEntity {
     public void aiStep() {
         super.aiStep();
 
-        if(this.getTarget() !=null){
+        // Hacer que la entidad mire a su objetivo
+        if (this.getTarget() != null) {
             this.getLookControl().setLookAt(this.getTarget(), 30.0F, 30.0F);
         }
 
-
+        // Manejo de cooldowns y eliminación
         if (isAlreadyDead) {
             DeathCooldown--;
             if (DeathCooldown <= 0) {
@@ -217,16 +219,16 @@ public class OmenGazerEntity extends Monster implements GeoEntity {
             }
         }
 
-        if(this.getThrowingCooldown() > 0){
+        if (this.getThrowingCooldown() > 0) {
             this.setThrowingCooldown(this.getThrowingCooldown() - 1);
         }
-        if(this.getAttackCooldown() > 0){
+        if (this.getAttackCooldown() > 0) {
             this.setAttackCooldown(this.getAttackCooldown() - 1);
         }
+
         if (this.getTarget() != null && !isThrowing() && !isCharging() && !isAboutToExplode()) {
             this.getNavigation().moveTo(getTarget(), 1.2);
         }
-
 
 
     }
@@ -245,6 +247,25 @@ public class OmenGazerEntity extends Monster implements GeoEntity {
 
         return damaged;
 
+    }
+
+    public void abouttoexplodeparticles(){
+        // **SPAWNEAR PARTÍCULAS ALREDEDOR DE LA ENTIDAD**
+        if (this.level().isClientSide) {  // Solo en el cliente
+            for (int i = 0; i < 5; i++) {  // Número de partículas por tick
+                double offsetX = (this.random.nextDouble() - 0.5) * this.getBbWidth();  // Aleatorio en el ancho de la entidad
+                double offsetY = this.random.nextDouble() * this.getBbHeight();  // Aleatorio en la altura de la entidad
+                double offsetZ = (this.random.nextDouble() - 0.5) * this.getBbWidth();
+
+                this.level().addParticle(
+                        ModParticles.VICERAL_PARTICLE.get(),  // Tipo de partícula (puedes usar un custom si lo tienes)
+                        this.getX() + offsetX,
+                        this.getY() + offsetY,
+                        this.getZ() + offsetZ,
+                        0, 0.05, 0  // Velocidad (en este caso, flotando ligeramente)
+                );
+            }
+        }
     }
 
 
