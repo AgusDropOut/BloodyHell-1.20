@@ -98,6 +98,8 @@
   "block.bloodyhell.glowing_crystal": "Glowing Cristal",
   "block.bloodyhell.glowing_crystal_glass_block": "Glowing Cristal Glass Block",
   "block.bloodyhell.glowing_crystal_lantern": "Glowing Crystal Lantern",
-  "block.bloodyhell.blood_glowing_chains_block": "Blood Glowing Chains Block"
+  "block.bloodyhell.blood_glowing_chains_block": "Blood Glowing Chains Block",
+
+  "sounds.bloodyhell.grawl_drown": "Drowning Sound"
 
 }

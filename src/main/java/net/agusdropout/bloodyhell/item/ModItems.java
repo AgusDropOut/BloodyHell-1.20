@@ -125,6 +125,8 @@ public class ModItems {
             new Item.Properties()));
     public static final RegistryObject<Item> SCARLETSPECKLED_FISH_SPAWN_EGG = ITEMS.register("scarletspeckledfish_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.SCARLETSPECKLED_FISH,0xFF3434 ,0xFCFF00,
             new Item.Properties()));
+    public static final RegistryObject<Item> OMEN_GAZER_ENTITY_SPAWN_EGG = ITEMS.register("omen_gazer_entity_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.OMEN_GAZER_ENTITY,0x000000 ,0xd4a600,
+            new Item.Properties()));
 
     //Mobs Drops
     public static final RegistryObject<Item> VEINREAVER_HORN = ITEMS.register("veinreaver_horn", () -> new Item(

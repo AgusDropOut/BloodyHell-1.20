@@ -22,6 +22,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodSeekerEntity>> BLOOD_SEEKER = ENTITY_TYPES.register("bloodseeker",
             () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodseeker").toString()));
+    public static final RegistryObject<EntityType<OmenGazerEntity>> OMEN_GAZER_ENTITY = ENTITY_TYPES.register("omen_gazer_entity",
+            () -> EntityType.Builder.of(OmenGazerEntity::new, MobCategory.CREATURE).sized(1f,4f).build(new ResourceLocation(BloodyHell.MODID,
+                    "omen_gazer_entity").toString()));
     public static final RegistryObject<EntityType<BloodySoulEntity>> BLOODY_SOUL_ENTITY = ENTITY_TYPES.register("bloody_soul_entity",
             () -> EntityType.Builder.of(BloodySoulEntity::new, MobCategory.CREATURE).sized(1f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloody_soul_entity").toString()));

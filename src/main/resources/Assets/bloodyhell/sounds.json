@@ -1,0 +1,27 @@
+{
+  "grawl_drown": {
+    "subtitle": "sounds.bloodyhell.grawl_drown",
+    "sounds": [
+      "bloodyhell:grawl_drown"
+    ]
+  },
+    "grawl_hurt": {
+        "subtitle": "sounds.bloodyhell.grawl_hurt",
+        "sounds": [
+        "bloodyhell:grawl_hurt"
+        ]
+    },
+    "grawl_attack": {
+        "subtitle": "sounds.bloodyhell.grawl_attack",
+        "sounds": [
+        "bloodyhell:grawl_attack"
+        ]
+    },
+    "grawl_death": {
+        "subtitle": "sounds.bloodyhell.grawl_death",
+        "sounds": [
+        "bloodyhell:grawl_death"
+        ]
+    }
+
+}

@@ -23,6 +23,7 @@ import net.agusdropout.bloodyhell.registry.BloodCapabilities;
 import net.agusdropout.bloodyhell.screen.BloodWorkBenchScreen;
 import net.agusdropout.bloodyhell.screen.ModMenuTypes;
 import net.agusdropout.bloodyhell.screen.VesperScreen;
+import net.agusdropout.bloodyhell.sound.ModSounds;
 import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.villager.ModPOIs;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
@@ -97,6 +98,7 @@ public class BloodyHell
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         //ModVillagers.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModPaintings.register(modEventBus);
         ModParticles.register(modEventBus);
         ModFluids.register(modEventBus);
@@ -111,6 +113,7 @@ public class BloodyHell
         ModStructures.register(modEventBus);
         ModFeatures.register(modEventBus);
         ModPotions.register(modEventBus);
+
 
 
 
@@ -232,6 +235,7 @@ public class BloodyHell
             event.accept(ModItems.EYESHELLSNAIL_SPAWN_EGG);
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
+            event.accept(ModItems.OMEN_GAZER_ENTITY_SPAWN_EGG);
 
             //Food Items
             event.accept(ModItems.Eyeball);
@@ -399,6 +403,7 @@ public class BloodyHell
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
             MenuScreens.register(ModMenuTypes.VESPER_MENU.get(), VesperScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
+            EntityRenderers.register(ModEntityTypes.OMEN_GAZER_ENTITY.get(), OmenGazerRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), BloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);

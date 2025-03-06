@@ -156,6 +156,10 @@ public class SmallCrimsonDagger extends Entity implements GeoEntity, TraceableEn
             this.spawnImpactParticles();
             this.playSound(SoundEvents.ALLAY_THROW, 1.0F, 1.0F);
         }
+        lifeTicks--;
+        if (lifeTicks <= 0) {
+            this.discard();
+        }
 
         checkCollisions();
     }

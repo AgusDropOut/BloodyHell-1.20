@@ -281,6 +281,11 @@ public class ModLootTables extends LootTableProvider {
                             )
                     )
             );
+            this.add(ModEntityTypes.OMEN_GAZER_ENTITY.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
             this.add(ModEntityTypes.BLOOD_ARROW.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
