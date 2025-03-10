@@ -172,7 +172,7 @@ public class ModLootTables extends LootTableProvider {
             this.createGrassDrops(ModBlocks.BLOOD_GRASS, ModItems.Eyeball_seed.get());
 
             this.createPlantsDrops(ModBlocks.BLOOD_PETALS, ModBlocks.BLOOD_PETALS.get().asItem());
-            this.createPlantsDrops(ModBlocks.LIGHT_MUSHROOM_BLOCK, ModItems.GLOW_MUSHROOM.get());
+            this.createSilkTouchOrShearsDispatchTable(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), ModItems.GLOW_MUSHROOM.get());
             this.createPlantsDrops(ModBlocks.SMALL_ROCKS, ModBlocks.SMALL_ROCKS.get().asItem());
             this.createPlantsDrops(ModBlocks.BLOOD_FLOWER, ModBlocks.BLOOD_FLOWER.get().asItem());
             this.createPlantsDrops(ModBlocks.BLOOD_BUSH, ModBlocks.BLOOD_BUSH.get().asItem());

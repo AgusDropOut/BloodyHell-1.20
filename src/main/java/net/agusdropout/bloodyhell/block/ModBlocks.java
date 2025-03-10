@@ -109,11 +109,11 @@ public class ModBlocks {
 
     //Blood Grass
     public static final RegistryObject<Block> BLOOD_GRASS_BLOCK = registerBlock("blood_grass_block", ()-> new BloodGrassBlock(
-            BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(2f).randomTicks().sound(SoundType.GRASS)));
+            BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(1f).randomTicks().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> BLOODDIRT_FARMLAND = registerBlock("blooddirt_farmland", () -> new BloodDirtFarmlandBlock(
             BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
     public static final RegistryObject<Block> BLOOD_DIRT_BLOCK = registerBlock("blood_dirt_block", ()-> new Block(
-            BlockBehaviour.Properties.copy(Blocks.DIRT).strength(2f)));
+            BlockBehaviour.Properties.copy(Blocks.DIRT).strength(1f)));
 
 
 
@@ -248,9 +248,9 @@ public class ModBlocks {
 
     //Fluid
     public static final RegistryObject<LiquidBlock> BLOOD_FLUID_BLOCK = BLOCKS.register("blood_fluid_block",
-            () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->50).liquid()));
+            () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->1).liquid()));
     public static final RegistryObject<LiquidBlock> RHNULL_BLOOD_FLUID_BLOCK = BLOCKS.register("rhnull_blood_fluid_block",
-            () -> new LiquidBlock(ModFluids.SOURCE_RHNULL_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->50).liquid()));
+            () -> new LiquidBlock(ModFluids.SOURCE_RHNULL_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->1).liquid()));
 
     //Glowing
     public static final RegistryObject<Block> SOUL_LAMP = registerBlock("soul_lamp", ()-> new Soullampblock(

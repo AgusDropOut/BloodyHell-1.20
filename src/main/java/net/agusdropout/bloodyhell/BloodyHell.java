@@ -253,7 +253,9 @@ public class BloodyHell
             event.accept(ModItems.GLOW_FRUIT);
             event.accept(ModItems.GLOW_MUSHROOM);
             event.accept(ModItems.SCARLET_RAW_CHICKEN);
+            event.accept(ModItems.SCARLET_COOKED_CHICKEN);
             event.accept(ModItems.GOREHOG_RAW_STEAK);
+            event.accept(ModItems.GOREHOG_COOKED_STEAK);
 
             //Mob Drops
             event.accept(ModItems.AUREAL_REVENANT_DAGGER);
@@ -390,6 +392,8 @@ public class BloodyHell
             event.accept(ModItems.ANCIENT_GEM);
             event.accept(ModItems.GREAT_AMULET_OF_ANCESTRAL_BLOOD);
             event.accept(ModItems.GREAT_ANCIENT_GEM);
+            event.accept(ModItems.CRIMSON_WARD_RING);
+            event.accept(ModItems.BLASPHEMOUS_RING);
 
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {

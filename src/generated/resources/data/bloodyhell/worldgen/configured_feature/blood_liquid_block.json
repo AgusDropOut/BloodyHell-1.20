@@ -1,21 +1,28 @@
 {
-  "type": "minecraft:ore",
+  "type": "minecraft:delta_feature",
   "config": {
-    "discard_chance_on_air_exposure": 0.0,
-    "size": 33,
-    "targets": [
-      {
-        "state": {
-          "Name": "bloodyhell:blood_fluid_block",
-          "Properties": {
-            "level": "0"
-          }
-        },
-        "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:dirt"
-        }
+    "contents": {
+      "Name": "bloodyhell:blood_fluid_block",
+      "Properties": {
+        "level": "0"
       }
-    ]
+    },
+    "rim": {
+      "Name": "bloodyhell:bloody_stone_block"
+    },
+    "rim_size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 4,
+        "min_inclusive": 2
+      }
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 8,
+        "min_inclusive": 6
+      }
+    }
   }
 }

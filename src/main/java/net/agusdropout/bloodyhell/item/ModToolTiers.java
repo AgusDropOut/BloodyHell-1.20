@@ -12,9 +12,14 @@ import net.minecraftforge.common.TierSortingRegistry;
 import java.util.List;
 
 public class ModToolTiers {
-    public static final Tier BLOOD = TierSortingRegistry.registerTier(
-            new ForgeTier(5, 1500, 5f, 4f, 25,
-                    ModTags.Blocks.NEEDS_BLOOD_TOOL, () -> Ingredient.of(ModItems.SANGUINITE.get())),
-            new ResourceLocation(BloodyHell.MODID, "blood"), List.of(Tiers.DIAMOND), List.of());
+    public static final Tier SANGUINITE = TierSortingRegistry.registerTier(
+            new ForgeTier(5, 1500, 9f, 5f, 25,
+                    ModTags.Blocks.NEEDS_SANGUINITE_TOOL, () -> Ingredient.of(ModItems.SANGUINITE.get())),
+            new ResourceLocation(BloodyHell.MODID, "sanguinite"), List.of(Tiers.NETHERITE), List.of());
+    public static final Tier RHNULL = TierSortingRegistry.registerTier(
+            new ForgeTier(6, 2000, 9f, 6f, 28,
+                    ModTags.Blocks.NEEDS_RHNULL_TOOL, () -> Ingredient.of(ModItems.RHNULL.get())),
+            new ResourceLocation(BloodyHell.MODID, "rhnull"), List.of(ModToolTiers.SANGUINITE), List.of());
+
 
 }

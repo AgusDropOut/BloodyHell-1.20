@@ -1,7 +1,8 @@
-// 1.20	2025-03-09T19:55:54.6806531	Item Models: bloodyhell
+// 1.20	2025-03-10T16:12:56.683404	Item Models: bloodyhell
 e033c901896a75f6a136de4a515a0448261803b7 assets/bloodyhell/models/item/amulet_of_ancestral_blood.json
 14a952b98c00afd133a0e452445054b35e60ecf8 assets/bloodyhell/models/item/ancient_gem.json
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
+d9b1928eed3676e2a3a445ba727c500867f7f66f assets/bloodyhell/models/item/blasphemous_ring.json
 ca7ebc8fa662a84f5dc6ba7b88146bda47ad38d9 assets/bloodyhell/models/item/bloody_stone_block.json
 e2361eb75c1aaf06e1d379ba1b31797fc15fd3f3 assets/bloodyhell/models/item/bloody_stone_bricks.json
 0e8bb2451315a9cb5e019a42d125afbd5732ef1a assets/bloodyhell/models/item/bloody_stone_bricks_fence.json
@@ -38,6 +39,7 @@ c887e2ce7f7fa3be28a4a14282b01d7012168424 assets/bloodyhell/models/item/chalice_o
 b3fc61db059346819d91dd3e8b9ab106308d8970 assets/bloodyhell/models/item/corrupted_blood_flask.json
 ab6939c6717581b28e5d5d1d393aab3decfaada9 assets/bloodyhell/models/item/crimson_idol_coin.json
 dea138f0ecc896706a9be7ba1dbaec5431c34b59 assets/bloodyhell/models/item/crimson_shell.json
+0ff686f00defb71cc68544ef6d8030fce2f02bf7 assets/bloodyhell/models/item/crimson_ward_ring.json
 77c313c5cd8748df19f86deca8aad9cb23b999f8 assets/bloodyhell/models/item/dirty_blood_flower.json
 870ecccbc926884bf8c11c3f0b9760081830ca15 assets/bloodyhell/models/item/droopvine.json
 f5ff9ba8a120c615965a3f2a028ea27bf6213f6c assets/bloodyhell/models/item/droopvine_plant.json
@@ -47,6 +49,7 @@ bbfff094130350ee848c3a6a2d8a5daa4de8d7a2 assets/bloodyhell/models/item/filled_bl
 e1f78623e8a208ea87b34bf8c60bc34c8c7545f8 assets/bloodyhell/models/item/glowing_crystal_glass_block.json
 a397b608816eda99958178fd959e947a9106c880 assets/bloodyhell/models/item/glow_fruit.json
 635d595c3ea04fa1143a4d30583f8550008be757 assets/bloodyhell/models/item/glow_mushroom.json
+e637ce4d7504def3bcc70caf0f997cf4e759c27c assets/bloodyhell/models/item/gorehog_cooked_steak.json
 12e4beecfd107330dd5348b56a515eea6bdd6635 assets/bloodyhell/models/item/gorehog_raw_steak.json
 fba7ac8b0eaf78b398a28eca9c2ba8455ddd7893 assets/bloodyhell/models/item/great_amulet_of_ancestral_blood.json
 5200afc2caadb8de7936ce944b382d61f4f23c92 assets/bloodyhell/models/item/great_ancient_gem.json
@@ -77,6 +80,7 @@ e4dfd51c9662d0acc63c2beda150f2790a2e842e assets/bloodyhell/models/item/sanguinit
 b8180d1acced468e82ceed28c4b9986b93a4c35f assets/bloodyhell/models/item/sanguinite_pickaxe.json
 f5db2d75b3736a03233ce2ae08643d55d9d0576d assets/bloodyhell/models/item/sanguinite_shovel.json
 6cbd1126ecd24c2cf06b475122869df6c7476d71 assets/bloodyhell/models/item/sanguinite_sword.json
+5793df9f55c0f2e41375e5387ae6e22e0dd44c9a assets/bloodyhell/models/item/scarlet_cooked_chicken.json
 bde90edaa91f04800b51f5b60e7a83dfb518a7a5 assets/bloodyhell/models/item/scarlet_feather.json
 9ff225660d84b7438abd8155d1a34542977ba7f8 assets/bloodyhell/models/item/scarlet_raw_chicken.json
 3ec0ba33d99064809ef0ebfc0dfff8fb2fc2d27a assets/bloodyhell/models/item/unknown_entity_finger.json

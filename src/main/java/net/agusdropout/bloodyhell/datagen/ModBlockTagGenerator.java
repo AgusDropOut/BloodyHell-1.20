@@ -31,46 +31,56 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.BLOOD_GRASS_BLOCK.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SANGUINITE_BLOCK.get(),
-                        ModBlocks.SANGUINITE_ORE.get(),
-                        ModBlocks.RHNULL_BLOCK.get(),
-                        ModBlocks.Jumpy_Block.get(),
-                        ModBlocks.SANGUINE_CRUCIBLE.get(),
-                        ModBlocks.BLEEDING_BLOCK.get());
+                .add(ModBlocks.SANGUINITE_BLOCK.get())
+                .add(ModBlocks.SANGUINITE_ORE.get())
+                .add(ModBlocks.RHNULL_BLOCK.get())
+                .add(ModBlocks.Jumpy_Block.get())
+                .add(ModBlocks.SANGUINE_CRUCIBLE.get())
+                .add(ModBlocks.BLEEDING_BLOCK.get())
+                .add(ModBlocks.GLOWING_CRYSTAL.get())
+                .add(ModBlocks.GLOWING_CRYSTAL_LANTERN.get())
+                .add(ModBlocks.BLOOD_GLOWING_CHAINS_BLOCK.get())
 
-                        ModBlocks.BLOODY_STONE_BLOCK.get();
-                        ModBlocks.BLOODY_STONE_SLAB.get();
-                        ModBlocks.BLOODY_STONE_STAIRS.get();
-                        ModBlocks.BLOODY_STONE_FENCE.get();
-                        ModBlocks.BLOODY_STONE_FENCE_GATE.get();
-                        ModBlocks.BLOODY_STONE_WALL.get();
+                .add(ModBlocks.BLOODY_STONE_BLOCK.get())
+                .add(ModBlocks.BLOODY_STONE_SLAB.get())
+                .add(ModBlocks.BLOODY_STONE_STAIRS.get())
+                .add(ModBlocks.BLOODY_STONE_FENCE.get())
+                .add(ModBlocks.BLOODY_STONE_FENCE_GATE.get())
+                .add(ModBlocks.BLOODY_STONE_WALL.get())
 
-                        ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_SLAB.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_STAIRS.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_FENCE.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_FENCE_GATE.get();
-                        ModBlocks.POLISHED_BLOODY_STONE_WALL.get();
+                .add(ModBlocks.POLISHED_BLOODY_STONE_BLOCK.get())
+                .add(ModBlocks.POLISHED_BLOODY_STONE_SLAB.get())
+                .add(ModBlocks.POLISHED_BLOODY_STONE_STAIRS.get())
+                .add(ModBlocks.POLISHED_BLOODY_STONE_FENCE.get())
+                .add(ModBlocks.POLISHED_BLOODY_STONE_FENCE_GATE.get())
+                .add(ModBlocks.POLISHED_BLOODY_STONE_WALL.get())
 
-                        ModBlocks.BLOODY_STONE_TILES_BLOCK.get();
-                        ModBlocks.BLOODY_STONE_TILES_SLAB.get();
-                        ModBlocks.BLOODY_STONE_TILES_STAIRS.get();
-                        ModBlocks.BLOODY_STONE_TILES_FENCE.get();
-                        ModBlocks.BLOODY_STONE_FENCE_TILES_GATE.get();
-                        ModBlocks.BLOODY_STONE_TILES_WALL.get();
+                .add(ModBlocks.BLOODY_STONE_TILES_BLOCK.get())
+                .add(ModBlocks.BLOODY_STONE_TILES_SLAB.get())
+                .add(ModBlocks.BLOODY_STONE_TILES_STAIRS.get())
+                .add(ModBlocks.BLOODY_STONE_TILES_FENCE.get())
+                .add(ModBlocks.BLOODY_STONE_FENCE_TILES_GATE.get())
+                .add(ModBlocks.BLOODY_STONE_TILES_WALL.get())
 
-                        ModBlocks.BLOODY_STONE_BRICKS.get();
-                        ModBlocks.BLOODY_STONE_BRICKS_SLAB.get();
-                        ModBlocks.BLOODY_STONE_BRICKS_STAIRS.get();
-                        ModBlocks.BLOODY_STONE_BRICKS_FENCE.get();
-                        ModBlocks.BLOODY_STONE_FENCE_BRICKS_GATE.get();
-                        ModBlocks.BLOODY_STONE_BRICKS_WALL.get();
+                .add(ModBlocks.BLOODY_STONE_BRICKS.get())
+                .add(ModBlocks.BLOODY_STONE_BRICKS_SLAB.get())
+                .add(ModBlocks.BLOODY_STONE_BRICKS_STAIRS.get())
+                .add(ModBlocks.BLOODY_STONE_BRICKS_FENCE.get())
+                .add(ModBlocks.BLOODY_STONE_FENCE_BRICKS_GATE.get())
+                .add(ModBlocks.BLOODY_STONE_BRICKS_WALL.get())
 
-                        ModBlocks.SMALL_ROCKS.get();
+                .add(ModBlocks.SMALL_ROCKS.get())
 
+                .add(ModBlocks.BLOOD_ALTAR.get())
+                .add(ModBlocks.MAIN_BLOOD_ALTAR.get());
 
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.BLOOD_DIRT_BLOCK.get())
+                .add(ModBlocks.BLOOD_GRASS_BLOCK.get());
 
-                        this.tag(BlockTags.DIRT).add(ModBlocks.BLOOD_GRASS_BLOCK.get(), ModBlocks.BLOOD_DIRT_BLOCK.get());
+        this.tag(BlockTags.DIRT)
+                .add(ModBlocks.BLOOD_GRASS_BLOCK.get())
+                .add(ModBlocks.BLOOD_DIRT_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SANGUINITE_BLOCK.get())
@@ -106,9 +116,9 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.BLOOD_LEAVES.get())
                 .add(ModBlocks.SOUL_LEAVES.get())
                 .add(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get())
+                .add(ModBlocks.LIGHT_MUSHROOM_BLOCK.get())
                 .add(ModBlocks.BLOOD_GRASS.get())
                 .add(ModBlocks.BLOOD_PETALS.get())
-                .add(ModBlocks.LIGHT_MUSHROOM_BLOCK.get())
                 .add(ModBlocks.SMALL_ROCKS.get())
                 .add(ModBlocks.BLOOD_FLOWER.get());
 

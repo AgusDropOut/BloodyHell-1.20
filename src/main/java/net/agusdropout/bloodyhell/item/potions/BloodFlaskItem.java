@@ -2,7 +2,9 @@ package net.agusdropout.bloodyhell.item.potions;
 
 import net.agusdropout.bloodyhell.datagen.ModTags;
 import net.agusdropout.bloodyhell.item.ModItems;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -17,12 +19,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BloodFlaskItem extends Item {
     public BloodFlaskItem(Properties p_42979_) {
         super(p_42979_);
     }
 
+    @Override
+    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
+        p_41423_.add(Component.literal("Can be use to pick up foes souls before they expire").withStyle(ChatFormatting.RED));
+        super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
+    }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {

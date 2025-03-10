@@ -1,14 +1,33 @@
 {
   "item.bloodyhell.sanguinite" : "Sanguinite",
+  "item.bloodyhell.sanguinite_nugget" : "Sanguinite Nugget",
   "item.bloodyhell.rhnull" : "Rhnull",
-  "item.bloodyhell.raw_sanguinite" : "Raw Soul",
+  "item.bloodyhell.rhnull_nugget" : "Rhnull Nugget",
+  "item.bloodyhell.raw_sanguinite" : "Raw Sanguinite",
   "item.bloodyhell.eight_ball" : "Eight Ball",
   "item.bloodyhell.eyeball_seeds" : "Eyeball Seed",
   "item.bloodyhell.eyeball" : "Eyeball",
-  "itemGroup.bloodyhelltab" : "Soul Tab",
+  "item.bloodyhell.scarlet_raw_chicken" : "Scarlet Raw Chicken",
+  "item.bloodyhell.scarlet_cooked_chicken" : "Scarlet Cooked Chicken",
+  "item.bloodyhell.gorehog_raw_steak" : "Gorehog Raw Steak",
+  "item.bloodyhell.gorehog_cooked_steak" : "Gorehog Cooked Steak",
+  "item.bloodyhell.aureal_revenant_dagger" : "Aureal Revenant Dagger",
+  "item.bloodyhell.veinraver_horn" : "Vein Raver Horn",
+  "item.bloodyhell.crimson_shell" : "Crimson Shell",
+  "item.bloodyhell.scarlet_feather" : "Scarlet Feather",
+  "item.bloodyhell.crimson_idol_coin" : "Crimson Idol Coin",
+  "item.bloodyhell.chalice_of_the_dammed" : "Chalice of the Dammed",
+  "item.bloodyhell.sanguine_crucible_core" : "Sanguine Crucible Core",
 
-  "item.bloodyhell.sanguinite_ore" : "Soul Ore",
-  "block.bloodyhell.sanguinite_ore": "Soul Ore",
+
+
+
+
+
+  "itemGroup.bloodyhelltab" : "Bloody Hell! Tab",
+
+  "item.bloodyhell.sanguinite_ore" : "Sanguinite Ore",
+  "block.bloodyhell.sanguinite_ore": "Sanguinite Ore",
   "item.bloodyhell.bloody_soul_dust" : "Bloody Soul Dust",
   "item.bloodyhell.materialized_soul" : "Materialized Soul",
   "item.bloodyhell.eyeball_seed" : "Eyeball Seeds",
@@ -23,22 +42,33 @@
   "block.bloodyhell.blood_lily_block": "Blood Lily Block",
 
   "item.bloodyhell.glow_fruit": "Glow Fruit",
-  "block.bloodyhell.light_mushroom_block": "Light Mushroom Block",
+  "block.bloodyhell.light_mushroom_block": "Light Mushroom",
   "block.bloodyhell.blood_wall_mushroom_block": "Blood Wall Mushroom Block",
 
 
-  "block.bloodyhell.deepslate_sanguinite_ore" : "Deepslate Soul Ore ",
-  "block.bloodyhell.sanguinite_block" : "Soul Block",
+  "block.bloodyhell.deepslate_sanguinite_ore" : "Deepslate Sanguinite Ore ",
+  "block.bloodyhell.sanguinite_block" : "Sanguinite Block",
+  "block.bloodyhell.rhnull_block" : "Rhnull Block",
   "block.bloodyhell.soul_lamp" : "Soul Lamp",
   "block.bloodyhell.sanguine_crucible" : "Blood Workbench",
   "block.bloodyhell.blood_altar" : "Blood Altar",
+  "block.bloodyhell.main_blood_altar" : "Main Blood Altar",
+  "block.bloodyhell.oni_statue" : "Oni Statue",
   "block.bloodyhell.jumpy_block" : "Jumpy Block",
   "block.bloodyhell.bleeding_block" : "Bleeding Block",
+
   "block.bloodyhell.blood_log" : "Blood Log",
   "block.bloodyhell.blood_wood" : "Blood Wood",
   "block.bloodyhell.blood_leaves" : "Blood Leaves",
   "block.bloodyhell.stripped_blood_log" : " Stripped Blood Log",
   "block.bloodyhell.blood_planks" : "Blood Planks",
+  "block.bloodyhell.blood_planks_stairs" : "Blood Planks Stairs",
+  "block.bloodyhell.blood_planks_slab" : "Blood Planks Slab",
+  "block.bloodyhell.blood_planks_fence" : "Blood Planks Fence",
+  "block.bloodyhell.blood_planks_fence_gate" : "Blood Planks Gate",
+
+
+
   "block.bloodyhell.soul_log" : "Soul Log",
   "block.bloodyhell.soul_wood" : "Soul Wood",
   "block.bloodyhell.soul_leaves" : "Soul Leaves",
@@ -50,25 +80,76 @@
   "block.bloodyhell.eyeballshell_snail_goo" : "Eyeball Snail Goo",
 
 
-
-  "entity.minecraft.villager.bloodyhell.jump_master": "Jumpy Master",
-  "key.category.bloodyhell.tutorial": "Let The Living Be Aware Mod",
-  "key.bloodyhell.drink_blood": "Drink Blood",
-  "message.bloodyhell.drink_water": "Drinking Water",
-  "message.bloodyhell.no_water": "No water nearby!",
+  "key.category.bloodyhell.tutorial": "Bloody Hell! Mod",
 
   "item.bloodyhell.blood_bucket": "Blood Bucket",
+  "item.bloodyhell.rhnull_blood_bucket": "Rhnull Blood Bucket",
+
   "item.bloodyhell.blood_scythe": "Blood Scythe",
   "item.bloodyhell.sanguinite_pickaxe": "Blood Pickaxe",
   "item.bloodyhell.sanguinite_sword": "Blood Sword",
-  "item.bloodyhell.rhnull_sword": "Soul Sword",
-  "item.bloodyhell.soul_pickaxe": "Soul Pickaxe",
+  "item.bloodyhell.sanguinite_axe": "Blood Axe",
+  "item.bloodyhell.sanguinite_shovel": "Blood Shovel",
+  "item.bloodyhell.sanguinite_hoe": "Blood Hoe",
   "item.bloodyhell.blood_bow": "Blood Bow",
   "item.bloodyhell.blood_arrow": "Blood Arrow",
+
+  "item.bloodyhell.blood_flask": "Empty Blood Flask",
+  "item.bloodyhell.corrupted_blood_flask.effect.empty": "Corrupted Blood Flask",
+  "item.bloodyhell.filled_blood_flask.effect.empty": "Blood Flask",
+  "item.bloodyhell.filled_rhnull_blood_flask.effect.empty": "Rhnull Blood Flask",
+
+  "item.bloodyhell.sacrificial_dagger": "Sacrificial Dagger",
+  "item.bloodyhell.heretic_sacrificial_dagger": "Heretic Sacrificial Dagger",
+
+  "item.bloodyhell.unknown_entity_finger": "Unknown Entity Finger",
+
+  "item.bloodyhell.blood_spell_book_scratch": "Blood Spell Book Scratch",
+  "item.bloodyhell.blood_spell_book_bloodball": "Blood Spell Book Bloodball",
+  "item.bloodyhell.blood_spell_book_bloodnova": "Blood Spell Book Bloodnova",
+  "item.bloodyhell.blood_spell_book_daggersrain": "Blood Spell Book Daggers Rain",
+
+  "item.bloodyhell.ancient_gem": "Ancient Gem",
+  "item.bloodyhell.amulet_of_ancestral_blood": "Amulet of Ancestral Blood",
+  "item.bloodyhell.great_ancient_gem": "Great Ancient Gem",
+  "item.bloodyhell.great_amulet_of_ancestral_blood": "Great Amulet of Ancestral Blood",
+
+  "item.bloodyhell.crimson_ward_ring": "Crimson Ward Ring",
+  "item.bloodyhell.blasphemous_ring": "Blasphemous Ring",
+
+
+  "entity.bloodyhell.omen_gazer_entity": "Omen Gazer",
+  "entity.bloodyhell.veinraver_entity": "Vein Raver",
+  "entity.bloodyhell.scarletspeckledfish_entity": "Scarlet Speckled Fish",
+  "entity.bloodyhell.bloodpig": "Blood Pig",
+  "entity.bloodyhell.bloodthirstybeast": "Blood Thirsty Beast",
+  "entity.bloodyhell.bloodseeker": "Blood Seeker",
+  "entity.bloodyhell.eyeshellsnail": "Eyeshell Snail",
+  "entity.bloodyhell.crimsonraven": "Crimson Raven",
+  "entity.bloodyhell.unknown_entity_arms": "Unknown Arms",
+  "entity.bloodyhell.sanguine_sacrifice_entity": "Sanguine Sacrifice",
+  "entity.bloodyhell.vesper": "Vesper",
+  "entity.bloodyhell.oni": "Oni",
+
+
+
+  "item.bloodyhell.blood_helmet": "Blood Helmet",
+  "item.bloodyhell.blood_chestplate": "Blood Chestplate",
+  "item.bloodyhell.blood_leggings": "Blood Leggings",
+  "item.bloodyhell.blood_boots": "Blood Boots",
+
+  "item.bloodyhell.rhnull_pickaxe": "Rhnull Pickaxe",
+    "item.bloodyhell.rhnull_sword": "Rhnull Sword",
+    "item.bloodyhell.rhnull_axe": "Rhnull Axe",
+    "item.bloodyhell.rhnull_shovel": "Rhnull Shovel",
+    "item.bloodyhell.rhnull_hoe": "Rhnull Hoe",
+
+
 
   "effect.bloodyhell.bleeding": "Bleeding",
   "effect.bloodyhell.illuminated": "illuminated",
   "effect.bloodyhell.blood_lust": "Blood Lust",
+  "effect.bloodyhell.visceral_effect": "Visceral Effect",
 
 
 
@@ -78,15 +159,39 @@
   "item.bloodyhell.crimsonraven_spawn_egg": "Crimson Raven",
   "item.bloodyhell.bloodpig_spawn_egg": "Blood Pig",
   "item.bloodyhell.scarletspeckledfish_spawn_egg": "Scarlet Speckled Fish",
+  "item.bloodyhell.veinraver_entity_spawn_egg": "Vein Raver",
+  "item.bloodyhell.omen_gazer_entity_spawn_egg": "Omen Gazer",
 
   "block.bloodyhell.bloody_stone_block": "Bloody Stone Block",
-  "block.bloodyhell.polished_bloody_stone_block": "Bloody Polished Stone Block",
-  "block.bloodyhell.bloody_stone_tiles_block": "Bloody Stone Tiles Block",
   "block.bloodyhell.bloody_stone_stairs": "Bloody Stone Stairs",
   "block.bloodyhell.bloody_stone_wall": "Bloody Stone Wall",
   "block.bloodyhell.bloody_stone_fence": "Bloody Stone Fence",
   "block.bloodyhell.bloody_stone_fence_gate": "Bloody Stone Gate",
   "block.bloodyhell.bloody_stone_slab": "Bloody Stone Slab",
+
+  "block.bloodyhell.polished_bloody_stone_block": "Bloody Polished Stone Block",
+  "block.bloodyhell.polished_bloody_stone_stairs": "Bloody Polished Stone Stairs",
+  "block.bloodyhell.polished_bloody_stone_wall": "Bloody Polished Stone Wall",
+  "block.bloodyhell.polished_bloody_stone_fence": "Bloody Polished Stone Fence",
+  "block.bloodyhell.polished_bloody_stone_fence_gate": "Bloody Polished Stone Gate",
+  "block.bloodyhell.polished_bloody_stone_slab": "Bloody Polished Stone Slab",
+
+  "block.bloodyhell.bloody_stone_tiles_block": "Bloody Stone Tiles Block",
+  "block.bloodyhell.bloody_stone_tiles_stairs": "Bloody Stone Tiles Stairs",
+  "block.bloodyhell.bloody_stone_tiles_wall": "Bloody Stone Tiles Wall",
+  "block.bloodyhell.bloody_stone_tiles_fence": "Bloody Stone Tiles Fence",
+  "block.bloodyhell.bloody_stone_fence_tiles_gate": "Bloody Stone Tiles Gate",
+  "block.bloodyhell.bloody_stone_tiles_slab": "Bloody Stone Tiles Slab",
+
+  "block.bloodyhell.bloody_stone_bricks": "Bloody Stone Bricks",
+  "block.bloodyhell.bloody_stone_bricks_stairs": "Bloody Stone Brick Stairs",
+  "block.bloodyhell.bloody_stone_bricks_wall": "Bloody Stone Brick Wall",
+  "block.bloodyhell.bloody_stone_bricks_fence": "Bloody Stone Brick Fence",
+  "block.bloodyhell.bloody_stone_fence_bricks_gate": "Bloody Stone Brick Gate",
+  "block.bloodyhell.bloody_stone_bricks_slab": "Bloody Stone Brick Slab",
+
+
+
 
   "block.bloodyhell.hanging_bloodtree_leaves": "Hanging Bloodtree Leaves",
   "block.bloodyhell.blood_glow_stone": "Blood Glow Stone",

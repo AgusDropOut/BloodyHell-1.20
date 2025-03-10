@@ -1,12 +1,13 @@
-// 1.20	2025-02-15T21:32:00.045876	Tags for minecraft:block mod id bloodyhell
+// 1.20	2025-03-10T18:57:44.2051703	Tags for minecraft:block mod id bloodyhell
 7182fe8c05e70b77f178bc6b735292d640159bde data/bloodyhell/tags/blocks/blood_ore_replaceables.json
 d1d9a1ff91a8b39e470b1677893c67bb6fe41586 data/bloodyhell/tags/blocks/blood_scrapper_plant_placeable_on.json
 3de357e004aea326aa2f58ba53720751bdd546e0 data/minecraft/tags/blocks/dirt.json
 969a80c120a5400479e1c89ad96369bd07ebf19f data/minecraft/tags/blocks/fences.json
 fd6be5e76dbd27cf4af0bd50b836b8763acce2e6 data/minecraft/tags/blocks/fence_gates.json
-4845c799bb21071f89e5e1f5113b6a2eefdbd53a data/minecraft/tags/blocks/leaves.json
+2ec5bbdaf3f2b736902f339dbb6f36ab44abed25 data/minecraft/tags/blocks/leaves.json
 cca9fb6f6f38f8cee45ecd7568121d3fb061ac86 data/minecraft/tags/blocks/logs_that_burn.json
-12c8c31086c409976e3a707d0af736d1d765b7ae data/minecraft/tags/blocks/mineable/pickaxe.json
+5eb3963b27727b98a4d4f2424df6c24662d170cc data/minecraft/tags/blocks/mineable/pickaxe.json
+1977c493ca2ced4f3ac5973787fbe13656ec8dc7 data/minecraft/tags/blocks/mineable/shovel.json
 4fcece67850acae5c763a408059fec5b344424d8 data/minecraft/tags/blocks/needs_iron_tool.json
 565d428617a241607eb7298dd320d984fc93047c data/minecraft/tags/blocks/planks.json
 dc1383dd91848684c08e78adcb6a1fef0f4d38b6 data/minecraft/tags/blocks/walls.json

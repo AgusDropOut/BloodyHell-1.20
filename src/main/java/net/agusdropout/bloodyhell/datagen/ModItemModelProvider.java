@@ -73,7 +73,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //Food Items
         normalItem(ModItems.GOREHOG_RAW_STEAK);
+        normalItem(ModItems.GOREHOG_COOKED_STEAK);
         normalItem(ModItems.SCARLET_RAW_CHICKEN);
+        normalItem(ModItems.SCARLET_COOKED_CHICKEN);
         normalItem(ModItems.GLOW_FRUIT);
         normalItem(ModItems.GLOW_MUSHROOM);
 
@@ -100,6 +102,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.ANCIENT_GEM);
         normalItem(ModItems.GREAT_AMULET_OF_ANCESTRAL_BLOOD);
         normalItem(ModItems.GREAT_ANCIENT_GEM);
+        normalItem(ModItems.CRIMSON_WARD_RING);
+        normalItem(ModItems.BLASPHEMOUS_RING);
 
 
 

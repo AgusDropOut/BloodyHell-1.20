@@ -55,7 +55,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(80))));
         register(context, BLOOD_LIQUID_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_LIQUID_KEY),
                 commonOrePlacement(24, // VeinsPerChunk
-                        HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(80))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(55), VerticalAnchor.absolute(112))));
         register(context,BLOOD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3,0.1f,2), ModBlocks.BLOOD_SAPLING.get()));
         register(context,GIANT_BLOOD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.GIANT_BLOOD_TREE_KEY),

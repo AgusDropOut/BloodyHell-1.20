@@ -128,13 +128,13 @@
         "type": "bloodyhell:veinraver_entity",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 1
+        "weight": 100
       },
       {
         "type": "bloodyhell:omen_gazer_entity",
-        "maxCount": 1,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 1
+        "weight": 100
       }
     ],
     "underground_water_creature": [],

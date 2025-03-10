@@ -87,7 +87,7 @@ public class ModConfiguredFeatures {
 
         register(context, SOUL_DIMENSION_SANGUINE_ORE_KEY, Feature.ORE, new OreConfiguration(BLOOD_ORES.get(),12));
         register(context, BLEEDING_BLOCK_KEY, Feature.ORE, new OreConfiguration(BLEEDING_BLOCK.get(),33));
-        register(context, BLOOD_LIQUID_KEY, Feature.ORE, new OreConfiguration(BLOOD_LIQUID.get(),33));
+        register(context, BLOOD_LIQUID_KEY, Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(ModBlocks.BLOOD_FLUID_BLOCK.get().defaultBlockState(), ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState(), UniformInt.of(6, 8), UniformInt.of(2, 4)));
 
 
         register(context,BLOOD_TREE_KEY,Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

@@ -6,6 +6,10 @@ import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.custom.*;
+import net.agusdropout.bloodyhell.item.custom.OnlyAppendHoverText.AmuletOfAncestralBlood;
+import net.agusdropout.bloodyhell.item.custom.OnlyAppendHoverText.BlasphemousRing;
+import net.agusdropout.bloodyhell.item.custom.OnlyAppendHoverText.CrimsonWardRing;
+import net.agusdropout.bloodyhell.item.custom.OnlyAppendHoverText.GreatAmuletOfAncestralBlood;
 import net.agusdropout.bloodyhell.item.potions.BloodFlaskItem;
 import net.agusdropout.bloodyhell.item.potions.BloodPotionItem;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -31,15 +35,15 @@ public class ModItems {
             new Item( new Item.Properties()));
     public static final RegistryObject<Item> RAW_SANGUINITE = ITEMS.register("raw_sanguinite", () ->
             new Item( new Item.Properties()));
-    public static final RegistryObject<Item> SANGUINITE_SWORD = ITEMS.register("sanguinite_sword",() -> new SwordItem(Tiers.DIAMOND,8,5,
+    public static final RegistryObject<Item> SANGUINITE_SWORD = ITEMS.register("sanguinite_sword",() -> new SwordItem(ModToolTiers.SANGUINITE,3,-2.4F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SANGUINITE_PICKAXE = ITEMS.register("sanguinite_pickaxe",() -> new PickaxeItem(Tiers.DIAMOND,5,5,
+    public static final RegistryObject<Item> SANGUINITE_PICKAXE = ITEMS.register("sanguinite_pickaxe",() -> new PickaxeItem(ModToolTiers.SANGUINITE,1,-2.8F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SANGUINITE_AXE = ITEMS.register("sanguinite_axe",() -> new AxeItem(Tiers.DIAMOND,5,5,
+    public static final RegistryObject<Item> SANGUINITE_AXE = ITEMS.register("sanguinite_axe",() -> new AxeItem(ModToolTiers.SANGUINITE,5,-3F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SANGUINITE_HOE = ITEMS.register("sanguinite_hoe",() -> new HoeItem(Tiers.DIAMOND,5,5,
+    public static final RegistryObject<Item> SANGUINITE_HOE = ITEMS.register("sanguinite_hoe",() -> new HoeItem(ModToolTiers.SANGUINITE,0,0,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SANGUINITE_SHOVEL = ITEMS.register("sanguinite_shovel",() -> new ShovelItem(Tiers.DIAMOND,5,5,
+    public static final RegistryObject<Item> SANGUINITE_SHOVEL = ITEMS.register("sanguinite_shovel",() -> new ShovelItem(ModToolTiers.SANGUINITE,1,-3F,
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLOOD_BOW = ITEMS.register("blood_bow",() -> new ModBow(
             new Item.Properties().stacksTo(1).durability(500)));
@@ -65,15 +69,15 @@ public class ModItems {
             new Item( new Item.Properties()));
     public static final RegistryObject<Item> RHNULL_NUGGET = ITEMS.register("rhnull_nugget", () ->
             new Item( new Item.Properties()));
-    public static final RegistryObject<Item> RHNULL_SWORD = ITEMS.register("rhnull_sword",() -> new SoulItem(Tiers.NETHERITE,11,6,
+    public static final RegistryObject<Item> RHNULL_SWORD = ITEMS.register("rhnull_sword",() -> new SoulItem(ModToolTiers.RHNULL,3,-2.4F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RHNULL_PICKAXE = ITEMS.register("rhnull_pickaxe",() -> new PickaxeItem(Tiers.NETHERITE,6,6,
+    public static final RegistryObject<Item> RHNULL_PICKAXE = ITEMS.register("rhnull_pickaxe",() -> new PickaxeItem(ModToolTiers.RHNULL,1,-2.8F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RHNULL_AXE = ITEMS.register("rhnull_axe",() -> new AxeItem(Tiers.NETHERITE,6,6,
+    public static final RegistryObject<Item> RHNULL_AXE = ITEMS.register("rhnull_axe",() -> new AxeItem(ModToolTiers.RHNULL,5,-3F,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RHNULL_HOE = ITEMS.register("rhnull_hoe",() -> new HoeItem(Tiers.NETHERITE,6,6,
+    public static final RegistryObject<Item> RHNULL_HOE = ITEMS.register("rhnull_hoe",() -> new HoeItem(ModToolTiers.RHNULL,0,0,
             new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> RHNULL_SHOVEL = ITEMS.register("rhnull_shovel",() -> new ShovelItem(Tiers.NETHERITE,6,6,
+    public static final RegistryObject<Item> RHNULL_SHOVEL = ITEMS.register("rhnull_shovel",() -> new ShovelItem(ModToolTiers.RHNULL,1,-3F,
             new Item.Properties().stacksTo(1)));
 
     //Food Items
@@ -103,9 +107,21 @@ public class ModItems {
                             .build())
             )
     );
+    public static final RegistryObject<Item> SCARLET_COOKED_CHICKEN = ITEMS.register("scarlet_cooked_chicken", () ->
+            new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(4).saturationMod(2f)
+                            .build())
+            )
+    );
     public static final RegistryObject<Item> GOREHOG_RAW_STEAK = ITEMS.register("gorehog_raw_steak", () ->
             new Item(new Item.Properties()
                     .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f)
+                            .build())
+            )
+    );
+    public static final RegistryObject<Item> GOREHOG_COOKED_STEAK = ITEMS.register("gorehog_cooked_steak", () ->
+            new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(5).saturationMod(2f)
                             .build())
             )
     );
@@ -197,14 +213,18 @@ public class ModItems {
             new Item.Properties().stacksTo(1)));
 
     //Crimson Veil Items
-    public static final RegistryObject<Item> AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("amulet_of_ancestral_blood", () -> new Item(
+    public static final RegistryObject<Item> AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("amulet_of_ancestral_blood", () -> new AmuletOfAncestralBlood(
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> ANCIENT_GEM = ITEMS.register("ancient_gem", () -> new Item(
             new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> GREAT_AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("great_amulet_of_ancestral_blood", () -> new Item(
+    public static final RegistryObject<Item> GREAT_AMULET_OF_ANCESTRAL_BLOOD = ITEMS.register("great_amulet_of_ancestral_blood", () -> new GreatAmuletOfAncestralBlood(
             new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GREAT_ANCIENT_GEM = ITEMS.register("great_ancient_gem", () -> new Item(
             new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> CRIMSON_WARD_RING = ITEMS.register("crimson_ward_ring", () -> new CrimsonWardRing(
+            new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BLASPHEMOUS_RING = ITEMS.register("blasphemous_ring", () -> new BlasphemousRing(
+            new Item.Properties().stacksTo(1)));
 
 
 

@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.SmokingRecipe;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
@@ -329,7 +330,26 @@ public class ModRecipes extends ModRecipesProvider {
                 .unlockedBy("has_rhnull_filled_blood_flask", has(ModItems.FILLED_RHNULL_BLOOD_FLASK.get()))
                 .unlockedBy("has_great_ancient_gem", has(ModItems.GREAT_ANCIENT_GEM.get()))
                 .save(consumer, name("great_amulet_of_ancestral_blood"));
+        //Crimson Ward ring
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CRIMSON_WARD_RING.get(), 1)
+                .pattern("GGG")
+                .pattern("G G")
+                .pattern("GAG")
+                .define('G', Items.GOLD_INGOT)
+                .define('A', ModItems.ANCIENT_GEM.get())
+                .unlockedBy("has_gold", has(Items.GOLD_INGOT))
+                .unlockedBy("has_ancient_gem", has(ModItems.ANCIENT_GEM.get()))
+                .save(consumer, name("crimson_ward_ring"));
+        //-------------------------------Cooking----------------------------------//
+        smokingRecipe(ModItems.GOREHOG_COOKED_STEAK.get(), ModItems.GOREHOG_RAW_STEAK.get(), 0.35F, 1).save(consumer, name("smoking_gorehog_beef"));
+        smeltingRecipe(ModItems.GOREHOG_COOKED_STEAK.get(), ModItems.GOREHOG_RAW_STEAK.get(), 0.35F).save(consumer, name("smelting_gorehog_beef"));
+        campfireRecipe(ModItems.GOREHOG_COOKED_STEAK.get(), ModItems.GOREHOG_RAW_STEAK.get(), 0.35F).save(consumer, name("campfire_gorehog_beef"));
+        smokingRecipe(ModItems.SCARLET_COOKED_CHICKEN.get(), ModItems.SCARLET_RAW_CHICKEN.get(), 0.35F, 1).save(consumer, name("smoking_scarlet_raw_chicken"));
+        smeltingRecipe(ModItems.SCARLET_COOKED_CHICKEN.get(), ModItems.SCARLET_RAW_CHICKEN.get(), 0.35F).save(consumer, name("smelting_scarlet_raw_chicken"));
+        campfireRecipe(ModItems.SCARLET_COOKED_CHICKEN.get(), ModItems.SCARLET_RAW_CHICKEN.get(), 0.35F).save(consumer, name("campfire_scarlet_raw_chicken"));
+
     }
+
 
     private ResourceLocation name(String name) {
         return new ResourceLocation(BloodyHell.MODID, name);

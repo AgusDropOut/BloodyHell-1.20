@@ -24,7 +24,8 @@ public class ModTags {
 
 
         public static final TagKey<Block> BLOOD_SCRAPPER_PLANT_PLACEABLE_ON = tag("blood_scrapper_plant_placeable_on");
-        public static final TagKey<Block> NEEDS_BLOOD_TOOL = tag("needs_blood_tool");
+        public static final TagKey<Block> NEEDS_SANGUINITE_TOOL = tag("needs_sanguinite_tool");
+        public static final TagKey<Block> NEEDS_RHNULL_TOOL = tag("needs_rhnull_tool");
         public static final TagKey<Block> BLOOD_ORE_REPLACEABLES = tag("blood_ore_replaceables");
 
         private static TagKey<Block> tag(String name) {
@@ -35,6 +36,7 @@ public class ModTags {
 
     public static class Entities {
         public static final TagKey<EntityType<?>> INMUNE_TO_BLEEDING_BLOCK = tag("inmune_to_bleeding_block");
+        public static final TagKey<EntityType<?>> INMUNE_TO_VISCERAL_EFFECT = tag("inmune_to_visceral_effect");
         public static final TagKey<EntityType<?>> SACRIFICEABLE_ENTITY = tag("sacrificeable_entity");
         public static final TagKey<EntityType<?>> CORRUPTED_SACRIFICEABLE_ENTITY = tag("corrupted_sacrificeable_entity");
         private static TagKey<EntityType<?>> tag(String name) {
