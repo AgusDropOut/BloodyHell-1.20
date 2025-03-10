@@ -10,6 +10,7 @@ import net.agusdropout.bloodyhell.effect.ModEffects;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.client.*;
 
+import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
 import net.agusdropout.bloodyhell.fluid.ModFluidTypes;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModCreativeModeTab;
@@ -32,6 +33,7 @@ import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
 
 import net.agusdropout.bloodyhell.worldgen.tree.ModTreeDecoratorTypes;
 import net.agusdropout.bloodyhell.worldgen.tree.ModTrunkPlacerTypes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -58,6 +60,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -139,6 +142,12 @@ public class BloodyHell
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.OMEN_GAZER_ENTITY.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.VEINRAVER_ENTITY.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CRIMSON_RAVEN.get(),
@@ -236,6 +245,7 @@ public class BloodyHell
             event.accept(ModItems.BLOOD_PIG_SPAWN_EGG);
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
             event.accept(ModItems.OMEN_GAZER_ENTITY_SPAWN_EGG);
+            event.accept(ModItems.VEINRAVER_ENTITY_SPAWN_EGG);
 
             //Food Items
             event.accept(ModItems.Eyeball);
@@ -393,6 +403,27 @@ public class BloodyHell
     public static class ClientModEvents
     {
 
+        @SubscribeEvent
+        public void onSetupCamera(ViewportEvent.ComputeCameraAngles event) {
+            System.out.println("onSetupCamera ejecutándose: Pitch=" + event.getPitch() + " Yaw=" + event.getYaw());
+            Player player = Minecraft.getInstance().player;
+            float delta = Minecraft.getInstance().getFrameTime();
+            float ticksExistedDelta = player.tickCount + delta;
+            if (player != null) {
+                if(!Minecraft.getInstance().isPaused()) {
+                    float shakeAmplitude = 0;
+                    for (EntityCameraShake cameraShake : player.level().getEntitiesOfClass(EntityCameraShake.class, player.getBoundingBox().inflate(20, 20, 20))) {
+                        if (cameraShake.distanceTo(player) < cameraShake.getRadius()) {
+                            shakeAmplitude += cameraShake.getShakeAmount(player, delta);
+                        }
+                    }
+                    if (shakeAmplitude > 1.0f) shakeAmplitude = 1.0f;
+                    event.setPitch((float) (event.getPitch() + shakeAmplitude * Math.cos(ticksExistedDelta * 3 + 2) * 25));
+                    event.setYaw((float) (event.getYaw() + shakeAmplitude * Math.cos(ticksExistedDelta * 5 + 1) * 25));
+                    event.setRoll((float) (event.getRoll() + shakeAmplitude * Math.cos(ticksExistedDelta * 4) * 25));
+                }
+            }
+        }
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
@@ -404,6 +435,7 @@ public class BloodyHell
             MenuScreens.register(ModMenuTypes.VESPER_MENU.get(), VesperScreen::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SEEKER.get(), BloodSeekerRenderer::new);
             EntityRenderers.register(ModEntityTypes.OMEN_GAZER_ENTITY.get(), OmenGazerRenderer::new);
+            EntityRenderers.register(ModEntityTypes.VEINRAVER_ENTITY.get(), VeinRaverEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), BloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
@@ -418,6 +450,8 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.SANGUINE_SACRIFICE_ENTITY.get(), SanguineSacrificeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), BloodSlashRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ENTITY_FALLING_BLOCK.get(), EntityFallingBlockRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ENTITY_CAMERA_SHAKE.get(), RenderNothing::new);
             BlockEntityRenderers.register(ModBlockEntities.BH_CHEST.get(),BHChestRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
             EntityRenderers.register(ModEntityTypes.VESPER.get(), VesperRenderer::new);

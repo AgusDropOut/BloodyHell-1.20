@@ -100,7 +100,7 @@ public class OmenGazerEntity extends Monster implements GeoEntity {
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
                 .add(Attributes.ATTACK_SPEED, 1.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.2D)
-                .add(Attributes.FOLLOW_RANGE,40).build();
+                .add(Attributes.FOLLOW_RANGE,30).build();
 
 
     }

@@ -107,34 +107,34 @@
         "type": "bloodyhell:crimsonraven",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 3
+        "weight": 5
       },
       {
         "type": "bloodyhell:eyeshellsnail",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 2
+        "weight": 5
       },
       {
         "type": "bloodyhell:bloodpig",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 10
+        "weight": 5
       }
     ],
     "misc": [],
     "monster": [
       {
-        "type": "bloodyhell:bloodthirstybeast",
-        "maxCount": 2,
+        "type": "bloodyhell:veinraver_entity",
+        "maxCount": 1,
         "minCount": 1,
-        "weight": 5
+        "weight": 1
       },
       {
-        "type": "bloodyhell:bloodseeker",
-        "maxCount": 2,
+        "type": "bloodyhell:omen_gazer_entity",
+        "maxCount": 1,
         "minCount": 1,
-        "weight": 5
+        "weight": 1
       }
     ],
     "underground_water_creature": [],

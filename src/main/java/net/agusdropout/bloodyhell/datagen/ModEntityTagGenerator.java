@@ -30,7 +30,10 @@ public class ModEntityTagGenerator extends EntityTypeTagsProvider {
                .add(ModEntityTypes.BLOOD_SEEKER.get())
                .add(ModEntityTypes.BLOODTHIRSTYBEAST.get())
                .add(ModEntityTypes.ONI.get())
-               .add(ModEntityTypes.BLOODPIG.get());
+               .add(ModEntityTypes.BLOODPIG.get())
+               .add(ModEntityTypes.CRIMSON_RAVEN.get())
+               .add(ModEntityTypes.OMEN_GAZER_ENTITY.get())
+               .add(ModEntityTypes.VEINRAVER_ENTITY.get());
 
        tag(ModTags.Entities.SACRIFICEABLE_ENTITY)
                .add(EntityType.COW)

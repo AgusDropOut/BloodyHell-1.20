@@ -31,11 +31,10 @@ import java.util.UUID;
 
 
 public class VisceralProjectile extends Entity implements GeoEntity, TraceableEntity {
-    private int lifeTicks = 40;
+    private int lifeTicks = 80;
     private float damage;
     private boolean isAlternative = false;
     private final AnimatableInstanceCache factory =  new SingletonAnimatableInstanceCache(this);
-
     @Nullable
     private LivingEntity owner;
     @Nullable
@@ -45,6 +44,7 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
     private static final EntityDataAccessor<Float> LOOK_PITCH = SynchedEntityData.defineId(VisceralProjectile.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Boolean> ON_GROUND = SynchedEntityData.defineId(VisceralProjectile.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IS_ALTERNATIVE = SynchedEntityData.defineId(VisceralProjectile.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Float> GRAVITY = SynchedEntityData.defineId(VisceralProjectile.class, EntityDataSerializers.FLOAT);
 
     public void setOwner(@Nullable LivingEntity livingEntity) {
         this.owner = livingEntity;
@@ -94,6 +94,16 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
         initializeRotation();
         this.entityData.set(IS_ALTERNATIVE, level.random.nextBoolean());
     }
+    public VisceralProjectile(Level level, double x, double y, double z, double sx, double sy, double sz,float gravity, float damage, LivingEntity owner) {
+        this(ModEntityTypes.VISCERAL_PROJECTILE.get(), level);
+        this.damage = damage;
+        this.setGravity(gravity);
+        this.setOwner(owner);
+        this.setPos(x, y, z);
+        this.setDeltaMovement(new Vec3(sx, sy, sz));
+        initializeRotation();
+        this.entityData.set(IS_ALTERNATIVE, level.random.nextBoolean());
+    }
     public float getPitch() {
         return entityData.get(LOOK_PITCH);
     }
@@ -123,6 +133,7 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
     public void tick() {
         if(!this.isOnGround()){
             this.move(MoverType.SELF, this.getDeltaMovement());
+            this.spawnFlyingParticles();
             updateGravity();
         }
         if (this.onGround()) {
@@ -167,7 +178,28 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
 
 
 
+    private void spawnFlyingParticles() {
+        if (this.level() instanceof ServerLevel serverLevel) {
+            for (int i = 0; i < 5; i++) { // Más partículas en el aire
+                double offsetX = (this.random.nextDouble() - 0.5) * 0.1;
+                double offsetY = (this.random.nextDouble() - 0.5) * 0.1 + 0.02; // Ligera elevación
+                double offsetZ = (this.random.nextDouble() - 0.5) * 0.1;
 
+                // Velocidad aleatoria
+                double speed = 1 + this.random.nextDouble() * 0.05;
+                double vx = (this.random.nextDouble() - 0.5) * speed;
+                double vy = (this.random.nextDouble() - 0.5) * speed;
+                double vz = (this.random.nextDouble() - 0.5) * speed;
+
+                serverLevel.sendParticles(ModParticles.VICERAL_PARTICLE.get(),
+                        this.getX() + offsetX,
+                        this.getY() + offsetY + 1,
+                        this.getZ() + offsetZ, 1,
+                        vx, vy, vz, 0.1);
+            }
+        }
+
+    }
 
     private void spawnImpactParticles() {
         if (this.level() instanceof ServerLevel serverLevel) {
@@ -193,6 +225,7 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
     protected void defineSynchedData() {
         this.entityData.define(ON_GROUND, false);
         this.entityData.define(IS_ALTERNATIVE, false);
+        this.entityData.define(GRAVITY, 0.3f);
     }
     public float getLookYaw() {
         return this.entityData.get(LOOK_YAW);
@@ -207,7 +240,7 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
                 0, this::predicate));
     }
     public void updateGravity(){
-            this.setDeltaMovement(this.getDeltaMovement().add(0, -0.3, 0));
+            this.setDeltaMovement(this.getDeltaMovement().add(0, -getGravity(), 0));
     }
 
     @Override
@@ -235,6 +268,13 @@ public class VisceralProjectile extends Entity implements GeoEntity, TraceableEn
     }
     public boolean isAlternative() {
         return entityData.get(IS_ALTERNATIVE);
+    }
+
+    public float getGravity() {
+        return entityData.get(GRAVITY);
+    }
+    public void setGravity(float gravity) {
+        entityData.set(GRAVITY, gravity);
     }
 }
 

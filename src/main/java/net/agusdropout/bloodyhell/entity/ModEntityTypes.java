@@ -2,6 +2,8 @@ package net.agusdropout.bloodyhell.entity;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.custom.*;
+import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
+import net.agusdropout.bloodyhell.entity.effects.EntityFallingBlock;
 import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
 import net.agusdropout.bloodyhell.entity.projectile.SmallCrimsonDagger;
@@ -24,8 +26,11 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(BloodSeekerEntity::new, MobCategory.CREATURE).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloodseeker").toString()));
     public static final RegistryObject<EntityType<OmenGazerEntity>> OMEN_GAZER_ENTITY = ENTITY_TYPES.register("omen_gazer_entity",
-            () -> EntityType.Builder.of(OmenGazerEntity::new, MobCategory.CREATURE).sized(1f,4f).build(new ResourceLocation(BloodyHell.MODID,
+            () -> EntityType.Builder.of(OmenGazerEntity::new, MobCategory.MONSTER).sized(1f,4f).build(new ResourceLocation(BloodyHell.MODID,
                     "omen_gazer_entity").toString()));
+    public static final RegistryObject<EntityType<VeinraverEntity>> VEINRAVER_ENTITY = ENTITY_TYPES.register("veinraver_entity",
+            () -> EntityType.Builder.of(VeinraverEntity::new, MobCategory.MONSTER).sized(1f,4f).build(new ResourceLocation(BloodyHell.MODID,
+                    "veinraver_entity").toString()));
     public static final RegistryObject<EntityType<BloodySoulEntity>> BLOODY_SOUL_ENTITY = ENTITY_TYPES.register("bloody_soul_entity",
             () -> EntityType.Builder.of(BloodySoulEntity::new, MobCategory.CREATURE).sized(1f,1.5f).build(new ResourceLocation(BloodyHell.MODID,
                     "bloody_soul_entity").toString()));
@@ -53,6 +58,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<CrystalPillar>> CRYSTAL_PILLAR = ENTITY_TYPES.register("crystal_pillar",
             () -> EntityType.Builder.<CrystalPillar>of(CrystalPillar::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "crystal_pillar").toString()));
+    public static final RegistryObject<EntityType<EntityFallingBlock>> ENTITY_FALLING_BLOCK = ENTITY_TYPES.register("entity_falling_block",
+            () -> EntityType.Builder.<EntityFallingBlock>of(EntityFallingBlock::new,MobCategory.MISC).sized(1f,1f).build(new ResourceLocation(BloodyHell.MODID,
+                    "entity_falling_block").toString()));
+    public static final RegistryObject<EntityType<EntityCameraShake>> ENTITY_CAMERA_SHAKE = ENTITY_TYPES.register("entity_camera_shake",
+            () -> EntityType.Builder.<EntityCameraShake>of(EntityCameraShake::new,MobCategory.MISC).sized(1f,1f).setUpdateInterval(Integer.MAX_VALUE).build(new ResourceLocation(BloodyHell.MODID,
+                    "entity_camera_shake").toString()));
     public static final RegistryObject<EntityType<UnknownEyeEntity>> UNKNOWN_EYE_ENTITY = ENTITY_TYPES.register("unknown_eye_entity",
             () -> EntityType.Builder.<UnknownEyeEntity>of(UnknownEyeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "unknown_eye_entity").toString()));

@@ -10,6 +10,7 @@ import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
 import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.entity.client.UnknownEyeEntityModel;
 import net.agusdropout.bloodyhell.entity.client.VesperModel;
+import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.*;
 import net.agusdropout.bloodyhell.util.ClientTickHandler;
@@ -18,6 +19,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.BeaconBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
@@ -69,5 +71,6 @@ public class ClientEvents  {
             }
 
         }
+
     }
 }

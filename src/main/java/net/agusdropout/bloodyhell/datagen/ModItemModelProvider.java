@@ -68,6 +68,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.CRIMSON_SHELL);
         normalItem(ModItems.SCARLET_FEATHER);
 
+        //Mobs spawn eggs
+        egg(ModItems.VEINRAVER_ENTITY_SPAWN_EGG);
+
         //Food Items
         normalItem(ModItems.GOREHOG_RAW_STEAK);
         normalItem(ModItems.SCARLET_RAW_CHICKEN);

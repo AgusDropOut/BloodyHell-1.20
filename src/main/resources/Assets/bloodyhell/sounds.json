@@ -28,6 +28,49 @@
       "sounds": [
         "bloodyhell:visceral_explosion"
       ]
+    },
+    "veinraver_ambient": {
+      "subtitle": "sounds.bloodyhell.veinraver_ambient",
+      "sounds": [
+        "bloodyhell:veinraver_ambient"
+      ]
+    },
+    "veinraver_hurt": {
+      "subtitle": "sounds.bloodyhell.veinraver_hurt",
+      "sounds": [
+        "bloodyhell:veinraver_hurt"
+      ]
+    },
+    "veinraver_attack": {
+      "subtitle": "sounds.bloodyhell.veinraver_attack",
+      "sounds": [
+        "bloodyhell:veinraver_attack"
+      ]
+    },
+    "veinraver_death": {
+      "subtitle": "sounds.bloodyhell.veinraver_death",
+      "sounds": [
+        "bloodyhell:veinraver_death"
+      ]
+    },
+    "veinraver_slam": {
+      "subtitle": "sounds.bloodyhell.veinraver_slam",
+      "sounds": [
+        "bloodyhell:veinraver_slam"
+      ]
+    },
+    "veinraver_slash": {
+      "subtitle": "sounds.bloodyhell.veinraver_slash",
+      "sounds": [
+        "bloodyhell:veinraver_slash"
+      ]
+    },
+    "veinraver_step": {
+      "subtitle": "sounds.bloodyhell.veinraver_step",
+      "sounds": [
+        "bloodyhell:veinraver_step"
+      ]
     }
+
 
 }

@@ -53,6 +53,10 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
     private static final EntityDataAccessor<Float> PITCH = SynchedEntityData.defineId(BloodSlashEntity.class, EntityDataSerializers.FLOAT);
     private float yaw;
     private float pitch;
+    private boolean selectedDirection = false;
+    private float dx;
+    private float dy;
+    private float dz;
 
     public BloodSlashEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
@@ -81,6 +85,28 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
             this.pitch = entityData.get(PITCH);
         }
         level().playLocalSound(d, e, f, SoundEvents.AMETHYST_BLOCK_PLACE, SoundSource.BLOCKS, 1.0f, random.nextFloat() * 0.2f + 0.85f, false);
+
+    }
+    public BloodSlashEntity(Level level, double d, double e, double f, float damage, LivingEntity livingEntity, float yaw, float pitch, float dx, float dy,float dz,boolean selectedDirection) {
+        this(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), level);
+        this.damage = damage;
+        this.setOwner(livingEntity);
+        this.setPos(d, e, f);
+        this.setNoGravity(true);
+        this.selectedDirection = selectedDirection;
+        this.dx = dx;
+        this.dy = dy;
+        this.dz = dz;
+        if(!this.level().isClientSide()) {
+            this.pitch = pitch;
+            this.setPitch(pitch);
+            this.yaw = yaw;
+            this.setYaw(yaw);
+        } else {
+            this.yaw = entityData.get(YAW);
+            this.pitch = entityData.get(PITCH);
+        }
+
 
     }
 
@@ -128,13 +154,15 @@ public class BloodSlashEntity extends Entity implements TraceableEntity, GeoEnti
     }
 
     private void moveEntityForward() {
-        if (this.owner != null) {
+        if (this.owner != null && !this.selectedDirection) {
             float radianYaw = (float) Math.toRadians(this.yaw);
 
             double offsetX = Math.sin(radianYaw) * 0.3;
             double offsetZ = Math.cos(radianYaw) * 0.3;
 
             this.setPos(this.getX() + offsetX, this.getY(), this.getZ() + offsetZ);
+        } else if(this.owner != null){
+            this.setPos(this.getX() + dx, this.getY() + dy, this.getZ() + dz);
         }
     }
 

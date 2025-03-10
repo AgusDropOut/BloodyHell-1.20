@@ -18,6 +18,13 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> GRAWL_ATTACK = registerSoundEvents("grawl_attack");
     public static final RegistryObject<SoundEvent> GRAWL_DEATH = registerSoundEvents("grawl_death");
     public static final RegistryObject<SoundEvent> VISCERAL_EXPLOSION = registerSoundEvents("visceral_explosion");
+    public static final RegistryObject<SoundEvent> VEINRAVER_AMBIENT = registerSoundEvents("veinraver_ambient");
+    public static final RegistryObject<SoundEvent> VEINRAVER_HURT = registerSoundEvents("veinraver_hurt");
+    public static final RegistryObject<SoundEvent> VEINRAVER_DEATH = registerSoundEvents("veinraver_death");
+    public static final RegistryObject<SoundEvent> VEINRAVER_ATTACK = registerSoundEvents("veinraver_attack");
+    public static final RegistryObject<SoundEvent> VEINRAVER_STEP = registerSoundEvents("veinraver_step");
+    public static final RegistryObject<SoundEvent> VEINRAVER_SLAM = registerSoundEvents("veinraver_slam");
+    public static final RegistryObject<SoundEvent> VEINRAVER_SLASH = registerSoundEvents("veinraver_slash");
 
 
 

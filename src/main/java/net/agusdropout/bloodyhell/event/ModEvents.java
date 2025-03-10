@@ -70,6 +70,7 @@ public class ModEvents {
                 event.put(BLOODTHIRSTYBEAST.get(), BloodThirstyBeastEntity.setAttributes());
                 event.put(BLOOD_SEEKER.get(), BloodSeekerEntity.setAttributes());
                 event.put(OMEN_GAZER_ENTITY.get(), OmenGazerEntity.setAttributes());
+                event.put(VEINRAVER_ENTITY.get(), VeinraverEntity.setAttributes());
                 event.put(BLOODY_SOUL_ENTITY.get(), BloodySoulEntity.setAttributes());
                 event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
