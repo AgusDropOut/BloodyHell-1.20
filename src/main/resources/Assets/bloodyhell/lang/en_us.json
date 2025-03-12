@@ -130,6 +130,7 @@
   "entity.bloodyhell.sanguine_sacrifice_entity": "Sanguine Sacrifice",
   "entity.bloodyhell.vesper": "Vesper",
   "entity.bloodyhell.oni": "Oni",
+  "entity.bloodyhell.offspring_of_the_unknown": "Offspring of the Unknown",
 
 
 
@@ -161,6 +162,7 @@
   "item.bloodyhell.scarletspeckledfish_spawn_egg": "Scarlet Speckled Fish",
   "item.bloodyhell.veinraver_entity_spawn_egg": "Vein Raver",
   "item.bloodyhell.omen_gazer_entity_spawn_egg": "Omen Gazer",
+  "item.bloodyhell.offspring_of_the_unknown_spawn_egg": "Offspring of the Unknown",
 
   "block.bloodyhell.bloody_stone_block": "Bloody Stone Block",
   "block.bloodyhell.bloody_stone_stairs": "Bloody Stone Stairs",

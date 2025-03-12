@@ -162,6 +162,9 @@ public class BloodyHell
             SpawnPlacements.register(ModEntityTypes.BLOODPIG.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                     Animal::checkMobSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
 
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);
@@ -246,6 +249,7 @@ public class BloodyHell
             event.accept(ModItems.SCARLETSPECKLED_FISH_SPAWN_EGG);
             event.accept(ModItems.OMEN_GAZER_ENTITY_SPAWN_EGG);
             event.accept(ModItems.VEINRAVER_ENTITY_SPAWN_EGG);
+            event.accept(ModItems.OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG);
 
             //Food Items
             event.accept(ModItems.Eyeball);
@@ -451,6 +455,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.CRYSTAL_PILLAR.get(), CrystalPillarRenderer::new);
             EntityRenderers.register(ModEntityTypes.UNKNOWN_EYE_ENTITY.get(), UnknownEyeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.UNKNOWN_ENTITY_ARMS.get(), UnknownEntityArmsRenderer::new);
+            EntityRenderers.register(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownRenderer::new);
             EntityRenderers.register(ModEntityTypes.SANGUINE_SACRIFICE_ENTITY.get(), SanguineSacrificeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), BloodSlashRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);

@@ -70,6 +70,30 @@
       "sounds": [
         "bloodyhell:veinraver_step"
       ]
+    },
+    "offspring_hurt": {
+      "subtitle": "sounds.bloodyhell.offspring_hurt",
+      "sounds": [
+        "bloodyhell:offspring_hurt"
+      ]
+    },
+    "offspring_attack": {
+      "subtitle": "sounds.bloodyhell.offspring_attack",
+      "sounds": [
+        "bloodyhell:offspring_attack"
+      ]
+    },
+    "offspring_step": {
+      "subtitle": "sounds.bloodyhell.offspring_step",
+      "sounds": [
+        "bloodyhell:offspring_step"
+      ]
+    },
+    "offspring_ambient": {
+      "subtitle": "sounds.bloodyhell.offspring_ambient",
+      "sounds": [
+        "bloodyhell:offspring_ambient"
+      ]
     }
 
 

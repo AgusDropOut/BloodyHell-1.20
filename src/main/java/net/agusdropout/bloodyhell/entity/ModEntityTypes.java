@@ -70,6 +70,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<UnknownEntityArms>> UNKNOWN_ENTITY_ARMS = ENTITY_TYPES.register("unknown_entity_arms",
             () -> EntityType.Builder.<UnknownEntityArms>of(UnknownEntityArms::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "unknown_entity_arms").toString()));
+    public static final RegistryObject<EntityType<OffspringOfTheUnknownEntity>> OFFSPRING_OF_THE_UNKNOWN = ENTITY_TYPES.register("offspring_of_the_unknown",
+            () -> EntityType.Builder.<OffspringOfTheUnknownEntity>of(OffspringOfTheUnknownEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "offspring_of_the_unknown").toString()));
     public static final RegistryObject<EntityType<SanguineSacrificeEntity>> SANGUINE_SACRIFICE_ENTITY = ENTITY_TYPES.register("sanguine_sacrifice_entity",
             () -> EntityType.Builder.<SanguineSacrificeEntity>of(SanguineSacrificeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "sanguine_sacrifice_entity").toString()));

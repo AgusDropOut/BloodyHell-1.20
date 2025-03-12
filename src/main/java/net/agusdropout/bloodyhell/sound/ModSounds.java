@@ -25,6 +25,10 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> VEINRAVER_STEP = registerSoundEvents("veinraver_step");
     public static final RegistryObject<SoundEvent> VEINRAVER_SLAM = registerSoundEvents("veinraver_slam");
     public static final RegistryObject<SoundEvent> VEINRAVER_SLASH = registerSoundEvents("veinraver_slash");
+    public static final RegistryObject<SoundEvent> OFFSPRING_ATTACK = registerSoundEvents("offspring_attack");
+    public static final RegistryObject<SoundEvent> OFFSPRING_HURT = registerSoundEvents("offspring_hurt");
+    public static final RegistryObject<SoundEvent> OFFSPRING_AMBIENT = registerSoundEvents("offspring_ambient");
+    public static final RegistryObject<SoundEvent> OFFSPRING_STEP = registerSoundEvents("offspring_step");
 
 
 

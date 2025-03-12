@@ -72,6 +72,7 @@ public class ModEvents {
                 event.put(OMEN_GAZER_ENTITY.get(), OmenGazerEntity.setAttributes());
                 event.put(VEINRAVER_ENTITY.get(), VeinraverEntity.setAttributes());
                 event.put(BLOODY_SOUL_ENTITY.get(), BloodySoulEntity.setAttributes());
+                event.put(OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownEntity.setAttributes());
                 event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());

@@ -1,4 +1,4 @@
-// 1.20	2025-03-10T16:12:56.683404	Item Models: bloodyhell
+// 1.20	2025-03-12T12:27:17.1117561	Item Models: bloodyhell
 e033c901896a75f6a136de4a515a0448261803b7 assets/bloodyhell/models/item/amulet_of_ancestral_blood.json
 14a952b98c00afd133a0e452445054b35e60ecf8 assets/bloodyhell/models/item/ancient_gem.json
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
@@ -55,6 +55,7 @@ fba7ac8b0eaf78b398a28eca9c2ba8455ddd7893 assets/bloodyhell/models/item/great_amu
 5200afc2caadb8de7936ce944b382d61f4f23c92 assets/bloodyhell/models/item/great_ancient_gem.json
 4c952dd758467b86eb9c5a5e36b2074800e74213 assets/bloodyhell/models/item/hanging_bloodtree_leaves.json
 6fb8b9c78f4725650867573003c1d815a8ee8509 assets/bloodyhell/models/item/heretic_sacrificial_dagger.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bloodyhell/models/item/offspring_of_the_unknown_spawn_egg.json
 3d3d71936a869a8f5ca9d53e9e4f1220091793d2 assets/bloodyhell/models/item/polished_bloody_stone_block.json
 84646a6cee79a234066f1caf7c1f37529fb99953 assets/bloodyhell/models/item/polished_bloody_stone_fence.json
 16785a3ea9e8c3a548f3aedf7031b4841c15b39f assets/bloodyhell/models/item/polished_bloody_stone_fence_gate.json
