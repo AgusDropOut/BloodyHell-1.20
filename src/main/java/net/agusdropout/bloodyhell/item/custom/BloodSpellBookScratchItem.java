@@ -3,6 +3,7 @@ package net.agusdropout.bloodyhell.item.custom;
 import net.agusdropout.bloodyhell.CrimsonveilPower.PlayerCrimsonveilProvider;
 import net.agusdropout.bloodyhell.entity.custom.BloodSlashEntity;
 import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
+import net.agusdropout.bloodyhell.entity.projectile.VirulentAnchorProjectileEntity;
 import net.agusdropout.bloodyhell.item.client.BloodSpellBookScratchItemRenderer;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
@@ -94,6 +95,9 @@ public class BloodSpellBookScratchItem extends Item implements GeoItem {
 
                     double rightX = baseX + offsetX;
                     double rightZ = baseZ + offsetZ;
+
+                    VirulentAnchorProjectileEntity virulentAnchorProjectile = new VirulentAnchorProjectileEntity(level, baseX, baseY, baseZ, 3.0F, player, yaw, pitch);
+                    player.level().addFreshEntity(virulentAnchorProjectile);
 
 
 

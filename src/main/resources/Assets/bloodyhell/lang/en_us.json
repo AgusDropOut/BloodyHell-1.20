@@ -131,6 +131,7 @@
   "entity.bloodyhell.vesper": "Vesper",
   "entity.bloodyhell.oni": "Oni",
   "entity.bloodyhell.offspring_of_the_unknown": "Offspring of the Unknown",
+    "entity.bloodyhell.blasphemous_malformation": "Blasphemous Malformation",
 
 
 
@@ -163,6 +164,7 @@
   "item.bloodyhell.veinraver_entity_spawn_egg": "Vein Raver",
   "item.bloodyhell.omen_gazer_entity_spawn_egg": "Omen Gazer",
   "item.bloodyhell.offspring_of_the_unknown_spawn_egg": "Offspring of the Unknown",
+    "item.bloodyhell.blasphemous_malformation_spawn_egg": "Blasphemous Malformation",
 
   "block.bloodyhell.bloody_stone_block": "Bloody Stone Block",
   "block.bloodyhell.bloody_stone_stairs": "Bloody Stone Stairs",

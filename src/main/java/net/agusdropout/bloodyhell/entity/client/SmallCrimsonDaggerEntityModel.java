@@ -33,7 +33,6 @@ public class SmallCrimsonDaggerEntityModel extends GeoModel<SmallCrimsonDagger> 
         Optional<GeoBone> bone = this.getBone("small_crimson_dagger");
 
         if (bone != null && bone.isPresent()) {
-            // Verificamos si la instancia actual corresponde a la entidad correcta
             if (instanceId == animatable.getId()) {
                 float yRot = animatable.getYRot();
                 float xRot = animatable.getXRot();

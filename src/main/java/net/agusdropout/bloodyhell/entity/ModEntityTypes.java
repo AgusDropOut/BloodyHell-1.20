@@ -4,10 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.custom.*;
 import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
 import net.agusdropout.bloodyhell.entity.effects.EntityFallingBlock;
-import net.agusdropout.bloodyhell.entity.projectile.BloodNovaEntity;
-import net.agusdropout.bloodyhell.entity.projectile.BloodProjectileEntity;
-import net.agusdropout.bloodyhell.entity.projectile.SmallCrimsonDagger;
-import net.agusdropout.bloodyhell.entity.projectile.VisceralProjectile;
+import net.agusdropout.bloodyhell.entity.projectile.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -73,6 +70,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<OffspringOfTheUnknownEntity>> OFFSPRING_OF_THE_UNKNOWN = ENTITY_TYPES.register("offspring_of_the_unknown",
             () -> EntityType.Builder.<OffspringOfTheUnknownEntity>of(OffspringOfTheUnknownEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "offspring_of_the_unknown").toString()));
+    public static final RegistryObject<EntityType<BlasphemousMalformationEntity>> BLASPHEMOUS_MALFORMATION = ENTITY_TYPES.register("blasphemous_malformation",
+            () -> EntityType.Builder.<BlasphemousMalformationEntity>of(BlasphemousMalformationEntity::new,MobCategory.MONSTER).sized(1.2f,2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "blasphemous_malformation").toString()));
     public static final RegistryObject<EntityType<SanguineSacrificeEntity>> SANGUINE_SACRIFICE_ENTITY = ENTITY_TYPES.register("sanguine_sacrifice_entity",
             () -> EntityType.Builder.<SanguineSacrificeEntity>of(SanguineSacrificeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "sanguine_sacrifice_entity").toString()));
@@ -82,6 +82,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BloodProjectileEntity>> BLOOD_PROJECTILE = ENTITY_TYPES.register("blood_projectile",
             () -> EntityType.Builder.<BloodProjectileEntity>of(BloodProjectileEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_projectile").toString()));
+    public static final RegistryObject<EntityType<VirulentAnchorProjectileEntity>> VIRULENT_ANCHOR_PROJECTILE = ENTITY_TYPES.register("virulent_anchor_projectile",
+            () -> EntityType.Builder.<VirulentAnchorProjectileEntity>of(VirulentAnchorProjectileEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "virulent_anchor_projectile").toString()));
     public static final RegistryObject<EntityType<BloodNovaEntity>> BLOOD_NOVA_ENTITY = ENTITY_TYPES.register("blood_nova_entity",
             () -> EntityType.Builder.<BloodNovaEntity>of(BloodNovaEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_nova_entity").toString()));

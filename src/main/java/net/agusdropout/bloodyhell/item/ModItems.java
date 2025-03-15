@@ -147,6 +147,8 @@ public class ModItems {
             new Item.Properties()));
     public static final RegistryObject<Item> OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG = ITEMS.register("offspring_of_the_unknown_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN,0x000000 ,0xd4a600,
             new Item.Properties()));
+    public static final RegistryObject<Item> BLASPHEMOUS_MALFORMATION_SPAWN_EGG = ITEMS.register("blasphemous_malformation_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.BLASPHEMOUS_MALFORMATION,0x000000 ,0xd4a600,
+            new Item.Properties()));
 
     //Mobs Drops
     public static final RegistryObject<Item> VEINREAVER_HORN = ITEMS.register("veinreaver_horn", () -> new Item(
