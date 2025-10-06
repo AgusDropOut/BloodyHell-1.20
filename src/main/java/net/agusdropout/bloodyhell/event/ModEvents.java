@@ -7,6 +7,7 @@ import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
 import net.agusdropout.bloodyhell.entity.custom.*;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.networking.ModMessages;
+import net.agusdropout.bloodyhell.networking.packet.BossSyncS2CPacket;
 import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.*;
@@ -24,6 +25,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -48,6 +50,8 @@ public class ModEvents {
                 event.registerSpriteSet(ModParticles.DIRTY_BLOOD_FLOWER_PARTICLE.get(), DirtyBloodFlowerParticle.Provider::new);
                 Minecraft.getInstance().particleEngine.register(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.IMPACT_PARTICLE.get(), ImpactParticle.Provider::new);
+                Minecraft.getInstance().particleEngine.register(ModParticles.BLASPHEMOUS_MAGIC_RING.get(), ImpactParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.BLASPHEMOUS_MAGIC_RING.get(), BlasphemousMagicCircleParticle.Provider::new);
                 Minecraft.getInstance().particleEngine.register(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
                 event.registerSpriteSet(ModParticles.SLASH_PARTICLE.get(), SlashParticle.Provider::new);
             }
@@ -68,11 +72,13 @@ public class ModEvents {
             @SubscribeEvent
             public static void EntityAttributeEvent(EntityAttributeCreationEvent event) {
                 event.put(BLOODTHIRSTYBEAST.get(), BloodThirstyBeastEntity.setAttributes());
+                event.put(BLASPHEMOUS_ARM_ENTITY.get(), BlasphemousArmEntity.setAttributes());
                 event.put(BLOOD_SEEKER.get(), BloodSeekerEntity.setAttributes());
                 event.put(OMEN_GAZER_ENTITY.get(), OmenGazerEntity.setAttributes());
                 event.put(VEINRAVER_ENTITY.get(), VeinraverEntity.setAttributes());
                 event.put(BLOODY_SOUL_ENTITY.get(), BloodySoulEntity.setAttributes());
                 event.put(OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownEntity.setAttributes());
+                event.put(SELIORA.get(), SelioraEntity.setAttributes());
                 event.put(BLASPHEMOUS_MALFORMATION.get(), BlasphemousMalformationEntity.setAttributes());
                 event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
@@ -126,9 +132,21 @@ public class ModEvents {
                         player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(crimsonVeil -> {
                             ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), player);
                         });
+                        ModMessages.sendToPlayer(new BossSyncS2CPacket(-1), player);
                     }
                 }
             }
+
+            @SubscribeEvent
+            public static void onPlayerAbandonWorld(EntityLeaveLevelEvent event) {
+                if(!event.getLevel().isClientSide()) {
+                    if(event.getEntity() instanceof ServerPlayer player) {
+                        ModMessages.sendToPlayer(new BossSyncS2CPacket(-1), player);
+                    }
+                }
+            }
+
+
             @SubscribeEvent
             public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
                 if(event.side == LogicalSide.SERVER) {
@@ -150,13 +168,6 @@ public class ModEvents {
             public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
                 event.register(PlayerCrimsonVeil.class);
             }
-            private void RegisterDimensionSpecialEffectsEvent(RegisterDimensionSpecialEffectsEvent event) {
-                event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
-            }
-
-
-
-
 
 
         }

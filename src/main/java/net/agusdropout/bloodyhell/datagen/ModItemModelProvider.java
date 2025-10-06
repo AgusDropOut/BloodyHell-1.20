@@ -72,6 +72,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         egg(ModItems.VEINRAVER_ENTITY_SPAWN_EGG);
         egg(ModItems.OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG);
         egg(ModItems.BLASPHEMOUS_MALFORMATION_SPAWN_EGG);
+        egg(ModItems.SELIORA_SPAWN_EGG);
 
         //Food Items
         normalItem(ModItems.GOREHOG_RAW_STEAK);

@@ -1,6 +1,7 @@
 package net.agusdropout.bloodyhell.networking;
 
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.networking.packet.BossSyncS2CPacket;
 import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilC2SPacket;
 import net.agusdropout.bloodyhell.networking.packet.CrimsonVeilDataSyncS2CPacket;
 import net.agusdropout.bloodyhell.networking.packet.EnergySyncS2CPacket;
@@ -30,6 +31,7 @@ public class ModMessages {
 
 
 
+
         net.messageBuilder(CrimsonVeilC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
                 .decoder(CrimsonVeilC2SPacket::new)
                 .encoder(CrimsonVeilC2SPacket::toBytes)
@@ -44,6 +46,11 @@ public class ModMessages {
                 .decoder(EnergySyncS2CPacket::new)
                 .encoder(EnergySyncS2CPacket::toBytes)
                 .consumerMainThread(EnergySyncS2CPacket::handle)
+                .add();
+        net.messageBuilder(BossSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(BossSyncS2CPacket::new)
+                .encoder(BossSyncS2CPacket::toBytes)
+                .consumerMainThread(BossSyncS2CPacket::handle)
                 .add();
     }
     public static <MSG> void sendToServer(MSG message) {

@@ -29,6 +29,21 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> OFFSPRING_HURT = registerSoundEvents("offspring_hurt");
     public static final RegistryObject<SoundEvent> OFFSPRING_AMBIENT = registerSoundEvents("offspring_ambient");
     public static final RegistryObject<SoundEvent> OFFSPRING_STEP = registerSoundEvents("offspring_step");
+    public static final RegistryObject<SoundEvent> STARFALL_AMBIENT_SOUND = registerSoundEvents("starfall_ambient_sound");
+    public static final RegistryObject<SoundEvent> STARFALL_EXPLOSION_SOUND = registerSoundEvents("starfall_explosion_sound");
+    public static final RegistryObject<SoundEvent> WHIRLWIND_FLYING_SOUND = registerSoundEvents("whirldind_flying_sound");
+    public static final RegistryObject<SoundEvent> WHIRLWIND_CUT_SOUND = registerSoundEvents("whirldind_cut_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_HURT1_SOUND = registerSoundEvents("seliora_hurt1_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_HURT2_SOUND = registerSoundEvents("seliora_hurt2_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_LULLABY_SOUND = registerSoundEvents("seliora_lullaby_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_THROW_SOUND = registerSoundEvents("seliora_throw_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_JUMP_ATTACK_SOUND = registerSoundEvents("seliora_jump_attack_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_CHARGE_ATTACK_SOUND = registerSoundEvents("seliora_charge_attack_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_SECOND_PHASE_AMBIENT_SOUND = registerSoundEvents("seliora_second_phase_ambient_sound");
+    public static final RegistryObject<SoundEvent> SELIORA_AMBIENT_SOUND = registerSoundEvents("seliora_ambient_sound");
+    public static final RegistryObject<SoundEvent> NECK_SNAP_SOUND = registerSoundEvents("neck_snap_sound");
+    public static final RegistryObject<SoundEvent> SONG3 = registerSoundEvents("song3");
+
 
 
 

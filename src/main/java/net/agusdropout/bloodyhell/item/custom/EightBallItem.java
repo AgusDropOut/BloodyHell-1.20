@@ -1,14 +1,20 @@
 package net.agusdropout.bloodyhell.item.custom;
 
+import net.agusdropout.bloodyhell.client.ClientMagicData;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
+import net.agusdropout.bloodyhell.entity.custom.BlasphemousArmEntity;
 import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
 import net.agusdropout.bloodyhell.entity.effects.EntityFallingBlock;
+import net.agusdropout.bloodyhell.entity.projectile.BlasphemousSmallWhirlwindEntity;
+import net.agusdropout.bloodyhell.entity.projectile.BlasphemousWhirlwindEntity;
+import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -26,17 +32,39 @@ public class EightBallItem extends Item {
         super(properties);
     }
 
+
+    @Override
+    public void onUseTick(Level p_41428_, LivingEntity player, ItemStack p_41430_, int p_41431_) {
+        super.onUseTick(p_41428_, player, p_41430_, p_41431_);
+        if (Math.random() < 0.5) {
+                     double offsetX = Math.random() - 0.5;
+                     double offsetZ = Math.random() - 0.5;
+            p_41428_.addParticle(
+                             ModParticles.MAGIC_LINE_PARTICLE.get(),
+                             player.getX() + offsetX, player.getY(), player.getZ() + offsetZ,
+                             0, 0.05, 0
+                     );
+                 }
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND){
-            EntityFallingBlock fallingBlock = new EntityFallingBlock(ModEntityTypes.ENTITY_FALLING_BLOCK.get(), level, Blocks.DIRT.defaultBlockState(), 1f);
-            fallingBlock.setPos(player.getOnPos().getX() + 0.5, player.getOnPos().getY() + 1, player.getOnPos().getZ() + 0.5);
-            EntityCameraShake cameraShake = new EntityCameraShake( level, player.position(), 10, 1, 20, 20);
-            level.addFreshEntity(cameraShake);
-            level.addFreshEntity(fallingBlock);
-            outputRandomNumber(player);
-            player.getCooldowns().addCooldown(this,20);
-        }
+        //if (level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
+        //    EntityCameraShake cameraShake = new EntityCameraShake(level, player.position(), 10, 1, 20, 20);
+        //    level.addFreshEntity(cameraShake);
+        //    outputRandomNumber(player);
+        //    player.getCooldowns().addCooldown(this, 20);
+        //    level.addParticle(ModParticles.STAR_EXPLOSION_PARTICLE.get(), player.getX(), player.getY(), player.getZ(), 200, 0, 0);
+        //}
+        //LivingEntity entity = new BlasphemousArmEntity(ModEntityTypes.BLASPHEMOUS_ARM_ENTITY.get(), level, player);
+        //level.addFreshEntity(entity);
+        //entity.setPos(player.getX(), player.getY(), player.getZ());
+
+        level.addFreshEntity(new BlasphemousWhirlwindEntity(level, player.getX(), player.getY(), player.getZ(), player));
+
+
+
+
         return super.use(level, player, hand);
     }
 

@@ -43,7 +43,7 @@ public class SmallCrimsonDagger extends Entity implements GeoEntity, TraceableEn
     private int ticksOnTheGround = 0;
     private boolean isOnGround = false;
     private float damage;
-    private final AnimatableInstanceCache factory =  new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
 
     @Nullable
     private LivingEntity owner;
@@ -76,6 +76,8 @@ public class SmallCrimsonDagger extends Entity implements GeoEntity, TraceableEn
         }
 
     }
+
+
 
     @Override
     protected void addAdditionalSaveData(CompoundTag compoundTag) {

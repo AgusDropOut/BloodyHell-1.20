@@ -1,0 +1,37 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 512,
+				"texture_height": 512,
+				"visible_bounds_width": 10,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "mainring",
+					"pivot": [0, 20, 0],
+					"cubes": [
+						{"origin": [-43, 20, -43], "size": [86, 0, 86], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "minorring",
+					"parent": "mainring",
+					"pivot": [0, 20, 0]
+				},
+				{
+					"name": "minorringbody",
+					"parent": "minorring",
+					"pivot": [65, 20, 0],
+					"cubes": [
+						{"origin": [48, 20, -17], "size": [34, 0, 34], "uv": [62, 109]}
+					]
+				}
+			]
+		}
+	]
+}

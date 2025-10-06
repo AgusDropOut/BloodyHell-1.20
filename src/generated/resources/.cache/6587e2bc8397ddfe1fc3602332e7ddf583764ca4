@@ -1,4 +1,4 @@
-// 1.20	2025-03-14T17:32:35.0473634	Item Models: bloodyhell
+// 1.20	2025-09-14T14:00:18.1047635	Item Models: bloodyhell
 e033c901896a75f6a136de4a515a0448261803b7 assets/bloodyhell/models/item/amulet_of_ancestral_blood.json
 14a952b98c00afd133a0e452445054b35e60ecf8 assets/bloodyhell/models/item/ancient_gem.json
 f49a02ab718c1273b0986d09260a7eedd70e35a7 assets/bloodyhell/models/item/aureal_revenant_dagger.json
@@ -85,6 +85,7 @@ f5db2d75b3736a03233ce2ae08643d55d9d0576d assets/bloodyhell/models/item/sanguinit
 5793df9f55c0f2e41375e5387ae6e22e0dd44c9a assets/bloodyhell/models/item/scarlet_cooked_chicken.json
 bde90edaa91f04800b51f5b60e7a83dfb518a7a5 assets/bloodyhell/models/item/scarlet_feather.json
 9ff225660d84b7438abd8155d1a34542977ba7f8 assets/bloodyhell/models/item/scarlet_raw_chicken.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bloodyhell/models/item/seliora_spawn_egg.json
 3ec0ba33d99064809ef0ebfc0dfff8fb2fc2d27a assets/bloodyhell/models/item/unknown_entity_finger.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bloodyhell/models/item/veinraver_entity_spawn_egg.json
 41ab3b73e3e61976fc1471fa796fa375c37e41b1 assets/bloodyhell/models/item/veinreaver_horn.json

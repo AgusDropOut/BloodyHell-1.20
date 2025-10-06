@@ -301,6 +301,11 @@ public class ModLootTables extends LootTableProvider {
                             )
                     )
             );
+            this.add(ModEntityTypes.SELIORA.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
             this.add(ModEntityTypes.BLOOD_ARROW.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
@@ -347,6 +352,26 @@ public class ModLootTables extends LootTableProvider {
                     )
             );
             this.add(ModEntityTypes.BLOOD_PROJECTILE.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.BLASPHEMOUS_ARM_ENTITY.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.BLASPHEMOUS_SMALL_WHIRLWIND_ENTITY.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.BLASPHEMOUS_WHIRLWIND_ENTITY.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.STARFALL_PROJECTILE.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
                     )

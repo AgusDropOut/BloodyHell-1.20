@@ -18,6 +18,7 @@ import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.painting.ModPaintings;
 import net.agusdropout.bloodyhell.particle.ModParticles;
+import net.agusdropout.bloodyhell.particle.custom.CylinderParticle;
 import net.agusdropout.bloodyhell.potion.ModPotions;
 import net.agusdropout.bloodyhell.recipe.ModRecipes;
 import net.agusdropout.bloodyhell.registry.BloodCapabilities;
@@ -85,7 +86,7 @@ public class BloodyHell
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-
+    
     public BloodyHell()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -251,6 +252,7 @@ public class BloodyHell
             event.accept(ModItems.VEINRAVER_ENTITY_SPAWN_EGG);
             event.accept(ModItems.OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG);
             event.accept(ModItems.BLASPHEMOUS_MALFORMATION_SPAWN_EGG);
+            event.accept(ModItems.SELIORA_SPAWN_EGG);
 
             //Food Items
             event.accept(ModItems.Eyeball);
@@ -437,7 +439,7 @@ public class BloodyHell
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            Minecraft.getInstance().particleEngine.register(ModParticles.CYLINDER_PARTICLE.get(), new CylinderParticle.Provider());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_BLOOD.get(), RenderType.translucent());  //RENDERIZADO DE LOS LIQUIDOS PARA QUE SEAN TRANSPARNETES
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_BLOOD.get(), RenderType.translucent());
             MenuScreens.register(ModMenuTypes.BLOOD_WORKBENCH_MENU.get(), BloodWorkBenchScreen::new);
@@ -448,6 +450,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOODY_SOUL_ENTITY.get(), BloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOODTHIRSTYBEAST.get(), BloodThirstyBeastRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_ARM_ENTITY.get(), BlasphemousArmEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
             EntityRenderers.register(ModEntityTypes.SCARLETSPECKLED_FISH.get(), ScarletSpeckledFishRenderer::new);
             EntityRenderers.register(ModEntityTypes.CRIMSON_RAVEN.get(), CrimsonRavenRenderer::new);
@@ -457,6 +460,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.UNKNOWN_EYE_ENTITY.get(), UnknownEyeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.UNKNOWN_ENTITY_ARMS.get(), UnknownEntityArmsRenderer::new);
             EntityRenderers.register(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SELIORA.get(), SelioraRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_MALFORMATION.get(), BlasphemousMalformationRenderer::new);
             EntityRenderers.register(ModEntityTypes.SANGUINE_SACRIFICE_ENTITY.get(), SanguineSacrificeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), BloodSlashRenderer::new);
@@ -471,7 +475,10 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLOOD_NOVA_ENTITY.get(), BloodNovaEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.SMALL_CRIMSON_DAGGER.get(), SmallCrimsonDaggerEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.VISCERAL_PROJECTILE.get(), VisceralProjectileEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.STARFALL_PROJECTILE.get(), StarfallProjectileEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_PORTAL_ENTITY.get(), BloodPortalEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_WHIRLWIND_ENTITY.get(), BlasphemousWhirlwindEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_SMALL_WHIRLWIND_ENTITY.get(), BlasphemousSmallWhirlwindEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());

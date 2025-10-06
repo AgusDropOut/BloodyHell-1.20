@@ -45,8 +45,8 @@ public class ImpactParticle extends TextureSheetParticle {
 
     @Override
     public void render(VertexConsumer consumer, Camera camera, float delta) {
-        renderParticle(consumer, camera, delta, Axis.XP.rotation(Mth.PI / 2));
-        renderParticle(consumer, camera, delta, Axis.XN.rotation(Mth.PI / 2));
+        float rotation = (age + delta) * 0.1f; // velocidad del giro
+        renderParticle(consumer, camera, delta, Axis.XP.rotation(Mth.PI / 2).rotateY(rotation));
     }
 
     private void renderParticle(VertexConsumer consumer, Camera camera, float delta, Quaternionf quaternion) {

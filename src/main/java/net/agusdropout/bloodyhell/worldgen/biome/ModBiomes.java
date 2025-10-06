@@ -5,6 +5,7 @@ import com.mojang.datafixers.util.Pair;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.particle.ModParticles;
+import net.agusdropout.bloodyhell.sound.ModSounds;
 import net.agusdropout.bloodyhell.worldgen.feature.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
@@ -103,8 +104,7 @@ public class ModBiomes {
                         .grassColorOverride(0xff0000)
                         .foliageColorOverride(0xff0000)
                         .fogColor(0xff0000)
-                        .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
-                        .ambientParticle(new AmbientParticleSettings(ModParticles.LIGHT_PARTICLES.get(), 0.003F))
+                        .backgroundMusic(new Music(ModSounds.SONG3.getHolder().get(), 6000, 24000, true))                        .ambientParticle(new AmbientParticleSettings(ModParticles.LIGHT_PARTICLES.get(), 0.003F))
                         .build())
                 .build();
     }

@@ -46,7 +46,7 @@ public class ModDimensions {
     public static final ResourceLocation DIMENSION_RENDERER = BloodyHell.prefix("renderer");
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(SOUL_DIMENSION_TYPE, new DimensionType(
-                OptionalLong.of(15000L), // fixedTime
+                OptionalLong.of(12000L), // fixedTime
                 true, // hasSkylight
                 false, // hasCeiling
                 false, // ultraWarm
@@ -134,88 +134,13 @@ public class ModDimensions {
 
                         //bedrock floor
                         SurfaceRules.ifTrue(SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
-                        //filler depthrock
-                        //Delete cealing and adding grass on top to prevent dark dead zone
                         SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110),1),SurfaceRules.state(Blocks.AIR.defaultBlockState())),
                         SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107),1), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))),
-                        //SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.belowTop(5), 0), SurfaceRules.state(ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState())),
-                        //sediment
                         SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState()))),
-                        ////mix coarse deepsoil into blood bog
-                        //SurfaceRules.ifTrue(
-                        //        SurfaceRules.isBiome(ModBiomes.BLOOD_BIOME),
-                        //        SurfaceRules.ifTrue(
-                        //                SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.CEILING),
-                        //                SurfaceRules.sequence(
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.noiseCondition(noises.getOrThrow(Noises.NETHER_STATE_SELECTOR).key(), 0.0D, 1.8D),
-                        //                                SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())
-                        //                        ),
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                        //                                SurfaceRules.state(ModBlocks.BLOODY_STONE_BLOCK.get().defaultBlockState())
-                        //                        )
-                        //                )
-                        //        )
-                        //),
-                        //mix coarse deepsoil into smog spires
-                       // SurfaceRules.ifTrue(
-                       //         SurfaceRules.isBiome(UGBiomes.SMOG_SPIRES),
-                       //         SurfaceRules.ifTrue(
-                       //                 SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR),
-                       //                 SurfaceRules.sequence(
-                       //                         SurfaceRules.ifTrue(
-                       //                                 SurfaceRules.noiseCondition(noises.getOrThrow(Noises.NETHER_STATE_SELECTOR).key(), 0.0D, 1.8D),
-                       //                                 SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())
-                       //                         ),
-                       //                         SurfaceRules.ifTrue(
-                       //                                 SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                       //                                 SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState())
-                       //                         )
-                       //                 )
-                       //         )
-                       // ),
-                        //mix coarse deepsoil into barren biomes
-                        //SurfaceRules.ifTrue(
-                        //        SurfaceRules.isBiome(UGBiomes.BARREN_ABYSS, UGBiomes.DEAD_SEA),
-                        //        SurfaceRules.ifTrue(
-                        //                SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR),
-                        //                SurfaceRules.sequence(
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.noiseCondition(noises.getOrThrow(Noises.NETHER_STATE_SELECTOR).key(), 0.0D, 1.8D),
-                        //                                SurfaceRules.state(UGBlocks.COARSE_DEEPSOIL.get().defaultBlockState())
-                        //                        ),
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
-                        //                                SurfaceRules.state(UGBlocks.DEPTHROCK.get().defaultBlockState())
-                        //                        ),
-                        //                        SurfaceRules.state(UGBlocks.DEPTHROCK.get().defaultBlockState())
-                        //                )
-                        //        )
-                        //),
-                        //mix powder snow into icy biomes
-                        //SurfaceRules.ifTrue(
-                        //        SurfaceRules.isBiome(UGBiomes.FROSTFIELDS, UGBiomes.ICY_SEA, UGBiomes.FROSTY_SMOGSTEM_FOREST),
-                        //        SurfaceRules.ifTrue(
-                        //                SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR),
-                        //                SurfaceRules.sequence(
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.noiseCondition(noises.getOrThrow(Noises.POWDER_SNOW).key(), 0.45D, 0.58D),
-                        //                                SurfaceRules.state(Blocks.POWDER_SNOW.defaultBlockState())
-                        //                        ),
-                        //                        SurfaceRules.ifTrue(
-                        //                                SurfaceRules.stoneDepthCheck(0, false, CaveSurface.FLOOR),
-                        //                                SurfaceRules.state(UGBlocks.FROZEN_DEEPTURF_BLOCK.get().defaultBlockState())
-                        //                        )
-                        //                )
-                        //        )
-                        //),
-                        //cover the ground in deepturf
                         SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())),
-                        //add deepsoil underneath
+                       
                         SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))
-                        //add shiverstone to icy biomes
-                        //SurfaceRules.ifTrue(SurfaceRules.isBiome(UGBiomes.FROSTFIELDS, UGBiomes.ICY_SEA, UGBiomes.FROSTY_SMOGSTEM_FOREST), SurfaceRules.state(UGBlocks.SHIVERSTONE.get().defaultBlockState()))
+
                 ),
                 List.of(), //spawn targets
                 32,

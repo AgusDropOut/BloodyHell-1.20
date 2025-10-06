@@ -89,6 +89,90 @@
         "bloodyhell:offspring_step"
       ]
     },
+    "starfall_ambient_sound": {
+      "subtitle": "sounds.bloodyhell.starfall_ambient_sound",
+      "sounds": [
+      "bloodyhell:starfall_ambient_sound"
+      ]
+    },
+    "starfall_explosion_sound": {
+      "subtitle": "sounds.bloodyhell.starfall_explosion_sound",
+      "sounds": [
+      "bloodyhell:starfall_explosion_sound"
+    ]
+  },
+  "whirldind_flying_sound": {
+    "subtitle": "sounds.bloodyhell.whirldind_flying_sound",
+    "sounds": [
+      "bloodyhell:whirldind_flying_sound"
+    ]
+  },
+  "whirldind_cut_sound": {
+    "subtitle": "sounds.bloodyhell.whirldind_cut_sound",
+    "sounds": [
+      "bloodyhell:whirldind_cut_sound"
+    ]
+  },
+  "seliora_hurt1_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_hurt1_sound",
+    "sounds": [
+      "bloodyhell:seliora_hurt1_sound"
+    ]
+  },
+  "seliora_hurt2_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_hurt2_sound",
+    "sounds": [
+      "bloodyhell:seliora_hurt2_sound"
+    ]
+  },
+  "seliora_lullaby_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_lullaby_sound",
+    "sounds": [
+      "bloodyhell:seliora_lullaby_sound"
+    ]
+  },
+  "seliora_second_phase_ambient_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_second_phase_ambient_sound",
+    "sounds": [
+      "bloodyhell:seliora_second_phase_ambient_sound"
+    ]
+  },
+  "seliora_charge_attack_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_charge_attack_sound",
+    "sounds": [
+      "bloodyhell:seliora_charge_attack_sound"
+    ]
+  },
+  "seliora_jump_attack_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_jump_attack_sound",
+    "sounds": [
+      "bloodyhell:seliora_jump_attack_sound"
+    ]
+  },
+  "seliora_ambient_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_ambient_sound",
+    "sounds": [
+      "bloodyhell:seliora_ambient_sound"
+    ]
+  },
+  "neck_snap_sound": {
+    "subtitle": "sounds.bloodyhell.neck_snap_sound",
+    "sounds": [
+      "bloodyhell:neck_snap_sound"
+    ]
+  },
+  "seliora_throw_sound": {
+    "subtitle": "sounds.bloodyhell.seliora_throw_sound",
+    "sounds": [
+      "bloodyhell:seliora_throw_sound"
+    ]
+  },
+  "song3": {
+    "subtitle": "sounds.bloodyhell.song3",
+    "sounds": [
+      "bloodyhell:song3"
+    ]
+  },
     "offspring_ambient": {
       "subtitle": "sounds.bloodyhell.offspring_ambient",
       "sounds": [

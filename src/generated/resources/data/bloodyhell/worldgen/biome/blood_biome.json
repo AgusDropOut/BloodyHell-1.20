@@ -11,11 +11,11 @@
     "fog_color": 16711680,
     "foliage_color": 16711680,
     "grass_color": 16711680,
-    "mood_sound": {
-      "block_search_extent": 8,
-      "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 6000,
+      "replace_current_music": true,
+      "sound": "bloodyhell:song3"
     },
     "particle": {
       "options": {

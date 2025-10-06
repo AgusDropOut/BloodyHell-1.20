@@ -64,6 +64,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<UnknownEyeEntity>> UNKNOWN_EYE_ENTITY = ENTITY_TYPES.register("unknown_eye_entity",
             () -> EntityType.Builder.<UnknownEyeEntity>of(UnknownEyeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "unknown_eye_entity").toString()));
+    public static final RegistryObject<EntityType<BlasphemousArmEntity>> BLASPHEMOUS_ARM_ENTITY = ENTITY_TYPES.register("blasphemous_arm_entity",
+            () -> EntityType.Builder.<BlasphemousArmEntity>of(BlasphemousArmEntity::new,MobCategory.AMBIENT).sized(1.3f,4f).build(new ResourceLocation(BloodyHell.MODID,
+                    "blasphemous_arm_entity").toString()));
     public static final RegistryObject<EntityType<UnknownEntityArms>> UNKNOWN_ENTITY_ARMS = ENTITY_TYPES.register("unknown_entity_arms",
             () -> EntityType.Builder.<UnknownEntityArms>of(UnknownEntityArms::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "unknown_entity_arms").toString()));
@@ -73,6 +76,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BlasphemousMalformationEntity>> BLASPHEMOUS_MALFORMATION = ENTITY_TYPES.register("blasphemous_malformation",
             () -> EntityType.Builder.<BlasphemousMalformationEntity>of(BlasphemousMalformationEntity::new,MobCategory.MONSTER).sized(1.2f,2f).build(new ResourceLocation(BloodyHell.MODID,
                     "blasphemous_malformation").toString()));
+    public static final RegistryObject<EntityType<SelioraEntity>> SELIORA = ENTITY_TYPES.register("seliora",
+            () -> EntityType.Builder.<SelioraEntity>of(SelioraEntity::new,MobCategory.MONSTER).sized(1.2f,2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "seliora").toString()));
     public static final RegistryObject<EntityType<SanguineSacrificeEntity>> SANGUINE_SACRIFICE_ENTITY = ENTITY_TYPES.register("sanguine_sacrifice_entity",
             () -> EntityType.Builder.<SanguineSacrificeEntity>of(SanguineSacrificeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "sanguine_sacrifice_entity").toString()));
@@ -93,7 +99,16 @@ public class ModEntityTypes {
                     "small_crimson_dagger").toString()));
     public static final RegistryObject<EntityType<VisceralProjectile>> VISCERAL_PROJECTILE = ENTITY_TYPES.register("visceral_projectile",
             () -> EntityType.Builder.<VisceralProjectile>of(VisceralProjectile::new,MobCategory.AMBIENT).sized(1.0f,1.0f).build(new ResourceLocation(BloodyHell.MODID,
-                    "small_crimson_dagger").toString()));
+                    "visceral_projectile").toString()));
+    public static final RegistryObject<EntityType<StarfallProjectile>> STARFALL_PROJECTILE = ENTITY_TYPES.register("starfall_projectile",
+            () -> EntityType.Builder.<StarfallProjectile>of(StarfallProjectile::new,MobCategory.AMBIENT).sized(1.0f,1.0f).updateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "starfall_projectile").toString()));
+    public static final RegistryObject<EntityType<BlasphemousWhirlwindEntity>> BLASPHEMOUS_WHIRLWIND_ENTITY = ENTITY_TYPES.register("blasphemous_whirlwind_entity",
+            () -> EntityType.Builder.<BlasphemousWhirlwindEntity>of(BlasphemousWhirlwindEntity::new,MobCategory.AMBIENT).sized(1.0f,1.0f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "blasphemous_whirlwind_entity").toString()));
+    public static final RegistryObject<EntityType<BlasphemousSmallWhirlwindEntity>> BLASPHEMOUS_SMALL_WHIRLWIND_ENTITY = ENTITY_TYPES.register("blasphemous_small_whirlwind_entity",
+            () -> EntityType.Builder.<BlasphemousSmallWhirlwindEntity>of(BlasphemousSmallWhirlwindEntity::new,MobCategory.AMBIENT).sized(1.5f,2.0f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
+                    "blasphemous_small_whirlwind_entity").toString()));
     public static final RegistryObject<EntityType<BloodPortalEntity>> BLOOD_PORTAL_ENTITY = ENTITY_TYPES.register("blood_portal_entity",
             () -> EntityType.Builder.<BloodPortalEntity>of(BloodPortalEntity::new,MobCategory.AMBIENT).sized(1.0f,1.0f).setShouldReceiveVelocityUpdates(true).setUpdateInterval(1).build(new ResourceLocation(BloodyHell.MODID,
                     "blood_portal_entity").toString()));

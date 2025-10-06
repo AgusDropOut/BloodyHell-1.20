@@ -3,7 +3,7 @@
   "bed_works": true,
   "coordinate_scale": 4.0,
   "effects": "bloodyhell:renderer",
-  "fixed_time": 15000,
+  "fixed_time": 12000,
   "has_ceiling": false,
   "has_raids": false,
   "has_skylight": true,

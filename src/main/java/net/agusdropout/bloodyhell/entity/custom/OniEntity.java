@@ -100,6 +100,7 @@ public class OniEntity extends Monster implements GeoEntity {
             this.canSummonAttack = true;
             this.summonCounter = 0;
         }
+
         super.aiStep();
     }
 

@@ -89,7 +89,7 @@ public class BloodSpellBookBloodBallItem extends Item implements GeoItem {
                             double baseZ = player.getZ() + Math.cos(radians) * 1.0;
 
 
-                            BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 30.0F, player, yaw, pitch);
+                            BloodProjectileEntity projectile = new BloodProjectileEntity(level, baseX, baseY, baseZ, 10.0F, player, yaw, pitch);
                             level.addFreshEntity(projectile);
 
                                 playerCrimsonVeil.subCrimsomveil(10);
