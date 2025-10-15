@@ -151,6 +151,10 @@ public class ModItems {
             new Item.Properties()));
     public static final RegistryObject<Item> SELIORA_SPAWN_EGG = ITEMS.register("seliora_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.SELIORA,0x000000 ,0xd4a600,
             new Item.Properties()));
+    public static final RegistryObject<Item> HORNED_WORM_SPAWN_EGG = ITEMS.register("horned_worm_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.HORNED_WORM,0x000000 ,0xd4a600,
+            new Item.Properties()));
+    public static final RegistryObject<Item> VEIL_STALKER_SPAWN_EGG = ITEMS.register("veil_stalker_spawn_egg",() -> new ForgeSpawnEggItem(ModEntityTypes.VEIL_STALKER,0x000000 ,0xd4a600,
+            new Item.Properties()));
 
     //Mobs Drops
     public static final RegistryObject<Item> VEINREAVER_HORN = ITEMS.register("veinreaver_horn", () -> new Item(

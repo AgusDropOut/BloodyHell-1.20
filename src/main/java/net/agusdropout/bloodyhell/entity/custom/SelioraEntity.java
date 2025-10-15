@@ -1,16 +1,15 @@
 package net.agusdropout.bloodyhell.entity.custom;
 
-import net.agusdropout.bloodyhell.entity.EntityBaseTypes.BloodyHellBoss;
 import net.agusdropout.bloodyhell.entity.ai.goals.*;
 import net.agusdropout.bloodyhell.networking.ModMessages;
 import net.agusdropout.bloodyhell.networking.packet.BossSyncS2CPacket;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.sound.ModSounds;
+import net.agusdropout.bloodyhell.entity.custom.BloodyHellBoss;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -41,6 +40,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+
 
 import java.util.Random;
 
@@ -119,6 +119,7 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
 
         if (DeathCooldown <= 0) {
             level().playLocalSound(this.getX(), this.getY(), this.getZ(), ModSounds.GRAWL_DEATH.get(), this.getSoundSource(), 1.0F, 1.0F, false);
+            sendBossPacket();
             this.remove(RemovalReason.KILLED);
         }
     }
@@ -279,13 +280,7 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
             }
         }
 
-        if(getHealth() < 10 && !this.isSecondPhase ){
-            this.setSecondPhaseStarting(true);
-        }
 
-        if(getHealth() <= 0 && this.isSecondPhase ){
-            this.isAlreadyDead = true;
-        }
 
 
 
@@ -322,19 +317,19 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
         BlockPos belowPos = this.blockPosition().below();
         BlockState block = level().getBlockState(belowPos);
 
-        // Genera varias partículas en un radio pequeño y con velocidad hacia arriba
+
         for (int i = 0; i < 50; i++) {
             double offsetX = (random.nextDouble() - 0.5) * 0.5; // ±0.25
             double offsetZ = (random.nextDouble() - 0.5) * 0.5; // ±0.25
             double offsetY = 0; // empieza en el suelo
-            double velocityY = 0.15 + random.nextDouble() * 0.05; // velocidad vertical pequeña
+            double velocityY = 0.15 + random.nextDouble() * 0.05;
 
             server.sendParticles(
                     new BlockParticleOption(ParticleTypes.BLOCK, block),
                     this.getX() + offsetX, this.getY() + offsetY, this.getZ() + offsetZ,
-                    1, // 1 partícula por spawn para controlar mejor la posición
-                    0, 0, 0, // sin dispersión
-                    velocityY // velocidad vertical
+                    1,
+                    0, 0, 0,
+                    velocityY
             );
         }
     }
@@ -343,38 +338,37 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
         if (!(level() instanceof ServerLevel server)) return;
 
         Random random = new Random();
-        int particleCount = 200; // número total de partículas
-        double speed = 0.3; // velocidad inicial de la explosión
+        int particleCount = 200;
+        double speed = 0.3;
 
         for (int i = 0; i < particleCount; i++) {
-            // Genera una dirección aleatoria normalizada (vector unitario)
+
             double dx = random.nextDouble() * 2 - 1; // -1 a 1
             double dy = random.nextDouble() * 2 - 1;
             double dz = random.nextDouble() * 2 - 1;
 
-            // Normalizamos el vector para que tenga la misma longitud
+
             double length = Math.sqrt(dx*dx + dy*dy + dz*dz);
-            if (length == 0) length = 1; // evitar división por cero
+            if (length == 0) length = 1;
             dx /= length;
             dy /= length;
             dz /= length;
 
-            // Aplicamos la velocidad
+
             dx *= speed;
             dy *= speed;
             dz *= speed;
 
-            // Spawneamos la partícula
+
             server.sendParticles(
-                    ModParticles.MAGIC_LINE_PARTICLE.get(), // reemplazar por tu Magic Line particle si tenés uno personalizado
-                    this.getX(), this.getY() + 1, this.getZ(), // posición del centro
-                    1, // 1 partícula
-                    dx, dy, dz, // offset (0 porque usamos la velocidad)
-                    0.1 // velocidad base 0, ya que usamos dx, dy, dz
+                    ModParticles.MAGIC_LINE_PARTICLE.get(),
+                    this.getX(), this.getY() + 1, this.getZ(),
+                    1,
+                    dx, dy, dz,
+                    0.1
             );
 
-            // Alternativa con movimiento "manual" (si tu sistema lo permite)
-            // Podrías usar un EntityParticle personalizado para que siga el vector (dx, dy, dz)
+
         }
     }
 
@@ -382,11 +376,20 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
 
 
     @Override
-    public boolean hurt(DamageSource p_21016_, float p_21017_) {
+    public boolean hurt(DamageSource p_21016_, float damage) {
         if(this.isSecondPhaseStarting()) {
             return false;
         } else {
-            return super.hurt(p_21016_, p_21017_);
+            if(getHealth()-damage < 10 && !this.isSecondPhase ){
+                this.setSecondPhaseStarting(true);
+            }
+
+            if(getHealth()-damage <= 0 && this.isSecondPhase ){
+                this.isAlreadyDead = true;
+                sendBossPacket();
+            }
+
+            return super.hurt(p_21016_, damage);
         }
     }
 
@@ -662,8 +665,8 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
     public void sendBossPacket() {
         if (!this.level().isClientSide && this.tickCount % 20 == 0) {
             this.level().players().forEach(player -> {
-                int bossId = (this.isAlive() && player.distanceTo(this) < 50) ? this.getId() : -1;
-                ModMessages.sendToPlayer(new BossSyncS2CPacket(bossId), (ServerPlayer) player);
+                boolean isNear = this.isAlive() && player.distanceTo(this) < 50;
+                ModMessages.sendToPlayer(new BossSyncS2CPacket((int)getHealth(), (int)getMaxHealth(), isDeadOrDying(), isNear), (ServerPlayer) player);
             });
         }
     }
@@ -674,7 +677,7 @@ public class SelioraEntity extends Monster implements GeoEntity , BloodyHellBoss
         if (!this.level().isClientSide) {
             this.level().players().forEach(player -> {
                 ModMessages.sendToPlayer(
-                        new BossSyncS2CPacket(-1),
+                        new BossSyncS2CPacket((int)getHealth(), (int)getMaxHealth(), isDeadOrDying(), false),
                         (ServerPlayer) player
                 );
             });

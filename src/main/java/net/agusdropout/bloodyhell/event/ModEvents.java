@@ -63,7 +63,7 @@ public class ModEvents {
 
             }
             private void RegisterDimensionSpecialEffectsEvent(RegisterDimensionSpecialEffectsEvent event) {
-                event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
+                event.register(ModDimensions.DIMENSION_RENDERER, new BloodDimensionRenderInfo(-128.0F, false, DimensionSpecialEffects.SkyType.NONE, false, false));
             }
 
 
@@ -80,6 +80,8 @@ public class ModEvents {
                 event.put(OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownEntity.setAttributes());
                 event.put(SELIORA.get(), SelioraEntity.setAttributes());
                 event.put(BLASPHEMOUS_MALFORMATION.get(), BlasphemousMalformationEntity.setAttributes());
+                event.put(HORNED_WORM.get(), HornedWormEntity.setAttributes());
+                event.put(VEIL_STALKER.get(), VeilStalkerEntity.setAttributes());
                 event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());
                 event.put(EYESHELL_SNAIL.get(), EyeshellSnailEntity.setAttributes());
@@ -132,7 +134,7 @@ public class ModEvents {
                         player.getCapability(PlayerCrimsonveilProvider.PLAYER_CRIMSONVEIL).ifPresent(crimsonVeil -> {
                             ModMessages.sendToPlayer(new CrimsonVeilDataSyncS2CPacket(crimsonVeil.getCrimsonVeil()), player);
                         });
-                        ModMessages.sendToPlayer(new BossSyncS2CPacket(-1), player);
+                        ModMessages.sendToPlayer(new BossSyncS2CPacket(0,0,false,false), player);
                     }
                 }
             }
@@ -141,7 +143,7 @@ public class ModEvents {
             public static void onPlayerAbandonWorld(EntityLeaveLevelEvent event) {
                 if(!event.getLevel().isClientSide()) {
                     if(event.getEntity() instanceof ServerPlayer player) {
-                        ModMessages.sendToPlayer(new BossSyncS2CPacket(-1), player);
+                        ModMessages.sendToPlayer(new BossSyncS2CPacket(0,0,false,false), player);
                     }
                 }
             }

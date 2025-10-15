@@ -73,6 +73,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<OffspringOfTheUnknownEntity>> OFFSPRING_OF_THE_UNKNOWN = ENTITY_TYPES.register("offspring_of_the_unknown",
             () -> EntityType.Builder.<OffspringOfTheUnknownEntity>of(OffspringOfTheUnknownEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "offspring_of_the_unknown").toString()));
+    public static final RegistryObject<EntityType<HornedWormEntity>> HORNED_WORM = ENTITY_TYPES.register("horned_worm",
+            () -> EntityType.Builder.<HornedWormEntity>of(HornedWormEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "horned_worm").toString()));
+    public static final RegistryObject<EntityType<VeilStalkerEntity>> VEIL_STALKER = ENTITY_TYPES.register("veil_stalker",
+            () -> EntityType.Builder.<VeilStalkerEntity>of(VeilStalkerEntity::new,MobCategory.MONSTER).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "veil_stalker").toString()));
     public static final RegistryObject<EntityType<BlasphemousMalformationEntity>> BLASPHEMOUS_MALFORMATION = ENTITY_TYPES.register("blasphemous_malformation",
             () -> EntityType.Builder.<BlasphemousMalformationEntity>of(BlasphemousMalformationEntity::new,MobCategory.MONSTER).sized(1.2f,2f).build(new ResourceLocation(BloodyHell.MODID,
                     "blasphemous_malformation").toString()));

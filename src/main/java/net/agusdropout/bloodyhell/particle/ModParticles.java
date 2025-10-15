@@ -28,6 +28,9 @@ public class ModParticles {
             PARTICLE_TYPES.register("magic_particle_line", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> MAGIC_SIMPLE_LINE_PARTICLE =
             PARTICLE_TYPES.register("magic_simple_particle_line", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> BLASPHEMOUS_BIOME_PARTICLE =
+            PARTICLE_TYPES.register("blasphemous_biome_particle", () -> new SimpleParticleType(true));
+
     public static final RegistryObject<SimpleParticleType> SLASH_PARTICLE =
             PARTICLE_TYPES.register("slash_particle", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> VICERAL_PARTICLE =

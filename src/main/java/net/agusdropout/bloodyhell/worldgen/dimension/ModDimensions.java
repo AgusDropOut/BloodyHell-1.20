@@ -4,6 +4,7 @@ import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.worldgen.ModBiomeModifiers;
 import net.agusdropout.bloodyhell.worldgen.biome.ModBiomes;
+import net.agusdropout.bloodyhell.worldgen.biome.surface.ModSurfaceRules;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -27,6 +28,8 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import java.util.List;
 import java.util.OptionalLong;
 
+import static net.agusdropout.bloodyhell.worldgen.biome.ModBiomes.buildBiomeSource;
+
 
 public class ModDimensions {
     public static final ResourceKey<LevelStem> SOUL_DIMENSION_KEY = ResourceKey.create(Registries.LEVEL_STEM,
@@ -46,7 +49,7 @@ public class ModDimensions {
     public static final ResourceLocation DIMENSION_RENDERER = BloodyHell.prefix("renderer");
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(SOUL_DIMENSION_TYPE, new DimensionType(
-                OptionalLong.of(12000L), // fixedTime
+                OptionalLong.of(18000L), // fixedTime
                 true, // hasSkylight
                 false, // hasCeiling
                 false, // ultraWarm
@@ -55,7 +58,7 @@ public class ModDimensions {
                 true, // bedWorks
                 false, // respawnAnchorWorks
                 0, // minY
-                128, // height
+                256, // height
                 128, // logicalHeight
                 BlockTags.INFINIBURN_OVERWORLD, // infiniburn
                 DIMENSION_RENDERER, // effectsLocation
@@ -67,11 +70,14 @@ public class ModDimensions {
         HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
-        context.register(SOUL_DIMENSION_KEY, new LevelStem(dimTypes.getOrThrow(SOUL_DIMENSION_TYPE),
-                new NoiseBasedChunkGenerator(ModBiomes.buildBiomeSource(biomeRegistry), noiseGenSettings.getOrThrow(SOUL_DIMENSION_NOISE_GEN))));
-        //NoiseBasedChunkGenerator wrappedChunkGenerator = new NoiseBasedChunkGenerator(
-        //        new FixedBiomeSource(biomeRegistry.getOrThrow(ModBiomes.BLOOD_BIOME)),
-        //        noiseGenSettings.getOrThrow(NoiseGeneratorSettings.AMPLIFIED));
+
+        context.register(SOUL_DIMENSION_KEY, new LevelStem(
+                dimTypes.getOrThrow(SOUL_DIMENSION_TYPE),
+                new NoiseBasedChunkGenerator(
+                        buildBiomeSource(biomeRegistry),  // Biomes encima del terreno
+                        noiseGenSettings.getOrThrow(SOUL_DIMENSION_NOISE_GEN) // Terreno base
+                )
+        ));
     }
     public static void bootstrapNoise(BootstapContext<NoiseGeneratorSettings> context) {
 
@@ -132,14 +138,15 @@ public class ModDimensions {
                 ),
                 SurfaceRules.sequence(
 
-                        //bedrock floor
-                        SurfaceRules.ifTrue(SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
-                        SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110),1),SurfaceRules.state(Blocks.AIR.defaultBlockState())),
-                        SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107),1), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))),
-                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState()))),
-                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())),
-                       
-                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))
+                      //////bedrock floor
+                      //SurfaceRules.ifTrue(SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)), SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())),
+                      //SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110),1),SurfaceRules.state(Blocks.AIR.defaultBlockState())),
+                      //SurfaceRules.ifTrue(SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107),1), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState()))),
+                      //SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR), SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), SurfaceRules.state(ModBlocks.BLOOD_DIRT_BLOCK.get().defaultBlockState()))),
+                      //SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())),
+
+                      //SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(ModBlocks.BLOOD_GRASS_BLOCK.get().defaultBlockState())),
+                        ModSurfaceRules.makeRules()
 
                 ),
                 List.of(), //spawn targets

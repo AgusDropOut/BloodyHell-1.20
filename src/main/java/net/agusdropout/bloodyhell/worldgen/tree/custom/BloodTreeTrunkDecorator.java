@@ -28,14 +28,14 @@ public class BloodTreeTrunkDecorator extends TreeDecorator {
                 BlockPos newPos = pos.offset(direction.getStepX(), 0, direction.getStepZ());
                 if (random.nextInt(25) == 0) {
                     if (context.isAir(newPos)) {
-                        placeGronglet(context, newPos, direction);
+                        placeMushroom(context, newPos, direction);
                     }
                 }
             }
         });
     }
 
-    private void placeGronglet(TreeDecorator.Context context, BlockPos pos, Direction direction) {
+    private void placeMushroom(TreeDecorator.Context context, BlockPos pos, Direction direction) {
         context.setBlock(pos, ModBlocks.BLOOD_WALL_MUSHROOM_BLOCK.get().defaultBlockState().setValue(BaseWallPlantBlock.FACING, direction));
     }
 }

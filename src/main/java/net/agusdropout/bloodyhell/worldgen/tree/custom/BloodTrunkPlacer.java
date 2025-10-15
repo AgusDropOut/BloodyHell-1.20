@@ -51,7 +51,7 @@ public class BloodTrunkPlacer extends TrunkPlacer {
                         pBlockSetter.accept(pPos.above(i).relative(Direction.NORTH, j),
                                 ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z))));
                     }
-                    // Coloca un tronco adicional en la parte superior de la rama
+
                     pBlockSetter.accept(pPos.above(6).relative(Direction.NORTH, 3),
                             ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y))));
                     list.add(new FoliagePlacer.FoliageAttachment(pPos.above(6).relative(Direction.NORTH,3), 1, false));
@@ -61,7 +61,7 @@ public class BloodTrunkPlacer extends TrunkPlacer {
                         pBlockSetter.accept(pPos.above(i).relative(Direction.SOUTH, j),
                                 ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z))));
                     }
-                    // Coloca un tronco adicional en la parte superior de la rama
+
                     pBlockSetter.accept(pPos.above(6).relative(Direction.SOUTH, 3),
                             ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y))));
                     list.add(new FoliagePlacer.FoliageAttachment(pPos.above(6).relative(Direction.SOUTH,3), 1, false));
@@ -70,7 +70,7 @@ public class BloodTrunkPlacer extends TrunkPlacer {
                         pBlockSetter.accept(pPos.above(i).relative(Direction.WEST, j),
                                 ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X))));
                     }
-                    // Coloca un tronco adicional en la parte superior de la rama
+
                     pBlockSetter.accept(pPos.above(6).relative(Direction.WEST, 3),
                             ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y))));
                     list.add(new FoliagePlacer.FoliageAttachment(pPos.above(6).relative(Direction.WEST,3), 1, false));
@@ -79,7 +79,7 @@ public class BloodTrunkPlacer extends TrunkPlacer {
                         pBlockSetter.accept(pPos.above(i).relative(Direction.EAST, j),
                                 ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X))));
                     }
-                    // Coloca un tronco adicional en la parte superior de la rama
+
                     pBlockSetter.accept(pPos.above(6).relative(Direction.EAST, 3),
                             ((BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y))));
                     list.add(new FoliagePlacer.FoliageAttachment(pPos.above(6).relative(Direction.EAST,3), 1, false));

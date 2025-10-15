@@ -164,7 +164,10 @@
   "item.bloodyhell.veinraver_entity_spawn_egg": "Vein Raver",
   "item.bloodyhell.omen_gazer_entity_spawn_egg": "Omen Gazer",
   "item.bloodyhell.offspring_of_the_unknown_spawn_egg": "Offspring of the Unknown",
-    "item.bloodyhell.blasphemous_malformation_spawn_egg": "Blasphemous Malformation",
+  "item.bloodyhell.blasphemous_malformation_spawn_egg": "Blasphemous Malformation",
+  "item.bloodyhell.veil_stalker_spawn_egg": "Veil Stalker",
+  "item.bloodyhell.seliora_spawm_egg": "Seliora",
+  "item.bloodyhell.horned_worm_spawn_egg": "Horned Worm",
 
   "block.bloodyhell.bloody_stone_block": "Bloody Stone Block",
   "block.bloodyhell.bloody_stone_stairs": "Bloody Stone Stairs",
@@ -209,6 +212,18 @@
   "block.bloodyhell.glowing_crystal_lantern": "Glowing Crystal Lantern",
   "block.bloodyhell.blood_glowing_chains_block": "Blood Glowing Chains Block",
 
-  "sounds.bloodyhell.grawl_drown": "Drowning Sound"
+  "sounds.bloodyhell.grawl_drown": "Drowning Sound",
 
+  "block.bloodyhell.blasphemous_sand_block": "Blasphemous Sand",
+  "block.bloodyhell.blasphemous_sandstone_block": "Blasphemous Sandstone",
+  "block.bloodyhell.eroded_blasphemous_sandstone": "Eroded Blasphemous Sandstone",
+  "block.bloodyhell.fully_eroded_blasphemous_sandstone": "Fully Eroded Blasphemous Sandstone",
+  "block.bloodyhell.cracked_blasphemous_sandstone": "Cracked Blasphemous Sandstone",
+  "block.bloodyhell.spiky_grass": "Spiky Grass",
+  "block.bloodyhell.rounded_grass": "Rounded Grass",
+  "block.bloodyhell.sting_flower": "Sting Flower",
+  "block.bloodyhell.cinder_bloom_cactus_flower": "Cinder Bloom Cactus Flower",
+  "block.bloodyhell.cinder_bloom_cactus_center": "Cinder Bloom Cactus Center",
+  "block.bloodyhell.cinder_bloom_cactus_con": "Cinder Bloom Cactus Connection",
+  "block.bloodyhell.cinder_bloom_cactus_root": "Cinder Bloom Cactus Root"
 }

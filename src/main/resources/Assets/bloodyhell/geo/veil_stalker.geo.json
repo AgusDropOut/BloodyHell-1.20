@@ -1,0 +1,67 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "veil_stalker",
+					"pivot": [0, 11, 0],
+					"cubes": [
+						{"origin": [-4, 3, -2], "size": [8, 15, 6], "uv": [0, 46]},
+						{"origin": [0, 3, 4], "size": [0, 15, 4], "uv": [48, 21]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "veil_stalker",
+					"pivot": [0, 18.5, 1],
+					"cubes": [
+						{"origin": [-3, 18, -1], "size": [6, 7, 4], "uv": [48, 0]}
+					]
+				},
+				{
+					"name": "head_deco",
+					"parent": "head",
+					"pivot": [0, 19, 2],
+					"cubes": [
+						{"origin": [-9, 19, 1], "size": [18, 17, 0], "uv": [92, 111]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "veil_stalker",
+					"pivot": [0, 4.20833, 4.66667],
+					"cubes": [
+						{"origin": [-4, -3, 4], "size": [8, 9, 1], "uv": [48, 11]},
+						{"origin": [-2, -7, 4], "size": [4, 4, 1], "uv": [56, 35]},
+						{"origin": [-6, -23.75, 5], "size": [12, 19.75, 0], "uv": [28, 46]}
+					]
+				},
+				{
+					"name": "wing2",
+					"parent": "veil_stalker",
+					"pivot": [-4, 10.5, 1],
+					"cubes": [
+						{"origin": [-34, -4, 1], "size": [34, 29, 0], "uv": [0, 99]}
+					]
+				},
+				{
+					"name": "wing1",
+					"parent": "veil_stalker",
+					"pivot": [4.5, 10.5, 1],
+					"cubes": [
+						{"origin": [0, -4, 1], "size": [33, 29, 0], "uv": [1, 99], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

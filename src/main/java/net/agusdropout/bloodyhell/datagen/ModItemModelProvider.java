@@ -13,6 +13,7 @@ import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -73,6 +74,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         egg(ModItems.OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG);
         egg(ModItems.BLASPHEMOUS_MALFORMATION_SPAWN_EGG);
         egg(ModItems.SELIORA_SPAWN_EGG);
+        egg(ModItems.HORNED_WORM_SPAWN_EGG);
+        egg(ModItems.VEIL_STALKER_SPAWN_EGG);
 
         //Food Items
         normalItem(ModItems.GOREHOG_RAW_STEAK);
@@ -161,6 +164,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.BLOOD_PLANKS_STAIRS);
         evenSimplerBlockItem(ModBlocks.BLOOD_PLANKS_SLAB);
         evenSimplerBlockItem(ModBlocks.BLOOD_PLANKS_FENCE_GATE);
+
+        //Blasphemous Biome
+        evenSimplerBlockItem(ModBlocks.BLASPHEMOUS_SAND_BLOCK);
+        evenSimplerBlockItem(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
+        evenSimplerBlockItem(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
+        evenSimplerBlockItem(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);
+        simpleBlockItemBlockTexture(ModBlocks.SPIKY_GRASS);
+        simpleBlockItemBlockTexture(ModBlocks.ROUNDED_GRASS);
+        simpleBlockItemBlockTexture(ModBlocks.STING_FLOWER);
 
 
         normalItem(ModItems.DIRTY_BLOOD_FLOWER);
@@ -277,6 +290,14 @@ public class ModItemModelProvider extends ItemModelProvider {
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  new ResourceLocation(BloodyHell.MODID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+
+    public void emissiveBlockItem(RegistryObject<Block> block) {
+        String name = ForgeRegistries.BLOCKS.getKey(block.get()).getPath();
+
+        this.withExistingParent(name, modLoc("block/" + name))
+                .texture("layer1", new ResourceLocation(BloodyHell.MODID, "block/" + name + "_emissive"))
+                .renderType("cutout");
     }
 
 

@@ -63,6 +63,13 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_LILY_KEY = registerKey("blood_lily");
     public static final ResourceKey<ConfiguredFeature<?,?>> DROOPVINE_KEY = registerKey("droopvine");
     public static final ResourceKey<ConfiguredFeature<?,?>> STONE_PILLAR_KEY = registerKey("stone_pillar");
+    public static final ResourceKey<ConfiguredFeature<?,?>> CINDER_CACTUS_KEY = registerKey("cinder_cactus");
+    public static final ResourceKey<ConfiguredFeature<?,?>> CINDER_CACTUS_FLOWER_KEY = registerKey("cinder_cactus_flower");
+    public static final ResourceKey<ConfiguredFeature<?,?>> GIANT_SPINE_KEY = registerKey("giant_spine");
+    public static final ResourceKey<ConfiguredFeature<?,?>> GIANT_ROOT_KEY = registerKey("giant_root");
+    public static final ResourceKey<ConfiguredFeature<?,?>> SPIKY_GRASS_KEY = registerKey("spiky_grass");
+    public static final ResourceKey<ConfiguredFeature<?,?>> STING_FLOWER_KEY = registerKey("sting_flower");
+    public static final ResourceKey<ConfiguredFeature<?,?>> ROUNDED_GRASS_KEY = registerKey("rounded_grass");
     public static final ResourceKey<ConfiguredFeature<?,?>> BLOOD_SCRAPPER_PLANT_KEY = registerKey("blood_scrapper_plant");
     public static final ResourceKey<ConfiguredFeature<?,?>> GLOWING_CRYSTAL_KEY = registerKey("glowing_crystal_key");
 
@@ -99,7 +106,7 @@ public class ModConfiguredFeatures {
         );
         register(context,GIANT_BLOOD_TREE_KEY,Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.BLOOD_LOG.get()),
-                //altura/no se
+
                 new MegaJungleTrunkPlacer(10, 5, 5),
                 BlockStateProvider.simple(ModBlocks.BLOOD_LEAVES.get()),
                 new MegaJungleFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), 2),
@@ -122,6 +129,8 @@ public class ModConfiguredFeatures {
         context.register(BLOOD_FLOWER_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_FLOWER.get(), 64)));
         context.register(LIGHT_MUSHROOM_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), 35)));
         context.register(BLOOD_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_GRASS.get(), 100)));
+        context.register(SPIKY_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.SPIKY_GRASS.get(), 10)));
+        context.register(ROUNDED_GRASS_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.ROUNDED_GRASS.get(), 30)));
         context.register(BLOOD_BUSH_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_BUSH.get(), 32)));
         context.register(BLOOD_SMALL_ROCKS_KEY, new ConfiguredFeature<>(Feature.FLOWER, rocks(ModBlocks.SMALL_ROCKS.get(),List.of(ModBlocks.BLOODY_STONE_BLOCK.get(), ModBlocks.BLOOD_GRASS_BLOCK.get(),ModBlocks.BLOOD_DIRT_BLOCK.get()))));
         context.register(BLOOD_PETALS_KEY, new ConfiguredFeature<>(Feature.RANDOM_PATCH, patch(ModBlocks.BLOOD_PETALS.get(), 70)));
@@ -129,6 +138,11 @@ public class ModConfiguredFeatures {
         context.register(BLOOD_LILY_KEY,new ConfiguredFeature<> (Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.BLOOD_LILY_BLOCK.get()))))));
         context.register(DROOPVINE_KEY, new ConfiguredFeature<>(ModFeatures.DROOPVINE.get(),NoneFeatureConfiguration.NONE));
         context.register(STONE_PILLAR_KEY, new ConfiguredFeature<>(ModFeatures.STONE_PILLAR.get(),NoneFeatureConfiguration.NONE));
+        context.register(CINDER_CACTUS_KEY, new ConfiguredFeature<>(ModFeatures.CINDER_CACTUS.get(),NoneFeatureConfiguration.NONE));
+        context.register(CINDER_CACTUS_FLOWER_KEY, new ConfiguredFeature<>(ModFeatures.CINDER_FLOWER.get(),NoneFeatureConfiguration.NONE));
+        context.register(GIANT_SPINE_KEY, new ConfiguredFeature<>(ModFeatures.GIANT_SPINE.get(),NoneFeatureConfiguration.NONE));
+        context.register(GIANT_ROOT_KEY, new ConfiguredFeature<>(ModFeatures.GIANT_ROOT.get(),NoneFeatureConfiguration.NONE));
+        context.register(STING_FLOWER_KEY, new ConfiguredFeature<>(ModFeatures.STING_FLOWER_FEATURE.get(),NoneFeatureConfiguration.NONE));
         context.register(BLOOD_SCRAPPER_PLANT_KEY, new ConfiguredFeature<>(Feature.FLOWER, patch(ModBlocks.BLOOD_SCRAPPER_PLANT_SAPLING.get(), 5)));
 
 }

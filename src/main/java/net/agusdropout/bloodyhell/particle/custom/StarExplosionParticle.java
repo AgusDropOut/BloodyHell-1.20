@@ -15,6 +15,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
 
@@ -45,13 +46,17 @@ public class StarExplosionParticle extends Particle {
         double py = Mth.lerp(partialTicks, yo, y) - camPos.y;
         double pz = Mth.lerp(partialTicks, zo, z) - camPos.z;
 
-        // setup render
+        // ---- CONFIGURACIÓN DE RENDER ----
         RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
+        RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
         RenderSystem.disableCull();
+        RenderSystem.enableDepthTest();
         RenderSystem.depthMask(false);
-        RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
-        RenderSystem.setShaderTexture(0, texture);
+
+        // Usa shader de posición y color (sin texCoord obligatorio)
+        RenderSystem.setShader(GameRenderer::getPositionColorShader);
+        RenderSystem.setShaderColor(1f, 1f, 0f, 1f); // amarillo base
+        RenderSystem.setShaderTexture(0, texture);   // si querés textura, aún sirve
 
         Tesselator tess = Tesselator.getInstance();
         BufferBuilder buffer = tess.getBuilder();
@@ -61,25 +66,20 @@ public class StarExplosionParticle extends Particle {
         float alpha = 1.0f - (time / lifetime);
         alpha = Math.max(alpha, 0.05f);
 
-        // 🔥 capas de blur
         int blurLayers = 10;
         for (int b = 0; b < blurLayers; b++) {
-            float blurFactor = 1f + b * 0.25f;   // cada capa más grande
-            float alphaFactor = 1f / (b + 2);    // más transparencia
-
+            float blurFactor = 1f + b * 0.25f;
+            float alphaFactor = 1f / (b + 2);
             float radius = baseR * blurFactor;
 
-            // ⏳ lifetime más corto para capas internas
             float layerLifetime = lifetime * (1f + b * 0.15f);
             float lifeDecay = 1f - (time / layerLifetime);
-
-            // 🎚️ factor de profundidad (capas internas se desvanecen más rápido)
             float depthFactor = (1f - (float)b / blurLayers);
 
             float layerAlpha = alpha * alphaFactor * lifeDecay * depthFactor;
-            layerAlpha = Math.max(layerAlpha, 0f);
+            if (layerAlpha <= 0f) continue;
 
-            buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR_TEX);
+            buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 
             for (int i = 0; i < latSegments; i++) {
                 double theta1 = Math.PI * i / latSegments - Math.PI / 2;
@@ -105,15 +105,16 @@ public class StarExplosionParticle extends Particle {
                     float y4 = (float) (py + radius * Math.sin(theta1));
                     float z4 = (float) (pz + radius * Math.cos(theta1) * Math.sin(phi2));
 
-                    buffer.vertex(x1, y1, z1).color(1f, 1f, 1f, layerAlpha).uv(0f, 1f).endVertex();
-                    buffer.vertex(x2, y2, z2).color(1f, 1f, 1f, layerAlpha).uv(0f, 0f).endVertex();
-                    buffer.vertex(x3, y3, z3).color(1f, 1f, 1f, layerAlpha).uv(1f, 0f).endVertex();
-                    buffer.vertex(x4, y4, z4).color(1f, 1f, 1f, layerAlpha).uv(1f, 1f).endVertex();
+                    buffer.vertex(x1, y1, z1).color(1f, 1f, 0f, layerAlpha).endVertex();
+                    buffer.vertex(x2, y2, z2).color(1f, 1f, 0f, layerAlpha).endVertex();
+                    buffer.vertex(x3, y3, z3).color(1f, 1f, 0f, layerAlpha).endVertex();
+                    buffer.vertex(x4, y4, z4).color(1f, 1f, 0f, layerAlpha).endVertex();
                 }
             }
 
             tess.end();
         }
+
         RenderSystem.depthMask(true);
         RenderSystem.disableBlend();
         RenderSystem.enableCull();

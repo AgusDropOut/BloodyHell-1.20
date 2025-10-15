@@ -35,6 +35,10 @@
     "bloodyhell:bloody_stone_bricks_wall",
     "bloodyhell:small_rocks",
     "bloodyhell:blood_altar",
-    "bloodyhell:main_blood_altar"
+    "bloodyhell:main_blood_altar",
+    "bloodyhell:blasphemous_sandstone_block",
+    "bloodyhell:eroded_blasphemous_sandstone",
+    "bloodyhell:cracked_blasphemous_sandstone",
+    "bloodyhell:fully_eroded_blasphemous_sandstone"
   ]
 }

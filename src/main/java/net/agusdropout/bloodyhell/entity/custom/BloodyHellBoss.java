@@ -1,6 +1,4 @@
-package net.agusdropout.bloodyhell.entity.EntityBaseTypes;
-
-import java.awt.*;
+package net.agusdropout.bloodyhell.entity.custom;
 
 public interface BloodyHellBoss {
     float getHealth();

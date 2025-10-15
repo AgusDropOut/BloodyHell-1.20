@@ -145,6 +145,19 @@ public class ModLootTables extends LootTableProvider {
             this.dropOther(ModBlocks.DROOPVINE.get(),ModItems.GLOW_FRUIT.get());
             this.dropOther(ModBlocks.DROOPVINE_PLANT.get(),ModItems.GLOW_FRUIT.get());
 
+            this.dropSelf(ModBlocks.BLASPHEMOUS_SAND_BLOCK.get());
+            this.dropSelf(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_ROOT.get());
+            this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_CON.get());
+            this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_CENTER.get());
+            this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_FLOWER.get());
+            this.dropSelf(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE.get());
+            this.dropSelf(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE.get());
+            this.dropSelf(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE.get());
+            this.dropSelf(ModBlocks.SPIKY_GRASS.get());
+            this.dropSelf(ModBlocks.ROUNDED_GRASS.get());
+            this.dropSelf(ModBlocks.STING_FLOWER.get());
+
             ore(ModBlocks.SANGUINITE_ORE, ModItems.RAW_SANGUINITE);
 
 
@@ -302,6 +315,16 @@ public class ModLootTables extends LootTableProvider {
                     )
             );
             this.add(ModEntityTypes.SELIORA.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.HORNED_WORM.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                    )
+            );
+            this.add(ModEntityTypes.VEIL_STALKER.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
                     )

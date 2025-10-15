@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bloodyhell:block/cinder_bloom_cactus_root",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bloodyhell:block/cinder_bloom_cactus_root"
+    },
+    "axis=z": {
+      "model": "bloodyhell:block/cinder_bloom_cactus_root",
+      "x": 90
+    }
+  }
+}

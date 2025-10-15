@@ -16,6 +16,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
 
@@ -46,43 +47,25 @@ public class MagicWaveParticle extends Particle {
         double py = Mth.lerp(partialTicks, yo, y) - camPos.y;
         double pz = Mth.lerp(partialTicks, zo, z) - camPos.z;
 
+        // --- CONFIGURACIÓN SHADER ---
         RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
+        RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
         RenderSystem.disableCull();
         RenderSystem.depthMask(false);
-        RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
-        RenderSystem.setShaderTexture(0, texture);
+        RenderSystem.setShader(GameRenderer::getPositionColorShader);
 
         Tesselator tess = Tesselator.getInstance();
         BufferBuilder buffer = tess.getBuilder();
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 
         float time = age + partialTicks;
-
-        // 🔹 Alpha que se reduce con el tiempo
-        float alpha = 1.0f - (time / lifetime);
-        alpha = Math.min(alpha, 1f);
-        alpha = Math.max(alpha, 0f);
-
-        // 🔹 Radio que sigue creciendo
+        float alpha = Mth.clamp(1.0f - (time / lifetime), 0f, 1f);
         float radius = baseRadius + growthRate * time;
-
-        // 🔹 Chispas opcionales
-        if (level.isClientSide && age % 2 == 0) {
-            double angle = Math.random() * 2 * Math.PI;
-            double radOffset = radius * (0.8 + 0.2 * Math.random());
-            double sparkX = x + Math.cos(angle) * radOffset;
-            double sparkY = y + (Math.random() - 0.5) * 0.2;
-            double sparkZ = z + Math.sin(angle) * radOffset;
-
-            level.addParticle(ModParticles.MAGIC_LINE_PARTICLE.get(),
-                    sparkX, sparkY, sparkZ,
-                    0, 0.02 + Math.random() * 0.02, 0);
-        }
-
-        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR_TEX);
 
         double minTheta = -Math.PI / 32;
         double maxTheta = Math.PI / 32;
+
+        float r = 1f, g = 0.9f, b = 0.3f;
 
         for (int i = 0; i < latSegments; i++) {
             double theta1 = Math.PI * i / latSegments - Math.PI / 2;
@@ -109,11 +92,10 @@ public class MagicWaveParticle extends Particle {
                 float y4 = (float) (py + radius * Math.sin(theta1));
                 float z4 = (float) (pz + radius * Math.cos(theta1) * Math.sin(phi2));
 
-                float colorShift = 0.9f; // un poco más brillante
-                buffer.vertex(x1, y1, z1).color(colorShift, 1f, 0.3f, alpha).uv(0f, 1f).endVertex();
-                buffer.vertex(x2, y2, z2).color(colorShift, 1f, 0.3f, alpha).uv(0f, 0f).endVertex();
-                buffer.vertex(x3, y3, z3).color(colorShift, 1f, 0.3f, alpha).uv(1f, 0f).endVertex();
-                buffer.vertex(x4, y4, z4).color(colorShift, 1f, 0.3f, alpha).uv(1f, 1f).endVertex();
+                buffer.vertex(x1, y1, z1).color(r, g, b, alpha).endVertex();
+                buffer.vertex(x2, y2, z2).color(r, g, b, alpha).endVertex();
+                buffer.vertex(x3, y3, z3).color(r, g, b, alpha).endVertex();
+                buffer.vertex(x4, y4, z4).color(r, g, b, alpha).endVertex();
             }
         }
 

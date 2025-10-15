@@ -1,46 +1,141 @@
 package net.agusdropout.bloodyhell.worldgen.biome.surface;
 
-
 import net.agusdropout.bloodyhell.block.ModBlocks;
 import net.agusdropout.bloodyhell.worldgen.biome.ModBiomes;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class ModSurfaceRules {
-    private static final SurfaceRules.RuleSource BLOOD_DIRT_BLOCK = makeStateRule(ModBlocks.BLOOD_DIRT_BLOCK.get());
-    private static final SurfaceRules.RuleSource BLOOD_GRASS_BLOCK = makeStateRule(ModBlocks.BLOOD_GRASS_BLOCK.get());
-    private static final SurfaceRules.RuleSource BLOODY_STONE_BLOCK = makeStateRule(ModBlocks.BLOODY_STONE_BLOCK.get());
+
+    // === BLOOD BIOME BLOCKS ===
+    private static final SurfaceRules.RuleSource BLOOD_DIRT = makeStateRule(ModBlocks.BLOOD_DIRT_BLOCK.get());
+    private static final SurfaceRules.RuleSource BLOOD_GRASS = makeStateRule(ModBlocks.BLOOD_GRASS_BLOCK.get());
+    private static final SurfaceRules.RuleSource BLOODY_STONE = makeStateRule(ModBlocks.BLOODY_STONE_BLOCK.get());
+
+    // === BLASPHEMOUS BIOME BLOCKS ===
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SAND = makeStateRule(ModBlocks.BLASPHEMOUS_SAND_BLOCK.get());
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SANDSTONE = makeStateRule(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK.get()); // placeholder
+
+    // === GENERAL RULES ===
+    private static final SurfaceRules.RuleSource BEDROCK_FLOOR = SurfaceRules.ifTrue(
+            SurfaceRules.verticalGradient("minecraft:bedrock_floor", VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(5)),
+            SurfaceRules.state(Blocks.BEDROCK.defaultBlockState())
+    );
+
+    private static final SurfaceRules.RuleSource AIR_ABOVE = SurfaceRules.ifTrue(
+            SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(110), 1),
+            SurfaceRules.state(Blocks.AIR.defaultBlockState())
+    );
+
+    private static final SurfaceRules.RuleSource BLOOD_GRASS_SURFACE = SurfaceRules.ifTrue(
+            SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107), 1),
+            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), BLOOD_GRASS)
+    );
+
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SAND_SURFACE = SurfaceRules.ifTrue(
+            SurfaceRules.yBlockCheck(VerticalAnchor.aboveBottom(107), 1),
+            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.hole()), BLASPHEMOUS_SAND)
+    );
+
+    private static final SurfaceRules.RuleSource BLOOD_DIRT_UNDER = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR),
+            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), BLOOD_DIRT)
+    );
+
+    private static final SurfaceRules.RuleSource BLOOD_GRASS_FLOOR = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+            BLOOD_GRASS
+    );
+
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SAND_FLOOR = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, false, 0, CaveSurface.FLOOR),
+            BLASPHEMOUS_SAND
+    );
+
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SANDSTONE_UNDER = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, true, CaveSurface.FLOOR),
+            SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yBlockCheck(VerticalAnchor.absolute(33), 0)), BLASPHEMOUS_SANDSTONE)
+    );
+
+    private static final SurfaceRules.RuleSource BLOOD_GRASS_STONE_DEPTH_TRUE = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR),
+            BLOOD_GRASS
+    );
+
+    private static final SurfaceRules.RuleSource BLASPHEMOUS_SANDSTONE_STONE_DEPTH_TRUE = SurfaceRules.ifTrue(
+            SurfaceRules.stoneDepthCheck(0, true, 20, CaveSurface.FLOOR),
+            BLASPHEMOUS_SANDSTONE
+    );
 
 
 
+    // === BLOOD BIOME RULE SET ===
+    private static SurfaceRules.RuleSource bloodRules() {
+        SurfaceRules.ConditionSource isAtOrAboveWater = SurfaceRules.waterBlockCheck(-1, 0);
+        SurfaceRules.ConditionSource aLittleBelowSurface = SurfaceRules.abovePreliminarySurface();
+        SurfaceRules.ConditionSource underSurface = SurfaceRules.UNDER_FLOOR;
 
-
-    public static SurfaceRules.RuleSource makeRules() {
-        SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
-        SurfaceRules.ConditionSource aLittleBelowWaterLevel = SurfaceRules.abovePreliminarySurface();
-        SurfaceRules.ConditionSource underTheSurface = SurfaceRules.UNDER_FLOOR;
-
-        SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, BLOOD_GRASS_BLOCK), BLOOD_DIRT_BLOCK);
-        SurfaceRules.RuleSource belowGrassSurface = SurfaceRules.ifTrue(aLittleBelowWaterLevel, BLOOD_DIRT_BLOCK);
+        SurfaceRules.RuleSource bloodSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(isAtOrAboveWater, BLOOD_GRASS),
+                BLOOD_DIRT
+        );
 
         return SurfaceRules.sequence(
-                SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.BLOOD_BIOME),
-
-
-
-                // Default to a grass and dirt surface
-                SurfaceRules.ifTrue(aLittleBelowWaterLevel, grassSurface)),
-                        SurfaceRules.ifTrue(underTheSurface,BLOODY_STONE_BLOCK))
-                        //SurfaceRules.ifTrue(aLittleBelowWaterLevel, belowGrassSurface))
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.BLOOD_BIOME),
+                        SurfaceRules.sequence(
+                                BEDROCK_FLOOR,
+                                AIR_ABOVE,
+                                BLOOD_GRASS_SURFACE,
+                                SurfaceRules.ifTrue(aLittleBelowSurface, bloodSurface),
+                                BLOOD_DIRT_UNDER,
+                                BLOOD_GRASS_FLOOR,
+                                BLOOD_GRASS_STONE_DEPTH_TRUE,
+                                SurfaceRules.ifTrue(underSurface, BLOODY_STONE)
+                        )
+                )
         );
     }
 
+    // === BLASPHEMOUS BIOME RULE SET ===
+    private static SurfaceRules.RuleSource blasphemousRules() {
+        SurfaceRules.ConditionSource isAtOrAboveWater = SurfaceRules.waterBlockCheck(-1, 0);
+        SurfaceRules.ConditionSource aLittleBelowSurface = SurfaceRules.abovePreliminarySurface();
+        SurfaceRules.ConditionSource underSurface = SurfaceRules.UNDER_FLOOR;
+
+        SurfaceRules.RuleSource blasphemousSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(isAtOrAboveWater, BLASPHEMOUS_SAND),
+                BLASPHEMOUS_SANDSTONE
+        );
+
+        return SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.BLASPHEMOUS_BIOME),
+                        SurfaceRules.sequence(
+                                BEDROCK_FLOOR,
+                                AIR_ABOVE,
+                                BLASPHEMOUS_SAND_SURFACE,
+                                SurfaceRules.ifTrue(aLittleBelowSurface, blasphemousSurface),
+                                BLASPHEMOUS_SANDSTONE_UNDER,
+                                BLASPHEMOUS_SAND_FLOOR,
+                                BLASPHEMOUS_SANDSTONE_STONE_DEPTH_TRUE,
+                                SurfaceRules.ifTrue(underSurface, BLASPHEMOUS_SANDSTONE)
+                        )
+                )
+        );
+    }
+
+    // === FINAL CENTRALIZED RULES ===
+    public static SurfaceRules.RuleSource makeRules() {
+        return SurfaceRules.sequence(
+                bloodRules(),
+                blasphemousRules()
+        );
+    }
+
+    // Helper method
     private static SurfaceRules.RuleSource makeStateRule(Block block) {
         return SurfaceRules.state(block.defaultBlockState());
     }
-
-
-
 }

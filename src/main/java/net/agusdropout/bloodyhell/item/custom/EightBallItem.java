@@ -1,6 +1,5 @@
 package net.agusdropout.bloodyhell.item.custom;
 
-import net.agusdropout.bloodyhell.client.ClientMagicData;
 import net.agusdropout.bloodyhell.entity.ModEntityTypes;
 import net.agusdropout.bloodyhell.entity.custom.BlasphemousArmEntity;
 import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;

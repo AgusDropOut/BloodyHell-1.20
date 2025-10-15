@@ -32,15 +32,15 @@ public class KeepDistanceGoal extends Goal {
         double distance = entity.distanceTo(target);
 
         if (distance < minDistance) {
-            // Demasiado cerca, retroceder
+
             Vec3 direction = entity.position().subtract(target.position()).normalize().scale(1.5);
             Vec3 newPos = entity.position().add(direction);
             entity.getNavigation().moveTo(newPos.x, newPos.y, newPos.z, moveSpeed);
         } else if (distance > maxDistance) {
-            // Demasiado lejos, avanzar
+
             entity.getNavigation().moveTo(target, moveSpeed);
         } else {
-            // Mantenerse en posición
+
             entity.getNavigation().stop();
         }
     }

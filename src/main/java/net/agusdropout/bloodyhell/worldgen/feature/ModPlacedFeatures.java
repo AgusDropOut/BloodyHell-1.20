@@ -39,7 +39,14 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLOOD_LILY_BLOCK_PLACED_KEY = createKey("blood_lily_block_placed");
     public static final ResourceKey<PlacedFeature> DROOPVINE_PLACED_KEY = createKey("droopvine_placed");
     public static final ResourceKey<PlacedFeature> STONE_PILLAR_PLACED_KEY = createKey("stone_pillar_placed");
+    public static final ResourceKey<PlacedFeature> CINDER_CACTUS_PLACED_KEY = createKey("cinder_cactus_placed");
+    public static final ResourceKey<PlacedFeature> CINDER_CACTUS_FLOWER_PLACED_KEY = createKey("cinder_cactus_flower_placed");
+    public static final ResourceKey<PlacedFeature> GIANT_SPINE_PLACED_KEY = createKey("giant_spine_placed");
+    public static final ResourceKey<PlacedFeature> GIANT_ROOT_PLACED_KEY = createKey("giant_root_placed");
     public static final ResourceKey<PlacedFeature> BLOOD_SCRAPPER_PLANT_PLACED_KEY = createKey("blood_scrapper_plant_placed");
+    public static final ResourceKey<PlacedFeature> SPIKY_GRASS_PLACED_KEY = createKey("spiky_grass_placed");
+    public static final ResourceKey<PlacedFeature> STING_FLOWER_PLACED_KEY = createKey("sting_flower_placed");
+    public static final ResourceKey<PlacedFeature> ROUNDED_GRASS_PLACED_KEY = createKey("rounded_grass_placed");
     public static final ResourceKey<PlacedFeature> GLOWING_CRYSTAL_PLACED_KEY = createKey("glowing_crystal_placed_key");
 
 
@@ -68,12 +75,19 @@ public class ModPlacedFeatures {
         register(context, BLOOD_FLOWER_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_FLOWER_KEY),patch(64));
         register(context, LIGHT_MUSHROOM_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.LIGHT_MUSHROOM_KEY),patch(35));
         register(context, BLOOD_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_GRASS_KEY),patch(100));
+        register(context, SPIKY_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.SPIKY_GRASS_KEY),patch(10));
+        register(context, ROUNDED_GRASS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.ROUNDED_GRASS_KEY),patch(30));
         register(context, BLOOD_BUSH_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_BUSH_KEY),patch(64));
         register(context, BLOOD_PETALS_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_PETALS_KEY),patch(70));
         register(context, GLOWING_CRYSTAL_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.GLOWING_CRYSTAL_KEY),patch(70));
         register(context, BLOOD_LILY_BLOCK_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_LILY_KEY),patch(70));
         register(context,DROOPVINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DROOPVINE_KEY), patch(100));
         register(context,STONE_PILLAR_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.STONE_PILLAR_KEY), patch(30));
+        register(context,CINDER_CACTUS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CINDER_CACTUS_KEY), patch(30));
+        register(context,CINDER_CACTUS_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CINDER_CACTUS_FLOWER_KEY), patch(256));
+        register(context,GIANT_SPINE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GIANT_SPINE_KEY), patch(1));
+        register(context,GIANT_ROOT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.GIANT_ROOT_KEY), patch(1));
+        register(context,STING_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.STING_FLOWER_KEY), patch(50));
         register(context,BLOOD_SCRAPPER_PLANT_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BLOOD_SCRAPPER_PLANT_KEY), patch(30));
         
     }

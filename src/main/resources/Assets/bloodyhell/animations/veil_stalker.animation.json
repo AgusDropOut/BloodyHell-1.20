@@ -1,0 +1,187 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"hanging_from_wall": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": ["-math.sin(query.anim_time*200)*5", 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, -25, 0]
+						},
+						"1.0": {
+							"vector": [0, "-math.sin(query.anim_time *300) *5 +25", 0]
+						},
+						"2.0": {
+							"vector": [0, -25, 0]
+						}
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 25, 0]
+						},
+						"1.0": {
+							"vector": [0, "math.sin(query.anim_time *300) *5 -25", 0]
+						},
+						"2.0": {
+							"vector": [0, 25, 0]
+						}
+					}
+				},
+				"head_deco": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, 0, "math.sin(query.anim_time*200)*5"]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"flying": {
+			"loop": true,
+			"bones": {
+				"veil_stalker": {
+					"rotation": {
+						"vector": [90, 0, 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"vector": ["-math.cos(query.anim_time * 360) * 10", 0, 0]
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"vector": [0, "-math.sin(query.anim_time * 360) * 25", 0]
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"vector": [0, "math.sin(query.anim_time * 360) * 25", 0]
+					}
+				}
+			}
+		},
+		"fall_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"veil_stalker": {
+					"rotation": {
+						"vector": [90, 0, 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"vector": [15, 0, 0]
+						},
+						"0.25": {
+							"vector": [-2.5, 0, 0]
+						}
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 22.5, 0]
+						},
+						"0.0625": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, -40, 0]
+						}
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, -22.5, 0]
+						},
+						"0.0625": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, 40, 0]
+						}
+					}
+				}
+			}
+		},
+		"stalking": {
+			"loop": true,
+			"bones": {
+				"veil_stalker": {
+					"rotation": {
+						"vector": [30, 0, 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 500) * 20", 0, 0]
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"vector": [0, "math.sin(query.anim_time * 500) * 40", 0]
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"vector": [0, "-math.sin(query.anim_time * 500) * 40", 0]
+					}
+				}
+			}
+		},
+		"dash": {
+			"loop": true,
+			"animation_length": 0.6667,
+			"bones": {
+				"veil_stalker": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.6667": {
+							"vector": [0, -720, 0]
+						}
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"vector": [0, -142.5, 0]
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"vector": [0, 142.5, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

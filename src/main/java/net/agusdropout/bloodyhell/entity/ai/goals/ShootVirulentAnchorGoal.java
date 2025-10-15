@@ -63,12 +63,12 @@ public class ShootVirulentAnchorGoal extends Goal {
             float yaw = shooter.getYRot();
             float pitch = shooter.getXRot();
 
-            StarfallProjectile projectile = new StarfallProjectile(
-                    level, pos.x, pos.y+5, pos.z,20,  shooter, shooter.getTarget()
+            VirulentAnchorProjectileEntity projectile = new VirulentAnchorProjectileEntity(
+                    level, pos.x, pos.y, pos.z,5, shooter,  yaw, pitch
             );
 
-            //Vec3 direction = target.position().subtract(pos).normalize().scale(speed);
-            //projectile.setDeltaMovement(direction);
+            Vec3 direction = target.position().subtract(pos).normalize().scale(speed);
+            projectile.setDeltaMovement(direction);
 
             level.addFreshEntity(projectile);
         }

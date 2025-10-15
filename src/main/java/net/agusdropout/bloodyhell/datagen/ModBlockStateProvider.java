@@ -2,6 +2,7 @@ package net.agusdropout.bloodyhell.datagen;
 
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.block.base.TallPlantBlock;
 import net.agusdropout.bloodyhell.block.custom.HangingSoulTreeLeavesBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -80,6 +81,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
         slabBlock(((SlabBlock) ModBlocks.BLOOD_PLANKS_SLAB.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
         fenceBlock(((FenceBlock) ModBlocks.BLOOD_PLANKS_FENCE.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
         fenceGateBlock(((FenceGateBlock) ModBlocks.BLOOD_PLANKS_FENCE_GATE.get()), blockTexture(ModBlocks.BLOOD_PLANKS.get()));
+
+        //Blasphemous Biome
+        rotatedCubeBlock(ModBlocks.BLASPHEMOUS_SAND_BLOCK);
+        blockWithItem(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK);
+        blockWithItem(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
+        blockWithItem(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
+        blockWithItem(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);
+        simpleBlockWithItem(ModBlocks.SPIKY_GRASS.get(), models().cross(blockTexture(ModBlocks.SPIKY_GRASS.get()).getPath(),
+                blockTexture(ModBlocks.SPIKY_GRASS.get())).renderType("cutout"));
+        simpleBlockWithItem(ModBlocks.ROUNDED_GRASS.get(), models().cross(blockTexture(ModBlocks.ROUNDED_GRASS.get()).getPath(),
+                blockTexture(ModBlocks.ROUNDED_GRASS.get())).renderType("cutout"));
+        tallPlantBlock(ModBlocks.STING_FLOWER);
+
+
     }
     private String name(Block block) {
         return key(block).getPath();
@@ -199,6 +214,50 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModelFile model = models().getBuilder(name(standingBlock)).texture("particle", modLoc("block/" + name));
         simpleBlock(standingBlock.get(), model);
         simpleBlock(wallBlock.get(), model);
+    }
+
+    /**
+     * Generate a blockstate with 0°, 90°, 180°, 270° Y-axis rotations
+     * for any simple cube block.
+     */
+    public void rotatedCubeBlock(Supplier<? extends Block> blockSupplier) {
+        Block block = blockSupplier.get();
+        String blockName = name(block);
+
+        // Create the base cube model if it doesn't exist yet
+        ModelFile modelFile = models().cubeAll(blockName, blockTexture(block));
+
+        // Generate the 4 rotation variants
+        getVariantBuilder(block).forAllStates(state -> new ConfiguredModel[] {
+                new ConfiguredModel(modelFile, 0, 0, false),    // 0°
+                new ConfiguredModel(modelFile, 0, 90, false),   // 90°
+                new ConfiguredModel(modelFile, 0, 180, false),  // 180°
+                new ConfiguredModel(modelFile, 0, 270, false)   // 270°
+        });
+
+        // Generate item model automatically (like blockWithItem)
+        simpleBlockItem(block, modelFile);
+    }
+    public void tallPlantBlock(Supplier<? extends Block> blockSupplier) {
+        Block block = blockSupplier.get();
+        String baseName = name(block); // 🔥 obtiene el nombre del bloque
+        ResourceLocation baseTexture = texture(baseName);
+
+        // Modelos para las tres partes
+        ModelFile root = models().cross(baseName + "_root", modLoc("block/" + baseName + "_root")).renderType("cutout");
+        ModelFile stem = models().cross(baseName + "_stem", modLoc("block/" + baseName + "_stem")).renderType("cutout");
+        ModelFile top  = models().cross(baseName + "_top",  modLoc("block/" + baseName + "_top")).renderType("cutout");
+
+        getVariantBuilder(block).forAllStates(state -> {
+            String part = state.getValue(TallPlantBlock.PART).getSerializedName(); // <-- clave
+            ModelFile chosen = switch (part) {
+                case "root" -> root;
+                case "stem" -> stem;
+                case "top"  -> top;
+                default     -> stem;
+            };
+            return ConfiguredModel.builder().modelFile(chosen).build();
+        });
     }
 
 }

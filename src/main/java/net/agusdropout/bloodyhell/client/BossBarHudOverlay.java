@@ -3,7 +3,7 @@ package net.agusdropout.bloodyhell.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.agusdropout.bloodyhell.BloodyHell;
-import net.agusdropout.bloodyhell.entity.EntityBaseTypes.BloodyHellBoss;
+import net.agusdropout.bloodyhell.entity.custom.BloodyHellBoss;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
@@ -22,8 +22,8 @@ public class BossBarHudOverlay {
 
     public static void renderOverlay(ForgeGui gui, GuiGraphics guiGraphics, float pt, int width, int height) {
         PoseStack ms = guiGraphics.pose();
-        BloodyHellBoss jefe = ClientBossBarData.getCurrentBoss();
-        if (jefe == null || jefe.isDeadOrDying()) return;
+
+        if (ClientBossBarData.isDead() == false && !ClientBossBarData.isNear() ) return;
 
         int x = width / 2 - BAR_WIDTH / 2;
         int y = 10;
@@ -32,7 +32,7 @@ public class BossBarHudOverlay {
         guiGraphics.blit(BOSS_BAR_BASE, x, y, 0, 0, BAR_WIDTH, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
 
         // Progreso de vida
-        float progress = jefe.getHealth() / jefe.getMaxHealth();
+        float progress = (float) ClientBossBarData.getHealth() / ClientBossBarData.getMaxHealth();
         int fillWidth = (int)(BAR_WIDTH * progress);
 
         if (fillWidth > 0) {
@@ -41,7 +41,7 @@ public class BossBarHudOverlay {
 
         // --- Render del nombre del jefe ---
         Minecraft mc = Minecraft.getInstance();
-        String name = jefe.getBossName();
+        String name = "Seliora, the first Archbishop";
 
         int nameWidth = mc.font.width(name);
         int nameX = width / 2 - nameWidth / 2;

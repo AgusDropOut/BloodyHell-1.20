@@ -1,9 +1,7 @@
 package net.agusdropout.bloodyhell.block;
 
 import net.agusdropout.bloodyhell.BloodyHell;
-import net.agusdropout.bloodyhell.block.base.BHChestBlock;
-import net.agusdropout.bloodyhell.block.base.BaseWallPlantBlock;
-import net.agusdropout.bloodyhell.block.base.TallGrowingPlant;
+import net.agusdropout.bloodyhell.block.base.*;
 import net.agusdropout.bloodyhell.block.custom.*;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModItems;
@@ -246,6 +244,7 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 
 
+
     //Fluid
     public static final RegistryObject<LiquidBlock> BLOOD_FLUID_BLOCK = BLOCKS.register("blood_fluid_block",
             () -> new LiquidBlock(ModFluids.SOURCE_BLOOD, BlockBehaviour.Properties.copy(Blocks.LAVA).noLootTable().lightLevel((state)->1).liquid()));
@@ -272,10 +271,38 @@ public class ModBlocks {
     public static final RegistryObject<Block> MAIN_BLOOD_ALTAR = BLOCKS.register("main_blood_altar", ()-> new MainBloodAltarBlock(
             BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES).noOcclusion().lightLevel((state)->15)));
 
-
-
-
-
+    //Blasphemous Biome Blocks
+    public static final RegistryObject<Block> BLASPHEMOUS_SAND_BLOCK = registerBlock("blasphemous_sand_block", () -> new SandBlock(1,
+            BlockBehaviour.Properties.copy(Blocks.SAND).strength(1F)));
+    public static final RegistryObject<Block> BLASPHEMOUS_SANDSTONE_BLOCK = registerBlock("blasphemous_sandstone_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CINDER_BLOOM_CACTUS_ROOT = registerBlock("cinder_bloom_cactus_root", ()-> new CinderBloomCactusRoot(
+            BlockBehaviour.Properties.copy(Blocks.CACTUS).strength(0.5f).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CINDER_BLOOM_CACTUS_CON = registerBlock("cinder_bloom_cactus_con", ()-> new CinderBloomCactusCon(
+            BlockBehaviour.Properties.copy(Blocks.CACTUS).strength(0.5f).noOcclusion().requiresCorrectToolForDrops()) {
+        @Override
+        protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateManager) {
+            super.createBlockStateDefinition(stateManager);
+        }
+    });
+    public static final RegistryObject<Block> CINDER_BLOOM_CACTUS_CENTER = registerBlock("cinder_bloom_cactus_center", ()-> new CinderBloomCactusCenter(
+            BlockBehaviour.Properties.copy(Blocks.CACTUS).strength(0.5f).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CINDER_BLOOM_CACTUS_FLOWER = registerBlock("cinder_bloom_cactus_flower", ()-> new CinderBloomCactusFlower(
+            BlockBehaviour.Properties.copy(Blocks.SUNFLOWER).strength(0.5f).lightLevel(state -> state.getValue(CinderBloomCactusFlower.OPEN) ? 15 : 0).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ERODED_BLASPHEMOUS_SANDSTONE = registerBlock("eroded_blasphemous_sandstone", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).lightLevel((state)->15).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> FULLY_ERODED_BLASPHEMOUS_SANDSTONE = registerBlock("fully_eroded_blasphemous_sandstone", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).lightLevel((state)->15).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CRACKED_BLASPHEMOUS_SANDSTONE = registerBlock("cracked_blasphemous_sandstone", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).lightLevel((state)->15).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SPIKY_GRASS = registerBlock("spiky_grass", ()-> new BlasphemousPlant(
+            BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0.1f).lightLevel((state)->15).noCollission().noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ROUNDED_GRASS = registerBlock("rounded_grass", ()-> new BlasphemousPlant(
+            BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0.1f).noCollission().noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> STING_FLOWER = registerBlock("sting_flower", () -> new TallPlantBlock(
+            BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)
+                    .lightLevel(state -> state.getValue(TallPlantBlock.PART) == TallPlantPart.TOP ? 15 : 0)
+    ));
 
     //Misc
     public static final RegistryObject<Block> BLEEDING_BLOCK = registerBlock("bleeding_block", () -> new BleedingBlock(

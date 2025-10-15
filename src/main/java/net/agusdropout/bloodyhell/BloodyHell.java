@@ -166,6 +166,15 @@ public class BloodyHell
             SpawnPlacements.register(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.BLASPHEMOUS_MALFORMATION.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.HORNED_WORM.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.VEIL_STALKER.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules);
 
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BLOOD_FLOWER.getId(),ModBlocks.POTTED_BLOOD_FLOWER);
@@ -253,6 +262,8 @@ public class BloodyHell
             event.accept(ModItems.OFFSPRING_OF_THE_UNKNOWN_SPAWN_EGG);
             event.accept(ModItems.BLASPHEMOUS_MALFORMATION_SPAWN_EGG);
             event.accept(ModItems.SELIORA_SPAWN_EGG);
+            event.accept(ModItems.HORNED_WORM_SPAWN_EGG);
+            event.accept(ModItems.VEIL_STALKER_SPAWN_EGG);
 
             //Food Items
             event.accept(ModItems.Eyeball);
@@ -402,6 +413,20 @@ public class BloodyHell
             event.accept(ModItems.CRIMSON_WARD_RING);
             event.accept(ModItems.BLASPHEMOUS_RING);
 
+            //Blasphemous Biome
+            event.accept(ModBlocks.BLASPHEMOUS_SAND_BLOCK);
+            event.accept(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK);
+            event.accept(ModBlocks.CINDER_BLOOM_CACTUS_ROOT);
+            event.accept(ModBlocks.CINDER_BLOOM_CACTUS_CON);
+            event.accept(ModBlocks.CINDER_BLOOM_CACTUS_CENTER);
+            event.accept(ModBlocks.CINDER_BLOOM_CACTUS_FLOWER);
+            event.accept(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
+            event.accept(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
+            event.accept(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);
+            event.accept(ModBlocks.SPIKY_GRASS);
+            event.accept(ModBlocks.ROUNDED_GRASS);
+            event.accept(ModBlocks.STING_FLOWER);
+
         }
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SANGUINITE);
@@ -462,6 +487,8 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.OFFSPRING_OF_THE_UNKNOWN.get(), OffspringOfTheUnknownRenderer::new);
             EntityRenderers.register(ModEntityTypes.SELIORA.get(), SelioraRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_MALFORMATION.get(), BlasphemousMalformationRenderer::new);
+            EntityRenderers.register(ModEntityTypes.HORNED_WORM.get(), HornedWormRenderer::new);
+            EntityRenderers.register(ModEntityTypes.VEIL_STALKER.get(), VeilStalkerRenderer::new);
             EntityRenderers.register(ModEntityTypes.SANGUINE_SACRIFICE_ENTITY.get(), SanguineSacrificeEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_SLASH_ENTITY.get(), BloodSlashRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_ARROW.get(), BloodArrowRenderer::new);
@@ -481,10 +508,15 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_SMALL_WHIRLWIND_ENTITY.get(), BlasphemousSmallWhirlwindEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_PETALS.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.SPIKY_GRASS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), RenderType.translucent());
             BlockEntityRenderers.register(ModBlockEntities.BLOOD_ALTAR.get(), BloodAltarRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.MAIN_BLOOD_ALTAR.get(), MainBloodAltarRenderer::new);
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_ROOT.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_CON.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_FLOWER.get(), RenderType.cutout());
+
 
 
 

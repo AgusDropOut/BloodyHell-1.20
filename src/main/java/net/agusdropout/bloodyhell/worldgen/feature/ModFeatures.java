@@ -1,10 +1,9 @@
 package net.agusdropout.bloodyhell.worldgen.feature;
 
 import net.agusdropout.bloodyhell.BloodyHell;
-import net.agusdropout.bloodyhell.worldgen.feature.custom.BloodScrapperPlantFeature;
-import net.agusdropout.bloodyhell.worldgen.feature.custom.DroopvineFeature;
-import net.agusdropout.bloodyhell.worldgen.feature.custom.GlowingCrystalFeature;
-import net.agusdropout.bloodyhell.worldgen.feature.custom.StonePillarFeature;
+import net.agusdropout.bloodyhell.block.ModBlocks;
+import net.agusdropout.bloodyhell.block.base.TallPlantBlock;
+import net.agusdropout.bloodyhell.worldgen.feature.custom.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -30,6 +29,16 @@ public class ModFeatures {
             new BloodScrapperPlantFeature(ProbabilityFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> STONE_PILLAR = FEATURES.register("stone_pillar", () ->
             new StonePillarFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CINDER_CACTUS = FEATURES.register("cinder_cactus", () ->
+            new CinderBloomCactusFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CINDER_FLOWER = FEATURES.register("cinder_flower", () ->
+            new CinderBloomCactusFlowerFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> GIANT_SPINE = FEATURES.register("giant_spine", () ->
+            new GiantSpineFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> GIANT_ROOT = FEATURES.register("giant_root", () ->
+            new GiantRootFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> STING_FLOWER_FEATURE = FEATURES.register("sting_flower", () ->
+            new VariableHeightPlantFeature(NoneFeatureConfiguration.CODEC,(TallPlantBlock) ModBlocks.STING_FLOWER.get()));
 
 
     public static void register(IEventBus eventBus){

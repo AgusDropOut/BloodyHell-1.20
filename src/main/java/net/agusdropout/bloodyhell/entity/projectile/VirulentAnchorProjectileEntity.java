@@ -35,7 +35,7 @@ public class VirulentAnchorProjectileEntity extends Projectile implements GeoEnt
     private static final EntityDataAccessor<Float> YAW = SynchedEntityData.defineId(VirulentAnchorProjectileEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> PITCH = SynchedEntityData.defineId(VirulentAnchorProjectileEntity.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Boolean> HAS_COLLIDED = SynchedEntityData.defineId(VirulentAnchorProjectileEntity.class, EntityDataSerializers.BOOLEAN);
-    private LivingEntity attachedEntity = null; // Entidad a la que está pegado
+    private LivingEntity attachedEntity = null;
     private boolean isEmerging = false;
     private float yaw;
     private float pitch;
@@ -71,11 +71,12 @@ public class VirulentAnchorProjectileEntity extends Projectile implements GeoEnt
 
     @Override
     public void tick() {
-        if(lifeTicks == 99){
-            this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.EGG_THROW, this.getSoundSource(), 1.0F, 1.0F, false);
-        }
+
 
         if(this.lifeTicks < 100) {
+            if(lifeTicks == 60){
+                this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ARROW_SHOOT, this.getSoundSource(), 1.0F, 1.0F, false);
+            }
             this.isEmerging = false;
             if (attachedEntity != null) {
                 if (!attachedEntity.isAlive()) {

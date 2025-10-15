@@ -17,6 +17,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.joml.*;
+import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nullable;
 import java.lang.Math;
@@ -51,18 +52,18 @@ public class CylinderParticle extends Particle {
         double py = Mth.lerp(partialTicks, yo, y) - camPos.y;
         double pz = Mth.lerp(partialTicks, zo, z) - camPos.z;
 
-        // setup shader
+        // --- CONFIGURACIÓN SHADER ---
         RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
+        RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE); // blending aditivo
         RenderSystem.disableCull();
-        RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
-        RenderSystem.setShaderTexture(0, texture);
+        RenderSystem.depthMask(false);
+        RenderSystem.setShader(GameRenderer::getPositionColorShader); // << sin textura
 
         Tesselator tess = Tesselator.getInstance();
         BufferBuilder buffer = tess.getBuilder();
-        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR_TEX);
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 
-        float time = age + partialTicks; // animación con tiempo
+        float time = age + partialTicks;
         int segments = 32;
         float radius = 1.5f;
         float baseHeight = height;
@@ -77,31 +78,33 @@ public class CylinderParticle extends Particle {
             float x2 = (float) (px + Math.cos(angle2) * radius);
             float z2 = (float) (pz + Math.sin(angle2) * radius);
 
-            // altura suavemente variable arriba y abajo de la base
+            // alturas dinámicas suaves
             float h1 = baseHeight + 1.2f * (float) Perlin.noise(i * 0.1, time * 0.05);
             float h2 = baseHeight + 1.2f * (float) Perlin.noise((i + 1) * 0.1, time * 0.05);
 
-            // alpha dinámico, atenuado por altura, nunca menor a 0.15
+            // alpha dinámico
             float baseAlpha1 = 0.2f + 0.6f * (float) Perlin.noise(i * 0.1, time * 0.07 + 100);
             float baseAlpha2 = 0.2f + 0.6f * (float) Perlin.noise((i + 1) * 0.1, time * 0.07 + 100);
 
-            float attenuation1 = 1.0f - ((h1 - baseHeight + maxExtraHeight * 0.5f) / (maxExtraHeight * 2)); // más suave, centrado
-            float attenuation2 = 1.0f - ((h2 - baseHeight + maxExtraHeight * 0.5f) / (maxExtraHeight * 2));
-
-            attenuation1 = Math.max(0.15f, (float) Math.pow(Mth.clamp(attenuation1, 0f, 1f), 2));
-            attenuation2 = Math.max(0.15f, (float) Math.pow(Mth.clamp(attenuation2, 0f, 1f), 2));
+            float attenuation1 = Math.max(0.15f, (float) Math.pow(1f - Math.abs(h1 - baseHeight) / maxExtraHeight, 2));
+            float attenuation2 = Math.max(0.15f, (float) Math.pow(1f - Math.abs(h2 - baseHeight) / maxExtraHeight, 2));
 
             float alpha1 = baseAlpha1 * attenuation1;
             float alpha2 = baseAlpha2 * attenuation2;
 
-            // dibujar quad
-            buffer.vertex(x1, py, z1).color(1f, 1f, 1f, alpha1).uv(0f, 1f).endVertex();
-            buffer.vertex(x1, py + h1, z1).color(1f, 1f, 1f, alpha1).uv(0f, 0f).endVertex();
-            buffer.vertex(x2, py + h2, z2).color(1f, 1f, 1f, alpha2).uv(1f, 0f).endVertex();
-            buffer.vertex(x2, py, z2).color(1f, 1f, 1f, alpha2).uv(1f, 1f).endVertex();
+            // amarillo brillante mágico
+            float r = 1f, g = 0.9f, b = 0.3f;
+
+            buffer.vertex(x1, py, z1).color(r, g, b, alpha1).endVertex();
+            buffer.vertex(x1, py + h1, z1).color(r, g, b, alpha1).endVertex();
+            buffer.vertex(x2, py + h2, z2).color(r, g, b, alpha2).endVertex();
+            buffer.vertex(x2, py, z2).color(r, g, b, alpha2).endVertex();
         }
 
         tess.end();
+
+        // restaurar
+        RenderSystem.depthMask(true);
         RenderSystem.disableBlend();
         RenderSystem.enableCull();
     }

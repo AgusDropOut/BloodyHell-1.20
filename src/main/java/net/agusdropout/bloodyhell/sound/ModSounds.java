@@ -42,6 +42,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SELIORA_SECOND_PHASE_AMBIENT_SOUND = registerSoundEvents("seliora_second_phase_ambient_sound");
     public static final RegistryObject<SoundEvent> SELIORA_AMBIENT_SOUND = registerSoundEvents("seliora_ambient_sound");
     public static final RegistryObject<SoundEvent> NECK_SNAP_SOUND = registerSoundEvents("neck_snap_sound");
+    public static final RegistryObject<SoundEvent> HORNED_WORM_BURROWED = registerSoundEvents("horned_worm_burrowed");
     public static final RegistryObject<SoundEvent> SONG3 = registerSoundEvents("song3");
 
 

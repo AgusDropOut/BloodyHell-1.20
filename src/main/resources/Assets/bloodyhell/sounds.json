@@ -173,6 +173,12 @@
       "bloodyhell:song3"
     ]
   },
+  "horned_worm_burrowed": {
+    "subtitle": "sounds.bloodyhell.horned_worm_burrowed",
+    "sounds": [
+      "bloodyhell:horned_worm_burrowed"
+    ]
+  },
     "offspring_ambient": {
       "subtitle": "sounds.bloodyhell.offspring_ambient",
       "sounds": [

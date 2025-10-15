@@ -72,11 +72,18 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SMALL_ROCKS.get())
 
                 .add(ModBlocks.BLOOD_ALTAR.get())
-                .add(ModBlocks.MAIN_BLOOD_ALTAR.get());
+                .add(ModBlocks.MAIN_BLOOD_ALTAR.get())
+
+                .add(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK.get())
+                .add(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE.get())
+                .add(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE.get())
+                .add(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.BLOOD_DIRT_BLOCK.get())
-                .add(ModBlocks.BLOOD_GRASS_BLOCK.get());
+                .add(ModBlocks.BLOOD_GRASS_BLOCK.get())
+                .add(ModBlocks.BLASPHEMOUS_SAND_BLOCK.get());
+
 
         this.tag(BlockTags.DIRT)
                 .add(ModBlocks.BLOOD_GRASS_BLOCK.get())
@@ -118,6 +125,8 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.HANGING_BLOOD_TREE_LEAVES.get())
                 .add(ModBlocks.LIGHT_MUSHROOM_BLOCK.get())
                 .add(ModBlocks.BLOOD_GRASS.get())
+                .add(ModBlocks.SPIKY_GRASS.get())
+                .add(ModBlocks.ROUNDED_GRASS.get())
                 .add(ModBlocks.BLOOD_PETALS.get())
                 .add(ModBlocks.SMALL_ROCKS.get())
                 .add(ModBlocks.BLOOD_FLOWER.get());
