@@ -75,6 +75,12 @@ public class  ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.MAIN_BLOOD_ALTAR.get())
 
                 .add(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK.get())
+                .add(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get())
+                .add(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_STAIRS.get())
+                .add(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB.get())
+                .add(ModBlocks.CUT_BLASPHEMOUS_SANDSTONE_BLOCK.get())
+                .add(ModBlocks.CHISELED_BLASPHEMOUS_SANDSTONE_BLOCK.get())
+                .add(ModBlocks.CHISELED_DETAILED_BLASPHEMOUS_SANDSTONE_BLOCK.get())
                 .add(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE.get())
                 .add(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE.get())
                 .add(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE.get());

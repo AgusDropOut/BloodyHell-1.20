@@ -316,6 +316,18 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).strength(1F).noOcclusion().randomTicks().noLootTable()));
     public static final RegistryObject<Block> Jumpy_Block = registerBlock("jumpy_block", ()-> new JumpyBlock(
             BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CHISELED_BLASPHEMOUS_SANDSTONE_BLOCK = registerBlock("chiseled_blasphemous_sandstone_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CHISELED_DETAILED_BLASPHEMOUS_SANDSTONE_BLOCK = registerBlock("chiseled_detailed_blasphemous_sandstone_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CUT_BLASPHEMOUS_SANDSTONE_BLOCK = registerBlock("cut_blasphemous_sandstone_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK = registerBlock("smooth_blasphemous_sandstone_block", ()-> new Block(
+            BlockBehaviour.Properties.copy(Blocks.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SMOOTH_BLASPHEMOUS_SANDSTONE_STAIRS = registerBlock("smooth_blasphemous_sandstone_stairs", () -> new StairBlock(() -> ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get().defaultBlockState(),
+            BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB = registerBlock("smooth_blasphemous_sandstone_slab", () -> new SlabBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
 
 
 

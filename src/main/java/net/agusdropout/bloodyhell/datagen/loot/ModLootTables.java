@@ -147,6 +147,12 @@ public class ModLootTables extends LootTableProvider {
 
             this.dropSelf(ModBlocks.BLASPHEMOUS_SAND_BLOCK.get());
             this.dropSelf(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.CHISELED_BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.CUT_BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.CHISELED_DETAILED_BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get());
+            this.dropSelf(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_STAIRS.get());
+            this.dropSelf(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB.get());
             this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_ROOT.get());
             this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_CON.get());
             this.dropSelf(ModBlocks.CINDER_BLOOM_CACTUS_CENTER.get());

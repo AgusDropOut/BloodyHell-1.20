@@ -168,6 +168,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         //Blasphemous Biome
         evenSimplerBlockItem(ModBlocks.BLASPHEMOUS_SAND_BLOCK);
         evenSimplerBlockItem(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_STAIRS);
+        evenSimplerBlockItem(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB);
+        evenSimplerBlockItem(ModBlocks.CUT_BLASPHEMOUS_SANDSTONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.CHISELED_BLASPHEMOUS_SANDSTONE_BLOCK);
+        evenSimplerBlockItem(ModBlocks.CHISELED_DETAILED_BLASPHEMOUS_SANDSTONE_BLOCK);
         evenSimplerBlockItem(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
         evenSimplerBlockItem(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
         evenSimplerBlockItem(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);

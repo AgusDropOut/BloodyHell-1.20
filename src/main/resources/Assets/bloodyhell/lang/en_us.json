@@ -216,6 +216,12 @@
 
   "block.bloodyhell.blasphemous_sand_block": "Blasphemous Sand",
   "block.bloodyhell.blasphemous_sandstone_block": "Blasphemous Sandstone",
+  "block.bloodyhell.cut_blasphemous_sandstone_block": "Cut Blasphemous Sandstone",
+  "block.bloodyhell.smooth_blasphemous_sandstone_block": "Smooth Blasphemous Sandstone",
+  "block.bloodyhell.smooth_blasphemous_sandstone_stairs": "Smooth Blasphemous Sandstone Stairs",
+  "block.bloodyhell.smooth_blasphemous_sandstone_slab": "Smooth Blasphemous Sandstone Slab",
+  "block.bloodyhell.chiseled_blasphemous_sandstone_block": "Chiseled Blasphemous Sandstone",
+  "block.bloodyhell.chiseled_detailed_blasphemous_sandstone_block": "Chiseled Detailed Blasphemous Sandstone",
   "block.bloodyhell.eroded_blasphemous_sandstone": "Eroded Blasphemous Sandstone",
   "block.bloodyhell.fully_eroded_blasphemous_sandstone": "Fully Eroded Blasphemous Sandstone",
   "block.bloodyhell.cracked_blasphemous_sandstone": "Cracked Blasphemous Sandstone",

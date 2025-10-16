@@ -85,6 +85,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //Blasphemous Biome
         rotatedCubeBlock(ModBlocks.BLASPHEMOUS_SAND_BLOCK);
         blockWithItem(ModBlocks.BLASPHEMOUS_SANDSTONE_BLOCK);
+        blockWithItem(ModBlocks.CUT_BLASPHEMOUS_SANDSTONE_BLOCK);
+        blockWithItem(ModBlocks.CHISELED_BLASPHEMOUS_SANDSTONE_BLOCK);
+        blockWithItem(ModBlocks.CHISELED_DETAILED_BLASPHEMOUS_SANDSTONE_BLOCK);
+        blockWithItem(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK);
+        stairsBlock(((StairBlock) ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_STAIRS.get()), blockTexture(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get()));
+        slabBlock(((SlabBlock) ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB.get()), blockTexture(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get()), blockTexture(ModBlocks.SMOOTH_BLASPHEMOUS_SANDSTONE_BLOCK.get()));
         blockWithItem(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
         blockWithItem(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
         blockWithItem(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);
