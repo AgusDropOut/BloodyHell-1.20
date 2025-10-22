@@ -166,6 +166,8 @@ public class ModLootTables extends LootTableProvider {
             this.dropSelf(ModBlocks.DECORATED_POT_BLOCK.get());
             this.dropSelf(ModBlocks.SELIORA_RESTING_BLOCK.get());
             this.dropSelf(ModBlocks.FORBIDDEN_BOOKSHELF_BLOCK.get());
+            this.dropSelf(ModBlocks.STAR_LAMP_BLOCK.get());
+
 
             ore(ModBlocks.SANGUINITE_ORE, ModItems.RAW_SANGUINITE);
 
