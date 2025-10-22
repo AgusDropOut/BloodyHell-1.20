@@ -429,6 +429,9 @@ public class BloodyHell
             event.accept(ModBlocks.ERODED_BLASPHEMOUS_SANDSTONE);
             event.accept(ModBlocks.FULLY_ERODED_BLASPHEMOUS_SANDSTONE);
             event.accept(ModBlocks.CRACKED_BLASPHEMOUS_SANDSTONE);
+            event.accept(ModBlocks.DECORATED_POT_BLOCK);
+            event.accept(ModBlocks.FORBIDDEN_BOOKSHELF_BLOCK);
+            event.accept(ModBlocks.STAR_LAMP_BLOCK);
             event.accept(ModBlocks.SPIKY_GRASS);
             event.accept(ModBlocks.ROUNDED_GRASS);
             event.accept(ModBlocks.STING_FLOWER);
@@ -445,27 +448,7 @@ public class BloodyHell
     public static class ClientModEvents
     {
 
-        @SubscribeEvent
-        public void onSetupCamera(ViewportEvent.ComputeCameraAngles event) {
-            System.out.println("onSetupCamera ejecutándose: Pitch=" + event.getPitch() + " Yaw=" + event.getYaw());
-            Player player = Minecraft.getInstance().player;
-            float delta = Minecraft.getInstance().getFrameTime();
-            float ticksExistedDelta = player.tickCount + delta;
-            if (player != null) {
-                if(!Minecraft.getInstance().isPaused()) {
-                    float shakeAmplitude = 0;
-                    for (EntityCameraShake cameraShake : player.level().getEntitiesOfClass(EntityCameraShake.class, player.getBoundingBox().inflate(20, 20, 20))) {
-                        if (cameraShake.distanceTo(player) < cameraShake.getRadius()) {
-                            shakeAmplitude += cameraShake.getShakeAmount(player, delta);
-                        }
-                    }
-                    if (shakeAmplitude > 1.0f) shakeAmplitude = 1.0f;
-                    event.setPitch((float) (event.getPitch() + shakeAmplitude * Math.cos(ticksExistedDelta * 3 + 2) * 25));
-                    event.setYaw((float) (event.getYaw() + shakeAmplitude * Math.cos(ticksExistedDelta * 5 + 1) * 25));
-                    event.setRoll((float) (event.getRoll() + shakeAmplitude * Math.cos(ticksExistedDelta * 4) * 25));
-                }
-            }
-        }
+
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
@@ -510,6 +493,7 @@ public class BloodyHell
             EntityRenderers.register(ModEntityTypes.VISCERAL_PROJECTILE.get(), VisceralProjectileEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.STARFALL_PROJECTILE.get(), StarfallProjectileEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLOOD_PORTAL_ENTITY.get(), BloodPortalEntityRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BLOOD_PORTAL_ENTITY.get(), BloodPortalEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_WHIRLWIND_ENTITY.get(), BlasphemousWhirlwindEntityRenderer::new);
             EntityRenderers.register(ModEntityTypes.BLASPHEMOUS_SMALL_WHIRLWIND_ENTITY.get(), BlasphemousSmallWhirlwindEntityRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLOOD_BUSH.get(), RenderType::canConsolidateConsecutiveGeometry);
@@ -518,10 +502,13 @@ public class BloodyHell
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANGUINE_CRUCIBLE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LIGHT_MUSHROOM_BLOCK.get(), RenderType.translucent());
             BlockEntityRenderers.register(ModBlockEntities.BLOOD_ALTAR.get(), BloodAltarRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.STAR_LAMP.get(), StarLampRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.SELIORA_RESTING.get(), SelioraRestingBlockRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.MAIN_BLOOD_ALTAR.get(), MainBloodAltarRenderer::new);
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_ROOT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_CON.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.CINDER_BLOOM_CACTUS_FLOWER.get(), RenderType.cutout());
+            EntityRenderers.register(ModEntityTypes.CYCLOPS_ENTITY.get(), CyclopsRenderer::new);
 
 
 

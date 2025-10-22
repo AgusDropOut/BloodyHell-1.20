@@ -27,6 +27,14 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("main_blood_altar_entity", () ->
                     BlockEntityType.Builder.of(MainBloodAltarBlockEntity::new,
                             ModBlocks.MAIN_BLOOD_ALTAR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SelioraRestingBlockEntity>> SELIORA_RESTING =
+            BLOCK_ENTITIES.register("seliora_resting_block_entity", () ->
+                    BlockEntityType.Builder.of(SelioraRestingBlockEntity::new,
+                            ModBlocks.SELIORA_RESTING_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<StarLampBlockEntity>> STAR_LAMP =
+            BLOCK_ENTITIES.register("star_lamp_block_entity", () ->
+                    BlockEntityType.Builder.of(StarLampBlockEntity::new,
+                            ModBlocks.STAR_LAMP_BLOCK.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

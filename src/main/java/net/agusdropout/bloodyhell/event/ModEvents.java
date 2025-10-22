@@ -81,6 +81,7 @@ public class ModEvents {
                 event.put(SELIORA.get(), SelioraEntity.setAttributes());
                 event.put(BLASPHEMOUS_MALFORMATION.get(), BlasphemousMalformationEntity.setAttributes());
                 event.put(HORNED_WORM.get(), HornedWormEntity.setAttributes());
+                event.put(CYCLOPS_ENTITY.get(), CyclopsEntity.setAttributes());
                 event.put(VEIL_STALKER.get(), VeilStalkerEntity.setAttributes());
                 event.put(CORRUPTED_BLOODY_SOUL_ENTITY.get(), CorruptedBloodySoulEntity.setAttributes());
                 event.put(CRIMSON_RAVEN.get(), CrimsonRavenEntity.setAttributes());

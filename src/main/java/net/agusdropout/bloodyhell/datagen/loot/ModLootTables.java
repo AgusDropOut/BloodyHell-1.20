@@ -163,6 +163,9 @@ public class ModLootTables extends LootTableProvider {
             this.dropSelf(ModBlocks.SPIKY_GRASS.get());
             this.dropSelf(ModBlocks.ROUNDED_GRASS.get());
             this.dropSelf(ModBlocks.STING_FLOWER.get());
+            this.dropSelf(ModBlocks.DECORATED_POT_BLOCK.get());
+            this.dropSelf(ModBlocks.SELIORA_RESTING_BLOCK.get());
+            this.dropSelf(ModBlocks.FORBIDDEN_BOOKSHELF_BLOCK.get());
 
             ore(ModBlocks.SANGUINITE_ORE, ModItems.RAW_SANGUINITE);
 
@@ -281,6 +284,16 @@ public class ModLootTables extends LootTableProvider {
                     )
             );
             this.add(ModEntityTypes.SCARLETSPECKLED_FISH.get(), LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                            .setRolls(ConstantValue.exactly(1))
+                            .add(LootItem.lootTableItem(ModItems.CRIMSON_SHELL.get())
+                                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
+                                    .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
+                                    .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                            )
+                    )
+            );
+            this.add(ModEntityTypes.CYCLOPS_ENTITY.get(), LootTable.lootTable()
                     .withPool(LootPool.lootPool()
                             .setRolls(ConstantValue.exactly(1))
                             .add(LootItem.lootTableItem(ModItems.CRIMSON_SHELL.get())

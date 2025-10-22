@@ -64,6 +64,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<UnknownEyeEntity>> UNKNOWN_EYE_ENTITY = ENTITY_TYPES.register("unknown_eye_entity",
             () -> EntityType.Builder.<UnknownEyeEntity>of(UnknownEyeEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
                     "unknown_eye_entity").toString()));
+    public static final RegistryObject<EntityType<CyclopsEntity>> CYCLOPS_ENTITY = ENTITY_TYPES.register("cyclops_entity",
+            () -> EntityType.Builder.<CyclopsEntity>of(CyclopsEntity::new,MobCategory.AMBIENT).sized(1.2f,1.2f).build(new ResourceLocation(BloodyHell.MODID,
+                    "cyclops_entity").toString()));
     public static final RegistryObject<EntityType<BlasphemousArmEntity>> BLASPHEMOUS_ARM_ENTITY = ENTITY_TYPES.register("blasphemous_arm_entity",
             () -> EntityType.Builder.<BlasphemousArmEntity>of(BlasphemousArmEntity::new,MobCategory.AMBIENT).sized(1.3f,4f).build(new ResourceLocation(BloodyHell.MODID,
                     "blasphemous_arm_entity").toString()));

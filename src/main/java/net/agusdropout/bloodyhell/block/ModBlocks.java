@@ -3,6 +3,8 @@ package net.agusdropout.bloodyhell.block;
 import net.agusdropout.bloodyhell.BloodyHell;
 import net.agusdropout.bloodyhell.block.base.*;
 import net.agusdropout.bloodyhell.block.custom.*;
+import net.agusdropout.bloodyhell.block.entity.SelioraRestingBlockEntity;
+import net.agusdropout.bloodyhell.block.entity.StarLampBlockEntity;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.item.ModItems;
 import net.agusdropout.bloodyhell.worldgen.tree.BloodTreeGrower;
@@ -328,6 +330,14 @@ public class ModBlocks {
             BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SMOOTH_BLASPHEMOUS_SANDSTONE_SLAB = registerBlock("smooth_blasphemous_sandstone_slab", () -> new SlabBlock(
             BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SELIORA_RESTING_BLOCK = registerBlock("seliora_resting_block", () -> new SelioraRestingBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+    public static final RegistryObject<Block> STAR_LAMP_BLOCK = registerBlock("star_lamp_block", () -> new StarLampBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((state)->15).noOcclusion()));
+    public static final RegistryObject<Block> DECORATED_POT_BLOCK = registerBlock("decorated_pot_block", () -> new DetailedPotBlock(
+            BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+    public static final RegistryObject<Block> FORBIDDEN_BOOKSHELF_BLOCK = registerBlock("forbidden_bookshelf_block", () -> new Block(
+            BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
 
 
 

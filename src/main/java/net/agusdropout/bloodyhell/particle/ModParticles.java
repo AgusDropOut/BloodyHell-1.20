@@ -41,6 +41,10 @@ public class ModParticles {
             PARTICLE_TYPES.register("star_explosion_particle", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> MAGIC_WAVE_PARTICLE =
             PARTICLE_TYPES.register("magic_wave_particle", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> CYCLOPS_HALO_PARTICLE =
+            PARTICLE_TYPES.register("cyclops_halo_particle", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> EYE_PARTICLE =
+            PARTICLE_TYPES.register("eye_particle", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<SimpleBlockParticleOptions>> SIMPLE_BLOCK_PARTICLE =
             PARTICLE_TYPES.register("simple_block_particle", () ->
                     new ParticleType<SimpleBlockParticleOptions>(false, SimpleBlockParticleOptions.DESERIALIZER) {

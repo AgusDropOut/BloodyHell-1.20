@@ -10,12 +10,17 @@ import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
 import net.agusdropout.bloodyhell.entity.client.CrystalPillarModel;
 import net.agusdropout.bloodyhell.entity.client.ModModelLayers;
 import net.agusdropout.bloodyhell.entity.client.VesperModel;
+import net.agusdropout.bloodyhell.entity.custom.CyclopsEntity;
+import net.agusdropout.bloodyhell.entity.effects.EntityCameraShake;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.custom.*;
 import net.agusdropout.bloodyhell.util.ClientTickHandler;
 import net.agusdropout.bloodyhell.util.WindController;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -46,6 +51,8 @@ public class ClientEvents {
                 event.registerSpecial(ModParticles.STAR_EXPLOSION_PARTICLE.get(), new StarExplosionParticle.Provider());
                 event.registerSpecial(ModParticles.MAGIC_WAVE_PARTICLE.get(), new MagicWaveParticle.Provider());
                 event.registerSpecial(ModParticles.SIMPLE_BLOCK_PARTICLE.get(), new SimpleBlockParticle.Provider());
+                event.registerSpriteSet(ModParticles.CYCLOPS_HALO_PARTICLE.get(), CyclopsHaloParticle.Provider::new);
+                event.registerSpriteSet(ModParticles.EYE_PARTICLE.get(), EyeParticle.Provider::new);
             }
 
             @SubscribeEvent
@@ -75,6 +82,46 @@ public class ClientEvents {
                 ClientTickHandler.ticksInGame++;
                 WindController.tick();
 
+            }
+        }
+
+        @SubscribeEvent
+        public void onSetupCamera(ViewportEvent.ComputeCameraAngles event) {
+            System.out.println("onSetupCamera ejecutándose: Pitch=" + event.getPitch() + " Yaw=" + event.getYaw());
+            Player player = Minecraft.getInstance().player;
+            float delta = Minecraft.getInstance().getFrameTime();
+            float ticksExistedDelta = player.tickCount + delta;
+            if (player != null) {
+                if(!Minecraft.getInstance().isPaused()) {
+                    float shakeAmplitude = 0;
+                    for (EntityCameraShake cameraShake : player.level().getEntitiesOfClass(EntityCameraShake.class, player.getBoundingBox().inflate(20, 20, 20))) {
+                        if (cameraShake.distanceTo(player) < cameraShake.getRadius()) {
+                            shakeAmplitude += cameraShake.getShakeAmount(player, delta);
+                        }
+                    }
+                    if (shakeAmplitude > 1.0f) shakeAmplitude = 1.0f;
+                    event.setPitch((float) (event.getPitch() + shakeAmplitude * Math.cos(ticksExistedDelta * 3 + 2) * 25));
+                    event.setYaw((float) (event.getYaw() + shakeAmplitude * Math.cos(ticksExistedDelta * 5 + 1) * 25));
+                    event.setRoll((float) (event.getRoll() + shakeAmplitude * Math.cos(ticksExistedDelta * 4) * 25));
+                }
+            }
+        }
+        @SubscribeEvent
+        public static void onComputeFov(ViewportEvent.ComputeFov event) {
+            Player player = (Player) event.getCamera().getEntity();
+            if (player == null) return;
+
+
+            CyclopsEntity cyclops = player.level().getEntitiesOfClass(CyclopsEntity.class, player.getBoundingBox().inflate(64.0))
+                    .stream().findFirst().orElse(null);
+
+            if (cyclops != null) {
+                int chargeTicks = cyclops.getClientSideAttackTicks();
+                if (chargeTicks > 0) {
+                    float chargeRatio = (float) chargeTicks / (float) CyclopsEntity.ATTACK_CHARGE_TIME_TICKS;
+                    float zoomIntensity = Mth.lerp(chargeRatio, 1.0f, 0.85f);
+                    event.setFOV(event.getFOV() * zoomIntensity);
+                }
             }
         }
 

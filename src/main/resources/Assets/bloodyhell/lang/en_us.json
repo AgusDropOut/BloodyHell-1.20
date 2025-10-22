@@ -231,5 +231,7 @@
   "block.bloodyhell.cinder_bloom_cactus_flower": "Cinder Bloom Cactus Flower",
   "block.bloodyhell.cinder_bloom_cactus_center": "Cinder Bloom Cactus Center",
   "block.bloodyhell.cinder_bloom_cactus_con": "Cinder Bloom Cactus Connection",
-  "block.bloodyhell.cinder_bloom_cactus_root": "Cinder Bloom Cactus Root"
+  "block.bloodyhell.cinder_bloom_cactus_root": "Cinder Bloom Cactus Root",
+  "block.bloodyhell.decorated_pot_block": "Decorated Pot",
+  "block.bloodyhell.forbidden_bookshelf_block": "Forbidden Bookshelf"
 }

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "size=0": [
+      { "model": "bloodyhell:block/decorated_pot_1" }
+
+    ],
+    "size=1": [
+      { "model": "bloodyhell:block/decorated_pot_2" }
+
+    ],
+    "size=2": [
+      { "model": "bloodyhell:block/decorated_pot_3" }
+
+    ]
+  }
+}
