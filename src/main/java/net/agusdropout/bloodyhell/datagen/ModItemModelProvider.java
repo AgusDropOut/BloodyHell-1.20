@@ -119,6 +119,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         normalItem(ModItems.CRIMSON_LURE_MUSHROOM);
         normalItem(ModItems.BLOOD_GEM_SPROUT_SEED);
 
+        //Ingredient Items
+        normalItem(ModItems.ROOTLET_POWDER);
+
         //Potions
         normalItem(ModItems.BLOOD_FLASK);
         normalItem(ModItems.CORRUPTED_BLOOD_FLASK);

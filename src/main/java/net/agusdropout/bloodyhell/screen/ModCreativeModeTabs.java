@@ -165,6 +165,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.FILLED_RHNULL_BLOOD_FLASK.get());
                         output.accept(ModItems.FILLED_VISCOUS_BLASPHEMY_FLASK.get());
 
+                        // --- Ingredients ---
+                        output.accept(ModItems.ROOTLET_POWDER.get());
+
                         // --- Mob Drops & Boss Items ---
                         output.accept(ModItems.MATERIALIZED_SOUL.get());
                         output.accept(ModItems.BLOODY_SOUL_DUST.get());

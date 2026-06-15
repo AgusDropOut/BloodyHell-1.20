@@ -251,6 +251,10 @@ public class ModItems {
     public static final RegistryObject<Item> BLOOD_LILY = ITEMS.register("blood_lily", () -> new PlaceOnWaterBlockItem(
             ModBlocks.BLOOD_LILY_BLOCK.get(),new Item.Properties()));
 
+    //Ingredient Items
+    public static final RegistryObject<Item> ROOTLET_POWDER = ITEMS.register("rootlet_powder", () ->
+            new Item( new Item.Properties()));
+
     // Animated Items
     public static final RegistryObject<Item> BLASPHEMOUS_BLOOD_ALTAR_ITEM = ITEMS.register("blasphemous_blood_altar_item", () -> new BlasphemousBloodAltarItem(
             ModBlocks.BLASPHEMOUS_BLOOD_ALTAR.get(),new Item.Properties()));

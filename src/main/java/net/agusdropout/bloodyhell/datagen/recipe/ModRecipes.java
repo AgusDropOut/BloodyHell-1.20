@@ -455,6 +455,22 @@ public class ModRecipes extends ModRecipesProvider {
                 .save(consumer, name("crimson_idol_coin"));
 
         // =================================================================
+        // INGREDIENT ITEMS CRAFTING
+        // =================================================================
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ROOTLET_POWDER.get(), 2)
+        .requires(ModBlocks.BLOOD_PETALS.get())
+        .requires(ModBlocks.BLOOD_FLOWER.get())
+        .requires(Items.REDSTONE)
+        .unlockedBy("has_blood_flower", has(ModBlocks.BLOOD_FLOWER.get()))
+        .save(consumer, name("rootlet_powder"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.REDSTONE, 1)
+        .requires(ModBlocks.BLOODY_STONE_BLOCK.get())
+        .requires(ModBlocks.BLOOD_GRASS.get())
+        .unlockedBy("has_bloody_stone_block", has(ModBlocks.BLOODY_STONE_BLOCK.get()))
+        .save(consumer, name("redstone"));
+
+        // =================================================================
         // GLOWING BLOCKS CRAFTING
         // =================================================================
 
@@ -925,19 +941,30 @@ public class ModRecipes extends ModRecipesProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SANGUINITE_PIPE_ITEM.get(), 8)
                 .pattern("GGG")
-                .pattern("SSS")
+                .pattern("SRS")
                 .pattern("GGG")
                 .define('G', Items.GLASS_PANE)
                 .define('S', ModItems.SANGUINITE.get())
+                .define('R', ModItems.ROOTLET_POWDER.get())
                 .unlockedBy("has_sanguinite", has(ModItems.SANGUINITE.get()))
                 .save(consumer, name("sanguinite_pipe"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RHNULL_PIPE_ITEM.get(), 1)
+        .requires(ModItems.SANGUINITE_PIPE_ITEM.get())
+        .requires(ModItems.SANGUINITE_PIPE_ITEM.get())
+        .requires(ModItems.SANGUINITE_PIPE_ITEM.get())
+        .requires(ModItems.SANGUINITE_PIPE_ITEM.get())
+        .requires(ModItems.RHNULL.get())
+        .unlockedBy("has_rhnull", has(ModItems.RHNULL.get()))
+        .save(consumer, name("redstone"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RHNULL_PIPE_ITEM.get(), 8)
                 .pattern("GGG")
-                .pattern("RRR")
+                .pattern("RPR")
                 .pattern("GGG")
                 .define('G', Items.GLASS_PANE)
                 .define('R', ModItems.RHNULL.get())
+                .define('P', ModItems.ROOTLET_POWDER.get())
                 .unlockedBy("has_rhnull", has(ModItems.RHNULL.get()))
                 .save(consumer, name("rhnull_pipe"));
 
