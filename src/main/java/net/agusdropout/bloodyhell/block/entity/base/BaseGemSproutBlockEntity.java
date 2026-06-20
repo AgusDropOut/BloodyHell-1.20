@@ -53,7 +53,7 @@ public abstract class BaseGemSproutBlockEntity extends BlockEntity {
     private final FluidTank bloodTank = new FluidTank(2000) {
         @Override
         public boolean isFluidValid(FluidStack stack) {
-            return stack.getFluid() == ModFluids.BLOOD_SOURCE.get();
+            return stack.getFluid().isSame(getValidFluid());
         }
         @Override
         protected void onContentsChanged() { setChanged(); sync();  }

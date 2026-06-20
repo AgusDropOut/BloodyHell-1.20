@@ -26,11 +26,6 @@ public class BloodGemSproutBlockEntity extends BaseGemSproutBlockEntity {
     }
 
 
-
-
-
-
-
     @Override
     public Fluid getValidFluid() {
         return ModFluids.BLOOD_SOURCE.get();

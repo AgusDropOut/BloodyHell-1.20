@@ -18,6 +18,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -172,7 +173,17 @@ public class SanguiniteBloodHarvesterBlockEntity extends BaseGeckoBlockEntity im
         FluidStack fluidToAdd = switch (type) {
             case CORRUPTED -> new FluidStack(ModFluids.CORRUPTED_BLOOD_SOURCE.get(), amount);
             case INFECTED -> new FluidStack(ModFluids.VISCERAL_BLOOD_SOURCE.get(), amount);
-            default -> new FluidStack(ModFluids.BLOOD_SOURCE.get(), amount);
+            default -> {
+                ResourceLocation fluidLoc = new ResourceLocation(net.agusdropout.bloodyhell.config.ModCommonConfig.HARVESTER_DEFAULT_BLOOD_FLUID.get());
+                net.minecraft.world.level.material.Fluid configuredFluid = net.minecraftforge.registries.ForgeRegistries.FLUIDS.getValue(fluidLoc);
+
+                //  Fallback to Bloody Hell blood if the config is invalid or empty
+                if (configuredFluid == null || configuredFluid == net.minecraft.world.level.material.Fluids.EMPTY) {
+                    yield new FluidStack(ModFluids.BLOOD_SOURCE.get(), amount);
+                } else {
+                    yield new FluidStack(configuredFluid, amount);
+                }
+            }
         };
         tank.fill(fluidToAdd, IFluidHandler.FluidAction.EXECUTE);
         this.idleActiveTimer = IDLE_ACTIVE_DURATION;
