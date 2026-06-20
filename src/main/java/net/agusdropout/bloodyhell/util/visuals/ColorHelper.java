@@ -22,4 +22,20 @@ public class ColorHelper {
         return new Vector3f(r, g, b);
     }
 
+    public static Vector3f blend(Vector3f color1, Vector3f color2) {
+        float r = (float) Math.sqrt((color1.x() * color1.x() + color2.x() * color2.x()) / 2.0f);
+        float g = (float) Math.sqrt((color1.y() * color1.y() + color2.y() * color2.y()) / 2.0f);
+        float b = (float) Math.sqrt((color1.z() * color1.z() + color2.z() * color2.z()) / 2.0f);
+        return new Vector3f(r, g, b);
+    }
+
+    public static Vector3f blendSimple(Vector3f color1, Vector3f color2) {
+        float r = (color1.x() + color2.x()) / 2.0f;
+        float g = (color1.y() + color2.y()) / 2.0f;
+        float b = (color1.z() + color2.z()) / 2.0f;
+        return new Vector3f(r, g, b);
+    }
+
+
+
 }

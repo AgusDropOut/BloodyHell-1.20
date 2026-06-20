@@ -19,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.util.List;
@@ -468,7 +469,7 @@ public class ModRecipes extends ModRecipesProvider {
         .requires(ModBlocks.BLOODY_STONE_BLOCK.get())
         .requires(ModBlocks.BLOOD_GRASS.get())
         .unlockedBy("has_bloody_stone_block", has(ModBlocks.BLOODY_STONE_BLOCK.get()))
-        .save(consumer, name("redstone"));
+        .save(consumer, name("redstone_from_blood_stone_and_blood_grass"));
 
         // =================================================================
         // GLOWING BLOCKS CRAFTING
@@ -956,7 +957,7 @@ public class ModRecipes extends ModRecipesProvider {
         .requires(ModItems.SANGUINITE_PIPE_ITEM.get())
         .requires(ModItems.RHNULL.get())
         .unlockedBy("has_rhnull", has(ModItems.RHNULL.get()))
-        .save(consumer, name("redstone"));
+        .save(consumer, name("rhnull_pipe_from_sanguinite_pipes"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RHNULL_PIPE_ITEM.get(), 8)
                 .pattern("GGG")
@@ -1042,10 +1043,10 @@ public class ModRecipes extends ModRecipesProvider {
         // FLUID INFUSION
         // =================================================================
 
-        makeInfusion(consumer, ModItems.RHNULL.get(), ModItems.SANGUINITE.get(), 500, 500, "rhnull_ingot_infusion");
-        makeInfusion(consumer, ModItems.FILLED_RHNULL_BLOOD_FLASK.get(), ModItems.FILLED_BLOOD_FLASK.get(), 500, 500, "filled_rhnull_flask_infusion");
-        makeInfusion(consumer, ModItems.ANCIENT_RHNULL_GEM.get(), ModItems.ANCIENT_GEM.get(), 1000, 1000, "ancient_rhnull_gem_infusion");
-        makeInfusion(consumer, ModItems.GREAT_ANCIENT_RHNULL_GEM.get(), ModItems.GREAT_ANCIENT_GEM.get(), 2000, 2000, "great_ancient_rhnull_gem_infusion");
+        makeInfusion(consumer, ModItems.RHNULL.get(), ModItems.SANGUINITE.get(), new FluidStack(ModFluids.BLOOD_SOURCE.get(),500), new FluidStack(ModFluids.VISCERAL_BLOOD_SOURCE.get(),500), "rhnull_ingot_infusion");
+        makeInfusion(consumer, ModItems.FILLED_RHNULL_BLOOD_FLASK.get(), ModItems.FILLED_BLOOD_FLASK.get(), new FluidStack(ModFluids.BLOOD_SOURCE.get(),500), new FluidStack(ModFluids.VISCERAL_BLOOD_SOURCE.get(),500), "filled_rhnull_flask_infusion");
+        makeInfusion(consumer, ModItems.ANCIENT_RHNULL_GEM.get(), ModItems.ANCIENT_GEM.get(), new FluidStack(ModFluids.BLOOD_SOURCE.get(),100), new FluidStack(ModFluids.VISCERAL_BLOOD_SOURCE.get(),100), "ancient_rhnull_gem_infusion");
+        makeInfusion(consumer, ModItems.GREAT_ANCIENT_RHNULL_GEM.get(), ModItems.GREAT_ANCIENT_GEM.get(), new FluidStack(ModFluids.BLOOD_SOURCE.get(),2000), new FluidStack(ModFluids.VISCERAL_BLOOD_SOURCE.get(),2000), "great_ancient_rhnull_gem_infusion");
 
 
         // =================================================================

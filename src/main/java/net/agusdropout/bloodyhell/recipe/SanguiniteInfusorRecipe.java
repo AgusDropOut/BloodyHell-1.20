@@ -11,35 +11,41 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 public class SanguiniteInfusorRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;
     private final Ingredient recipeItem;
-    // We store fluid costs as integers since fluid ingredients aren't standard in vanilla recipes
-    private final int bloodCost;
-    private final int visceralCost;
+    private final FluidStack fluid1;
+    private final FluidStack fluid2;
 
-    public SanguiniteInfusorRecipe(ResourceLocation id, ItemStack output, Ingredient recipeItem, int bloodCost, int visceralCost) {
+    public SanguiniteInfusorRecipe(ResourceLocation id, ItemStack output, Ingredient recipeItem, FluidStack fluid1, FluidStack fluid2) {
         this.id = id;
         this.output = output;
         this.recipeItem = recipeItem;
-        this.bloodCost = bloodCost;
-        this.visceralCost = visceralCost;
+        this.fluid1 = fluid1;
+        this.fluid2 = fluid2;
     }
 
-    // --- GETTERS FOR JEI ---
-    public int getBloodCost() { return bloodCost; }
-    public int getVisceralCost() { return visceralCost; }
+    // --- GETTERS ---
+    public FluidStack getFluid1() { return fluid1; }
+    public FluidStack getFluid2() { return fluid2; }
     public Ingredient getInputItem() { return recipeItem; }
 
     @Override
     public boolean matches(SimpleContainer container, Level level) {
         if(level.isClientSide()) return false;
-        // Logic checks strictly the ITEM match here.
-        // Fluid checks happen in the Block Entity logic using getBloodCost().
         return recipeItem.test(container.getItem(0));
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> list = NonNullList.create();
+        list.add(this.recipeItem);
+        return list;
     }
 
     @Override
@@ -64,7 +70,7 @@ public class SanguiniteInfusorRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return ModRecipes.SANGUINITE_INFUSING_SERIALIZER.get();
     }
 
     @Override
@@ -81,27 +87,37 @@ public class SanguiniteInfusorRecipe implements Recipe<SimpleContainer> {
         public SanguiniteInfusorRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
             Ingredient input = Ingredient.fromJson(json.get("input"));
-            int blood = GsonHelper.getAsInt(json, "blood_cost", 500); // Default 500 if missing
-            int visceral = GsonHelper.getAsInt(json, "visceral_cost", 500);
 
-            return new SanguiniteInfusorRecipe(id, output, input, blood, visceral);
+            FluidStack fluid1 = FluidStack.EMPTY;
+            if (json.has("fluid1")) {
+                JsonObject f1Json = GsonHelper.getAsJsonObject(json, "fluid1");
+                fluid1 = new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(f1Json, "fluid"))), GsonHelper.getAsInt(f1Json, "amount"));
+            }
+
+            FluidStack fluid2 = FluidStack.EMPTY;
+            if (json.has("fluid2")) {
+                JsonObject f2Json = GsonHelper.getAsJsonObject(json, "fluid2");
+                fluid2 = new FluidStack(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(f2Json, "fluid"))), GsonHelper.getAsInt(f2Json, "amount"));
+            }
+
+            return new SanguiniteInfusorRecipe(id, output, input, fluid1, fluid2);
         }
 
         @Override
         public @Nullable SanguiniteInfusorRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             Ingredient input = Ingredient.fromNetwork(buf);
             ItemStack output = buf.readItem();
-            int blood = buf.readInt();
-            int visceral = buf.readInt();
-            return new SanguiniteInfusorRecipe(id, output, input, blood, visceral);
+            FluidStack fluid1 = buf.readFluidStack();
+            FluidStack fluid2 = buf.readFluidStack();
+            return new SanguiniteInfusorRecipe(id, output, input, fluid1, fluid2);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, SanguiniteInfusorRecipe recipe) {
             recipe.recipeItem.toNetwork(buf);
             buf.writeItem(recipe.output);
-            buf.writeInt(recipe.bloodCost);
-            buf.writeInt(recipe.visceralCost);
+            buf.writeFluidStack(recipe.fluid1);
+            buf.writeFluidStack(recipe.fluid2);
         }
     }
 

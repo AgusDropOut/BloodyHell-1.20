@@ -1,10 +1,10 @@
 package net.agusdropout.bloodyhell.block.entity.custom.mechanism;
 
 import net.agusdropout.bloodyhell.block.entity.ModBlockEntities;
-import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.particle.ModParticles;
 import net.agusdropout.bloodyhell.particle.ParticleOptions.MagicParticleOptions;
 import net.agusdropout.bloodyhell.recipe.SanguiniteInfusorRecipe;
+import net.agusdropout.bloodyhell.util.visuals.ColorHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -39,12 +40,6 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
     private int maxProgress = 200;
     private float rotation = 0;
 
-    // --- CACHED RECIPE DATA (For Client Visuals) ---
-    // We store the costs here so the client can access them for rendering
-    // without needing the full recipe object synced perfectly every tick.
-    private int clientBloodCost = 0;
-    private int clientVisceralCost = 0;
-
     // --- INVENTORY ---
     private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
         @Override
@@ -64,48 +59,32 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
         }
     };
 
-    // --- TANKS ---
-    private final FluidTank bloodTank = new FluidTank(4000) {
-        @Override
-        public boolean isFluidValid(FluidStack stack) {
-            return stack.getFluid() == ModFluids.BLOOD_SOURCE.get();
-        }
-        @Override
-        protected void onContentsChanged() { setChanged(); sync(); }
+    // --- TANKS (No Hardcoded Fluids!) ---
+    private final FluidTank tank1 = new FluidTank(4000) {
+        @Override protected void onContentsChanged() { setChanged(); sync(); }
     };
 
-    private final FluidTank visceralTank = new FluidTank(4000) {
-        @Override
-        public boolean isFluidValid(FluidStack stack) {
-            return stack.getFluid() == ModFluids.VISCERAL_BLOOD_SOURCE.get();
-        }
-        @Override
-        protected void onContentsChanged() { setChanged(); sync(); }
+    private final FluidTank tank2 = new FluidTank(4000) {
+        @Override protected void onContentsChanged() { setChanged(); sync(); }
     };
 
     // --- CAPABILITIES ---
     private final LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.of(() -> itemHandler);
     private final LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.of(() -> new IFluidHandler() {
-        @Override
-        public int getTanks() { return 2; }
-        @Override
-        public @NotNull FluidStack getFluidInTank(int tank) { return tank == 0 ? bloodTank.getFluid() : visceralTank.getFluid(); }
-        @Override
-        public int getTankCapacity(int tank) { return 4000; }
-        @Override
-        public boolean isFluidValid(int tank, @NotNull FluidStack stack) {
-            return tank == 0 ? bloodTank.isFluidValid(stack) : visceralTank.isFluidValid(stack);
-        }
+        @Override public int getTanks() { return 2; }
+        @Override public @NotNull FluidStack getFluidInTank(int tank) { return tank == 0 ? tank1.getFluid() : tank2.getFluid(); }
+        @Override public int getTankCapacity(int tank) { return 4000; }
+        @Override public boolean isFluidValid(int tank, @NotNull FluidStack stack) { return true; } // Accepts anything!
         @Override
         public int fill(FluidStack resource, FluidAction action) {
-            if (bloodTank.isFluidValid(resource)) return bloodTank.fill(resource, action);
-            if (visceralTank.isFluidValid(resource)) return visceralTank.fill(resource, action);
-            return 0;
+            // Priority filling logic
+            if (tank1.isEmpty() || tank1.isFluidValid(resource) && tank1.getFluid().isFluidEqual(resource)) {
+                return tank1.fill(resource, action);
+            }
+            return tank2.fill(resource, action);
         }
-        @Override
-        public @NotNull FluidStack drain(FluidStack resource, FluidAction action) { return FluidStack.EMPTY; }
-        @Override
-        public @NotNull FluidStack drain(int maxDrain, FluidAction action) { return FluidStack.EMPTY; }
+        @Override public @NotNull FluidStack drain(FluidStack resource, FluidAction action) { return FluidStack.EMPTY; }
+        @Override public @NotNull FluidStack drain(int maxDrain, FluidAction action) { return FluidStack.EMPTY; }
     });
 
     public SanguiniteInfusorBlockEntity(BlockPos pos, BlockState state) {
@@ -129,10 +108,6 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
 
         SanguiniteInfusorRecipe recipe = getCurrentRecipe();
         if (recipe != null && canProcess(recipe)) {
-            // Update cached costs for sync
-            this.clientBloodCost = recipe.getBloodCost();
-            this.clientVisceralCost = recipe.getVisceralCost();
-
             progress++;
 
             if (progress % 40 == 1) {
@@ -142,17 +117,76 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
             if (progress >= maxProgress) {
                 processItem(recipe);
                 progress = 0;
-                // Reset costs on finish
-                this.clientBloodCost = 0;
-                this.clientVisceralCost = 0;
             }
         } else {
             progress = 0;
-            this.clientBloodCost = 0;
-            this.clientVisceralCost = 0;
         }
 
         if (progress > 0 && progress % 20 == 0) sync();
+    }
+
+    // --- RECIPE LOGIC ---
+    private SanguiniteInfusorRecipe getCurrentRecipe() {
+        SimpleContainer temp = new SimpleContainer(1);
+        temp.setItem(0, itemHandler.getStackInSlot(0));
+        return level.getRecipeManager().getRecipeFor(SanguiniteInfusorRecipe.Type.INSTANCE, temp, level).orElse(null);
+    }
+
+    public Vector3f getHeartColor() {
+        boolean t1Empty = tank1.isEmpty();
+        boolean t2Empty = tank2.isEmpty();
+
+        if (t1Empty && t2Empty) return new Vector3f(0.5f, 0.0f, 0.0f);
+
+        if (!t1Empty && t2Empty) {
+            return ColorHelper.hexToVector3f(IClientFluidTypeExtensions.of(tank1.getFluid().getFluid()).getTintColor());
+        } else if (t1Empty) {
+            return ColorHelper.hexToVector3f(IClientFluidTypeExtensions.of(tank2.getFluid().getFluid()).getTintColor());
+        } else {
+
+            Vector3f c1 = ColorHelper.hexToVector3f(IClientFluidTypeExtensions.of(tank1.getFluid().getFluid()).getTintColor());
+            Vector3f c2 = ColorHelper.hexToVector3f(IClientFluidTypeExtensions.of(tank2.getFluid().getFluid()).getTintColor());
+            return ColorHelper.blend(c1, c2);
+        }
+    }
+
+    private boolean canProcess(SanguiniteInfusorRecipe recipe) {
+        // Match Tank 1 to Fluid 1
+        if (!recipe.getFluid1().isEmpty()) {
+            if (!tank1.getFluid().isFluidEqual(recipe.getFluid1()) || tank1.getFluidAmount() < recipe.getFluid1().getAmount()) {
+                return false;
+            }
+        }
+
+        // Match Tank 2 to Fluid 2
+        if (!recipe.getFluid2().isEmpty()) {
+            if (!tank2.getFluid().isFluidEqual(recipe.getFluid2()) || tank2.getFluidAmount() < recipe.getFluid2().getAmount()) {
+                return false;
+            }
+        }
+
+        ItemStack result = recipe.getResultItem(level.registryAccess());
+        ItemStack out = itemHandler.getStackInSlot(1);
+        if (out.isEmpty()) return true;
+        return out.is(result.getItem()) && out.getCount() + result.getCount() <= out.getMaxStackSize();
+    }
+
+    private void processItem(SanguiniteInfusorRecipe recipe) {
+        itemHandler.extractItem(0, 1, false);
+
+        if (!recipe.getFluid1().isEmpty()) tank1.drain(recipe.getFluid1().getAmount(), IFluidHandler.FluidAction.EXECUTE);
+        if (!recipe.getFluid2().isEmpty()) tank2.drain(recipe.getFluid2().getAmount(), IFluidHandler.FluidAction.EXECUTE);
+
+        ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
+        ItemStack currentOutput = itemHandler.getStackInSlot(1);
+        if (currentOutput.isEmpty()) {
+            itemHandler.setStackInSlot(1, result);
+        } else {
+            currentOutput.grow(result.getCount());
+            itemHandler.setStackInSlot(1, currentOutput);
+        }
+        level.playSound(null, worldPosition, SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
+        sync();
     }
 
     // --- VISUALS ---
@@ -167,15 +201,22 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
                 {pos.getX() + 0.5 + offset, pos.getZ() + 0.5 + offset}  // 3: SE
         };
 
-        // Gradients
-        Vector3f bloodStart = new Vector3f(0.8f, 0.0f, 0.0f);
-        Vector3f bloodEnd = new Vector3f(1.0f, 0.4f, 0.6f);
-        Vector3f infectedStart = new Vector3f(0.1f, 0.8f, 0.2f);
-        Vector3f infectedEnd = new Vector3f(0.6f, 0.8f, 0.1f);
+        boolean useTank1 = !tank1.isEmpty();
+        boolean useTank2 = !tank2.isEmpty();
 
-        // Determine Mode
-        boolean useBlood = clientBloodCost > 0;
-        boolean useVisceral = clientVisceralCost > 0;
+
+        // Fallback to dark red/green if the tank is empty or the registry fails to fetch it.
+        Vector3f color1 = new Vector3f(0.8f, 0.0f, 0.0f);
+        if (useTank1) {
+            int tint1 = IClientFluidTypeExtensions.of(tank1.getFluid().getFluid()).getTintColor();
+            color1 = ColorHelper.hexToVector3f(tint1);
+        }
+
+        Vector3f color2 = new Vector3f(0.1f, 0.8f, 0.2f);
+        if (useTank2) {
+            int tint2 = IClientFluidTypeExtensions.of(tank2.getFluid().getFluid()).getTintColor();
+            color2 = ColorHelper.hexToVector3f(tint2);
+        }
 
         for (int i = 0; i < 4; i++) {
             if (level.random.nextFloat() < 0.2f) {
@@ -184,60 +225,36 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
                 double velZ = (pos.getZ() + 0.5 - corner[1]) * 0.05;
                 double velY = 0.1;
 
-                Vector3f color;
-                float ratio = level.random.nextFloat();
+                Vector3f finalColor;
 
-                // LOGIC: Determine Color based on Corner + Recipe Requirement
-                if (useBlood && useVisceral) {
-                    // Mixed Mode: Diagonal Split
-                    if (i == 0 || i == 3) {
-                        color = lerpColor(bloodStart, bloodEnd, ratio);
-                    } else {
-                        color = lerpColor(infectedStart, infectedEnd, ratio);
-                    }
-                } else if (useVisceral) {
-                    // Visceral Only: All Green
-                    color = lerpColor(infectedStart, infectedEnd, ratio);
+                // Alternate colors between corners if both tanks are being used
+                if (useTank1 && useTank2) {
+                    finalColor = (i == 0 || i == 3) ? color1 : color2;
+                } else if (useTank2) {
+                    finalColor = color2;
                 } else {
-                    // Blood Only (or Default): All Red
-                    color = lerpColor(bloodStart, bloodEnd, ratio);
+                    finalColor = color1;
                 }
 
-                level.addParticle(
-                        new MagicParticleOptions(color, 0.5f, false, 20),
-                        corner[0], startY, corner[1],
-                        velX, velY, velZ
-                );
+                level.addParticle(new MagicParticleOptions(finalColor, 0.5f, false, 20),
+                        corner[0], startY, corner[1], velX, velY, velZ);
             }
         }
 
+        // The central pulse particle
         if (level.random.nextFloat() < 0.3f) {
-            double x = pos.getX() + 0.5;
-            double y = pos.getY() + 1.25;
-            double z = pos.getZ() + 0.5;
-            level.addParticle(ModParticles.BLOOD_PULSE_PARTICLE.get(), x, y, z, 0, 0, 0);
+            level.addParticle(ModParticles.BLOOD_PULSE_PARTICLE.get(), pos.getX() + 0.5, pos.getY() + 1.25, pos.getZ() + 0.5, 0, 0, 0);
         }
-    }
-
-    private Vector3f lerpColor(Vector3f start, Vector3f end, float ratio) {
-        return new Vector3f(
-                start.x + (end.x - start.x) * ratio,
-                start.y + (end.y - start.y) * ratio,
-                start.z + (end.z - start.z) * ratio
-        );
     }
 
     private void spawnResultParticles(BlockPos pos) {
         if (level.random.nextFloat() < 0.15f) {
             double x = pos.getX() + 0.5 + (level.random.nextDouble() - 0.5) * 0.3;
             double z = pos.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * 0.3;
-            double y = pos.getY() + 1.0;
-            Vector3f goldColor = new Vector3f(1.0f, 0.84f, 0.0f);
-            level.addParticle(new MagicParticleOptions(goldColor, 0.4f, false, 40), x, y, z, 0.0, 0.03, 0.0);
+            level.addParticle(new MagicParticleOptions(new Vector3f(1.0f, 0.84f, 0.0f), 0.4f, false, 40), x, pos.getY() + 1.0, z, 0.0, 0.03, 0.0);
         }
     }
 
-    // --- RENDERER HELPERS ---
     public ItemStack getRenderStack() {
         ItemStack input = itemHandler.getStackInSlot(0);
         return !input.isEmpty() ? input : itemHandler.getStackInSlot(1);
@@ -246,61 +263,13 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
     public float getRotation() { return rotation; }
     public boolean isWorking() { return progress > 0; }
 
-    /**
-     * Calculates the Color Vector for the Atlas Heart based on current recipe.
-     */
-    public Vector3f getHeartColor() {
-        if (clientBloodCost > 0 && clientVisceralCost > 0) {
-            return new Vector3f(1.0f, 0.5f, 0.0f); // Orange/Gold (Mixed)
-        } else if (clientVisceralCost > 0) {
-            return new Vector3f(0.2f, 1.0f, 0.2f); // Green (Infected)
-        } else {
-            return new Vector3f(1.0f, 0.1f, 0.1f); // Red (Blood)
-        }
-    }
-
-    // --- RECIPE LOGIC ---
-    private SanguiniteInfusorRecipe getCurrentRecipe() {
-        SimpleContainer temp = new SimpleContainer(1);
-        temp.setItem(0, itemHandler.getStackInSlot(0));
-        return level.getRecipeManager().getRecipeFor(SanguiniteInfusorRecipe.Type.INSTANCE, temp, level).orElse(null);
-    }
-
-    private boolean canProcess(SanguiniteInfusorRecipe recipe) {
-        if (bloodTank.getFluidAmount() < recipe.getBloodCost()) return false;
-        if (visceralTank.getFluidAmount() < recipe.getVisceralCost()) return false;
-        ItemStack result = recipe.getResultItem(level.registryAccess());
-        ItemStack out = itemHandler.getStackInSlot(1);
-        if (out.isEmpty()) return true;
-        return out.is(result.getItem()) && out.getCount() + result.getCount() <= out.getMaxStackSize();
-    }
-
-    private void processItem(SanguiniteInfusorRecipe recipe) {
-        itemHandler.extractItem(0, 1, false);
-        bloodTank.drain(recipe.getBloodCost(), IFluidHandler.FluidAction.EXECUTE);
-        visceralTank.drain(recipe.getVisceralCost(), IFluidHandler.FluidAction.EXECUTE);
-        ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
-        ItemStack currentOutput = itemHandler.getStackInSlot(1);
-        if (currentOutput.isEmpty()) {
-            itemHandler.setStackInSlot(1, result);
-        } else {
-            currentOutput.grow(result.getCount());
-            itemHandler.setStackInSlot(1, currentOutput);
-        }
-        level.playSound(null, worldPosition, SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
-        sync();
-    }
-
     // --- BOILERPLATE ---
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         nbt.put("Inventory", itemHandler.serializeNBT());
-        nbt.put("BloodTank", bloodTank.writeToNBT(new CompoundTag()));
-        nbt.put("VisceralTank", visceralTank.writeToNBT(new CompoundTag()));
+        nbt.put("Tank1", tank1.writeToNBT(new CompoundTag()));
+        nbt.put("Tank2", tank2.writeToNBT(new CompoundTag()));
         nbt.putInt("Progress", progress);
-        // Save client data for sync
-        nbt.putInt("ClientBlood", clientBloodCost);
-        nbt.putInt("ClientVisceral", clientVisceralCost);
         super.saveAdditional(nbt);
     }
 
@@ -308,11 +277,9 @@ public class SanguiniteInfusorBlockEntity extends BlockEntity {
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("Inventory"));
-        bloodTank.readFromNBT(nbt.getCompound("BloodTank"));
-        visceralTank.readFromNBT(nbt.getCompound("VisceralTank"));
+        tank1.readFromNBT(nbt.getCompound("Tank1"));
+        tank2.readFromNBT(nbt.getCompound("Tank2"));
         progress = nbt.getInt("Progress");
-        clientBloodCost = nbt.getInt("ClientBlood");
-        clientVisceralCost = nbt.getInt("ClientVisceral");
     }
 
     private void sync() {

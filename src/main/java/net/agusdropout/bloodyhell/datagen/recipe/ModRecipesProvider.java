@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -92,8 +93,8 @@ public abstract class ModRecipesProvider extends RecipeProvider {
                 .unlockedBy("has_" + ForgeRegistries.BLOCKS.getKey(blockIn.get()).getPath(), has(blockIn.get()));
     }
 
-    protected void makeInfusion(Consumer<FinishedRecipe> consumer, Item result, Item input, int blood, int visceral, String name) {
-        new SanguiniteInfusorRecipeBuilder(result, Ingredient.of(input), blood, visceral)
+    protected void makeInfusion(Consumer<FinishedRecipe> consumer, Item result, Item input, FluidStack fluid1, FluidStack fluid2, String name) {
+        new SanguiniteInfusorRecipeBuilder(result, Ingredient.of(input), fluid1, fluid2)
                 .unlockedBy("has_" + ForgeRegistries.ITEMS.getKey(input).getPath(), has(input))
                 .save(consumer, new ResourceLocation(BloodyHell.MODID, name));
     }
