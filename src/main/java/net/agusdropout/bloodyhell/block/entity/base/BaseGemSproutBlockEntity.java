@@ -12,6 +12,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -25,6 +27,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,6 +44,10 @@ public abstract class BaseGemSproutBlockEntity extends BlockEntity {
     protected final float GROWTH_CHANCE;
     public static final int INSERT_GEM_AGE = 2;
     private ItemStack tempStoredItem = ItemStack.EMPTY;
+    private static final TagKey<Fluid> FORGE_BLOOD_TAG = TagKey.create(
+            ForgeRegistries.Keys.FLUIDS,
+            new ResourceLocation("forge", "blood")
+    );
 
     public BaseGemSproutBlockEntity(BlockEntityType<?> entityType, BlockPos blockPos, BlockState blockState, int MAX_GROWTH_TIME, int BLOOD_PER_STAGE, float GROWTH_CHANCE) {
         super(entityType, blockPos, blockState);
@@ -53,11 +60,17 @@ public abstract class BaseGemSproutBlockEntity extends BlockEntity {
     private final FluidTank bloodTank = new FluidTank(2000) {
         @Override
         public boolean isFluidValid(FluidStack stack) {
-            return stack.getFluid().isSame(getValidFluid());
+            return isAcceptableFluid(stack);
         }
         @Override
         protected void onContentsChanged() { setChanged(); sync();  }
     };
+    private boolean isAcceptableFluid(FluidStack stack) {
+        if (stack.isEmpty()) return false;
+        Fluid fluid = stack.getFluid();
+        //Need to change this in the future if I do a new sprout with other fluids requirements REMEMBER
+        return fluid.isSame(getValidFluid()) || fluid.builtInRegistryHolder().is(FORGE_BLOOD_TAG);
+    }
 
     private final LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.of(() -> bloodTank);
 
@@ -153,7 +166,7 @@ public abstract class BaseGemSproutBlockEntity extends BlockEntity {
     }
 
     public boolean fillBlood(FluidStack fluidStack, boolean simulate) {
-        if(fluidStack.getFluid().isSame(this.getValidFluid())) {
+        if (isAcceptableFluid(fluidStack)) {
             FluidStack toFill = new FluidStack(fluidStack.getFluid(), fluidStack.getAmount());
             int filled = bloodTank.fill(toFill, simulate ? IFluidHandler.FluidAction.SIMULATE : IFluidHandler.FluidAction.EXECUTE);
             if (filled > 0 && !simulate) {
@@ -162,9 +175,7 @@ public abstract class BaseGemSproutBlockEntity extends BlockEntity {
             }
             return filled > 0;
         }
-        return  false;
-
-
+        return false;
     }
 
 

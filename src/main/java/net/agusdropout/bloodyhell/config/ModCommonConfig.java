@@ -24,6 +24,7 @@ public class ModCommonConfig {
     public static final ForgeConfigSpec.DoubleValue GLOBAL_SPELL_DAMAGE;
     public static final Map<String, ForgeConfigSpec.DoubleValue> INDIVIDUAL_SPELL_DAMAGE = new HashMap<>();
     public static final ForgeConfigSpec.ConfigValue<String> HARVESTER_DEFAULT_BLOOD_FLUID;
+    public static final ForgeConfigSpec.ConfigValue<String> BLOOD_GEM_SPROUT_REQUIRED_FLUID;
 
     static {
         BUILDER.push("Global Spell Scaling");
@@ -69,11 +70,18 @@ public class ModCommonConfig {
                 .comment("Amount of the second item Vesper requires.")
                 .defineInRange("vesperQuestItem2_Count", 1, 1, 64);
 
+        BUILDER.pop();
+
         BUILDER.push("Machine Settings");
         HARVESTER_DEFAULT_BLOOD_FLUID = BUILDER
                 .comment("Registry name of the default fluid produced by the Sanguinite Blood Harvester. Useful for unifying blood fluids in modpacks.")
                 .define("harvesterDefaultBloodFluid", "bloodyhell:blood");
-        BUILDER.pop();
+
+        BLOOD_GEM_SPROUT_REQUIRED_FLUID = BUILDER
+                .comment("Registry name of the explicit fluid required by the Blood Gem Sprout. If empty or invalid, defaults to 'bloodyhell:blood'.")
+                .define("bloodGemSproutRequiredFluid", "bloodyhell:blood");
+
+
 
         BUILDER.pop();
 

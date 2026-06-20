@@ -5,11 +5,15 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.agusdropout.bloodyhell.block.entity.ModBlockEntities;
 import net.agusdropout.bloodyhell.block.entity.base.BaseGemSproutBlockEntity;
+import net.agusdropout.bloodyhell.config.ModCommonConfig;
 import net.agusdropout.bloodyhell.fluid.ModFluids;
 import net.agusdropout.bloodyhell.util.visuals.RenderHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BloodGemSproutBlockEntity extends BaseGemSproutBlockEntity {
 
@@ -28,6 +32,18 @@ public class BloodGemSproutBlockEntity extends BaseGemSproutBlockEntity {
 
     @Override
     public Fluid getValidFluid() {
+        // Blood sprout input fluid config handling
+        String configuredName = ModCommonConfig.BLOOD_GEM_SPROUT_REQUIRED_FLUID.get();
+        if (configuredName != null && !configuredName.isEmpty()) {
+            ResourceLocation fluidLoc = new ResourceLocation(configuredName);
+            Fluid configuredFluid = ForgeRegistries.FLUIDS.getValue(fluidLoc);
+
+
+            if (configuredFluid != null && configuredFluid != Fluids.EMPTY) {
+                return configuredFluid;
+            }
+        }
+
         return ModFluids.BLOOD_SOURCE.get();
     }
 
