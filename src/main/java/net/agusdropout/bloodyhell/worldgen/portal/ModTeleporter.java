@@ -41,19 +41,20 @@ public class ModTeleporter implements ITeleporter {
 
     public Optional<BlockUtil.FoundRectangle> getExistingPortal(BlockPos pos) {
         PoiManager poiManager = this.level.getPoiManager();
-        poiManager.ensureLoadedAndValid(this.level, pos, 64);
-        Optional<PoiRecord> optional = poiManager.getInSquare((poiType) ->
-                poiType.is(ModPOIs.BLOOD_PORTAL.getKey()), pos, 64, PoiManager.Occupancy.ANY).sorted(Comparator.<PoiRecord>comparingDouble((poi) ->
-                poi.getPos().distSqr(pos)).thenComparingInt((poi) ->
-                poi.getPos().getY())).filter((poi) ->
-                this.level.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).findFirst();
-        return optional.map((poi) -> {
-            BlockPos blockpos = poi.getPos();
-            this.level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, blockpos);
-            BlockState blockstate = this.level.getBlockState(blockpos);
-            return BlockUtil.getLargestRectangleAround(blockpos, blockstate.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (blockPos) ->
-                    this.level.getBlockState(blockPos) == blockstate);
-        });
+        int searchRadius = 128;
+
+        return poiManager.getInSquare((poiType) ->
+                        poiType.is(ModPOIs.BLOOD_PORTAL.getKey()), pos, searchRadius, PoiManager.Occupancy.ANY)
+                .sorted(Comparator.<PoiRecord>comparingDouble((poi) -> poi.getPos().distSqr(pos)))
+                .filter((poi) -> this.level.getBlockState(poi.getPos()).hasProperty(ModBloodPortalBlock.AXIS))
+                .findFirst()
+                .map((poi) -> {
+                    BlockPos blockpos = poi.getPos();
+                    this.level.getChunkSource().addRegionTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, blockpos);
+                    BlockState blockstate = this.level.getBlockState(blockpos);
+                    return BlockUtil.getLargestRectangleAround(blockpos, blockstate.getValue(ModBloodPortalBlock.AXIS), 21, Direction.Axis.Y, 21, (p) ->
+                            this.level.getBlockState(p) == blockstate);
+                });
     }
 
     public Optional<BlockUtil.FoundRectangle> makePortal(BlockPos pos, Direction.Axis axis) {
@@ -140,8 +141,12 @@ public class ModTeleporter implements ITeleporter {
             }
         }
 
+
         BlockState blockstate = ModBlocks.BLOOD_PORTAL.get().defaultBlockState().setValue(ModBloodPortalBlock.AXIS, axis);
 
+
+        this.level.getPoiManager().add(blockpos, ModPOIs.BLOOD_PORTAL.getHolder().get());
+        this.level.getPoiManager().add(blockpos.above(), ModPOIs.BLOOD_PORTAL.getHolder().get());
         for (int k2 = 0; k2 < 2; ++k2) {
             for (int l2 = 0; l2 < 3; ++l2) {
                 blockpos$mutableblockpos.setWithOffset(blockpos, k2 * direction.getStepX(), l2, k2 * direction.getStepZ());
@@ -205,17 +210,26 @@ public class ModTeleporter implements ITeleporter {
 
 
     protected Optional<BlockUtil.FoundRectangle> getOrMakePortal(Entity entity, BlockPos pos) {
+
         Optional<BlockUtil.FoundRectangle> existingPortal = this.getExistingPortal(pos);
         if (existingPortal.isPresent()) {
-            System.out.println("Existing portal found!");
             return existingPortal;
-        } else {
-            Direction.Axis portalAxis = this.level.getBlockState(entity.portalEntrancePos).getOptionalValue(ModBloodPortalBlock.AXIS).orElse(Direction.Axis.X);
-            System.out.println("Creating new portal...");
-            Optional<BlockUtil.FoundRectangle> newPortal = this.makePortal(pos, portalAxis);
-            System.out.println("New portal created: " + newPortal);
-            return newPortal;
         }
+
+
+        BlockPos.MutableBlockPos mutablePos = pos.mutable();
+        for (int x = -2; x <= 2; x++) {
+            for (int z = -2; z <= 2; z++) {
+                mutablePos.set(pos.getX() + x, pos.getY(), pos.getZ() + z);
+                if (this.level.getBlockState(mutablePos).getBlock() == ModBlocks.BLOOD_PORTAL.get()) {
+                    return Optional.of(new BlockUtil.FoundRectangle(mutablePos.immutable(), 2, 3));
+                }
+            }
+        }
+
+        Direction.Axis portalAxis = this.level.getBlockState(entity.portalEntrancePos)
+                .getOptionalValue(ModBloodPortalBlock.AXIS).orElse(Direction.Axis.X);
+        return this.makePortal(pos, portalAxis);
     }
 
     @Override

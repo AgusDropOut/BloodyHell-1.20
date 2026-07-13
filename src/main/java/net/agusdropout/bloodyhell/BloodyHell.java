@@ -43,6 +43,7 @@ import net.agusdropout.bloodyhell.screen.custom.screen.ReliquaryScreen;
 import net.agusdropout.bloodyhell.screen.custom.screen.SanguineLapidaryScreen;
 import net.agusdropout.bloodyhell.screen.custom.screen.VesperScreen;
 import net.agusdropout.bloodyhell.sound.ModSounds;
+import net.agusdropout.bloodyhell.util.ModPOIs;
 import net.agusdropout.bloodyhell.worldgen.feature.ModFeatures;
 import net.agusdropout.bloodyhell.worldgen.structure.ModStructures;
 
@@ -128,6 +129,7 @@ BloodyHell
         ModFeatures.register(modEventBus);
         ModPotions.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
+        ModPOIs.register(modEventBus);
 
 
     }
