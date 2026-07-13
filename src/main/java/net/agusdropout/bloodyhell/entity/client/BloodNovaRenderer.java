@@ -67,7 +67,7 @@ public class BloodNovaRenderer extends EntityRenderer<BloodNovaEntity> {
         Matrix4f matrix = poseStack.last().pose();
         Matrix3f normals = poseStack.last().normal();
 
-        // --- LAYER 1: JETS ---
+        // LAYER 1: JETS
         RenderSystem.enableBlend();
         RenderSystem.blendFunc(com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA, com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE);
         buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
@@ -83,7 +83,7 @@ public class BloodNovaRenderer extends EntityRenderer<BloodNovaEntity> {
 
         tess.end();
 
-        // --- LAYER 2: CORE SPHERES ---
+        // LAYER 2: CORE SPHERES
         RenderSystem.blendFunc(com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA, com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
         buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 
@@ -91,7 +91,7 @@ public class BloodNovaRenderer extends EntityRenderer<BloodNovaEntity> {
         RenderHelper.renderSphere(buffer, matrix, normals, 0.45f, 8, 12, COL_RIM.x, COL_RIM.y, COL_RIM.z, 0.6f, 15728880);
         tess.end();
 
-        // --- LAYER 3: DISKS ---
+        // LAYER 3: DISKS
         RenderSystem.blendFunc(com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA, com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE);
         buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 

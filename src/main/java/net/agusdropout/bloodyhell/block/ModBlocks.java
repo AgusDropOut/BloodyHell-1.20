@@ -173,7 +173,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_FLOWER = registerBlock("blood_flower", ()-> new FlowerBlock(()-> MobEffects.POISON,5,
             BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion().lightLevel((state)->6)));
     public static final RegistryObject<Block> BLOOD_GRASS = registerBlock("blood_grass", ()-> new FlowerBlock(()-> MobEffects.POISON,5,
-            BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission().noOcclusion()));
+            BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission()));
     public static final RegistryObject<Block> POTTED_BLOOD_FLOWER = BLOCKS.register("potted_blood_flower", ()-> new FlowerPotBlock(()-> ((FlowerPotBlock) Blocks.FLOWER_POT) ,ModBlocks.BLOOD_FLOWER,
             BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
     public static final RegistryObject<Block> BLOOD_BUSH = registerBlock("blood_bush", ()-> new DoublePlantBlock(
@@ -181,7 +181,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_LILY_BLOCK = registerBlock("blood_lily_block", ()-> new BloodLilyBlock(
             BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_PINK).noOcclusion().noCollission().lightLevel((state)->20).instabreak().sound(SoundType.LILY_PAD).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<Block> BLOOD_PETALS = registerBlock("blood_petals", ()-> new FlowerBlock(()-> MobEffects.HARM,5,
-            BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion().requiresCorrectToolForDrops()));
+            BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().noOcclusion()));
     public static final RegistryObject<Block> LIGHT_MUSHROOM_BLOCK = registerBlock("light_mushroom_block", ()-> new FlowerBlock(()-> MobEffects.POISON,5,
             BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM_BLOCK).noCollission().noOcclusion().lightLevel((state)->15)));
     public static final RegistryObject<Block> BLOOD_WALL_MUSHROOM_BLOCK = registerBlock("blood_wall_mushroom_block", ()-> new BaseWallPlantBlock(
