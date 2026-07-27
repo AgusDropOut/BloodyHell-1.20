@@ -342,6 +342,7 @@ BloodyHell
             EntityRenderers.register(ModEntityTypes.BASTION_OF_THE_UNKNOWN.get(), context -> new BastionOfTheUnknownRenderer(context, new BastionOfTheUnknownModel()));
             BlockEntityRenderers.register(ModBlockEntities.BLOOD_ALTAR_BE.get(), BloodAltarRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.MAIN_BLOOD_ALTAR_BE.get(), MainBloodAltarRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.RHNULL_BLOOD_ENGINE.get(), DummyBlobRenderer::new);
             EntityRenderers.register(ModEntityTypes.VISCOUS_PROJECTILE.get(), ViscousProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.FRENZIED_FIRE.get(), FrenziedFireRenderer::new);
             EntityRenderers.register(ModEntityTypes.CRAWLING_DELUSION.get(), CrawlingDelusionRenderer::new);

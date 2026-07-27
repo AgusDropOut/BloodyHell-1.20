@@ -1,11 +1,13 @@
 package net.agusdropout.bloodyhell.event;
 
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
 import dev.kosmx.playerAnim.api.layered.IAnimation;
 import dev.kosmx.playerAnim.api.layered.ModifierLayer;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationAccess;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationFactory; // Moved here
 import net.agusdropout.bloodyhell.BloodyHell;
+import net.agusdropout.bloodyhell.block.entity.custom.mechanism.RhnullBloodEngineBlockEntity;
 import net.agusdropout.bloodyhell.client.overlay.*;
 import net.agusdropout.bloodyhell.client.ClientModLabelTooltip;
 import net.agusdropout.bloodyhell.client.render.BloodDimensionRenderInfo;
@@ -26,6 +28,8 @@ import net.agusdropout.bloodyhell.util.ModItemProperties;
 import net.agusdropout.bloodyhell.util.visuals.ModShaders;
 import net.agusdropout.bloodyhell.util.visuals.WindController;
 import net.agusdropout.bloodyhell.worldgen.dimension.ModDimensions;
+import net.minecraft.Util;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -45,6 +49,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent; // Moved here
+import org.joml.Matrix4f;
 
 import java.io.IOException;
 
@@ -83,6 +88,65 @@ public class ClientEvents {
                     }
                 }
             }
+        }
+
+        @SubscribeEvent
+        public static void onRenderLevelStage(RenderLevelStageEvent event) {
+            if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL) return;
+            if (RhnullBloodEngineBlockEntity.ACTIVE_BLOBS.isEmpty()) return;
+
+            Minecraft mc = Minecraft.getInstance();
+            Camera camera = event.getCamera();
+            ShaderInstance shader = ModShaders.BLOOD_BLOB_SHADER;
+            if (shader == null) return;
+
+            RenderSystem.disableCull();
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+            RenderSystem.disableDepthTest();
+
+            RenderSystem.setShaderTexture(0, mc.getMainRenderTarget().getDepthTextureId());
+            RenderSystem.setShader(() -> shader);
+
+            Matrix4f viewMat = new Matrix4f(event.getPoseStack().last().pose());
+            Matrix4f projMat = new Matrix4f(event.getProjectionMatrix());
+
+
+            if(shader.safeGetUniform("ModelViewMat") != null) shader.safeGetUniform("ModelViewMat").set(viewMat);
+            if(shader.safeGetUniform("ProjMat") != null) shader.safeGetUniform("ProjMat").set(projMat);
+            if(shader.safeGetUniform("cameraPos") != null) shader.safeGetUniform("cameraPos").set((float)camera.getPosition().x, (float)camera.getPosition().y, (float)camera.getPosition().z);
+            if(shader.safeGetUniform("u_Time") != null) shader.safeGetUniform("u_Time").set((float)(Util.getMillis() % 100000L) / 1000.0f);
+            PoseStack cleanStack = new PoseStack();
+            cleanStack.mulPose(com.mojang.math.Axis.XP.rotationDegrees(camera.getXRot()));
+            cleanStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(camera.getYRot() + 180.0F));
+            Matrix4f cleanViewMat = new Matrix4f(cleanStack.last().pose());
+
+
+            if(shader.safeGetUniform("cleanViewMat") != null) {
+                shader.safeGetUniform("cleanViewMat").set(cleanViewMat);
+            }
+            Tesselator tesselator = Tesselator.getInstance();
+            BufferBuilder buffer = tesselator.getBuilder();
+
+            // Dibujamos un Quad de pantalla completa por cada blob (el pixel shader decidirá si dibuja el blob o descarta el pixel)
+            for (net.minecraft.core.BlockPos pos : RhnullBloodEngineBlockEntity.ACTIVE_BLOBS) {
+
+                if(shader.safeGetUniform("blobCenter") != null) {
+                    shader.safeGetUniform("blobCenter").set(pos.getX() + 0.5f, pos.getY() + 1.5f, pos.getZ() + 0.5f);
+                }
+
+                buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+                buffer.vertex(-1, -1, 0).endVertex();
+                buffer.vertex( 1, -1, 0).endVertex();
+                buffer.vertex( 1,  1, 0).endVertex();
+                buffer.vertex(-1,  1, 0).endVertex();
+                tesselator.end();
+            }
+
+
+            RenderSystem.enableDepthTest();
+            RenderSystem.disableBlend();
+            RenderSystem.enableCull();
         }
 
         @SubscribeEvent
@@ -261,6 +325,10 @@ public class ClientEvents {
                 ModShaders.FRENZIED_EXPLOSION_SHADER = shaderInstance;
             });
 
+            event.registerShader(new ShaderInstance(event.getResourceProvider(), new ResourceLocation(BloodyHell.MODID, "blood_blob"), DefaultVertexFormat.POSITION_TEX), shaderInstance -> {
+                ModShaders.BLOOD_BLOB_SHADER = shaderInstance;
+            });
+
 
         }
 
@@ -367,5 +435,8 @@ public class ClientEvents {
         public static void addEntityLayers(EntityRenderersEvent.AddLayers event) {
             EntityLayerHandler.onAddLayers(event);
         }
+
+
+
     }
 }

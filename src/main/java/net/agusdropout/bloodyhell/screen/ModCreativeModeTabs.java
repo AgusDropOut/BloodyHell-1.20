@@ -141,7 +141,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MAIN_BLOOD_ALTAR.get());
                         output.accept(ModItems.BLASPHEMOUS_BLOOD_ALTAR_ITEM.get());
                         output.accept(ModItems.MAIN_BLASPHEMOUS_BLOOD_ALTAR_ITEM.get());
-                        //output.accept(ModBlocks.SANGUINE_CRUCIBLE.get());
+                        output.accept(ModBlocks.RHNULL_BLOOD_ENGINE_BLOCK.get());
                         output.accept(ModBlocks.SANGUINE_LAPIDARY.get());
                         output.accept(ModItems.SANGUINITE_CONDENSER_ITEM.get());
                         output.accept(ModItems.RHNULL_CONDENSER_ITEM.get());

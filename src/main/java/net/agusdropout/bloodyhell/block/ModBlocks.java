@@ -417,13 +417,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> STAR_LAMP_BLOCK = registerBlock("star_lamp_block", () -> new StarLampBlock(
             BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((state)->15).noOcclusion()));
     public static final RegistryObject<Block> DECORATED_POT_BLOCK = registerBlock("decorated_pot_block", () -> new DetailedPotBlock(
-            BlockBehaviour.Properties.of() // Usamos .of() para empezar de cero
+            BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
-                    .strength(0.2f) // Se rompe facil
-                    .sound(SoundType.DECORATED_POT) // Sonido de vasija
+                    .strength(0.2f)
+                    .sound(SoundType.DECORATED_POT)
                     .noOcclusion()
                     .noCollission()
-            // IMPORTANTE: NO ponemos .requiresCorrectToolForDrops()
     ));
     public static final RegistryObject<Block> FORBIDDEN_BOOKSHELF_BLOCK = registerBlock("forbidden_bookshelf_block", () -> new Block(
             BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
@@ -448,11 +447,15 @@ public class ModBlocks {
                     .noOcclusion()
                     .noLootTable()));
 
+    public static final RegistryObject<Block> RHNULL_BLOOD_ENGINE_BLOCK = BLOCKS.register("rhnull_blood_engine_block",
+            () -> new RhnullBloodEngineBlock(BlockBehaviour.Properties.copy(Blocks.REDSTONE_BLOCK)
+                    .noOcclusion()));
+
     public static final RegistryObject<Block> BLASPHEMITE_ORE = registerBlock("blasphemite_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .strength(5f) // Dureza (Hierro es 3, Diamante es 3, Deepslate es 4.5)
+                    .strength(5f)
                     .requiresCorrectToolForDrops(),
-                    UniformInt.of(3, 7))); // Experiencia que suelta (entre 3 y 7)
+                    UniformInt.of(3, 7)));
 
 
     //Ancient Bloody Stone Bricks

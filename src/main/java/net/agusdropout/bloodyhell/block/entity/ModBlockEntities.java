@@ -115,6 +115,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("frenzied_fire_be",
                     () -> BlockEntityType.Builder.of(FrenziedFireBlockEntity::new,
                             ModBlocks.FRENZIED_FIRE_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<RhnullBloodEngineBlockEntity>> RHNULL_BLOOD_ENGINE =
+            BLOCK_ENTITIES.register("rhnull_blood_engine_be",
+                    () -> BlockEntityType.Builder.of(RhnullBloodEngineBlockEntity::new,
+                            ModBlocks.RHNULL_BLOOD_ENGINE_BLOCK.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

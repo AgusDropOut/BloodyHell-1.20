@@ -3,6 +3,7 @@ package net.agusdropout.bloodyhell.util.visuals;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
+import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
@@ -60,5 +61,23 @@ public class ModRenderTypes extends RenderType {
 
             return create("insight_distortion_glowing", DefaultVertexFormat.NEW_ENTITY, VertexFormat.Mode.QUADS, 256, false, true, state);
         }
+
+    public static RenderType getRaymarchedBlob() {
+        RenderType.CompositeState state = RenderType.CompositeState.builder()
+                .setShaderState(new RenderStateShard.ShaderStateShard(() -> {
+                    if (ModShaders.BLOOD_BLOB_SHADER != null) {
+                        if (ModShaders.BLOOD_BLOB_SHADER.safeGetUniform("u_Time") != null) {
+                            ModShaders.BLOOD_BLOB_SHADER.safeGetUniform("u_Time").set((float) (Util.getMillis() % 100000L) / 1000.0f);
+                        }
+                    }
+                    return ModShaders.BLOOD_BLOB_SHADER;
+                }))
+                .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                .setCullState(NO_CULL)
+                .setWriteMaskState(COLOR_WRITE)
+                .createCompositeState(false);
+
+        return create("bloodyhell_raymarched_blob", DefaultVertexFormat.POSITION_TEX, VertexFormat.Mode.QUADS, 256, false, true, state);
+    }
 
 }

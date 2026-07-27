@@ -18,5 +18,6 @@ public class ModShaders {
     public static ShaderInstance TINY_BLOOM_SHADER;
     public static ShaderInstance RADIANT_ENERGY_SHADER;
     public static ShaderInstance FRENZIED_EXPLOSION_SHADER;
+    public static ShaderInstance BLOOD_BLOB_SHADER;
 
 }
